@@ -11338,7 +11338,16 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
     height: 180px;
     margin-left: -90px;
     margin-top: -90px;
+    display: inline-block;
+  white-space: nowrap; /* Forces the text onto a single line */
+  font-size: 18px;      /* Adjust as needed */
+  font-weight: bold;
+  animation: spin 10s linear infinite;
   }
+  @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
   .hero-wrap3 .hero-play-wrap .circle-tag .circle-title-anime span {
     height: 95px;
     left: 44.5%;
