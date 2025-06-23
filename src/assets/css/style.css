@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
 @use "sass:math";
 :root {
   --theme-color: #6d30fb;
@@ -34,7 +36,7 @@
   --th-border-color6: #383d46;
   --title-font: "Space Grotesk", sans-serif;
   --body-font: "DM Sans", sans-serif;
-  --icon-font: "Font Awesome 6 Pro";
+  --icon-font: "Font Awesome 6 Free";
   --main-container: 1464px;
   --container-gutters: 24px;
   --section-space: 120px;
@@ -8399,6 +8401,7 @@ ol.wp-block-rss {
   transform: rotate(180deg);
   color: var(--theme-color);
 }
+
 .main-menu ul li:last-child {
   margin-right: 0 !important;
 }
@@ -8484,7 +8487,7 @@ ol.wp-block-rss {
   text-transform: capitalize;
 }
 .main-menu ul.sub-menu li a:before {
-  content: "\e1ec";
+  content: "\f2db";
   position: absolute;
   top: 6px;
   left: 10px;
@@ -11471,6 +11474,7 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
   max-width: 453px;
   margin-left: auto;
   margin-right: auto;
+  color: #000;
 }
 @media (max-width: 991px) {
   .hero-style3 .hero-content-wrap {
@@ -18040,6 +18044,7 @@ span.select2-selection.select2-selection--single:focus {
   border-radius: 16px;
   overflow: hidden;
   z-index: 1;
+  margin-right: 24px;
 }
 .service-card3:after {
   content: "";
