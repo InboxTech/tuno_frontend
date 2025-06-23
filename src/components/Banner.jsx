@@ -1899,8 +1899,9 @@ const Banner = () => {
             //  backgroundImage: `url(${ThumbalanImg})`
           }}
           data-show="true"
+          
         >
-          <img src={hero_thumb_3_2} alt="img" />
+          <img src={hero_thumb_3_2} alt="img"  data-aos="fade-up" />
         </div>
       </div>
     </React.Fragment>

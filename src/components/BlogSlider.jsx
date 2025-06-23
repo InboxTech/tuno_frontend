@@ -95,7 +95,7 @@ const BlogSlider = () => {
           >
             {blogPosts.map((post, idx) => (
               <SwiperSlide key={idx}>
-                <div className="blog-card3" data-aos="fade-up">
+                <div className="blog-card3" data-aos="fade-up"  data-aos-duration="3000">
                   <div
                     className="blog-img"
                     style={{

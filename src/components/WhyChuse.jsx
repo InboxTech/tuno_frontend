@@ -22,12 +22,13 @@ const WhyChuse = () => {
                   WebkitMaskSize: "cover",
                   maskSize: "cover",
                 }}
+                data-aos="fade-right"
               >
                 <img src={whyThumb31} alt="img" />
               </div>
               <div
                 className="img2"
-              
+              data-aos="fade-left"
                 style={{
                   WebkitMaskImage: `url(${whyThumbShape32})`,
                   maskImage: `url(${whyThumbShape32})`,

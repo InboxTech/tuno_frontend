@@ -21,7 +21,7 @@ const AboutSection = () => {
       <div className="container">
         <div className="row gx-80 flex-row-reverse">
           <div className="col-xl-6">
-            <div className="img-box3" data-aos="fade-up">
+            <div className="img-box3" data-aos="fade-up"  data-aos-duration="3000">
               <div
                 className="img1 bg-mask"
                 style={{ maskImage: `url(${aboutThumb31Shape})` }}
@@ -48,7 +48,7 @@ const AboutSection = () => {
             </div>
           </div>
           <div className="col-xl-6">
-            <div className="title-area"  data-aos="fade-right">
+            <div className="title-area"  data-aos="fade-right"  data-aos-duration="3000">
               <span className="sub-title2 text-gradient text-uppercase mb-30" >
                 About Us
               </span>
@@ -61,7 +61,7 @@ const AboutSection = () => {
             </div>
           </div>
           <div className="col-xl-9 me-auto">
-            <div className="about-wrap3" data-aos="fade-left">
+            <div className="about-wrap3" data-aos="fade-left"  data-aos-duration="3000">
               <div className="row gy-40 gx-60 align-items-center">
                 <div className="col-xl-4 col-lg-4">
                   <div
