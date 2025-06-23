@@ -20,15 +20,15 @@ const WorkProcess = () => {
         </div>
       </div>
     </div>
-    <div className="process-card-wrap">
+    <div className="process-card-wrap" >
       <div className="process-card">
         <div className="box-thumb-wrap">
           <h3 className="box-number">1</h3>
-          <div className="box-thumb">
-            <img src={process_1_1} alt="img" />
+          <div className="box-thumb" data-aos="fade-up">
+            <img src={process_1_1} alt="img"   />
           </div>
         </div>
-        <div className="box-content">
+        <div className="box-content"  data-aos="fade-down">
           <h3 className="box-title">Discovery &amp; Consultation</h3>
           <p className="box-text">
             We begin by understanding your business goals, challenges, and
@@ -40,11 +40,11 @@ const WorkProcess = () => {
       <div className="process-card">
         <div className="box-thumb-wrap">
           <h3 className="box-number">2</h3>
-          <div className="box-thumb">
-            <img src={process_1_2} alt="img" />
+          <div className="box-thumb" data-aos="fade-down">
+            <img src={process_1_2} alt="img"   />
           </div>
         </div>
-        <div className="box-content">
+        <div className="box-content"  data-aos="fade-up">
           <h3 className="box-title">Solution Design &amp; Development</h3>
           <p className="box-text">
             We begin by understanding your business goals, challenges, and
@@ -56,11 +56,11 @@ const WorkProcess = () => {
       <div className="process-card">
         <div className="box-thumb-wrap">
           <h3 className="box-number">3</h3>
-          <div className="box-thumb">
-            <img src={process_1_3} alt="img" />
+          <div className="box-thumb"  data-aos="fade-down">
+            <img src={process_1_3} alt="img"  />
           </div>
         </div>
-        <div className="box-content">
+        <div className="box-content"  data-aos="fade-up">
           <h3 className="box-title">Implementation &amp; Integration</h3>
           <p className="box-text">
             We begin by understanding your business goals, challenges, and
@@ -72,11 +72,11 @@ const WorkProcess = () => {
       <div className="process-card">
         <div className="box-thumb-wrap">
           <h3 className="box-number">4</h3>
-          <div className="box-thumb">
+          <div className="box-thumb"  data-aos="fade-down">
             <img src={process_1_4} alt="img" />
           </div>
         </div>
-        <div className="box-content">
+        <div className="box-content"  data-aos="fade-up">
           <h3 className="box-title">Monitoring &amp; Continuous Improvement</h3>
           <p className="box-text">
             We begin by understanding your business goals, challenges, and

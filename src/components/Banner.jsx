@@ -19,7 +19,7 @@ const Banner = () => {
               <div className="hero-wrap3">
                 <div className="hero-style3">
                   <h1
-                    className="hero-title text-anim2"
+                    className="hero-title text-anim2 text-anim"
                     data-cue="slideInUp"
                     data-delay={100}
                     data-show="true"

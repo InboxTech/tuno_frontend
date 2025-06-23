@@ -10,7 +10,7 @@ const Preloader = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);
-    }, 3000); // auto-hide in 3s
+    }, 2000); // auto-hide in 3s
     return () => clearTimeout(timer);
   }, []);
 
@@ -26,7 +26,7 @@ const Preloader = () => {
           <img src={logo} alt="Loading Logo" />
         </div>
         <span className="loader">
-          Robor <span className="loading-text">Robor</span>
+          Tuno <span className="loading-text">Tuno</span>
         </span>
       </div>
     </div>

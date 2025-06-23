@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeaderBackgroundImg from "../assets/img/theme-img/header3-bg-shape.png"
 import Logo from "../assets/img/logo2.svg"
+import { Link } from "react-router";
 
 
 
@@ -28,103 +29,103 @@ const Header = () => {
               <div className="row align-items-center justify-content-between">
                 <div className="col-auto">
                   <div className="header-logo">
-                    <a href="index.html">
+                    <Link to="/">
                       <img src={Logo} alt="Robor" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="col-auto">
                   <nav className="main-menu d-none d-lg-inline-block">
                     <ul>
                       <li className="">
-                        <a href="index.html">Home </a>
+                        <Link to="/">Home </Link>
                      
                       </li>
                       <li>
-                        <a href="about.html">About Us</a>
+                        <Link to="/about">About Us</Link>
                       </li>
                       <li className="menu-item-has-children">
-                        <a href="#">Services</a>
+                        <Link to="#">Services</Link>
                         <ul className="sub-menu">
                           <li>
-                            <a href="service.html">Services</a>
+                            <Link to="service.html">Services</Link>
                           </li>
                           <li>
-                            <a href="service-details.html">Service Details</a>
+                            <Link to="service-details.html">Service Details</Link>
                           </li>
                         </ul>
                       </li>
                       <li className="menu-item-has-children">
-                        <a href="#">Pages</a>
+                        <Link to="#">Pages</Link>
                         <ul className="sub-menu">
                           <li className="menu-item-has-children">
-                            <a href="#">Shop</a>
+                            <Link to="#">Shop</Link>
                             <ul className="sub-menu">
                               <li>
-                                <a href="shop.html">Shop</a>
+                                <Link to="shop.html">Shop</Link>
                               </li>
                               <li>
-                                <a href="shop-details.html">Shop Details</a>
+                                <Link to="shop-details.html">Shop Details</Link>
                               </li>
                               <li>
-                                <a href="cart.html">Cart Page</a>
+                                <Link to="cart.html">Cart Page</Link>
                               </li>
                               <li>
-                                <a href="checkout.html">Checkout</a>
+                                <Link to="checkout.html">Checkout</Link>
                               </li>
                               <li>
-                                <a href="wishlist.html">Wishlist</a>
+                                <Link to="wishlist.html">Wishlist</Link>
                               </li>
                             </ul>
                           </li>
                           <li>
-                            <a href="project.html">Project</a>
+                            <Link to="project.html">Project</Link>
                           </li>
                           <li>
-                            <a href="project-details.html">Project Details</a>
+                            <Link to="project-details.html">Project Details</Link>
                           </li>
                           <li>
-                            <a href="team.html">Our Team</a>
+                            <Link to="team.html">Our Team</Link>
                           </li>
                           <li>
-                            <a href="team-details.html">Team Details</a>
+                            <Link to="team-details.html">Team Details</Link>
                           </li>
                           <li>
-                            <a href="chatbot.html">Chatbot Integration</a>
+                            <Link to="chatbot.html">Chatbot Integration</Link>
                           </li>
                           <li>
-                            <a href="pricing.html">Pricing</a>
+                            <Link to="pricing.html">Pricing</Link>
                           </li>
                           <li>
-                            <a href="testimonial.html">Testimonial</a>
+                            <Link to="testimonial.html">Testimonial</Link>
                           </li>
                           <li>
-                            <a href="faq.html">FAQ'S Page</a>
+                            <Link to="faq.html">FAQ'S Page</Link>
                           </li>
                           <li>
-                            <a href="ai-consulting.html">AI Consulting</a>
+                            <Link to="ai-consulting.html">AI Consulting</Link>
                           </li>
                           <li>
-                            <a href="error.html">Error Page</a>
+                            <Link to="error.html">Error Page</Link>
                           </li>
                         </ul>
                       </li>
                       <li className="menu-item-has-children">
-                        <a href="#">Blog</a>
+                        <Link to="#">Blog</Link>
                         <ul className="sub-menu">
                           <li>
-                            <a href="blog.html">Blog Standard</a>
+                            <Link to="blog.html">Blog Standard</Link>
                           </li>
                           <li>
-                            <a href="blog-2.html">Blog Grid</a>
+                            <Link to="blog-2.html">Blog Grid</Link>
                           </li>
                           <li>
-                            <a href="blog-details.html">Blog Details</a>
+                            <Link to="blog-details.html">Blog Details</Link>
                           </li>
                         </ul>
                       </li>
                       <li>
-                        <a href="contact.html">Contact Us</a>
+                        <Link to="contact.html">Contact Us</Link>
                       </li>
                     </ul>
                   </nav>
@@ -138,10 +139,10 @@ const Header = () => {
                 </div>
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
-                    <a href="contact.html" className="th-btn style-gradient">
+                    <Link to="contact.html" className="th-btn style-gradient">
                       Get Started Now{" "}
                       <i className="far fa-long-arrow-right ms-2" > </i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

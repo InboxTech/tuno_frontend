@@ -62,7 +62,7 @@ const PricingCard = ({ plan, isActive }) => {
 
   return (
     <div className="col-xl-3 col-md-6">
-      <div className={`price-card style2 ${isActive ? "active" : ""}`}>
+      <div className={`price-card style2 ${isActive ? "active" : ""}`}  data-aos="fade-up">
         <div
           className="card-bg-img"
           style={{
@@ -73,6 +73,7 @@ const PricingCard = ({ plan, isActive }) => {
             WebkitMaskSize: "cover",
             maskSize: "cover",
           }}
+         
         />
         <div className="box-icon">
           <img src={price_thumb2_1} alt="icon" />

@@ -1,31 +1,57 @@
+// App.js
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./Pages/Home";
-import Header from "./components/Header";
 import "./assets/css/style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./assets/css/fontawesome.min.css";
-import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop ";
-import Preloader from "./components/Preloader";
-import AOS from 'aos';
 import 'aos/dist/aos.css';
-import About from './components/About'
+
 import { useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AOS from 'aos';
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop "
+import Preloader from "./components/Preloader";
+
+// Pages
+import Home from "./Pages/Home";
+import About from "./components/About";
+// import other components/pages as needed
 
 function App() {
   useEffect(() => {
-  AOS.init({
-    duration: 1000, // 1 second
-    // once: true      // only animate once on scroll
-  });
-}, []);
+    AOS.init({ duration: 1000 });
+  }, []);
+
+  // Define your router
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <Header />
+          <Home />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/about",
+      element: (
+        <>
+          <Header />
+          <About />
+          <Footer />
+        </>
+      ),
+    },
+    // add more routes here
+  ]);
+
   return (
     <>
-      {/* <VoiceTranslaterTabing /> */}
-      <Header />
-      <Home />
-      <About/>
-      <Footer />
+      <RouterProvider router={router} />
       <ScrollToTop />
       <Preloader />
     </>

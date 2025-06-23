@@ -148,6 +148,7 @@ const ServiceSlider = () => {
                   className="service-card3 bg-mask"
                   style={{ maskImage: `url(${serviceCard3Shape})` }}
                   mask-image
+                  data-aos="fade-up"
                 >
                   <div className="service-card-bg-shape">
                     <img src={serviceCard3ThumbShape2} alt="img" />

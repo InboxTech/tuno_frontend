@@ -1,6 +1,12 @@
 import React from "react";
 import whyThumbShape31 from "../assets/img/shape/why-thumb-shape3-1.png"
-import theerOne from "../assets/img/feature/3-1.png"
+import theerOne from "../assets/img/feature/3-1.png";
+import threeTwo from "../assets/img/feature/3-2.png"
+import threeThree from "../assets/img/feature/3-3.png"
+import threeFour from "../assets/img/feature/3-4.png"
+import threeFive from "../assets/img/feature/3-5.png"
+import threeSix from "../assets/img/feature/3-6.png"
+
 const IndustrieServe = () => {
   return (
     <React.Fragment>
@@ -8,7 +14,7 @@ const IndustrieServe = () => {
         <div className="container">
           <div className="row justify-content-between align-items-center">
             <div className="col-xl-6">
-              <div className="title-area">
+              <div className="title-area" data-aos="fade-left" >
                 <span className="sub-title2 text-gradient text-uppercase mb-30">
                   Industries We Serve
                 </span>
@@ -18,7 +24,7 @@ const IndustrieServe = () => {
               </div>
             </div>
             <div className="col-xl-4">
-              <div className="title-area text-start">
+              <div className="title-area text-start" data-aos="fade-right">
                 <p>
                   Our AI agency is a cutting-edge technology partner that
                   specializes in delivering artificial intelligence solutions to
@@ -124,7 +130,7 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab1"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap"  data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
                     // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
@@ -168,12 +174,20 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab2"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap"  data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
-                    data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                       style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
                   >
-                    <img src="assets/img/feature/3-2.png" alt="img" />
+                    <img  src={threeTwo} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">Finance Ai</h4>
@@ -204,14 +218,22 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab3"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap"  data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
                     data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                     style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }} 
                   >
-                    <img src="assets/img/feature/3-3.png" alt="img" />
+                    <img src={threeThree} alt="img" />
                   </div>
-                  <div className="feature-tab-content">
+                  <div className="feature-tab-content" >
                     <h4 className="box-title">Education Ai</h4>
                     <p className="box-text">
                       AI for diagnostics, personalized treatment, and patient
@@ -240,12 +262,20 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab4"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap"  data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
-                    data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                          style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
                   >
-                    <img src="assets/img/feature/3-4.png" alt="img" />
+                    <img src={threeFour} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">Manufacturing AI</h4>
@@ -276,12 +306,20 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab5"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap"  data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
-                    data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                       style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
                   >
-                    <img src="assets/img/feature/3-5.png" alt="img" />
+                    <img src={threeFive} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">Fintech Ai</h4>
@@ -312,12 +350,20 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab6"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap"  data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
-                    data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                       style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
                   >
-                    <img src="assets/img/feature/3-6.png" alt="img" />
+                    <img src={threeSix} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">E-commerce Ai</h4>

@@ -45,7 +45,7 @@ const WhyChuse = () => {
               
               style={{ backgroundImage:`url(${WhyBg31})` }}
             >
-              <div className="why-content">
+              <div className="why-content" data-aos="fade-up">
                 <div className="title-area">
                   <span className="sub-title2 text-gradient text-uppercase mb-30">
                     Why Choose Us
@@ -62,7 +62,7 @@ const WhyChuse = () => {
                     leveraging the power of AI,
                   </p>
                 </div>
-                <div className="why-feature-wrap3">
+                <div className="why-feature-wrap3" data-aos="fade-rith">
                   <div className="why-feature-card">
                     <h4 className="box-title">Expertise</h4>
                     <p className="box-text">

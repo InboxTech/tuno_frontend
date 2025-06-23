@@ -152,6 +152,7 @@ const TestimonialSlider = () => {
                   WebkitMaskSize: "cover",
                   maskSize: "cover",
                 }}
+                data-aos="fade-up"
               >
                 <div className="testi-card_review text-yellow-500 mb-2">
                   {[...Array(5)].map((_, index) => (

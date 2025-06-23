@@ -67,7 +67,7 @@ const MarqueeSlider = ({
         >
           {[...sliderItems, ...sliderItems].map((item, index) => (
             <SwiperSlide key={index} className="!w-auto">
-              <div className="marquee-card style2 text-white">
+              <div className="marquee-card style2 text-white" >
                 <a href="#" target="_blank" rel="noopener noreferrer">
                   {item}
                 </a>
@@ -152,7 +152,7 @@ const Work = () => {
             >
               {projectItems.concat(projectItems).map((item, idx) => (
                 <SwiperSlide key={idx}>
-                  <div className="project-card3">
+                  <div className="project-card3"  data-aos="fade-up" >
                     <div
                       className="box-img"
                       style={{

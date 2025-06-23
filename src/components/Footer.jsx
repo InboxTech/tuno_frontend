@@ -13,7 +13,7 @@ const Footer = () => {
         <img src={footerBgShape} alt="img" />
       </div>
       <div className="container">
-        <div className="footer-top">
+        <div className="footer-top" data-aos="fade-up">
           <div className="shadow-text text-lg-center text-white" >
             Let’s Talk
           </div>
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer-bottom">
+        <div className="footer-bottom" data-aos="fade-up">
           <div className="widget-area">
             <div className="row justify-content-between">
               <div className="col-md-6 col-xl-auto" >
@@ -134,12 +134,12 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="copyright-wrap bg-gradient">
+      <div className="copyright-wrap bg-gradient" >
         <div className="container">
           <div className="row gy-2">
             <div className="col-lg-6" >
               <p className="copyright-text">
-                Copyright 2025 <a href="index.html">Robor.</a> All Rights Reserved.
+                Copyright 2025 <a href="index.html">Tuno.</a> All Rights Reserved.
               </p>
             </div>
             <div className="col-lg-6 text-center text-lg-end" >
