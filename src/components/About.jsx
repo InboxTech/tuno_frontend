@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useRef,useEffect} from "react";
 import CountUp from 'react-countup';
 // import ScrollTrigger from 'react-scroll-trigger';
 import BreadcumbBg from "../assets/img/bg/team-bg-2.jpg";
@@ -38,7 +38,34 @@ import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function About() {
    const [counterOn, setCounterOn] = useState(false)
-    
+    const text = "Leading the Future of Business Innovation with Tailor-Made AI Solutions"
+    const text2 = "How Dose it Work?"
+    const text3_experts = "Our Expert Creative Minds"
+    const text4_advancetech = "The Future is Here: Advance Technology"
+    const text_faq = "Frequently asked questions"
+    const text_blog = "Our Latest News & Blogs"
+    const delay = 50;
+     const headingRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
     return (
         <>
             {/* <div className="breadcumb-wrapper" style={{ backgroundImage: `url(${BreadcumbBg})` }} data-overlay="black" data-opacity="7">
@@ -120,7 +147,7 @@ function About() {
                                     }}
                                 >
                                     <li>
-                                        <a href="index.html">Home</a>
+                                        <a href="index.html" className="text-decoration-none">Home</a>
                                     </li>
                                     <li>About Us</li>
                                 </ul>
@@ -144,10 +171,24 @@ function About() {
                                 </div>
                                 <div className="circle-tag">
                                     <span className="circle-title-anime">
-                                        ROBOR - AI AND AUTOMATION INTEGRATION.
+                                        {/* ROBOR - AI AND AUTOMATION INTEGRATION. */}
+                                         <svg viewBox="0 0 300 300" className="circle-svg">
+                                            <defs>
+                                            <path
+                                                id="circlePath"
+                                                d="M150,150 m-125,0 a125,125 0 1,1 250,0 a125,125 0 1,1 -250,0"
+                                            />
+                                            </defs>
+                                            <text fill="#000" fontSize="14" fontFamily="Arial">
+                                            <textPath href="#circlePath" startOffset="0">
+                                                TUNO - AI AND AUTOMATION INTEGRATION.
+                                            </textPath>
+                                            </text>
+                                        </svg>
                                     </span>
-                                    <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" className="play-btn popup-video">
-                                         <FontAwesomeIcon icon={faPlay} />
+                                   
+                                        <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" className="play-btn popup-video text-decoration-none">
+                                         <FontAwesomeIcon icon={faPlay} style={{fontSize: '50px'}}/>
                                     </a></div>
                                 <div className="img3">
                                     <div className="thumb"  data-delay="300">
@@ -159,10 +200,19 @@ function About() {
                         </div>
                         <div className="col-xxl-6">
                             <div className="about-wrap4">
-                                <div className="title-area mb-30"><span className="sub-title style2 before-none text-anim"
+                                <div className="title-area mb-30" data-aos="fade-up"><span className="sub-title style2 before-none text-anim"
                                    data-delay="200">About Us</span>
-                                    <h2 className="sec-title mb-0 text-anim2" data-delay="300">Leading the
-                                        Future of Business Innovation with Tailor-Made AI Solutions</h2>
+                                    <h2 ref={headingRef} className="sec-title mb-0 text-anim2" data-delay="300">
+                                        {text.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms` }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
+                                    </h2>
                                     <p className="mt-15"  data-delay="400">We begin by understanding your
                                         business goals, challenges, and opportunities for AI integration. Our experts assess
                                         your current systems and identify areas where AI can bring the most impact. Our team
@@ -171,10 +221,10 @@ function About() {
                                         aligns with your business objectives.</p>
                                 </div>
                                 <div className="about-feature-card-wrap">
-                                    <div className="about-feature-card" >
+                                    <div className="about-feature-card" data-aos="fade-up">
                                         <div className="box-icon">
                                             <div className="color-masking">
-                                              <div className="masking-src"  data-mask-src={AboutFeatureIcon11}></div>
+                                              {/* <div className="masking-src"  data-mask-src={AboutFeatureIcon11}></div> */}
                                                 <img src={AboutFeatureIcon11} alt="icon" />
                                             </div>
                                         </div>
@@ -184,10 +234,10 @@ function About() {
                                                 and industry experts committed to pushing.</p>
                                         </div>
                                     </div>
-                                    <div className="about-feature-card"  data-delay="300">
+                                    <div className="about-feature-card" data-aos="fade-up"  data-delay="1200">
                                         <div className="box-icon">
                                             <div className="color-masking">
-                                                <div className="masking-src"  data-mask-src={AboutFeatureIcon12}></div>
+                                                {/* <div className="masking-src"  data-mask-src={AboutFeatureIcon12}></div> */}
                                                 <img src={AboutFeatureIcon12} alt="icon" />
                                             </div>
                                         </div>
@@ -199,7 +249,7 @@ function About() {
                                     </div>
                                 </div>
                                 <div className="btn-wrap mt-40" >
-                                    <a className="th-btn" href="about.html">More About Us <i className="far fa-long-arrow-right ms-2"></i></a>
+                                    <a className="th-btn text-decoration-none" href="about.html">More About Us <i className="far fa-long-arrow-right ms-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -214,8 +264,7 @@ function About() {
             <div className="counter-area-2 space-bottom overflow-hidden">
                 <div className="container">
                     <div className="counter-wrap2">
-
-                                        {[
+                        {[
                             { end: 68, suffix: "M", text: "Project Completed" },
                             { end: 16, suffix: "k", text: "Creative Minds" },
                             { end: 62, suffix: "M", text: "Happy Customers" },
@@ -224,9 +273,9 @@ function About() {
                         ].map((item, index) => (
                             <div
                             className="counter-card2 style2"
-                            key={index}
+                            key={index} data-aos="fade-up"
                             >
-                            <div className="media-body">
+                            <div className="media-body" >
                                 <h2 className="box-number">
                                {!counterOn && <CountUp
                                     start={0}
@@ -252,13 +301,23 @@ function About() {
                 <div className="container">
                     <div className="row gy-60 gx-80 align-items-center flex-row-reverse">
                         <div className="col-xl-6">
-                            <div className="process-img-box2">
+                            <div className="process-img-box2" data-aos="fade-left">
                                 <img src={Process21} alt="img" /></div>
                         </div>
                         <div className="col-xl-6">
                             <div className="title-area mb-35"><span className="sub-title style2 before-none text-anim"
                                 >Work Process</span>
-                                <h2 className="sec-title mb-0 text-anim2" >How Dose it Work?</h2>
+                                <h2 ref={headingRef} className="sec-title mb-0 text-anim2 heading-letters" >
+                                    {text2.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms` }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
+                                </h2>
                                 <p className="mt-15" >Choosing us means partnering with a forward-thinking team
                                     that’s as invested in your success as you are. Together, we’ll unlock the full potential of
                                     AI to transform your business.</p>
@@ -269,7 +328,7 @@ function About() {
                                         <img src={ProcessArrow21} alt="icon" />
                                     </div>
                                     <span className="box-number">1</span>
-                                    <div className="box-content">
+                                    <div className="box-content" data-aos="fade-up">
                                         <h3 className="box-title">Discovery and Strategy</h3>
                                         <p className="box-text">We start with in-depth discussions to understand your challenges,
                                             goals, and business processes.</p>
@@ -280,7 +339,7 @@ function About() {
                                         <img src={ProcessArrow22} alt="icon" />
                                     </div>
                                     <span className="box-number">2</span>
-                                    <div className="box-content">
+                                    <div className="box-content" data-aos="fade-up">
                                         <h3 className="box-title">Development & Implementation</h3>
                                         <p className="box-text">We collect, clean, and analyze data to develop AI models tailored to
                                             your use case.</p>
@@ -291,7 +350,7 @@ function About() {
                                         <img src={ProcessArrow21} alt="icon" />
                                     </div>
                                     <span className="box-number">3</span>
-                                    <div className="box-content">
+                                    <div className="box-content" data-aos="fade-up">
                                         <h3 className="box-title">Optimization and Support</h3>
                                         <p className="box-text">We continuously monitor the AI solution to ensure it delivers
                                             consistent and accurate results.</p>
@@ -311,10 +370,19 @@ function About() {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-xl-12">
-                            <div className="title-area text-center"><span className="sub-title2 text-theme text-uppercase mb-30"
+                            <div className="title-area text-center">
+                                <span className="sub-title2 text-theme text-uppercase mb-30"
                                 >AI Expert Team</span>
-                                <h2 className="sec-title text-white fw-bold text-anim2" >Our Expert Creative
-                                    Minds</h2>
+                                <h2 ref={headingRef} className="sec-title text-white fw-bold text-anim2 heading-letters" >
+                                     {text3_experts.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms` }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}</h2>
                             </div>
                         </div>
                     </div>
@@ -328,10 +396,10 @@ function About() {
                                     <h3 className="box-title"><a href="team-details.html">Alex Javed</a></h3>
                                 </div>
                                 <div className="th-social">
-                                    <a target="_blank" href="https://facebook.com/"><FontAwesomeIcon icon={faFacebookF} /></a>
-                                    <a target="_blank" href="https://twitter.com/">  <FontAwesomeIcon icon={faTwitter}  /></a>
-                                    <a target="_blank" href="https://instagram.com/"><FontAwesomeIcon icon={faInstagram} /></a>
-                                    <a target="_blank" href="https://whatsapp.com/"> <FontAwesomeIcon icon={faWhatsapp}  /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://facebook.com/"><FontAwesomeIcon icon={faFacebookF} /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://twitter.com/">  <FontAwesomeIcon icon={faTwitter}  /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://instagram.com/"><FontAwesomeIcon icon={faInstagram} /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://whatsapp.com/"> <FontAwesomeIcon icon={faWhatsapp}  /></a>
                                 </div>
                             </div>
                         </div>
@@ -344,10 +412,10 @@ function About() {
                                     <h3 className="box-title"><a href="team-details.html">Jenny William</a></h3>
                                 </div>
                                 <div className="th-social">
-                                    <a target="_blank" href="https://facebook.com/"><FontAwesomeIcon icon={faFacebookF} /></a>
-                                    <a target="_blank" href="https://twitter.com/">  <FontAwesomeIcon icon={faTwitter}  /></a>
-                                    <a target="_blank" href="https://instagram.com/"><FontAwesomeIcon icon={faInstagram} /></a>
-                                    <a target="_blank" href="https://whatsapp.com/"> <FontAwesomeIcon icon={faWhatsapp}  /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://facebook.com/"><FontAwesomeIcon icon={faFacebookF} /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://twitter.com/">  <FontAwesomeIcon icon={faTwitter}  /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://instagram.com/"><FontAwesomeIcon icon={faInstagram} /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://whatsapp.com/"> <FontAwesomeIcon icon={faWhatsapp}  /></a>
                                 </div>
                             </div>
                         </div>
@@ -360,10 +428,10 @@ function About() {
                                     <h3 className="box-title"><a href="team-details.html">Daniel Thomas</a></h3>
                                 </div>
                                 <div className="th-social">
-                                     <a target="_blank" href="https://facebook.com/"><FontAwesomeIcon icon={faFacebookF} /></a>
-                                    <a target="_blank" href="https://twitter.com/">  <FontAwesomeIcon icon={faTwitter}  /></a>
-                                    <a target="_blank" href="https://instagram.com/"><FontAwesomeIcon icon={faInstagram} /></a>
-                                    <a target="_blank" href="https://whatsapp.com/"> <FontAwesomeIcon icon={faWhatsapp}  /></a>
+                                     <a className="text-decoration-none" target="_blank" href="https://facebook.com/"><FontAwesomeIcon icon={faFacebookF} /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://twitter.com/">  <FontAwesomeIcon icon={faTwitter}  /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://instagram.com/"><FontAwesomeIcon icon={faInstagram} /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://whatsapp.com/"> <FontAwesomeIcon icon={faWhatsapp}  /></a>
                                 </div>
                             </div>
                         </div>
@@ -376,10 +444,10 @@ function About() {
                                     <h3 className="box-title"><a href="team-details.html">Jessica Lauren</a></h3>
                                 </div>
                                 <div className="th-social">
-                                    <a target="_blank" href="https://facebook.com/"><FontAwesomeIcon icon={faFacebookF} /></a>
-                                    <a target="_blank" href="https://twitter.com/">  <FontAwesomeIcon icon={faTwitter}  /></a>
-                                    <a target="_blank" href="https://instagram.com/"><FontAwesomeIcon icon={faInstagram} /></a>
-                                    <a target="_blank" href="https://whatsapp.com/"> <FontAwesomeIcon icon={faWhatsapp}  /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://facebook.com/"><FontAwesomeIcon icon={faFacebookF} /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://twitter.com/">  <FontAwesomeIcon icon={faTwitter}  /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://instagram.com/"><FontAwesomeIcon icon={faInstagram} /></a>
+                                    <a className="text-decoration-none" target="_blank" href="https://whatsapp.com/"> <FontAwesomeIcon icon={faWhatsapp}  /></a>
                                 </div>
                             </div>
                         </div>
@@ -395,7 +463,7 @@ function About() {
                     <div className="row gy-60 gx-80 flex-row-reverse">
                         <div className="col-xxl-6 align-self-end">
                             <div className="feature-img-box4">
-                                <div className="row gy-4">
+                                <div className="row gy-4" data-aos="fade-left">
                                     <div className="col-md-6">
                                         <div className="img1">
                                             <img src={feature41} alt="img" />
@@ -416,8 +484,17 @@ function About() {
                             <div className="title-area">
                                 <span className="sub-title before-none text-uppercase mb-30"
                                 >Advanced Technology</span>
-                                <h2 className="sec-title fw-bold text-anim2" >The Future is Here: Advance
-                                    Technology</h2>
+                                <h2 ref={headingRef} className="sec-title fw-bold text-anim2 heading-letters" >
+                                     {text4_advancetech.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms` }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
+                                </h2>
                             </div>
                             <div className="row gy-4">
                                 <div className="col-md-6" >
@@ -475,21 +552,31 @@ function About() {
                             <div className="title-area">
                                 <span className="sub-title style2 before-none text-anim"
                                 >Faq’s</span>
-                                <h2 className="sec-title text-anim2">Frequently asked questions</h2>
+                                <h2 ref={headingRef} className="sec-title text-anim2 heading-letters">
+                                     {text_faq.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms` ,fontSize: '70px'}}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
+                                </h2>
                             </div>
                         </div>
                         <div className="col-xxl-6 align-self-center">
                             <div className="img-box1">
-                                <div className="img2" >
+                                {/* <div className="img2" >
                                     <img src={AboutThumb13} alt="About" />
-                                </div>
-                                <div className="shadow-text">Robor</div>
+                                </div> */}
+                                {/* <div className="shadow-text">Robor</div> */}
                             </div>
                         </div>
-                    </div>
+                    </div>  
                     <div className="faq-wrap1">
                         <div className="accordion" id="faqAccordion">
-                            <div className="accordion-card" >
+                            <div className="accordion-card" data-aos="fade-up" >
                                 <div className="accordion-header" id="collapse-item-1">
                                     <button className="accordion-button"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1"
@@ -509,7 +596,7 @@ function About() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="accordion-card" >
+                            <div className="accordion-card" data-aos="fade-up" >
                                 <div className="accordion-header" id="collapse-item-2">
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2"
@@ -530,7 +617,7 @@ function About() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="accordion-card" >
+                            <div className="accordion-card" data-aos="fade-up" >
                                 <div className="accordion-header" id="collapse-item-3">
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3"
@@ -551,7 +638,7 @@ function About() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="accordion-card" >
+                            <div className="accordion-card" data-aos="fade-up" >
                                 <div className="accordion-header" id="collapse-item-4">
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4"
@@ -572,7 +659,7 @@ function About() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="accordion-card" >
+                            <div className="accordion-card" data-aos="fade-up" >
                                 <div className="accordion-header" id="collapse-item-5">
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5"
@@ -607,36 +694,46 @@ function About() {
                         <div className="col-xl-6 col-lg-8">
                             <div className="title-area">
                                 <span className="sub-title style2 before-none text-anim">News</span>
-                                <h2 className="sec-title text-anim">Our Latest News & Blog</h2>
+                                <h2 ref={headingRef} className="sec-title text-anim heading-letters">
+                                     {text_blog.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms` ,fontSize: '50px'}}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
+                                </h2>
                             </div>
                         </div>
                         <div className="col-auto align-self-end">
                             <div className="sec-btn">
-                                <a href="blog.html" className="th-btn style-border">View All Post <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
+                                <a href="blog.html" className="th-btn style-border text-decoration-none">View All Post <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
                             </div>
                         </div>
                     </div>
                     <div className="row gy-40 justify-content-center">
                         <div className="col-xl-4 col-lg-6" >
-                            <div className="blog-card">
+                            <div className="blog-card" data-aos="fade-up">
                                 <div className="blog-img">
-                                    <a href="blog-details.html">
+                                    <a href="blog-details.html" className="text-decoration-none">
                                         <img src={Blog11} alt="blog image" /></a>
                                 </div>
                                 <div className="blog-content">
                                     <div className="blog-meta">
-                                        <a href="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</a>
-                                        <a href="blog.html"><FontAwesomeIcon icon={faUser} className="me-2"/>by admin</a>
+                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</a>
+                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faUser} className="me-2"/>by admin</a>
                                     </div>
                                     <h3 className="box-title">
-                                        <a href="blog-details.html">The rise of AI and Robotics in retail customer experiences</a>
+                                        <a className="text-decoration-none" href="blog-details.html">The rise of AI and Robotics in retail customer experiences</a>
                                     </h3>
                                     <a href="blog-details.html" className="link-btn style4">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
                                 </div>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6" >
-                            <div className="blog-card">
+                            <div className="blog-card" data-aos="fade-up">
                                 <div className="blog-img">
                                     <a href="blog-details.html">
                                         <img src={Blog12} alt="blog image" />
@@ -644,17 +741,17 @@ function About() {
                                 </div>
                                 <div className="blog-content">
                                     <div className="blog-meta">
-                                       <a href="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</a>
-                                        <a href="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</a>
+                                       <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</a>
+                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</a>
                                     </div>
                                     <h3 className="box-title">
-                                        <a href="blog-details.html">How AI is Transforming Businesses Across Industries</a></h3>
-                                    <a href="blog-details.html" className="link-btn style4">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
+                                        <a className="text-decoration-none" href="blog-details.html">How AI is Transforming Businesses Across Industries</a></h3>
+                                    <a href="blog-details.html" className="link-btn style4 text-decoration-none">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
                                 </div>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6" >
-                            <div className="blog-card">
+                            <div className="blog-card" data-aos="fade-up">
                                 <div className="blog-img">
                                     <a href="blog-details.html">
                                         <img src={Blog13} alt="blog image" />
@@ -662,12 +759,12 @@ function About() {
                                 </div>
                                 <div className="blog-content">
                                     <div className="blog-meta">
-                                        <a href="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</a>
-                                        <a href="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</a>
+                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</a>
+                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</a>
                                         </div>
                                     <h3 className="box-title">
-                                        <a href="blog-details.html">Understanding Deep Learning and Neural Networks in AI</a></h3>
-                                    <a href="blog-details.html" className="link-btn style4">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
+                                        <a className="text-decoration-none" href="blog-details.html">Understanding Deep Learning and Neural Networks in AI</a></h3>
+                                    <a  href="blog-details.html" className="link-btn style4 text-decoration-none">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
                                 </div>
                             </div>
                         </div>
