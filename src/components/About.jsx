@@ -1,7 +1,7 @@
 import React, {useState,useRef,useEffect} from "react";
 import CountUp from 'react-countup';
 // import ScrollTrigger from 'react-scroll-trigger';
-import BreadcumbBg from "../assets/img/bg/team-bg-2.jpg";
+
 import AboutThumb41 from "../assets/img/normal/about-thumb4-1.jpg";
 import AboutThumb42 from "../assets/img/normal/about-thumb4-2.jpg";
 import AboutThumb13 from "../assets/img/normal/about-thumb1-3.jpg";
@@ -36,6 +36,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Breadcumbs from "./Breadcumbs";
 function About() {
    const [counterOn, setCounterOn] = useState(false)
     const text = "Leading the Future of Business Innovation with Tailor-Made AI Solutions"
@@ -45,26 +46,142 @@ function About() {
     const text_faq = "Frequently asked questions"
     const text_blog = "Our Latest News & Blogs"
     const delay = 50;
-     const headingRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(true);
+     const aboutHeadRef = useRef(null);
+     const workProcessHeadRef = useRef(null);
+     const expertHeadRef = useRef(null);
+     const faqHeadRef = useRef(null);
+     const advanceTechHeadRef = useRef(null);
+     const blogHeadRef = useRef(null);
+  const [aboutVisible, setAboutVisible] = useState(false);
+  const [workHeadVisible, setWorkHeadVisible] = useState(false);
+  const [expertHeadVisible, setexpertHeadVisible] = useState(false);
+  const [advanceTechHeadVisible, setAdvanceTechHeadVisible] = useState(false);
+  const [faqHeadVisible, setFaqHeadVisible] = useState(false);
+  const [blogHeadVisible, setBlogHeadVisible] = useState(false);
 
+
+  //about intersersection observer
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const observerAbout = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
+          setAboutVisible(true);
+          observerAbout.disconnect();
         }
       },
       { threshold: 0.3 } // Start animation when 30% of the heading is visible
     );
 
-    if (headingRef.current) {
-      observer.observe(headingRef.current);
+    if (aboutHeadRef.current) {
+      observerAbout.observe(aboutHeadRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => observerAbout.disconnect();
+    
   }, []);
+
+  
+  //work process intersersection observer
+  useEffect(() => {
+    const observerWorkProcess = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setWorkHeadVisible(true);
+          observerWorkProcess.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (workProcessHeadRef.current) {
+      observerWorkProcess.observe(workProcessHeadRef.current);
+    }
+
+    return () => observerWorkProcess.disconnect();
+    
+  }, []);
+
+  //expert intersersection observer
+  useEffect(() => {
+    const observerExpert = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setexpertHeadVisible(true);
+          observerExpert.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (expertHeadRef.current) {
+      observerExpert.observe(expertHeadRef.current);
+    }
+
+    return () => observerExpert.disconnect();
+    
+  }, []);
+
+  //faq intersersection observer
+  useEffect(() => {
+    const observerFaq = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setFaqHeadVisible(true);
+          observerFaq.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (faqHeadRef.current) {
+      observerFaq.observe(faqHeadRef.current);
+    }
+
+    return () => observerFaq.disconnect();
+    
+  }, []);
+
+
+ //advance tech intersersection observer
+  useEffect(() => {
+    const observerAdvanceTech = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAdvanceTechHeadVisible(true);
+          observerAdvanceTech.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (advanceTechHeadRef.current) {
+      observerAdvanceTech.observe(advanceTechHeadRef.current);
+    }
+
+    return () => observerAdvanceTech.disconnect();
+    
+  }, []);
+
+  //blog intersersection observer
+  useEffect(() => {
+    const observerBlog= new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBlogHeadVisible(true);
+          observerBlog.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (blogHeadRef.current) {
+      observerBlog.observe(blogHeadRef.current);
+    }
+
+    return () => observerBlog.disconnect();
+    
+  }, []);
+
 
     return (
         <>
@@ -84,78 +201,7 @@ function About() {
             </div>
         </div> */}
 
-            <div
-                className="breadcumb-wrapper background-image"
-                data-overlay="black"
-                data-opacity="7"
-                style={{ backgroundImage: `url(${BreadcumbBg})` }}
-            >
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xxl-12">
-                            <div className="breadcumb-content">
-                                <h1 className="breadcumb-title text-anim" data-delay="100" data-show="true"
-                                    style={{
-                                        animationName: 'slideInUp',
-                                        animationDuration: '900ms',
-                                        animationTimingFunction: 'ease',
-                                        animationDelay: '100ms',
-                                        animationDirection: 'normal',
-                                        animationFillMode: 'both',
-                                    }}
-                                >
-                                    <div style={{ position: 'relative', display: 'inline-block' }}>
-                                        {'About'.split('').map((letter, index) => (
-                                            <div
-                                                key={`about-${index}`}
-                                                style={{
-                                                    position: 'relative',
-                                                    display: 'inline-block',
-                                                    transform: 'translate(0px, 0px)',
-                                                    opacity: 1,
-                                                    visibility: 'inherit',
-                                                }}
-                                            >
-                                                {letter}
-                                            </div>
-                                        ))}
-                                    </div>{' '}
-                                    <div style={{ position: 'relative', display: 'inline-block' }}>
-                                        {'Us'.split('').map((letter, index) => (
-                                            <div key={`us-${index}`}
-                                                style={{
-                                                    position: 'relative',
-                                                    display: 'inline-block',
-                                                    transform: 'translate(0px, 0px)',
-                                                    opacity: 1,
-                                                    visibility: 'inherit',
-                                                }}
-                                            >
-                                                {letter}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </h1>
-                                <ul className="breadcumb-menu" data-delay="300" data-show="true"
-                                    style={{
-                                        animationName: 'slideInUp',
-                                        animationDuration: '900ms',
-                                        animationTimingFunction: 'ease',
-                                        animationDelay: '300ms',
-                                        animationDirection: 'normal',
-                                        animationFillMode: 'both',
-                                    }}
-                                >
-                                    <li>
-                                        <a href="index.html" className="text-decoration-none">Home</a>
-                                    </li>
-                                    <li>About Us</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           <Breadcumbs prevLink="Home" currentLink="About"/>
 
             {/* about us section start */}
             <div className="overflow-hidden space overflow-hidden" id="about-sec">
@@ -202,11 +248,11 @@ function About() {
                             <div className="about-wrap4">
                                 <div className="title-area mb-30" data-aos="fade-up"><span className="sub-title style2 before-none text-anim"
                                    data-delay="200">About Us</span>
-                                    <h2 ref={headingRef} className="sec-title mb-0 text-anim2" data-delay="300">
+                                    <h2 ref={aboutHeadRef} className="sec-title mb-0 text-anim2" data-delay="300">
                                         {text.split('').map((letter, index) => (
                                             <span
                                                 key={index}
-                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                className={`animated-letter ${aboutVisible ? 'visible' : ''}`}
                                                 style={{ animationDelay: `${index * delay}ms` }}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
@@ -307,11 +353,11 @@ function About() {
                         <div className="col-xl-6">
                             <div className="title-area mb-35"><span className="sub-title style2 before-none text-anim"
                                 >Work Process</span>
-                                <h2 ref={headingRef} className="sec-title mb-0 text-anim2 heading-letters" >
+                                <h2 ref={workProcessHeadRef} className="sec-title mb-0 text-anim2 heading-letters" >
                                     {text2.split('').map((letter, index) => (
                                             <span
                                                 key={index}
-                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                className={`animated-letter ${workHeadVisible ? 'visible' : ''}`}
                                                 style={{ animationDelay: `${index * delay}ms` }}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
@@ -373,11 +419,11 @@ function About() {
                             <div className="title-area text-center">
                                 <span className="sub-title2 text-theme text-uppercase mb-30"
                                 >AI Expert Team</span>
-                                <h2 ref={headingRef} className="sec-title text-white fw-bold text-anim2 heading-letters" >
+                                <h2 ref={expertHeadRef} className="sec-title text-white fw-bold text-anim2 heading-letters" >
                                      {text3_experts.split('').map((letter, index) => (
                                             <span
                                                 key={index}
-                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                className={`animated-letter ${expertHeadVisible ? 'visible' : ''}`}
                                                 style={{ animationDelay: `${index * delay}ms` }}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
@@ -484,11 +530,11 @@ function About() {
                             <div className="title-area">
                                 <span className="sub-title before-none text-uppercase mb-30"
                                 >Advanced Technology</span>
-                                <h2 ref={headingRef} className="sec-title fw-bold text-anim2 heading-letters" >
+                                <h2 ref={advanceTechHeadRef} className="sec-title fw-bold text-anim2 heading-letters" >
                                      {text4_advancetech.split('').map((letter, index) => (
                                             <span
                                                 key={index}
-                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                className={`animated-letter ${advanceTechHeadVisible ? 'visible' : ''}`}
                                                 style={{ animationDelay: `${index * delay}ms` }}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
@@ -552,11 +598,11 @@ function About() {
                             <div className="title-area">
                                 <span className="sub-title style2 before-none text-anim"
                                 >Faq’s</span>
-                                <h2 ref={headingRef} className="sec-title text-anim2 heading-letters">
+                                <h2 ref={faqHeadRef} className="sec-title text-anim2 heading-letters">
                                      {text_faq.split('').map((letter, index) => (
                                             <span
                                                 key={index}
-                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                className={`animated-letter ${faqHeadVisible ? 'visible' : ''}`}
                                                 style={{ animationDelay: `${index * delay}ms` ,fontSize: '70px'}}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
@@ -694,11 +740,11 @@ function About() {
                         <div className="col-xl-6 col-lg-8">
                             <div className="title-area">
                                 <span className="sub-title style2 before-none text-anim">News</span>
-                                <h2 ref={headingRef} className="sec-title text-anim heading-letters">
+                                <h2 ref={blogHeadRef} className="sec-title text-anim heading-letters">
                                      {text_blog.split('').map((letter, index) => (
                                             <span
                                                 key={index}
-                                                className={`animated-letter ${isVisible ? 'visible' : ''}`}
+                                                className={`animated-letter ${blogHeadVisible ? 'visible' : ''}`}
                                                 style={{ animationDelay: `${index * delay}ms` ,fontSize: '50px'}}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
