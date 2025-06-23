@@ -382,6 +382,8 @@ p.has-drop-cap {
 .breadcumb-title {
   word-break: break-word;
 }
+
+
 .blocks-gallery-caption,
 .wp-block-embed figcaption,
 .wp-block-image figcaption {
@@ -9804,13 +9806,14 @@ ol.wp-block-rss {
   position: relative;
 }
 .breadcumb-menu li:after {
-  content: "\f061";
+  content: "/";
   position: relative;
   margin-left: 10px;
   font-weight: 500;
   font-size: 18px;
   color: var(--white-color);
   font-family: var(--icon-font);
+  background: none
 }
 .breadcumb-menu li:last-child {
   padding-right: 0;
@@ -11352,14 +11355,36 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
   .hero-wrap3 .hero-play-wrap .circle-tag {
     width: 200px;
     height: 200px;
+    position: realtive;
     border: 30px solid rgba(0, 0, 0, 0.4);
   }
   .hero-wrap3 .hero-play-wrap .circle-tag .circle-title-anime {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     margin-left: -90px;
     margin-top: -90px;
+    display: inline-block;
+    white-space: nowrap; /* Forces the text onto a single line */
+    font-size: 18px;      /* Adjust as needed */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spin 10s linear infinite;
   }
+  .hero-wrap3 .hero-play-wrap .circle-tag  .circle-svg {
+  width: 100%;
+  height: 100%;
+   
+
+}
+  @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
   .hero-wrap3 .hero-play-wrap .circle-tag .circle-title-anime span {
     height: 95px;
     left: 44.5%;
@@ -11376,8 +11401,10 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
     height: 160px;
     margin-left: -80px;
     margin-top: -80px;
+  
   }
-  .hero-wrap3 .hero-play-wrap .circle-tag .circle-title-anime span {
+ 
+  .hero-wrap3 .hero-play-wrap .circle-tag .circle-title-anime .circle-svg {
     height: 84px;
     left: 43.5%;
   }
@@ -22275,3 +22302,28 @@ span.select2-selection.select2-selection--single:focus {
     padding-bottom: calc(var(--section-space-mobile) - 30px);
   }
 }
+
+
+/* Animated letters for headings of about section */
+.animated-letter {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(20px);
+  font-size: 62px;
+}
+
+.animated-letter.visible {
+  animation: fadeUpLetter 0.6s forwards ease-out;
+}
+
+@keyframes fadeUpLetter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* .heading-letters {
+  display: inline-block;
+  overflow: hidden;
+} */
