@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import testi_bg_3_1 from "../assets/img/bg/testi-bg-3-1.png";
 import pricingCardShape2_1 from "../assets/img/shape/pricing-card-shape2-1.png";
+import price_thumb2_1 from "../assets/img/normal/price-thumb2-1.png";
+
 const pricingData = [
   {
     id: 1,
@@ -13,7 +15,7 @@ const pricingData = [
       "Discord access",
       "24/7 support",
     ],
-    monthlyUnavailable: [3], // index of unavailable feature
+    monthlyUnavailable: [3],
   },
   {
     id: 2,
@@ -54,12 +56,15 @@ const pricingData = [
 ];
 
 const PricingCard = ({ plan, isActive }) => {
+  const [activeTab, setActiveTab] = useState("monthly"); // local state
+
+  // const isMonthly = activeTab === "monthly";
+
   return (
     <div className="col-xl-3 col-md-6">
       <div className={`price-card style2 ${isActive ? "active" : ""}`}>
         <div
           className="card-bg-img"
-          data-mask-src="assets/img/shape/pricing-card-shape2-1.png"
           style={{
             WebkitMaskImage: `url(${pricingCardShape2_1})`,
             maskImage: `url(${pricingCardShape2_1})`,
@@ -70,26 +75,22 @@ const PricingCard = ({ plan, isActive }) => {
           }}
         />
         <div className="box-icon">
-          <img src="assets/img/normal/price-thumb2-1.png" alt="icon" />
+          <img src={price_thumb2_1} alt="icon" />
           <ul className="nav nav-tabs pricing-tab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
-                className="nav-link"
-                data-bs-toggle="tab"
-                data-bs-target={`#priceAnnualTab${plan.id}`}
+                className={`nav-link ${activeTab === "annual" ? "active" : ""}`}
+                onClick={() => setActiveTab("annual")}
                 type="button"
-                role="tab"
               >
                 Annual
               </button>
             </li>
             <li className="nav-item" role="presentation">
               <button
-                className="nav-link active"
-                data-bs-toggle="tab"
-                data-bs-target={`#priceMonthTab${plan.id}`}
+                className={`nav-link ${activeTab === "monthly" ? "active" : ""}`}
+                onClick={() => setActiveTab("monthly")}
                 type="button"
-                role="tab"
               >
                 Monthly
               </button>
@@ -99,7 +100,7 @@ const PricingCard = ({ plan, isActive }) => {
 
         <div className="tab-content">
           <div
-            className="tab-pane fade"
+            className={`tab-pane fade ${activeTab === "annual" ? "show active" : ""}`}
             id={`priceAnnualTab${plan.id}`}
             role="tabpanel"
           >
@@ -112,22 +113,16 @@ const PricingCard = ({ plan, isActive }) => {
             <div className="checklist">
               <ul>
                 {plan.features.map((feature, idx) => (
-                  <li
-                    key={idx}
-                    className={
-                      plan.monthlyUnavailable?.includes(idx)
-                        ? "unavailable"
-                        : ""
-                    }
-                  >
+                  <li key={idx}>
                     <i className="fas fa-check-double" /> {feature}
                   </li>
                 ))}
               </ul>
             </div>
           </div>
+
           <div
-            className="tab-pane fade show active"
+            className={`tab-pane fade ${activeTab === "monthly" ? "show active" : ""}`}
             id={`priceMonthTab${plan.id}`}
             role="tabpanel"
           >
@@ -155,6 +150,7 @@ const PricingCard = ({ plan, isActive }) => {
             </div>
           </div>
         </div>
+
         <div className="btn-wrap">
           <a href="contact.html" className="th-btn style-gradient3">
             Choose Package
@@ -171,9 +167,7 @@ const Pricing = () => {
       className="space overflow-hidden position-relative"
       style={{
         backgroundImage: `url(${testi_bg_3_1})`,
-
         backgroundRepeat: "no-repeat",
-
         backgroundSize: "cover",
       }}
     >

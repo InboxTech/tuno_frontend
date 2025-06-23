@@ -3333,7 +3333,7 @@ textarea.is-invalid {
   border-radius: 50px;
   z-index: 10000;
   opacity: 1;
-  visibility: hidden;
+  /* visibility: hidden; */
   -webkit-transform: translateY(45px);
   -ms-transform: translateY(45px);
   transform: translateY(45px);
@@ -3341,8 +3341,9 @@ textarea.is-invalid {
   transition: all 300ms linear;
 }
 .scroll-top:after {
-  content: "\f102";
-  font-family: var(--icon-font);
+  content: "\f102"; /* Font Awesome icon for arrow-up */
+  font-family: "Font Awesome 5 Free"; /* or 6 if using FA6 */
+  font-weight: 900; /* required for solid icons */
   position: absolute;
   text-align: center;
   line-height: 50px;
@@ -3384,6 +3385,7 @@ textarea.is-invalid {
 .scroll-top.style2 svg {
   background: var(--black-color2);
 }
+
 .sec-title {
   margin-bottom: calc(var(--section-title-space) - 11px);
   margin-top: -0.24em;
@@ -3393,6 +3395,22 @@ textarea.is-invalid {
   font-size: 44px;
   font-weight: 500;
   line-height: 1.3636;
+}
+.th-header.sticky-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+.th-header {
+  transition: all 0.3s ease-in-out;
+}
+.th-header.sticky-active .menu-area {
+  margin-top: 0px;
 }
 @media (max-width: 1399px) {
   .sec-title.style2 {
@@ -18708,6 +18726,7 @@ span.select2-selection.select2-selection--single:focus {
   letter-spacing: 0.02em;
   position: relative;
   padding: 4px 12px;
+  color: #000;
 }
 .price-card.style2 .pricing-tab .nav-item .nav-link:after {
   content: "";

@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeaderBackgroundImg from "../assets/img/theme-img/header3-bg-shape.png"
 import Logo from "../assets/img/logo2.svg"
 
 
 
 const Header = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 300); // adjust value as needed
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <React.Fragment>
-      <header className="th-header header-layout2">
+      <header className={`th-header header-layout2 ${isSticky ? "sticky-active" : ""}`}>
         <div className="sticky-wrapper">
           <div className="container">
-            <div className="menu-area">
+            <div className={`menu-area ${isSticky ? "sricky-active" : ""}`}>
               <div
                 className="header-bg-shape"
                 data-mask-src={HeaderBackgroundImg}
@@ -28,101 +38,7 @@ const Header = () => {
                     <ul>
                       <li className="">
                         <a href="index.html">Home </a>
-                        {/* <ul className="mega-menu mega-menu-content allow-natural-scroll">
-                          <li>
-                            <div className="container">
-                              <div className="row gy-4">
-                                <div className="col-lg-4">
-                                  <div className="mega-menu-box">
-                                    <div className="mega-menu-img">
-                                      <img
-                                        src="assets/img/pages/index.jpg"
-                                        alt="Home One"
-                                      />
-                                      <div className="btn-wrap">
-                                        <a
-                                          href="index.html"
-                                          className="th-btn style3"
-                                        >
-                                          Multipage
-                                        </a>
-                                        <a
-                                          href="home-1-op.html"
-                                          className="th-btn style3"
-                                        >
-                                          Onepage
-                                        </a>
-                                      </div>
-                                    </div>
-                                    <h3 className="mega-menu-title">
-                                      <a href="index.html">
-                                        Home I (AI Startup)
-                                      </a>
-                                    </h3>
-                                  </div>
-                                </div>
-                                <div className="col-lg-4">
-                                  <div className="mega-menu-box">
-                                    <div className="mega-menu-img">
-                                      <img
-                                        src="assets/img/pages/home-2.jpg"
-                                        alt="Home Two"
-                                      />
-                                      <div className="btn-wrap">
-                                        <a
-                                          href="home-2.html"
-                                          className="th-btn style3"
-                                        >
-                                          Multipage
-                                        </a>
-                                        <a
-                                          href="home-2-op.html"
-                                          className="th-btn style3"
-                                        >
-                                          Onepage
-                                        </a>
-                                      </div>
-                                    </div>
-                                    <h3 className="mega-menu-title">
-                                      <a href="home-2.html">
-                                        Home II (AI Technology)
-                                      </a>
-                                    </h3>
-                                  </div>
-                                </div>
-                                <div className="col-lg-4">
-                                  <div className="mega-menu-box">
-                                    <div className="mega-menu-img">
-                                      <img
-                                        src="assets/img/pages/home-3.jpg"
-                                        alt="Home Three"
-                                      />
-                                      <div className="btn-wrap">
-                                        <a
-                                          href="home-3.html"
-                                          className="th-btn style3"
-                                        >
-                                          Multipage
-                                        </a>
-                                        <a
-                                          href="home-3-op.html"
-                                          className="th-btn style3"
-                                        >
-                                          Onepage
-                                        </a>
-                                      </div>
-                                    </div>
-                                    <h3 className="mega-menu-title">
-                                      <a href="home-3.html">
-                                        Home III (AI Agency)
-                                      </a>
-                                    </h3>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        </ul> */}
+                     
                       </li>
                       <li>
                         <a href="about.html">About Us</a>

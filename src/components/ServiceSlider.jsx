@@ -24,7 +24,8 @@ const PrevArrow = ({ onClick }) => (
 const sliderSettings = {
   dots: false,
   infinite: true,
-  speed: 500,
+  autoplay: true,
+  speed: 400,
   slidesToShow: 3,
   slidesToScroll: 1,
   arrows: true,
@@ -64,6 +65,10 @@ const services = [
     image: service_card_3_2,
   },
   {
+    title: "Data Analytics and Insights",
+    image: service_card_3_3,
+  },
+    {
     title: "Data Analytics and Insights",
     image: service_card_3_3,
   },

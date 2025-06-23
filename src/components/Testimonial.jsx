@@ -9,6 +9,7 @@ import testi1_2 from "../assets/img/testimonial/testi1-2.jpg";
 import testi1_3 from "../assets/img/testimonial/testi1-3.jpg";
 import testi1_4 from "../assets/img/testimonial/testi1-4.jpg";
 import testi_bg_3_1 from "../assets/img/bg/testi-bg-3-1.png";
+import { Autoplay } from "swiper/modules";
 
 const testimonials = [
   {
@@ -43,7 +44,9 @@ const TestimonialSlider = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    autoplay: true,
+    arrows: false,
+    speed: 400,
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [

@@ -132,10 +132,16 @@ const Work = () => {
         <div className="container-fluid p-0">
           <div className="slider-area project-slider3">
             <Swiper
+              modules={[Autoplay]}
               spaceBetween={30}
               slidesPerView={1}
               centeredSlides={true}
               loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
               breakpoints={{
                 601: { slidesPerView: 2 },
                 991: { slidesPerView: 2.5 },

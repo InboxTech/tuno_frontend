@@ -9,6 +9,8 @@ import Teams from '../components/Teams'
 import TestimonialSlider from '../components/Testimonial'
 import Work from '../components/Works'
 import Pricing from '../components/Pricing'
+import BlogSlider from '../components/BlogSlider'
+
 
 const Home = () => {
   return (
@@ -50,6 +52,10 @@ const Home = () => {
       {/* Pricing ==> */}
 
       <Pricing />
+
+      {/* /// blog slider ===> */}
+
+      <BlogSlider />
 
     </React.Fragment>
   )
