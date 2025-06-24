@@ -37,12 +37,13 @@ import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Breadcumbs from "./Breadcumbs";
+import BlogSlider from "./BlogSlider";
 function About() {
    const [counterOn, setCounterOn] = useState(false)
-    const text = "Leading the Future of Business Innovation with Tailor-Made AI Solutions"
-    const text2 = "How Dose it Work?"
+    const text = "Revolutionizing Voice Automation with AIDriven Precision "
+    const text2 = "How Does TUNO Work?"
     const text3_experts = "Our Expert Creative Minds"
-    const text4_advancetech = "The Future is Here: Advance Technology"
+    const text4_advancetech = "Innovation Through Voice AI Technology"
     const text_faq = "Frequently asked questions"
     const text_blog = "Our Latest News & Blogs"
     const delay = 50;
@@ -201,7 +202,7 @@ function About() {
             </div>
         </div> */}
 
-           <Breadcumbs prevLink="Home" currentLink="About"/>
+           <Breadcumbs prevLink="Home" currentLink="About" pageTitle="About Us"/>
 
             {/* about us section start */}
             <div className="overflow-hidden space overflow-hidden" id="about-sec">
@@ -240,7 +241,7 @@ function About() {
                                     <div className="thumb"  data-delay="300">
                                         <img src={AboutThumb13} alt="About" />
                                     </div>
-                                    <div className="shadow-text">Robor</div>
+                                    <div className="shadow-text">Tuno</div>
                                 </div>
                             </div>
                         </div>
@@ -259,12 +260,8 @@ function About() {
                                                 </span>
                                         ))}
                                     </h2>
-                                    <p className="mt-15"  data-delay="400">We begin by understanding your
-                                        business goals, challenges, and opportunities for AI integration. Our experts assess
-                                        your current systems and identify areas where AI can bring the most impact. Our team
-                                        designs a tailor-made AI solution based on your specific requirements. We develop
-                                        machine learning models, build algorithms, and create prototypes to ensure the solution
-                                        aligns with your business objectives.</p>
+                                    <p className="mt-15"  data-delay="400">
+                                        TUNO is built to help businesses automate conversations, streamline customer support, and enhance user experience using advanced AI voice technology. Our solutions are designed for performance, reliability, and personalization. </p>
                                 </div>
                                 <div className="about-feature-card-wrap">
                                     <div className="about-feature-card" data-aos="fade-up">
@@ -275,9 +272,10 @@ function About() {
                                             </div>
                                         </div>
                                         <div className="media-body">
-                                            <h4 className="box-title">100% Customers Satisfaction</h4>
-                                            <p className="box-text">We bring a team of experienced AI specialists, data scientists,
-                                                and industry experts committed to pushing.</p>
+                                            <h4 className="box-title"> 99% Voice Accuracy </h4>
+                                            <p className="box-text">
+                                                TUNO ensures clear and natural voice interactions using deep learning models and real-time language adaptation.
+                                                </p>
                                         </div>
                                     </div>
                                     <div className="about-feature-card" data-aos="fade-up"  data-delay="1200">
@@ -288,14 +286,15 @@ function About() {
                                             </div>
                                         </div>
                                         <div className="media-body">
-                                            <h4 className="box-title">Quality Assurance Guarantee</h4>
-                                            <p className="box-text">We bring a team of experienced AI specialists, data scientists,
-                                                and industry experts committed to pushing.</p>
+                                            <h4 className="box-title">24/7 Automation Support </h4>
+                                            <p className="box-text">
+                                               Always-on voice AI that scales with your business needs—no downtime, no delays, just seamless communication. 
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="btn-wrap mt-40" >
-                                    <a className="th-btn text-decoration-none" href="about.html">More About Us <i className="far fa-long-arrow-right ms-2"></i></a>
+                                    <a className="th-btn text-decoration-none" href="about.html">Explore Features  <i className="far fa-long-arrow-right ms-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -311,11 +310,11 @@ function About() {
                 <div className="container">
                     <div className="counter-wrap2">
                         {[
-                            { end: 68, suffix: "M", text: "Project Completed" },
-                            { end: 16, suffix: "k", text: "Creative Minds" },
-                            { end: 62, suffix: "M", text: "Happy Customers" },
-                            { end: 7, suffix: "k", text: "Innovative Projects" },
-                            { end: 38, suffix: "M", text: "Collaborative Team" },
+                            { end: 72, suffix: "M", text: " Voice Interactions Handled" },
+                            { end: 12, suffix: "k", text: "Client Integrations" },
+                            { end: 85, suffix: "M", text: "Seconds of Talk Time" },
+                            { end: 10, suffix: "k", text: "Intent Triggers" },
+                            { end: 42, suffix: "M", text: "Hours Saved" },
                         ].map((item, index) => (
                             <div
                             className="counter-card2 style2"
@@ -375,9 +374,8 @@ function About() {
                                     </div>
                                     <span className="box-number">1</span>
                                     <div className="box-content" data-aos="fade-up">
-                                        <h3 className="box-title">Discovery and Strategy</h3>
-                                        <p className="box-text">We start with in-depth discussions to understand your challenges,
-                                            goals, and business processes.</p>
+                                        <h3 className="box-title">Voice Strategy Planning</h3>
+                                        <p className="box-text">We identify voice automation goals tailored to your industry needs</p>
                                     </div>
                                 </div>
                                 <div className="process-card2" >
@@ -386,9 +384,8 @@ function About() {
                                     </div>
                                     <span className="box-number">2</span>
                                     <div className="box-content" data-aos="fade-up">
-                                        <h3 className="box-title">Development & Implementation</h3>
-                                        <p className="box-text">We collect, clean, and analyze data to develop AI models tailored to
-                                            your use case.</p>
+                                        <h3 className="box-title">Custom Bot Development</h3>
+                                        <p className="box-text"> TUNO designs your branded voice agent with smart workflows and tone adaptation.</p>
                                     </div>
                                 </div>
                                 <div className="process-card2" >
@@ -397,9 +394,8 @@ function About() {
                                     </div>
                                     <span className="box-number">3</span>
                                     <div className="box-content" data-aos="fade-up">
-                                        <h3 className="box-title">Optimization and Support</h3>
-                                        <p className="box-text">We continuously monitor the AI solution to ensure it delivers
-                                            consistent and accurate results.</p>
+                                        <h3 className="box-title">Launch & Optimize</h3>
+                                        <p className="box-text">We deploy across channels, monitor analytics, and optimize for performance and user delight.</p>
                                     </div>
                                 </div>
                             </div>
@@ -548,9 +544,8 @@ function About() {
                                         <div className="box-icon">
                                             <img src={Featureicon41} alt="icon" />
                                         </div>
-                                        <h3 className="box-title">Tech support</h3>
-                                        <p className="box-text">To empower businesses with intelligent, scalable, and impactful
-                                            solutions that drive progress</p>
+                                        <h3 className="box-title">Real-Time Speech Synthesis</h3>
+                                        <p className="box-text"> Fast, expressive voice output that adapts to emotions and tone. </p>
                                     </div>
                                 </div>
                                 <div className="col-md-6" >
@@ -558,9 +553,8 @@ function About() {
                                         <div className="box-icon">
                                             <img src={Featureicon42} alt="icon" />
                                         </div>
-                                        <h3 className="box-title">Robo Genius</h3>
-                                        <p className="box-text">To empower businesses with intelligent, scalable, and impactful
-                                            solutions that drive progress</p>
+                                        <h3 className="box-title">Natural Language Understanding</h3>
+                                        <p className="box-text"> Our AI understands intent, context, and multilingual inputs. </p>
                                     </div>
                                 </div>
                                 <div className="col-md-6" >
@@ -568,9 +562,8 @@ function About() {
                                         <div className="box-icon">
                                             <img src={Featureicon43} alt="icon" />
                                         </div>
-                                        <h3 className="box-title">Image Generation</h3>
-                                        <p className="box-text">To empower businesses with intelligent, scalable, and impactful
-                                            solutions that drive progress</p>
+                                        <h3 className="box-title">Voice Cloning & Personalization</h3>
+                                        <p className="box-text">Deliver unique brand voices with secure cloning technology. </p>
                                     </div>
                                 </div>
                                 <div className="col-md-6" >
@@ -578,9 +571,8 @@ function About() {
                                         <div className="box-icon">
                                             <img src={Featureicon44} alt="icon" />
                                         </div>
-                                        <h3 className="box-title">Chatbots</h3>
-                                        <p className="box-text">To empower businesses with intelligent, scalable, and impactful
-                                            solutions that drive progress</p>
+                                        <h3 className="box-title">Omnichannel Deployment</h3>
+                                        <p className="box-text">Deploy voicebots across IVR, WhatsApp, web, and smart devices. </p>
                                     </div>
                                 </div>
                             </div>
@@ -626,19 +618,13 @@ function About() {
                                 <div className="accordion-header" id="collapse-item-1">
                                     <button className="accordion-button"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1"
-                                        aria-expanded="true" aria-controls="collapse-1">What is an AI startup, and what services
-                                        do you offer?</button></div>
+                                        aria-expanded="true" aria-controls="collapse-1">
+                                            What industries does TUNO support? 
+                                        </button></div>
                                 <div id="collapse-1" className="accordion-collapse collapse show" aria-labelledby="collapse-item-1"
                                     data-bs-parent="#faqAccordion">
                                     <div className="accordion-body">
-                                        <p className="faq-text">An AI Software as a Service startup combines the scalability of
-                                            cloud-based platforms with the power of artificial intelligence to deliver
-                                            innovative, on-demand solutions. These startups cater to a wide range of industries
-                                            by offering AI-driven tools and applications that solve specific business
-                                            challenges, enhance efficiency, and drive data-informed decisions. The AI industry
-                                            is rapidly expanding, with opportunities to disrupt traditional industries and
-                                            create entirely new markets. Continuous advancements in hardware and algorithms
-                                            position AI startups to play a pivotal role in shaping the future.</p>
+                                        <p className="faq-text">TUNO works across e-commerce, healthcare, logistics, finance, and more—adapting voice automation to each sector’s communication needs. </p>
                                     </div>
                                 </div>
                             </div>
@@ -646,20 +632,12 @@ function About() {
                                 <div className="accordion-header" id="collapse-item-2">
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2"
-                                        aria-expanded="false" aria-controls="collapse-2">Do you offer pre-built AI models or
-                                        create everything from scratch?</button>
+                                        aria-expanded="false" aria-controls="collapse-2">Can I integrate TUNO with my existing systems? </button>
                                 </div>
                                 <div id="collapse-2" className="accordion-collapse collapse" aria-labelledby="collapse-item-2"
                                     data-bs-parent="#faqAccordion">
                                     <div className="accordion-body">
-                                        <p className="faq-text">An AI Software as a Service startup combines the scalability of
-                                            cloud-based platforms with the power of artificial intelligence to deliver
-                                            innovative, on-demand solutions. These startups cater to a wide range of industries
-                                            by offering AI-driven tools and applications that solve specific business
-                                            challenges, enhance efficiency, and drive data-informed decisions. The AI industry
-                                            is rapidly expanding, with opportunities to disrupt traditional industries and
-                                            create entirely new markets. Continuous advancements in hardware and algorithms
-                                            position AI startups to play a pivotal role in shaping the future.</p>
+                                        <p className="faq-text">Yes. TUNO offers easy API and webhook support to integrate with CRMs, ERPs, and messaging platforms. </p>
                                     </div>
                                 </div>
                             </div>
@@ -667,20 +645,12 @@ function About() {
                                 <div className="accordion-header" id="collapse-item-3">
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3"
-                                        aria-expanded="false" aria-controls="collapse-3">What is the process for developing an
-                                        AI solution for my business?</button>
+                                        aria-expanded="false" aria-controls="collapse-3">What languages and accents are supported? </button>
                                 </div>
                                 <div id="collapse-3" className="accordion-collapse collapse" aria-labelledby="collapse-item-3"
                                     data-bs-parent="#faqAccordion">
                                     <div className="accordion-body">
-                                        <p className="faq-text">An AI Software as a Service startup combines the scalability of
-                                            cloud-based platforms with the power of artificial intelligence to deliver
-                                            innovative, on-demand solutions. These startups cater to a wide range of industries
-                                            by offering AI-driven tools and applications that solve specific business
-                                            challenges, enhance efficiency, and drive data-informed decisions. The AI industry
-                                            is rapidly expanding, with opportunities to disrupt traditional industries and
-                                            create entirely new markets. Continuous advancements in hardware and algorithms
-                                            position AI startups to play a pivotal role in shaping the future.</p>
+                                        <p className="faq-text">We support 40+ languages and regional accents with emotion-aware speech output. </p>
                                     </div>
                                 </div>
                             </div>
@@ -688,53 +658,25 @@ function About() {
                                 <div className="accordion-header" id="collapse-item-4">
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4"
-                                        aria-expanded="false" aria-controls="collapse-4">What is an AI startup, and what
-                                        services do you offer?</button>
+                                        aria-expanded="false" aria-controls="collapse-4">Is voice data secure with TUNO? </button>
                                 </div>
                                 <div id="collapse-4" className="accordion-collapse collapse" aria-labelledby="collapse-item-4"
                                     data-bs-parent="#faqAccordion">
                                     <div className="accordion-body">
-                                        <p className="faq-text">An AI Software as a Service startup combines the scalability of
-                                            cloud-based platforms with the power of artificial intelligence to deliver
-                                            innovative, on-demand solutions. These startups cater to a wide range of industries
-                                            by offering AI-driven tools and applications that solve specific business
-                                            challenges, enhance efficiency, and drive data-informed decisions. The AI industry
-                                            is rapidly expanding, with opportunities to disrupt traditional industries and
-                                            create entirely new markets. Continuous advancements in hardware and algorithms
-                                            position AI startups to play a pivotal role in shaping the future.</p>
+                                        <p className="faq-text">Absolutely. All interactions are encrypted and GDPR-compliant, with optional on-premise deployment. </p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="accordion-card" data-aos="fade-up" >
-                                <div className="accordion-header" id="collapse-item-5">
-                                    <button className="accordion-button collapsed"
-                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5"
-                                        aria-expanded="false" aria-controls="collapse-5">How do you ensure data privacy and
-                                        compliance with regulations?</button>
-                                </div>
-                                <div id="collapse-5" className="accordion-collapse collapse" aria-labelledby="collapse-item-5"
-                                    data-bs-parent="#faqAccordion">
-                                    <div className="accordion-body">
-                                        <p className="faq-text">An AI Software as a Service startup combines the scalability of
-                                            cloud-based platforms with the power of artificial intelligence to deliver
-                                            innovative, on-demand solutions. These startups cater to a wide range of industries
-                                            by offering AI-driven tools and applications that solve specific business
-                                            challenges, enhance efficiency, and drive data-informed decisions. The AI industry
-                                            is rapidly expanding, with opportunities to disrupt traditional industries and
-                                            create entirely new markets. Continuous advancements in hardware and algorithms
-                                            position AI startups to play a pivotal role in shaping the future.</p>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
             </div>
            {/* faq end */}
 
-
+           <BlogSlider />
              {/* news and blog start */}
-            <section className="space overflow-hidden" id="blog-sec">
+            {/* <section className="space overflow-hidden" id="blog-sec">
                 <div className="container">
                     <div className="row justify-content-between">
                         <div className="col-xl-6 col-lg-8">
@@ -816,7 +758,7 @@ function About() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
              {/* news and blog start */}
 
         </>

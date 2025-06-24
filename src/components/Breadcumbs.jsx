@@ -23,7 +23,7 @@ function Breadcumbs(props) {
                                         }}
                                     >
                                         <div style={{ position: 'relative', display: 'inline-block' }}>
-                                            {'About'.split('').map((letter, index) => (
+                                            {`${props.pageTitle}`.split(' ').map((letter, index) => (
                                                 <div
                                                     key={`about-${index}`}
                                                     style={{
@@ -32,13 +32,14 @@ function Breadcumbs(props) {
                                                         transform: 'translate(0px, 0px)',
                                                         opacity: 1,
                                                         visibility: 'inherit',
+                                                        gap: '0.1em',
                                                     }}
                                                 >
                                                     {letter}
                                                 </div>
                                             ))}
                                         </div>{' '}
-                                        <div style={{ position: 'relative', display: 'inline-block' }}>
+                                        {/* <div style={{ position: 'relative', display: 'inline-block' }}>
                                             {'Us'.split('').map((letter, index) => (
                                                 <div key={`us-${index}`}
                                                     style={{
@@ -52,7 +53,7 @@ function Breadcumbs(props) {
                                                     {letter}
                                                 </div>
                                             ))}
-                                        </div>
+                                        </div> */}
                                     </h1>
                                     <ul className="breadcumb-menu" data-delay="300" data-show="true"
                                         style={{

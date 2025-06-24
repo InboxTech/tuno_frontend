@@ -17842,6 +17842,7 @@ span.select2-selection.select2-selection--single:focus {
   background: var(--white-color);
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.05);
   border-radius: 30px;
+  height: 100%;
 }
 .service-card .box-icon {
   margin-bottom: 24px;
@@ -22309,7 +22310,7 @@ span.select2-selection.select2-selection--single:focus {
   opacity: 0;
   display: inline-block;
   transform: translateY(20px);
-  font-size: 62px;
+  font-size: 55px;
 }
 
 .animated-letter.visible {

@@ -10,6 +10,7 @@ import Preloader from "./components/Preloader";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import About from './components/About'
+import Service from './components/Service'
 import { useEffect } from "react";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Header />
       <Home />
       <About/>
+      <Service/>
       <Footer />
       <ScrollToTop />
       <Preloader />
