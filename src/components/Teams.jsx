@@ -118,7 +118,7 @@ const Teams = () => {
         <div className="row gy-4 justify-content-center">
           {teamMembers.map((member, index) => (
             <div className="col-xl-3 col-lg-4 col-md-6" key={index}>
-              <div className="th-team team-card style2" data-aos="fade-up">
+              <div className="th-team team-card style2" data-aos="fade-up" data-aos-duration="2000">
                 <div
                   className="team-img"
                   data-mask-src="assets/img/shape/team-card2-shape.png"

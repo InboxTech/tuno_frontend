@@ -17,6 +17,10 @@ import Preloader from "./components/Preloader";
 // Pages
 import Home from "./Pages/Home";
 import About from "./components/About";
+import Contact from "./Pages/Contact";
+import ProjectDetails from "./Pages/ProjectDetails";
+import BlogDetails from "./Pages/BlogDetails";
+import Blog from "./Pages/Blog";
 // import other components/pages as needed
 
 function App() {
@@ -46,6 +50,47 @@ function App() {
         </>
       ),
     },
+     {
+      path: "/contact",
+      element: (
+        <>
+          <Header />
+          <Contact />
+          <Footer />
+        </>
+      ),
+    },
+     {
+      path: "/project-details",
+      element: (
+        <>
+          <Header />
+          <ProjectDetails />
+          <Footer />
+        </>
+      ),
+    },
+     {
+      path: "/blog-details",
+      element: (
+        <>
+          <Header />
+          <BlogDetails />
+          <Footer />
+        </>
+      ),
+    },
+     {
+      path: "/blog",
+      element: (
+        <>
+          <Header />
+          <Blog />
+          <Footer />
+        </>
+      ),
+    },
+    
     // add more routes here
   ]);
 

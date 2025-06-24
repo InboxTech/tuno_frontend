@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import HeaderBackgroundImg from "../assets/img/theme-img/header3-bg-shape.png"
-import Logo from "../assets/img/logo2.svg"
+import HeaderBackgroundImg from "../assets/img/theme-img/header3-bg-shape.png";
+import Logo from "../assets/img/logo2.svg";
 import { Link } from "react-router";
-
 
 
 const Header = () => {
@@ -18,7 +17,11 @@ const Header = () => {
   }, []);
   return (
     <React.Fragment>
-      <header className={`th-header header-layout2 ${isSticky ? "sticky-active" : ""}`}>
+      <header
+        className={`th-header header-layout2 ${
+          isSticky ? "sticky-active" : ""
+        }`}
+      >
         <div className="sticky-wrapper">
           <div className="container">
             <div className={`menu-area ${isSticky ? "sricky-active" : ""}`}>
@@ -39,7 +42,6 @@ const Header = () => {
                     <ul>
                       <li className="">
                         <Link to="/">Home </Link>
-                     
                       </li>
                       <li>
                         <Link to="/about">About Us</Link>
@@ -51,7 +53,7 @@ const Header = () => {
                             <Link to="service.html">Services</Link>
                           </li>
                           <li>
-                            <Link to="service-details.html">Service Details</Link>
+                            <Link to="service.html">Services Details</Link>
                           </li>
                         </ul>
                       </li>
@@ -82,7 +84,9 @@ const Header = () => {
                             <Link to="project.html">Project</Link>
                           </li>
                           <li>
-                            <Link to="project-details.html">Project Details</Link>
+                            <Link to="project-details.html">
+                              Project Details
+                            </Link>
                           </li>
                           <li>
                             <Link to="team.html">Our Team</Link>
@@ -110,9 +114,9 @@ const Header = () => {
                           </li>
                         </ul>
                       </li>
-                      <li className="menu-item-has-children">
-                        <Link to="#">Blog</Link>
-                        <ul className="sub-menu">
+                      <li >
+                        <Link to="/blog">Blog</Link>
+                        {/* <ul className="sub-menu">
                           <li>
                             <Link to="blog.html">Blog Standard</Link>
                           </li>
@@ -122,10 +126,10 @@ const Header = () => {
                           <li>
                             <Link to="blog-details.html">Blog Details</Link>
                           </li>
-                        </ul>
+                        </ul> */}
                       </li>
                       <li>
-                        <Link to="contact.html">Contact Us</Link>
+                        <Link to="/contact">Contact Us</Link>
                       </li>
                     </ul>
                   </nav>
@@ -139,9 +143,9 @@ const Header = () => {
                 </div>
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
-                    <Link to="contact.html" className="th-btn style-gradient">
+                    <Link to="/contact" className="th-btn style-gradient">
                       Get Started Now{" "}
-                      <i className="far fa-long-arrow-right ms-2" > </i>
+                      <i className="far fa-long-arrow-right ms-2"> </i>
                     </Link>
                   </div>
                 </div>

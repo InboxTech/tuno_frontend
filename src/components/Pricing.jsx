@@ -62,7 +62,7 @@ const PricingCard = ({ plan, isActive }) => {
 
   return (
     <div className="col-xl-3 col-md-6">
-      <div className={`price-card style2 ${isActive ? "active" : ""}`}  data-aos="fade-up">
+      <div className={`price-card style2 ${isActive ? "active" : ""}`}  data-aos="fade-up" data-aos-duration="2000">
         <div
           className="card-bg-img"
           style={{
@@ -153,7 +153,7 @@ const PricingCard = ({ plan, isActive }) => {
         </div>
 
         <div className="btn-wrap">
-          <a href="contact.html" className="th-btn style-gradient3">
+          <a href="/contact" className="th-btn style-gradient3">
             Choose Package
           </a>
         </div>
@@ -186,7 +186,7 @@ const Pricing = () => {
           </div>
           <div className="col-lg-auto">
             <div className="sec-btn">
-              <a href="about.html" className="th-btn style-gradient">
+              <a href="/about" className="th-btn style-gradient">
                 More About Us <i className="far fa-long-arrow-right ms-2" />
               </a>
             </div>

@@ -13,7 +13,7 @@ const Footer = () => {
         <img src={footerBgShape} alt="img" />
       </div>
       <div className="container">
-        <div className="footer-top" data-aos="fade-up"  data-aos-duration="3000">
+        <div className="footer-top" data-aos="fade-up"  data-aos-duration="2000">
           <div className="shadow-text text-lg-center text-white" >
             Let’s Talk
           </div>
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer-bottom" data-aos="fade-up"  data-aos-duration="3000">
+        <div className="footer-bottom" data-aos="fade-up"  data-aos-duration="2000">
           <div className="widget-area">
             <div className="row justify-content-between">
               <div className="col-md-6 col-xl-auto" >
