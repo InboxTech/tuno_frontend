@@ -22,28 +22,28 @@ const sliderItems = [
 const projectItems = [
   {
     img: project3_1,
-    subtitle: "User Research",
-    title: "Artificial Intelligence",
+    subtitle: "Banking Sector",
+    title: "Decreased customer verification time by 50% ",
   },
   {
     img: project3_2,
-    subtitle: "Robotics, Program",
-    title: "Smart House Technology",
+    subtitle: "Healthcare Client",
+    title: "Automated prescription refill reminders ",
   },
   {
     img: project3_3,
-    subtitle: "Technology, Program",
-    title: "AI Machine Learning",
+    subtitle: "E-commerce Brand",
+    title: "42% increase in post-purchase engagement ",
   },
   {
     img: project3_4,
-    subtitle: "AI, Program",
-    title: "Speech recognizer",
+    subtitle: "Travel & Airlines",
+    title: "Shortened itinerary response time by 55%",
   },
   {
     img: project3_5,
-    subtitle: "User Research",
-    title: "Artificial Intelligence",
+    subtitle: "EdTech Platform",
+    title: "2x increase in lead conversions during admission driv",
   },
 ];
 // Reusable marquee component
@@ -119,10 +119,17 @@ const Work = () => {
                 <h2 className="sec-title text-anim2 mb-0">Work</h2>
               </div>
               <div className="col-xxl-3 col-xl-4">
-                <p className="mt-xl-0 mt-4">
-                  Our AI agency is a cutting-edge technology partner that
-                  specializes in delivering artificial intelligence solutions to
-                  help businesses streamline operations,
+                <p
+                  className="mt-xl-0 mt-4"
+                  data-aos="fade-right"
+                  data-aos-duration="2000"
+                >
+                  TUNO is a cutting-edge AI voice technology partner, delivering
+                  tailored automation to help businesses streamline operations,
+                  make smarter decisions, and create seamless customer
+                  experiences. Leveraging the power of conversational AI, we
+                  bring industry-specific innovation that transforms the way
+                  work gets done—efficiently and intelligently
                 </p>
               </div>
             </div>
@@ -152,7 +159,11 @@ const Work = () => {
             >
               {projectItems.concat(projectItems).map((item, idx) => (
                 <SwiperSlide key={idx}>
-                  <div className="project-card3">
+                  <div
+                    className="project-card3"
+                    data-aos="fade-up"
+                    data-aos-duration="2000"
+                  >
                     <div
                       className="box-img"
                       style={{
@@ -165,17 +176,14 @@ const Work = () => {
                       }}
                     >
                       <img src={item.img} alt="project image" />
-                      <a
-                        href="project-details.html"
-                        className="icon-btn style5"
-                      >
+                      <a href="/project-details" className="icon-btn style5">
                         <i className="fal fa-arrow-right"></i>
                       </a>
                     </div>
                     <div className="box-content">
                       <p className="box-subtitle text-white">{item.subtitle}</p>
                       <h3 className="box-title text-white">
-                        <a href="project-details.html">{item.title}</a>
+                        <a href="/project-details">{item.title}</a>
                       </h3>
                     </div>
                   </div>

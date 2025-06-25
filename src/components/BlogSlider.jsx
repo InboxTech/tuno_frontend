@@ -15,29 +15,29 @@ const blogPosts = [
     img: blogImg1,
     date: "24 Jan, 2025",
     author: "admin",
-    title: "The rise of AI and Robotics in retail customer experiences",
-    link: "blog-details.html",
+    title: "How AI Voicebots Are Redefining Customer Service",
+    link: "/blog-details",
   },
   {
     img: blogImg2,
     date: "16 Jul, 2025",
     author: "admin",
-    title: "How AI is Transforming Businesses Across Industries",
-    link: "blog-details.html",
+    title: "AI That Listens, Learns, and Responds",
+    link: "/blog-details",
   },
   {
     img: blogImg1,
     date: "24 Jan, 2025",
     author: "admin",
-    title: "The rise of AI and Robotics in retail customer experiences",
-    link: "blog-details.html",
+    title: "Behind the Bot: How Tuno’s Voice AI Works in Real-Time",
+    link: "/blog-details",
   },
   {
     img: blogImg2,
     date: "16 Jul, 2025",
     author: "admin",
-    title: "How AI is Transforming Businesses Across Industries",
-    link: "blog-details.html",
+    title: "Boosting Sales with Smart Reminders and Voice-Based Follow-Ups",
+    link: "/blog-details",
   },
 ];
 
@@ -95,7 +95,7 @@ const BlogSlider = () => {
           >
             {blogPosts.map((post, idx) => (
               <SwiperSlide key={idx}>
-                <div className="blog-card3">
+                <div className="blog-card3" data-aos="fade-up"  data-aos-duration="2000">
                   <div
                     className="blog-img"
                     style={{

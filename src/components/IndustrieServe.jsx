@@ -1,6 +1,12 @@
 import React from "react";
-import whyThumbShape31 from "../assets/img/shape/why-thumb-shape3-1.png"
-import theerOne from "../assets/img/feature/3-1.png"
+import whyThumbShape31 from "../assets/img/shape/why-thumb-shape3-1.png";
+import theerOne from "../assets/img/feature/3-1.png";
+import threeTwo from "../assets/img/feature/3-2.png";
+import threeThree from "../assets/img/feature/3-3.png";
+import threeFour from "../assets/img/feature/3-4.png";
+import threeFive from "../assets/img/feature/3-5.png";
+import threeSix from "../assets/img/feature/3-6.png";
+
 const IndustrieServe = () => {
   return (
     <React.Fragment>
@@ -8,7 +14,11 @@ const IndustrieServe = () => {
         <div className="container">
           <div className="row justify-content-between align-items-center">
             <div className="col-xl-6">
-              <div className="title-area">
+              <div
+                className="title-area"
+                data-aos="fade-left"
+                data-aos-duration="2000"
+              >
                 <span className="sub-title2 text-gradient text-uppercase mb-30">
                   Industries We Serve
                 </span>
@@ -18,7 +28,11 @@ const IndustrieServe = () => {
               </div>
             </div>
             <div className="col-xl-4">
-              <div className="title-area text-start">
+              <div
+                className="title-area text-start"
+                data-aos="fade-right"
+                data-aos-duration="2000"
+              >
                 <p>
                   Our AI agency is a cutting-edge technology partner that
                   specializes in delivering artificial intelligence solutions to
@@ -85,7 +99,7 @@ const IndustrieServe = () => {
                   aria-controls="featureTab4"
                   aria-selected="false"
                 >
-                  <span className="box-number">#04</span>Manufacturing AI
+                  <span className="box-number">#04</span>BPOs & Call Centers
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -99,7 +113,7 @@ const IndustrieServe = () => {
                   aria-controls="featureTab5"
                   aria-selected="false"
                 >
-                  <span className="box-number">#05</span>Fintech Ai
+                  <span className="box-number">#05</span>Travel & Hospitality
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -124,7 +138,7 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab1"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap" data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
                     // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
@@ -142,15 +156,13 @@ const IndustrieServe = () => {
                   <div className="feature-tab-content">
                     <h4 className="box-title">Healthcare Ai</h4>
                     <p className="box-text">
-                      AI for diagnostics, personalized treatment, and patient
-                      care optimization. To be a leading AI agency recognized
-                      for creating intelligent solutions that drive meaningful
-                      change across industries, fostering
+                      Voice AI that assists in clinical documentation, patient
+                      support, appointment reminders, and treatment
+                      personalization. TUNO helps healthcare providers reduce
+                      admin time, increase patient engagement, and deliver
+                      better outcomes with real-time, secure voice automation
                     </p>
-                    <p className="box-text mt-30">
-                      Smarter decision-making, and enabling businesses to
-                      achieve their full potential through automation.
-                    </p>
+
                     <div className="btn-wrap mt-40">
                       <a
                         className="icon-btn style4"
@@ -168,24 +180,31 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab2"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap" data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
-                    data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
                   >
-                    <img src="assets/img/feature/3-2.png" alt="img" />
+                    <img src={threeTwo} alt="img" />
                   </div>
                   <div className="feature-tab-content">
-                    <h4 className="box-title">Finance Ai</h4>
+                    <h4 className="box-title">Banking & Finance</h4>
                     <p className="box-text">
-                      AI for diagnostics, personalized treatment, and patient
-                      care optimization. To be a leading AI agency recognized
-                      for creating intelligent solutions that drive meaningful
-                      change across industries, fostering
+                      TUNO enables banks and fintech firms to automate routine
+                      queries, support KYC, and streamline loan servicing.
                     </p>
                     <p className="box-text mt-30">
-                      Smarter decision-making, and enabling businesses to
-                      achieve their full potential through automation.
+                      Our voice AI ensures secure, compliant, and fast customer
+                      interactions—freeing up agents for high-value tasks while
+                      delivering 24/7 financial assistance.
                     </p>
                     <div className="btn-wrap mt-40">
                       <a
@@ -204,25 +223,31 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab3"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap" data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
                     data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
                   >
-                    <img src="assets/img/feature/3-3.png" alt="img" />
+                    <img src={threeThree} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">Education Ai</h4>
                     <p className="box-text">
-                      AI for diagnostics, personalized treatment, and patient
-                      care optimization. To be a leading AI agency recognized
-                      for creating intelligent solutions that drive meaningful
-                      change across industries, fostering
+                      TUNO supports student engagement, smart tutoring, and
+                      administrative automation in education. From inquiry
+                      handling to attendance updates, our AI voice systems
+                      improve learning outcomes and operational efficiency for
+                      schools and ed-tech platforms.
                     </p>
-                    <p className="box-text mt-30">
-                      Smarter decision-making, and enabling businesses to
-                      achieve their full potential through automation.
-                    </p>
+
                     <div className="btn-wrap mt-40">
                       <a
                         className="icon-btn style4"
@@ -240,25 +265,31 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab4"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap" data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
-                    data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
                   >
-                    <img src="assets/img/feature/3-4.png" alt="img" />
+                    <img src={threeFour} alt="img" />
                   </div>
                   <div className="feature-tab-content">
-                    <h4 className="box-title">Manufacturing AI</h4>
+                    <h4 className="box-title">BPOs & Call Centers </h4>
                     <p className="box-text">
-                      AI for diagnostics, personalized treatment, and patient
-                      care optimization. To be a leading AI agency recognized
-                      for creating intelligent solutions that drive meaningful
-                      change across industries, fostering
+                      TUNO enhances agent productivity with voicebots that
+                      handle Tier-1 queries, surveys, and appointment calls.
+                      With real-time responses and multi-language support, we
+                      help call centers reduce wait times and boost customer
+                      satisfaction at scale.
                     </p>
-                    <p className="box-text mt-30">
-                      Smarter decision-making, and enabling businesses to
-                      achieve their full potential through automation.
-                    </p>
+
                     <div className="btn-wrap mt-40">
                       <a
                         className="icon-btn style4"
@@ -276,25 +307,31 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab5"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap" data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
-                    data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
                   >
-                    <img src="assets/img/feature/3-5.png" alt="img" />
+                    <img src={threeFive} alt="img" />
                   </div>
                   <div className="feature-tab-content">
-                    <h4 className="box-title">Fintech Ai</h4>
+                    <h4 className="box-title">Travel & Hospitality </h4>
                     <p className="box-text">
-                      AI for diagnostics, personalized treatment, and patient
-                      care optimization. To be a leading AI agency recognized
-                      for creating intelligent solutions that drive meaningful
-                      change across industries, fostering
+                      From bookings to feedback collection, TUNO’s AI voice tech
+                      handles guest queries, itinerary updates, and multilingual
+                      support. We streamline the entire travel experience—making
+                      every interaction faster, friendlier, and more
+                      personalized
                     </p>
-                    <p className="box-text mt-30">
-                      Smarter decision-making, and enabling businesses to
-                      achieve their full potential through automation.
-                    </p>
+                    
                     <div className="btn-wrap mt-40">
                       <a
                         className="icon-btn style4"
@@ -312,25 +349,30 @@ const IndustrieServe = () => {
                 role="tabpanel"
                 aria-labelledby="feature-tab6"
               >
-                <div className="feature-tab-content-wrap">
+                <div className="feature-tab-content-wrap" data-aos="fade-left">
                   <div
                     className="feature-tab-thumb"
-                    data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
                   >
-                    <img src="assets/img/feature/3-6.png" alt="img" />
+                    <img src={threeSix} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">E-commerce Ai</h4>
                     <p className="box-text">
-                      AI for diagnostics, personalized treatment, and patient
-                      care optimization. To be a leading AI agency recognized
-                      for creating intelligent solutions that drive meaningful
-                      change across industries, fostering
+                      AI voicebots manage order tracking, product discovery,
+                      customer service, and post-sale feedback. TUNO enhances
+                      shopping experiences by enabling instant, conversational
+                      engagement that drives sales and reduces support costs
                     </p>
-                    <p className="box-text mt-30">
-                      Smarter decision-making, and enabling businesses to
-                      achieve their full potential through automation.
-                    </p>
+
                     <div className="btn-wrap mt-40">
                       <a
                         className="icon-btn style4"

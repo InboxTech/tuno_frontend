@@ -13,27 +13,27 @@ import { Autoplay } from "swiper/modules";
 
 const testimonials = [
   {
-    text: `“Eget mauris commodo dis sed arcu integer fringilla. Sit molestie orci a lacus. Consectetur eu accumsan aliquet nisi. Egestas vitae non cum sit. Tellus nec in sapien maecenas in vel.””`,
+    text: `“TUNO helped us reduce call handling time by over 40%. The integration was seamless, and the AI voice is impressively natural.”`,
     name: "Michael Lacefield",
     position: "Co-founder, XYZ",
     image: testi1_1,
   },
   {
-    text: `“Eget mauris commodo dis sed arcu integer fringilla. Sit molestie orci a lacus. Consectetur eu accumsan aliquet nisi. Egestas vitae non cum sit. Tellus nec in sapien maecenas in vel.”`,
-    name: "Harry Callum",
-    position: "Co-founder",
+    text: `“Their AI voice system transformed our customer support. It’s like having an extra team that works 24/7 without missing a beat.”`,
+    name: "Aisha Verma",
+    position: " CX Lead, FinBridge ",
     image: testi1_2,
   },
   {
-    text: `“Eget mauris commodo dis sed arcu integer fringilla. Sit molestie orci a lacus. Consectetur eu accumsan aliquet nisi. Egestas vitae non cum sit. Tellus nec in sapien maecenas in vel.”`,
-    name: "Mason Robert",
-    position: "Co-founder, XYZ",
+    text: `“TUNO brought unmatched scalability to our service operations. It’s fast, reliable, and easily adapted to our growing business needs.”`,
+    name: "Raj Malhotra",
+    position: "Operations Head, MedRoute ",
     image: testi1_3,
   },
   {
-    text: `“Eget mauris commodo dis sed arcu integer fringilla. Sit molestie orci a lacus. Consectetur eu accumsan aliquet nisi. Egestas vitae non cum sit. Tellus nec in sapien maecenas in vel.”`,
-    name: "Amelia Margaret",
-    position: "Co-founder",
+    text: `“From day one, TUNO understood our industry needs. Their voice AI tech improved both user satisfaction and operational efficiency.”`,
+    name: "Elena Cruz",
+    position: "SmartRetail Inc",
     image: testi1_4,
   },
 ];
@@ -152,6 +152,8 @@ const TestimonialSlider = () => {
                   WebkitMaskSize: "cover",
                   maskSize: "cover",
                 }}
+                data-aos="fade-up"
+                data-aos-duration="2000"
               >
                 <div className="testi-card_review text-yellow-500 mb-2">
                   {[...Array(5)].map((_, index) => (

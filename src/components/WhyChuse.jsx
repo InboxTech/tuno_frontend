@@ -22,12 +22,15 @@ const WhyChuse = () => {
                   WebkitMaskSize: "cover",
                   maskSize: "cover",
                 }}
+                data-aos="fade-right"
+                data-aos-duration="2000"
               >
                 <img src={whyThumb31} alt="img" />
               </div>
               <div
                 className="img2"
-              
+                data-aos="fade-left"
+                data-aos-duration="2000"
                 style={{
                   WebkitMaskImage: `url(${whyThumbShape32})`,
                   maskImage: `url(${whyThumbShape32})`,
@@ -42,10 +45,13 @@ const WhyChuse = () => {
             </div>
             <div
               className="why-wrap-content background-image"
-              
-              style={{ backgroundImage:`url(${WhyBg31})` }}
+              style={{ backgroundImage: `url(${WhyBg31})` }}
             >
-              <div className="why-content">
+              <div
+                className="why-content"
+                data-aos="fade-up"
+                data-aos-duration="2000"
+              >
                 <div className="title-area">
                   <span className="sub-title2 text-gradient text-uppercase mb-30">
                     Why Choose Us
@@ -55,40 +61,45 @@ const WhyChuse = () => {
                     Drive Innovation.
                   </h2>
                   <p>
-                    Our AI agency is a cutting-edge technology partner that
-                    specializes in delivering artificial intelligence solutions
-                    to help businesses streamline operations, improve
-                    decision-making, and enhance customer experiences. By
-                    leveraging the power of AI,
+                    TUNO is your cutting-edge technology partner in the AI voice
+                    automation space. We combine advanced artificial
+                    intelligence with deep domain knowledge to deliver smart,
+                    adaptive, and impactful voice solutions that drive real
+                    business results. Our mission is to make voice interactions
+                    faster, smarter, and effortlessly scalable.
                   </p>
                 </div>
-                <div className="why-feature-wrap3">
+                <div
+                  className="why-feature-wrap3"
+                  data-aos="fade-right"
+                  data-aos-duration="2000"
+                >
                   <div className="why-feature-card">
                     <h4 className="box-title">Expertise</h4>
                     <p className="box-text">
-                      Our team has extensive experience in building and
-                      deploying AI solutions across various industries.
+                      Our experienced team has delivered AI solutions across
+                      industries with precision and proven impact.
                     </p>
                   </div>
                   <div className="why-feature-card">
                     <h4 className="box-title">Customization</h4>
                     <p className="box-text">
-                      We offer tailor-made solution designed to address your
-                      unique business challenges. various industries.
+                      We craft solutions tailored to your goals, ensuring AI
+                      fits your workflows—not the other way around.
                     </p>
                   </div>
                   <div className="why-feature-card">
                     <h4 className="box-title">Innovation</h4>
                     <p className="box-text">
-                      We stay ahead of the curve by adopting the latest AI
-                      advancements &amp; technology. various industries.
+                      We constantly adopt the latest in AI tech to keep your
+                      solutions ahead in performance and reliability.
                     </p>
                   </div>
                   <div className="why-feature-card">
                     <h4 className="box-title">Scalability</h4>
                     <p className="box-text">
-                      Our solutions are designed to grow with your business,
-                      ensuring long-term value. various industries.
+                      Our platforms scale effortlessly, supporting your business
+                      growth without compromising performance.
                     </p>
                   </div>
                 </div>
