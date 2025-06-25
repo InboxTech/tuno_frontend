@@ -16778,7 +16778,7 @@ span.select2-selection.select2-selection--single:focus {
   padding-right: 0 !important;
 }
 .modal-dialog {
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 .modal-dialog .modal-content {
   background: transparent;
@@ -16793,10 +16793,11 @@ span.select2-selection.select2-selection--single:focus {
   box-shadow: none;
   margin: 0 10px 0 auto;
   border-radius: 50%;
-  background: var(--theme-color);
+  background: transparent;
   color: var(--white-color);
   border: 0;
   opacity: 1;
+  font-size: 25px;
 }
 .modal-dialog .btn-close:hover i {
   -webkit-animation: toTopFromBottom 0.5s forwards;
@@ -19793,6 +19794,9 @@ span.select2-selection.select2-selection--single:focus {
   display: inline-flex;
   --icon-size: 40px;
   --icon-font-size: 14px;
+}
+.popup-video{
+  cursor: pointer;
 }
 .cta-wrap2 {
   max-width: 1720px;

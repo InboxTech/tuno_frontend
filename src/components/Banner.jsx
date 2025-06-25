@@ -1,9 +1,10 @@
 import React from "react";
 import HeroBgThree from "../assets/img/hero/hero-bg3.png";
 import ThumbalanImg from "../assets/img/hero/hero-thumb3-mask.png";
-import hero_thumb_3_2 from "../assets/img/hero/hero_thumb_3_2.jpg";
+import hero_thumb_3_2 from "../assets/img/hero/banner.png";
 import hero_thumb_3_1 from "../assets/img/hero/hero_thumb_3_1.jpg";
 import heroPlayArrow3 from "../assets/img/hero/hero-play-arrow3.svg";
+import BaneerModel from "./model/BannerModel";
 const Banner = () => {
   return (
     <React.Fragment>
@@ -192,12 +193,13 @@ const Banner = () => {
                       <span className="char37">N</span>
                       <span className="char38">.</span>
                     </span>{" "}
-                    <a
+                    {/* <a
                       href="https://www.youtube.com/watch?v=_sI_Ps7JSEk"
                       className="play-btn popup-video"
                     >
                       <i className="fa-sharp fa-solid fa-play" />
-                    </a>
+                    </a> */}
+                    <BaneerModel />
                   </div>
                 </div>
               </div>

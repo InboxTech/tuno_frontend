@@ -119,7 +119,11 @@ const Work = () => {
                 <h2 className="sec-title text-anim2 mb-0">Work</h2>
               </div>
               <div className="col-xxl-3 col-xl-4">
-                <p className="mt-xl-0 mt-4">
+                <p
+                  className="mt-xl-0 mt-4"
+                  data-aos="fade-right"
+                  data-aos-duration="2000"
+                >
                   TUNO is a cutting-edge AI voice technology partner, delivering
                   tailored automation to help businesses streamline operations,
                   make smarter decisions, and create seamless customer

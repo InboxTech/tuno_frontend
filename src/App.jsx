@@ -21,6 +21,7 @@ import Contact from "./Pages/Contact";
 import ProjectDetails from "./Pages/ProjectDetails";
 import BlogDetails from "./Pages/BlogDetails";
 import Blog from "./Pages/Blog";
+import Login from "./Pages/Login";
 // import other components/pages as needed
 
 function App() {
@@ -87,6 +88,16 @@ function App() {
           <Header />
           <Blog />
           <Footer />
+        </>
+      ),
+    },
+     {
+      path: "/login",
+      element: (
+        <>
+          <Header />
+          <Login />
+         
         </>
       ),
     },
