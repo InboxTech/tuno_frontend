@@ -5,9 +5,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./assets/css/fontawesome.min.css";
 import 'aos/dist/aos.css';
 import About from './components/About'
-import Service from './components/Service'
-import Signup from './Pages/Signup'
-import Servicedetails from './components/Servicedetails'
+// import Service from './components/Service'
+// import Signup from './Pages/Signup'
+// import Servicedetails from './components/Servicedetails'
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AOS from 'aos';
@@ -19,12 +19,14 @@ import Preloader from "./components/Preloader";
 
 // Pages
 import Home from "./Pages/Home";
-import About from "./components/About";
+// import About from "./components/About";
 import Contact from "./Pages/Contact";
 import ProjectDetails from "./Pages/ProjectDetails";
 import BlogDetails from "./Pages/BlogDetails";
 import Blog from "./Pages/Blog";
 import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
+import Error from "./Pages/Error";
 // import other components/pages as needed
 
 function App() {
@@ -104,6 +106,26 @@ function App() {
         </>
       ),
     },
+     {
+      path: "/signup",
+      element: (
+        <>
+          <Header />
+          <Signup />
+         
+        </>
+      ),
+    },
+    {
+      path: "*",
+      element: (
+        <>
+
+          <Error />
+         
+        </>
+      ),
+    },
     
     // add more routes here
   ]);
@@ -111,13 +133,13 @@ function App() {
   return (
     <>
       {/* <VoiceTranslaterTabing /> */}
-      <Header />
+      {/* <Header />
       <Home />
       <About/>
       <Service/>
       <Servicedetails />
       <Signup />
-      <Footer />
+      <Footer /> */}
       <RouterProvider router={router} />
       <ScrollToTop />
       <Preloader />

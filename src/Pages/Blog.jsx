@@ -9,6 +9,7 @@ import blog_1_6 from "../assets/img/blog/blog_1_6.jpg"
 import blog_1_7 from "../assets/img/blog/blog_1_7.jpg"
 import blog_1_8 from "../assets/img/blog/blog_1_8.jpg"
 import blog_1_9 from "../assets/img/blog/blog_1_9.jpg"
+import Breadcumbs from "../components/Breadcumbs";
 
 const Blog = () => {
   const blogPosts = [
@@ -78,6 +79,8 @@ const Blog = () => {
   ];
 
   return (
+    <React.Fragment>
+      <Breadcumbs prevLink="Home" currentLink="Blog" pageTitle="Blog" />
     <section className="space-top space-extra-bottom" id="blog-sec">
       <div className="container">
         <div className="row gy-40">
@@ -138,6 +141,7 @@ const Blog = () => {
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 };
 

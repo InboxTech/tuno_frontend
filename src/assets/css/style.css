@@ -2239,7 +2239,7 @@ textarea.is-invalid {
   opacity: 0;
   visibility: hidden;
 }
-.th-menu-wrapper .mobile-logo {
+ .mobile-logo {
   padding-bottom: 30px;
   padding-top: 40px;
   display: block;
@@ -2248,6 +2248,13 @@ textarea.is-invalid {
 }
 .th-menu-wrapper .mobile-logo svg {
   max-width: 185px;
+}
+.mobileSidebar{
+  width: 310px !important;
+    border-right: 3px solid #6d30fb !important;
+}
+.offcanvas-body{
+  padding: 0px !important;
 }
 .th-menu-wrapper .th-menu-toggle {
   border: none;
@@ -2334,14 +2341,31 @@ textarea.is-invalid {
   color: var(--title-color);
   padding-left: 18px;
 }
-.th-mobile-menu ul li a:before {
-  content: "\f105";
-  font-family: var(--icon-font);
-  position: absolute;
-  left: 0;
-  top: 12px;
-  margin-right: 10px;
+.th-mobile-menu ul li a::before {
+    content: "\f105"; /* fa-angle-right */
+    font-family: "Font Awesome 6 Free"; /* or "Font Awesome 5 Free" */
+    font-weight: 900; /* Needed for solid icons */
+    position: absolute;
+    left: 0;
+    top: 12px;
+    margin-right: 10px;
+    display: inline-block;
+}
+.sub-menu {
+  display: none;
+  padding-left: 20px;
+}
+.scroll-reveal {
   display: inline-block;
+  overflow: hidden;
+}
+
+.scroll-reveal-text .word {
+  display: inline-block;
+  white-space: pre;
+}
+.menu-item-has-children.open > .sub-menu {
+  display: block;
 }
 .th-mobile-menu ul li.th-active > a {
   color: var(--theme-color);
@@ -2426,6 +2450,23 @@ textarea.is-invalid {
   background-color: transparent;
   color: var(--title-color);
   font-size: 20px;
+}
+.th-menu-toggle-btn{
+  border: none;
+    font-size: 22px;
+    position: absolute;
+    right: -16.5px;
+    top: 50px;
+    padding: 0;
+    line-height: 1;
+    width: 33px;
+    height: 33px;
+    line-height: 35px;
+    font-size: 18px;
+    z-index: 1;
+    color: var(--white-color);
+    background-color: var(--theme-color);
+    border-radius: 50%;
 }
 .th-menu-toggle.style-text i,
 .th-menu-toggle.style-text-white i {
@@ -11435,8 +11476,8 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
   .hero-wrap3 .hero-play-wrap .circle-tag .circle-title-anime {
     width: 140px;
     height: 140px;
-    margin-left: -70px;
-    margin-top: -70px;
+    margin-left: -19px;
+    margin-top: -19px;
   }
   .hero-wrap3 .hero-play-wrap .circle-tag .circle-title-anime span {
     height: 76px;
@@ -17723,8 +17764,10 @@ span.select2-selection.select2-selection--single:focus {
   outline: none;
   box-shadow: none;
 }
-.accordion-card .accordion-button:not(.collapsed):after {
+.accordion-card .accordion-button:not(.collapsed)::after {
   content: "\f068";
+  font-family: "Font Awesome 6 Free"; /* or 5 if using FA5 */
+  font-weight: 900; /* for solid icons */
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);

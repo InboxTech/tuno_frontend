@@ -1,5 +1,6 @@
 import React from 'react'
 import BreadcumbBg from "../assets/img/bg/team-bg-2.jpg";
+import { Link } from 'react-router-dom';
 function Breadcumbs(props) {
   return (
     <>
@@ -66,9 +67,9 @@ function Breadcumbs(props) {
                                         }}
                                     >
                                         <li>
-                                            <a href="index.html" className="text-decoration-none">
+                                            <Link to="/" className="text-decoration-none">
                                                 {props.prevLink}
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>{props.currentLink}</li>
                                     </ul>

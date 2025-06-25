@@ -9,10 +9,13 @@ import recent_post_1_1 from "../assets/img/blog/recent-post-1-1.jpg";
 import recent_post_1_2 from "../assets/img/blog/recent-post-1-2.jpg";
 import recent_post_1_3 from "../assets/img/blog/recent-post-1-3.jpg";
 import { Link } from "react-router-dom";
+import Breadcumbs from "../components/Breadcumbs";
 
 const BlogDetails = () => {
   return (
     <React.Fragment>
+      <Breadcumbs prevLink="Home" currentLink="Blog Details" pageTitle="Blog Details" />
+    
       <section className="th-blog-wrapper blog-details space-top space-extra-bottom">
         <div className="container">
           <div className="row gx-40">

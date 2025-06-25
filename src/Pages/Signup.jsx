@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import ConsultingThumb11 from "../assets/img/normal/consulting-thumb1-1.jpg";
+import Breadcumbs from '../components/Breadcumbs';
 function Signup() {
     const [userData, setUserData] = useState({
         name: '',
@@ -13,6 +14,7 @@ function Signup() {
     }
   return (
     <>
+        <Breadcumbs prevLink="Home" currentLink="Sign up" pageTitle="Sign up" />
         <div className="space-bottom overflow-hidden contact-area-1 position-relative z-index-common" id="contact-sec">
         <div className="container">
             <div className="consulting-wrap1 bg-smoke">

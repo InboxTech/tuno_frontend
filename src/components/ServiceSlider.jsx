@@ -33,27 +33,40 @@ const sliderSettings = {
   prevArrow: <PrevArrow />,
   responsive: [
     {
-      breakpoint: 1600,
-      settings: { slidesToShow: 3 },
+      breakpoint: 1600, // screen <= 1600px
+      settings: {
+        slidesToShow: 3,
+      },
     },
     {
-      breakpoint: 1300,
-      settings: { slidesToShow: 3 },
+      breakpoint: 1200, // screen <= 1200px
+      settings: {
+        slidesToShow: 3,
+      },
     },
     {
-      breakpoint: 1200,
-      settings: { slidesToShow: 3 },
+      breakpoint: 992, // screen <= 992px
+      settings: {
+        slidesToShow: 2,
+      },
     },
     {
-      breakpoint: 767,
-      settings: { slidesToShow: 2 },
+      breakpoint: 768, // screen <= 768px
+      settings: {
+        slidesToShow: 2,
+      },
     },
     {
-      breakpoint: 0,
-      settings: { slidesToShow: 1 },
+      breakpoint: 576, // screen <= 576px
+      settings: {
+        slidesToShow: 1,
+        arrows: false, // optional: hide arrows on small devices
+        dots: true,    // optional: show dots instead
+      },
     },
   ],
 };
+
 
 const services = [
   {
