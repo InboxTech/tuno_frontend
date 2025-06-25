@@ -11,6 +11,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import About from './components/About'
 import Service from './components/Service'
+import Signup from './Pages/Signup'
+import Servicedetails from './components/Servicedetails'
 import { useEffect } from "react";
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
       <Home />
       <About/>
       <Service/>
+      <Servicedetails />
+      <Signup />
       <Footer />
       <ScrollToTop />
       <Preloader />

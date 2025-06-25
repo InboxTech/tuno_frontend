@@ -17810,6 +17810,16 @@ span.select2-selection.select2-selection--single:focus {
   background-color: var(--white-color);
   border: 1px solid var(--light-color);
 }
+.accordion-button .icon::before {
+    content: "+";
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.accordion-button:not(.collapsed) .icon::before {
+    content: "−"; /* this is the Unicode minus sign */
+}
 @media (max-width: 1199px) {
   .accordion-card.style3 {
     padding-bottom: 13px;

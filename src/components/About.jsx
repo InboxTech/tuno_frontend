@@ -620,7 +620,8 @@ function About() {
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1"
                                         aria-expanded="true" aria-controls="collapse-1">
                                             What industries does TUNO support? 
-                                        </button></div>
+                                        </button>
+                                           <span class="icon ms-auto"></span> </div>
                                 <div id="collapse-1" className="accordion-collapse collapse show" aria-labelledby="collapse-item-1"
                                     data-bs-parent="#faqAccordion">
                                     <div className="accordion-body">
@@ -633,6 +634,7 @@ function About() {
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2"
                                         aria-expanded="false" aria-controls="collapse-2">Can I integrate TUNO with my existing systems? </button>
+                                           <span class="icon ms-auto"></span> 
                                 </div>
                                 <div id="collapse-2" className="accordion-collapse collapse" aria-labelledby="collapse-item-2"
                                     data-bs-parent="#faqAccordion">
@@ -646,6 +648,7 @@ function About() {
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3"
                                         aria-expanded="false" aria-controls="collapse-3">What languages and accents are supported? </button>
+                                           <span class="icon ms-auto"></span> 
                                 </div>
                                 <div id="collapse-3" className="accordion-collapse collapse" aria-labelledby="collapse-item-3"
                                     data-bs-parent="#faqAccordion">
@@ -659,6 +662,7 @@ function About() {
                                     <button className="accordion-button collapsed"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4"
                                         aria-expanded="false" aria-controls="collapse-4">Is voice data secure with TUNO? </button>
+                                           <span class="icon ms-auto"></span> 
                                 </div>
                                 <div id="collapse-4" className="accordion-collapse collapse" aria-labelledby="collapse-item-4"
                                     data-bs-parent="#faqAccordion">

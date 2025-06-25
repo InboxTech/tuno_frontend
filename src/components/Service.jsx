@@ -1,5 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react'
 import Breadcumbs from "./Breadcumbs";
+import Pricing from "./Pricing";
+import Testimonial from "./Testimonial";
 import ServiceIcon11 from "../assets/img/icon/service/service_icon_1_1.svg";
 import ServiceIcon12 from "../assets/img/icon/service/service_icon_1_2.svg";
 import ServiceIcon13 from "../assets/img/icon/service/service_icon_1_3.svg";
@@ -60,7 +62,7 @@ function Service() {
                     </div>
                 </div>
             </div>
-            <div className="row gy-4 justify-content-center">
+            <div className="row gy-4 justify-content-center" data-aos="fade-up">
                 <div className="col-xxl-3 col-xl-4 col-md-6">
                     <div className="service-card">
                         <div className="box-icon">
@@ -197,6 +199,9 @@ function Service() {
                 </div>
             </div>
         </div>
+
+        <Pricing/>
+        <Testimonial/>
     </>
   )
 }
