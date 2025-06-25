@@ -1,5 +1,6 @@
 import React from 'react'
 import BreadcumbBg from "../assets/img/bg/team-bg-2.jpg";
+import {Link} from "react-router-dom";
 function Breadcumbs(props) {
   return (
     <>

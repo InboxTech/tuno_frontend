@@ -50,10 +50,10 @@ const Header = () => {
                         <Link to="#">Services</Link>
                         <ul className="sub-menu">
                           <li>
-                            <Link to="service.html">Services</Link>
+                            <Link to="/service">Services</Link>
                           </li>
                           <li>
-                            <Link to="service.html">Services Details</Link>
+                            <Link to="/service-details">Services Details</Link>
                           </li>
                         </ul>
                       </li>

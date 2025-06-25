@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcumbs from './Breadcumbs'
+import Breadcumbs from '../components/Breadcumbs'
 import Services11 from '../assets/img/service/service-s-1-1.jpg'
 import Services12 from '../assets/img/service/service-s-1-2.jpg'
 import Services13 from '../assets/img/service/service-s-1-3.jpg'

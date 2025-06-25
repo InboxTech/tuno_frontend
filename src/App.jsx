@@ -4,10 +4,10 @@ import "./assets/css/style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./assets/css/fontawesome.min.css";
 import 'aos/dist/aos.css';
-import About from './components/About'
-import Service from './components/Service'
+// import About from './Pages/About'
+import Service from './Pages/Service'
 import Signup from './Pages/Signup'
-import Servicedetails from './components/Servicedetails'
+import Servicedetails from './Pages/Servicedetails'
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AOS from 'aos';
@@ -19,7 +19,7 @@ import Preloader from "./components/Preloader";
 
 // Pages
 import Home from "./Pages/Home";
-import About from "./components/About";
+import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import ProjectDetails from "./Pages/ProjectDetails";
 import BlogDetails from "./Pages/BlogDetails";
@@ -95,11 +95,41 @@ function App() {
       ),
     },
      {
+      path: "/service",
+      element: (
+        <>
+          <Header />
+          <Service />
+          <Footer />
+        </>
+      ),
+    },
+     {
+      path: "/service-details",
+      element: (
+        <>
+          <Header />
+          <Servicedetails />
+          <Footer />
+        </>
+      ),
+    },
+     {
       path: "/login",
       element: (
         <>
           <Header />
           <Login />
+         
+        </>
+      ),
+    },
+     {
+      path: "/signup",
+      element: (
+        <>
+          <Header />
+          <Signup />
          
         </>
       ),
@@ -111,13 +141,13 @@ function App() {
   return (
     <>
       {/* <VoiceTranslaterTabing /> */}
-      <Header />
+      {/* <Header />
       <Home />
-      <About/>
-      <Service/>
-      <Servicedetails />
-      <Signup />
-      <Footer />
+      <About/> */}
+      {/* <Service/>
+      <Servicedetails /> */}
+     
+      {/* <Footer /> */}
       <RouterProvider router={router} />
       <ScrollToTop />
       <Preloader />
