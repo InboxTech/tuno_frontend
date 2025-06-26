@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeaderBackgroundImg from "../assets/img/theme-img/header3-bg-shape.png";
 import Logo from "../assets/img/logo2.svg";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
 
 

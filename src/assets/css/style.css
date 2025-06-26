@@ -2359,6 +2359,38 @@ textarea.is-invalid {
   display: inline-block;
   overflow: hidden;
 }
+.menu-item-has-children {
+  position: relative;
+}
+
+.menu-item-has-children .sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  background-color: #fff;
+  min-width: 220px;
+  padding: 10px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.menu-item-has-children:hover .sub-menu {
+  display: block;
+}
+
+.sub-menu li {
+  position: relative;
+}
+
+.sub-menu li a {
+  display: block;
+  padding: 8px 20px;
+  white-space: nowrap;
+  color: #333;
+}
+
+
 
 .scroll-reveal-text .word {
   display: inline-block;
