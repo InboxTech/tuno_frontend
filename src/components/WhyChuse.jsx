@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect,useRef} from "react";
 import whyThumb31 from "../assets/img/normal/why-thumb3-1.jpg";
 import WhyThumbShap31 from "../assets/img/shape/why-thumb-shape3-1.png";
 import whyThumbShape32 from "../assets/img/shape/why-thumb-shape3-2.png";
@@ -6,6 +6,30 @@ import WhyBg31 from "../assets/img/bg/why-bg-3-1.png";
 import whyThumb32 from "../assets/img/normal/why-thumb3-2.jpg";
 
 const WhyChuse = () => {
+  const title ="Our 4-Step Process for Delivering AI Solutions"
+        const delay = 50;
+    
+       const titleRef = useRef(null);
+        const [titleVisible, setPTitleVisible] = useState(false);
+        //work process title intersersection observer
+              useEffect(() => {
+                const observerTitle = new IntersectionObserver(
+                  ([entry]) => {
+                    if (entry.isIntersecting) {
+                      setPTitleVisible(true);
+                      observerTitle.disconnect();
+                    }
+                  },
+                  { threshold: 0.3 } // Start animation when 30% of the heading is visible
+                );
+            
+                if (titleRef.current) {
+                  observerTitle.observe(titleRef.current);
+                }
+            
+                return () => observerTitle.disconnect();
+                
+              }, []);
   return (
     <React.Fragment>
       <section className="why-sec3 overflow-hidden">
@@ -56,9 +80,16 @@ const WhyChuse = () => {
                   <span className="sub-title2 text-gradient text-uppercase mb-30">
                     Why Choose Us
                   </span>
-                  <h2 className="sec-title style2 fw-bold text-uppercase text-anim2">
-                    Empowering Businesses with Cutting-Edge AI Solutions to
-                    Drive Innovation.
+                  <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
+                   {title.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms` }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
                   </h2>
                   <p>
                     TUNO is your cutting-edge technology partner in the AI voice

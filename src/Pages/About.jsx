@@ -226,7 +226,7 @@ function About() {
                                                 d="M150,150 m-125,0 a125,125 0 1,1 250,0 a125,125 0 1,1 -250,0"
                                             />
                                             </defs>
-                                            <text fill="#000" fontSize="14" fontFamily="Arial">
+                                            <text fill="#fff" fontSize="22" fontFamily="Arial">
                                             <textPath href="#circlePath" startOffset="0">
                                                 TUNO - AI AND AUTOMATION INTEGRATION.
                                             </textPath>
@@ -254,7 +254,7 @@ function About() {
                                             <span
                                                 key={index}
                                                 className={`animated-letter ${aboutVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms` }}
+                                                style={{ animationDelay: `${index * delay}ms`,fontSize: '66px' }}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
                                                 </span>

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect,useRef} from "react";
 import team_1_2 from "../assets/img/team/team_1_2.png";
 import team_1_4 from "../assets/img/team/team_1_4.png";
 import team_1_6 from "../assets/img/team/team_1_6.png";
@@ -9,6 +9,11 @@ import team_1_5 from "../assets/img/team/team_1_5.png";
 import team_1_8 from "../assets/img/team/team_1_8.png";
 import teamBackground from "../assets/img/bg/team-bg-3.jpg";
 import teamCard2_shape from "../assets/img/shape/team-card2-shape.png";
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const teamMembers = [
   {
     name: "Alex Javed",
@@ -93,6 +98,30 @@ const teamMembers = [
 ];
 
 const Teams = () => {
+  const title ="Expert Team"
+          const delay = 50;
+      
+         const titleRef = useRef(null);
+          const [titleVisible, setPTitleVisible] = useState(false);
+          //work process title intersersection observer
+                useEffect(() => {
+                  const observerTitle = new IntersectionObserver(
+                    ([entry]) => {
+                      if (entry.isIntersecting) {
+                        setPTitleVisible(true);
+                        observerTitle.disconnect();
+                      }
+                    },
+                    { threshold: 0.3 } // Start animation when 30% of the heading is visible
+                  );
+              
+                  if (titleRef.current) {
+                    observerTitle.observe(titleRef.current);
+                  }
+              
+                  return () => observerTitle.disconnect();
+                  
+                }, []);
   return (
     <section
       className="space overflow-hidden team-area-2 team-bg-gradient-overlay"
@@ -109,8 +138,17 @@ const Teams = () => {
               <span className="sub-title2 text-gradient text-uppercase mb-30">
                 AI Expert Team
               </span>
-              <h2 className="sec-title text-white fw-bold text-uppercase text-anim2">
-                Expert Team
+              <h2 ref={titleRef } className="sec-title text-white fw-bold text-uppercase text-anim2">
+                
+                 {title.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms` }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
               </h2>
             </div>
           </div>
@@ -140,16 +178,16 @@ const Teams = () => {
                 </div>
                 <div className="th-social">
                   <a target="_blank" href={member.links.facebook}>
-                    <i className="fab fa-facebook-f" />
+                    <FontAwesomeIcon icon={faFacebookF} />
                   </a>
                   <a target="_blank" href={member.links.twitter}>
-                    <i className="fab fa-twitter" />
+                   <FontAwesomeIcon icon={faTwitter}  />
                   </a>
                   <a target="_blank" href={member.links.instagram}>
-                    <i className="fab fa-instagram" />
+                   <FontAwesomeIcon icon={faInstagram} />
                   </a>
                   <a target="_blank" href={member.links.whatsapp}>
-                    <i className="fab fa-whatsapp" />
+                    <FontAwesomeIcon icon={faWhatsapp}  />
                   </a>
                 </div>
               </div>

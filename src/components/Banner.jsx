@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect,useRef} from "react";
 import HeroBgThree from "../assets/img/hero/hero-bg3.png";
 import ThumbalanImg from "../assets/img/hero/hero-thumb3-mask.png";
 import hero_thumb_3_2 from "../assets/img/hero/banner.png";
@@ -6,6 +6,78 @@ import hero_thumb_3_1 from "../assets/img/hero/hero_thumb_3_1.jpg";
 import heroPlayArrow3 from "../assets/img/hero/hero-play-arrow3.svg";
 import BaneerModel from "./model/BannerModel";
 const Banner = () => {
+  const bannerTitle1= "Redefining Voice";
+  const bannerTitle2= "with Smart AI Tech";
+  const bannerText = "TUNO unlocks business potential with AI-powered voice tech that accelerates service and streamlines tasks."
+   const delay = 50;
+  const title1Ref = useRef(null);
+  const title2Ref = useRef(null);
+  const bannerTextRef = useRef(null);
+   const [title1Visible, setTitle1Visible] = useState(false);
+   const [title2Visible, setTitle2Visible] = useState(false);
+   const [bannerTextVisible, setBannerTextVisible] = useState(false);
+
+    //title 1 intersersection observer
+     useEffect(() => {
+       const observerTitle1 = new IntersectionObserver(
+         ([entry]) => {
+           if (entry.isIntersecting) {
+             setTitle1Visible(true);
+             observerTitle1.disconnect();
+           }
+         },
+         { threshold: 0.3 } // Start animation when 30% of the heading is visible
+       );
+   
+       if (title1Ref.current) {
+         observerTitle1.observe(title1Ref.current);
+       }
+   
+       return () => observerTitle1.disconnect();
+       
+     }, []);
+
+     
+    //title 2 intersersection observer
+     useEffect(() => {
+       const observerTitle2 = new IntersectionObserver(
+         ([entry]) => {
+           if (entry.isIntersecting) {
+             setTitle2Visible(true);
+             observerTitle2.disconnect();
+           }
+         },
+         { threshold: 0.3 } // Start animation when 30% of the heading is visible
+       );
+   
+       if (title2Ref.current) {
+         observerTitle2.observe(title2Ref.current);
+       }
+   
+       return () => observerTitle2.disconnect();
+       
+     }, []);
+
+     //banner text intersersection observer
+     useEffect(() => {
+       const observerBannerText= new IntersectionObserver(
+         ([entry]) => {
+           if (entry.isIntersecting) {
+             setBannerTextVisible(true);
+             observerBannerText.disconnect();
+           }
+         },
+         { threshold: 0.3 } // Start animation when 30% of the heading is visible
+       );
+   
+       if (bannerTextRef.current) {
+         observerBannerText.observe(bannerTextRef.current);
+       }
+   
+       return () => observerBannerText.disconnect();
+       
+     }, []);
+
   return (
     <React.Fragment>
       <div
@@ -38,42 +110,36 @@ const Banner = () => {
                     <div
                       style={{ position: "relative", display: "inline-block" }}
                     >
-                      <div
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          translate: "none",
-                          rotate: "none",
-                          scale: "none",
-                          opacity: 1,
-                          visibility: "inherit",
-                          transform: "translate(0px, 0px)",
-                        }}
-                      >
-                        Redefining Voice
-                      </div>
-                    </div>{" "}
+                       <div ref={title1Ref} className="animated-text-container">
+                          {bannerTitle1.split("").map((letter, index) => (
+                            <span
+                              key={index}
+                              className={`animated-letter ${title1Visible ? "visible" : ""}`}
+                              style={{ animationDelay: `${index * delay}ms` }}
+                            >
+                              {letter === " " ? "\u00A0" : letter}
+                            </span>
+                          ))}
+                        </div>
+                    </div>
                     <span className="hero-text-thumb">
                       <img src={hero_thumb_3_1} alt="img" />
                     </span>
                     <div
                       style={{ position: "relative", display: "inline-block" }}
                     >
-                      <div
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          translate: "none",
-                          rotate: "none",
-                          scale: "none",
-                          opacity: 1,
-                          visibility: "inherit",
-                          transform: "translate(0px, 0px)",
-                        }}
-                      >
-                        with Smart AI Tech
+                     <div ref={title2Ref} className="animated-text-container">
+                        {bannerTitle2.split("").map((letter, index) => (
+                          <span
+                            key={index}
+                            className={`animated-letter ${title2Visible ? "visible" : ""}`}
+                            style={{ animationDelay: `${index * delay}ms` }}
+                          >
+                            {letter === " " ? "\u00A0" : letter}
+                          </span>
+                        ))}
                       </div>
-                    </div>{" "}
+                    </div>
                   </h1>
                   <div className="hero-content-wrap">
                     <p
@@ -96,7 +162,7 @@ const Banner = () => {
                           display: "inline-block",
                         }}
                       >
-                        <div
+                        <div ref={bannerTextRef}
                           style={{
                             position: "relative",
                             display: "inline-block",
@@ -108,8 +174,15 @@ const Banner = () => {
                             transform: "translate(0px, 0px)",
                           }}
                         >
-                          TUNO unlocks business potential with AI-powered voice
-                          tech that accelerates service and streamlines tasks.
+                           {bannerText.split("").map((letter, index) => (
+                          <span
+                            key={index}
+                            className={`animated-letter ${bannerTextVisible ? "visible" : ""}`}
+                            style={{ animationDelay: `${index * delay}ms`, fontSize: "1.05rem" }}
+                          >
+                            {letter === " " ? "\u00A0" : letter}
+                          </span>
+                        ))}
                         </div>
                       </div>{" "}
                     </p>

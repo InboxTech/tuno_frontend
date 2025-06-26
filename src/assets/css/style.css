@@ -22337,8 +22337,8 @@ span.select2-selection.select2-selection--single:focus {
 
 /* Animated letters for headings of about section */
 .animated-letter {
-  opacity: 0;
   display: inline-block;
+  opacity: 0;
   transform: translateY(20px);
   font-size: 55px;
 }
@@ -22358,3 +22358,41 @@ span.select2-selection.select2-selection--single:focus {
   display: inline-block;
   overflow: hidden;
 } */
+
+.form-input{
+  position: relative;
+}
+.form-icon{
+  position: absolute;
+  right: 5%;
+  top: 25px;
+}
+
+
+.animated-text-container {
+  display: inline-block;
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.animated-text-container .animated-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards ease-out;
+  font-size: 104px;
+}
+
+.animated-text-container .animated-letter.visible {
+  opacity: 1;
+}
+
+@keyframes fadeInUp {
+  /* from {
+    opacity: 0;
+    transform: translateY(20px);
+  } */
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

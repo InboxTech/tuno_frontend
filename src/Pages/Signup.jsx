@@ -1,6 +1,14 @@
 import React,{useState} from 'react'
 import ConsultingThumb11 from "../assets/img/normal/consulting-thumb1-1.jpg";
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import {faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 function Signup() {
+  const [showPassword, setShowPassword] = useState(false);
+
     const [userData, setUserData] = useState({
         name: '',
         email: '',
@@ -32,20 +40,33 @@ function Signup() {
                                     className="contact-form ajax-contact">
                                     <div className="row">
                                         <div className="form-group style-border col-md-12">
-                                            <input type="text" className="form-control" name="name" id="name" value={userData.name} onChange={handleChange} placeholder="Enter Your Name" required/> 
-                                            <i className="far fa-user"></i>
+                                            <input type="text" className="form-control form-input" name="name" id="name" value={userData.name} onChange={handleChange} placeholder="Enter Your Name" required/> 
+                                            <FontAwesomeIcon icon={faUser} className="form-icon"  />
                                             </div>
                                         <div className="form-group style-border col-md-12">
-                                            <input type="email" className="form-control" name="email" id="email" value={userData.email} onChange={handleChange} placeholder="Enter Your Email Address" required/>
-                                             <i className="far fa-envelope"></i>
+                                            <input type="email" className="form-control form-input" name="email" id="email" value={userData.email} onChange={handleChange} placeholder="Enter Your Email Address" required/>
+                                             <FontAwesomeIcon icon={faEnvelope} className="form-icon"  />
                                             </div>
                                               <div className="form-group style-border col-md-12">
-                                            <input type="number" className="form-control" name="number" id="number" value={userData.number} onChange={handleChange} placeholder="Enter Your Phone Number" required/> 
-                                            <i className="far fa-phone"></i></div>
-                                              <div className="form-group style-border col-md-12">
-                                            <input type="password" className="form-control" name="password" id="password" value={userData.password} onChange={handleChange} placeholder="Enter Your Password" required/>
-                                             <i className="far fa-lock"></i>
+                                            <input type="number" className="form-control form-input" name="number" id="number" value={userData.number} onChange={handleChange} placeholder="Enter Your Phone Number" required/> 
+                                            <FontAwesomeIcon icon={faPhone} className="form-icon"  />
                                             </div>
+                                               <div className="form-group style-border col-md-12">
+                                                    <input
+                                                    type={showPassword ? "text" : "password"}
+                                                        className="form-control form-input"
+                                                        name="password"
+                                                        id="password"
+                                                        value={userData.password}
+                                                        onChange={handleChange}
+                                                        placeholder="Your password"
+                                                    />
+                                                    {/* <i className="far fa-user far" /> */}
+                                                    <FontAwesomeIcon  icon={showPassword ? faEyeSlash : faEye}
+                                                        onClick={() => setShowPassword((prev) => !prev)}
+                                                        className="form-icon"
+                                                        style={{ transform: 'translateY(-50%)', cursor: 'pointer'}} />
+                                                    </div>
                                       
                                         {/* <div className="form-group style-border col-md-6">
                                             <select name="subject" id="subject" className="form-select bg-white">
@@ -63,9 +84,14 @@ function Signup() {
                                             <textarea name="message" id="message" cols="30" rows="3" className="form-control"
                                                 placeholder="How can we help you? feel free to get in touch!*"></textarea>
                                         </div> */}
-                                        <div className="form-btn col-12"><button className="th-btn style5">
+                                        <div className="mb-4">
+                                            Already have an account? <Link to="/login">Login</Link>
+                                            </div>
+                                        <div className="form-btn col-12">
+                                            <button className="th-btn style5 fs-5">
                                             Signup
                                         </button></div>
+                                        
                                         
                                     </div>
                                     <p className="form-messages mb-0 mt-3"></p>
