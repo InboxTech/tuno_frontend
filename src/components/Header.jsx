@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import HeaderBackgroundImg from "../assets/img/theme-img/header3-bg-shape.png";
 import Logo from "../assets/img/logo2.svg";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+import MobileSidebar from "./MobileSidebar";
 
 
 const Header = () => {
@@ -138,9 +139,8 @@ const Header = () => {
                   </nav>
                   <div className="header-button d-flex d-lg-none">
                     <div className="sidebar-btn">
-                      <button type="button" className="th-menu-toggle icon-btn">
-                        <i className="far fa-bars" />
-                      </button>
+                      
+                      <MobileSidebar />
                     </div>
                   </div>
                 </div>

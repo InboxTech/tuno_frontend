@@ -1,9 +1,13 @@
 import React from "react";
 import consultingThumb1_1 from "../assets/img/normal/consulting-thumb1-1.jpg"
+import Breadcumbs from "../components/Breadcumbs";
 
 const Contact = () => {
   return (
     <React.Fragment>
+       
+       <Breadcumbs prevLink="Home" currentLink="Contact" pageTitle="Contact" />
+
       {/* conatact Info  ====> */}
 
       <div

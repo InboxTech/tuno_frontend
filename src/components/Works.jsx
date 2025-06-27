@@ -98,7 +98,7 @@ const Work = () => {
       >
         <MarqueeSlider wrapClass="marquee-wrap2" bgColor="bg-gradient" />
         <MarqueeSlider wrapClass="marquee-wrap3" bgColor="bg-gray" />
-        <MarqueeSlider wrapClass="marquee-wrap3" bgColor="bg-gradient" />
+        {/* <MarqueeSlider wrapClass="marquee-wrap3" bgColor="bg-gradient" /> */}
       </div>
       <section
         className="space-bottom overflow-hidden position-relative"

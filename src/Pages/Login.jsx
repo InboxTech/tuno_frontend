@@ -2,10 +2,13 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import LoginImg from "../assets/img/normal/about-thumb4-1.jpg";
 import { Link } from "react-router-dom";
+import Breadcumbs from "../components/Breadcumbs";
 
 const Login = () => {
   return (
     <React.Fragment>
+      <Breadcumbs prevLink="Home" currentLink="Login" pageTitle="Login" />
+
       <div className="space">
         <Container>
           <div className="consulting-wrap1 bg-smoke">
@@ -45,7 +48,7 @@ const Login = () => {
                           <i class="fa-solid fa-lock" />
                         </div>
                        <div className="mb-4">
-                        Don’t have an account ? <Link to="#">Sign Up</Link> 
+                        Don’t have an account ? <Link to="/signup">Sign Up</Link> 
                        </div>
 
                         <div className="form-btn col-12">

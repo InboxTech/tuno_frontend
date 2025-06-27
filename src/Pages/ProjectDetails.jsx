@@ -8,10 +8,13 @@ import project_s_1_2 from "../assets/img/project/project-s-1-2.jpg";
 import project_s_1_3 from "../assets/img/project/project-s-1-3.jpg";
 import project_s_1_4 from "../assets/img/project/project-s-1-4.jpg";
 import project_s_1_5 from "../assets/img/project/project-s-1-5.jpg";
+import Breadcumbs from "../components/Breadcumbs";
 
 const ProjectDetails = () => {
   return (
     <React.Fragment>
+      <Breadcumbs prevLink="Home" currentLink="Project Details" pageTitle="Project Details" />
+
       <section className="space-top space-extra-bottom">
         <div className="container">
           <div className="row gx-40">

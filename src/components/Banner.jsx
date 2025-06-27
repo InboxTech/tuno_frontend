@@ -1,10 +1,11 @@
 import React from "react";
 import HeroBgThree from "../assets/img/hero/hero-bg3.png";
 import ThumbalanImg from "../assets/img/hero/hero-thumb3-mask.png";
-import hero_thumb_3_2 from "../assets/img/hero/banner.png";
+import hero_thumb_3_2 from "../assets/img/hero/bannerNew.jpg";
 import hero_thumb_3_1 from "../assets/img/hero/hero_thumb_3_1.jpg";
 import heroPlayArrow3 from "../assets/img/hero/hero-play-arrow3.svg";
 import BaneerModel from "./model/BannerModel";
+import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <React.Fragment>
@@ -127,10 +128,10 @@ const Banner = () => {
                         animationFillMode: "both",
                       }}
                     >
-                      <a href="/contact" className="th-btn style-gradient">
+                      <Link to="/contact" className="th-btn style-gradient">
                         Get Started Now{" "}
                         <i className="far fa-long-arrow-right ms-2" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
