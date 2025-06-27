@@ -3,30 +3,30 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./assets/css/fontawesome.min.css";
+// requred libraries
+import AOS from 'aos';
 import 'aos/dist/aos.css';
-import About from './components/About'
-// import Service from './components/Service'
-// import Signup from './Pages/Signup'
-// import Servicedetails from './components/Servicedetails'
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AOS from 'aos';
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop "
 import Preloader from "./components/Preloader";
-
 // Pages
 import Home from "./Pages/Home";
-// import About from "./components/About";
+import About from "./Pages/About";
+import Service from './Pages/Service'
+import Servicedetails from './Pages/Servicedetails'
 import Contact from "./Pages/Contact";
-import ProjectDetails from "./Pages/ProjectDetails";
-import BlogDetails from "./Pages/BlogDetails";
 import Blog from "./Pages/Blog";
+import BlogDetails from "./Pages/BlogDetails";
+import ProjectDetails from "./Pages/ProjectDetails";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Error from "./Pages/Error";
+
+
+
 // import other components/pages as needed
 
 function App() {
@@ -97,6 +97,26 @@ function App() {
       ),
     },
      {
+      path: "/service",
+      element: (
+        <>
+          <Header />
+          <Service />
+          <Footer />
+        </>
+      ),
+    },
+     {
+      path: "/service-details",
+      element: (
+        <>
+          <Header />
+          <Servicedetails />
+          <Footer />
+        </>
+      ),
+    },
+     {
       path: "/login",
       element: (
         <>
@@ -132,14 +152,6 @@ function App() {
 
   return (
     <>
-      {/* <VoiceTranslaterTabing /> */}
-      {/* <Header />
-      <Home />
-      <About/>
-      <Service/>
-      <Servicedetails />
-      <Signup />
-      <Footer /> */}
       <RouterProvider router={router} />
       <ScrollToTop />
       <Preloader />

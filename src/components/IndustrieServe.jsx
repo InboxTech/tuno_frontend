@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useRef,useEffect} from "react";
 import whyThumbShape31 from "../assets/img/shape/why-thumb-shape3-1.png";
 import theerOne from "../assets/img/feature/3-1.png";
 import threeTwo from "../assets/img/feature/3-2.png";
@@ -8,6 +8,30 @@ import threeFive from "../assets/img/feature/3-5.png";
 import threeSix from "../assets/img/feature/3-6.png";
 
 const IndustrieServe = () => {
+   const title ="Industries Where ai is optimizing the Processes"
+          const delay = 50;
+      
+         const titleRef = useRef(null);
+          const [titleVisible, setPTitleVisible] = useState(false);
+          //work process title intersersection observer
+                useEffect(() => {
+                  const observerTitle = new IntersectionObserver(
+                    ([entry]) => {
+                      if (entry.isIntersecting) {
+                        setPTitleVisible(true);
+                        observerTitle.disconnect();
+                      }
+                    },
+                    { threshold: 0.3 } // Start animation when 30% of the heading is visible
+                  );
+              
+                  if (titleRef.current) {
+                    observerTitle.observe(titleRef.current);
+                  }
+              
+                  return () => observerTitle.disconnect();
+                  
+                }, []);
   return (
     <React.Fragment>
       <section className="space overflow-hidden">
@@ -22,8 +46,16 @@ const IndustrieServe = () => {
                 <span className="sub-title2 text-gradient text-uppercase mb-30">
                   Industries We Serve
                 </span>
-                <h2 className="sec-title style2 fw-bold text-uppercase text-anim2">
-                  Industries Where ai is optimizing the Processes
+                <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
+                   {title.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms`, fontSize: '42px '}}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
                 </h2>
               </div>
             </div>
@@ -331,7 +363,7 @@ const IndustrieServe = () => {
                       every interaction faster, friendlier, and more
                       personalized
                     </p>
-                    
+
                     <div className="btn-wrap mt-40">
                       <a
                         className="icon-btn style4"

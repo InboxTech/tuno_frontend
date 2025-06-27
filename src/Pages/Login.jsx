@@ -1,10 +1,22 @@
-import React from "react";
+import React,{useState} from "react";
 import { Container } from "react-bootstrap";
 import LoginImg from "../assets/img/normal/about-thumb4-1.jpg";
 import { Link } from "react-router-dom";
 import Breadcumbs from "../components/Breadcumbs";
 
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLock,faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [userData, setUserData] = useState({
+          email: '',
+          password: ''
+      });
+  
+      const handleChange = (e) => {
+          setUserData({ ...userData, [e.target.name]: e.target.value})
+      }
   return (
     <React.Fragment>
       <Breadcumbs prevLink="Home" currentLink="Login" pageTitle="Login" />
@@ -21,40 +33,50 @@ const Login = () => {
               <div className="col-xxl-6">
                 <div className="consulting-form-wrap1">
                   <div className="title-area mb-20">
-                    <h2 className="sec-title">Login</h2>
+                    <h2 className="sec-title">SignIn</h2>
                   </div>
                   <div className="contact-form-v1">
                     <form className="contact-form ajax-contact">
                       <div className="row">
-                        <div className="form-group style-border col-md-12">
+                        <div className="form-group style-border col-md-12 ">
                           <input
                             type="email"
-                            className="form-control"
+                            className="form-control form-input"
                             name="email"
                             id="email"
+                            value={userData.email}
+                            onChange={handleChange}
                             placeholder="Email Address"
+
                           />
-                          <i className="far fa-envelope" />
+                         <FontAwesomeIcon icon={faEnvelope} className="form-icon"  />
                         </div>
                         <div className="form-group style-border col-md-12">
                           <input
-                            type="password"
-                            className="form-control"
+                           type={showPassword ? "text" : "password"}
+                            className="form-control form-input"
                             name="password"
                             id="password"
+                            value={userData.password}
+                            onChange={handleChange}
                             placeholder="Your password"
                           />
                           {/* <i className="far fa-user far" /> */}
-                          <i class="fa-solid fa-lock" />
+                        <FontAwesomeIcon  icon={showPassword ? faEyeSlash : faEye}
+                            onClick={() => setShowPassword((prev) => !prev)}
+                            className="form-icon"
+                            style={{ transform: 'translateY(-50%)', cursor: 'pointer'}} />
                         </div>
                        <div className="mb-4">
                         Don’t have an account ? <Link to="/signup">Sign Up</Link> 
                        </div>
 
                         <div className="form-btn col-12">
-                          <button className="th-btn style5">
-                            Submit 
+                          <button className="th-btn style5 fs-5">
+                            Signin 
                           </button>
+
+                          
                         </div>
                       </div>
                       <p className="form-messages mb-0 mt-3" />
@@ -65,6 +87,8 @@ const Login = () => {
             </div>
           </div>
         </Container>
+
+        {userData.email}  {userData.password}
       </div>
     </React.Fragment>
   );

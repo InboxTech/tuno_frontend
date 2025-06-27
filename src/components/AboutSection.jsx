@@ -1,4 +1,6 @@
-import React from "react";
+import React,{useState} from "react";
+import CountUp from 'react-countup';
+
 import wave1 from "../assets/img/shape/wave1.png";
 import wave2 from "../assets/img/shape/wave2.png";
 import aboutThumb32Shape from "../assets/img/shape/about-thumb3-2-shape.jpg";
@@ -10,6 +12,7 @@ import aboutThumb33 from "../assets/img/normal/about-thumb3-3.jpg";
 import checkIcon12 from "../assets/img/icon/check-icon1-2.svg";
 
 const AboutSection = () => {
+   const [counterOn, setCounterOn] = useState(false)
   return (
     <div
       className="overflow-hidden space bg-black overflow-hidden shape-mockup-wrap"
@@ -56,7 +59,14 @@ const AboutSection = () => {
                 </div>
               </div>
               <div className="experience-wrap">
-                <h2 className="counter-number">24</h2>
+                <h2 className="counter-number">
+                  {!counterOn && <CountUp
+                                    start={0}
+                                    end={24}
+                                    duration={2}
+                                    enableScrollSpy
+                                />}
+                </h2>
                 <span className="box-text">Years of Experience</span>
               </div>
             </div>

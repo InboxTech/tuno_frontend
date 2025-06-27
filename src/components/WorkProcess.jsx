@@ -1,10 +1,34 @@
-import React from "react";
+import React,{useState,useEffect,useRef} from "react";
 import process_1_1 from "../assets/img/process/process_1_1.jpg";
 import process_1_2 from "../assets/img/process/process_1_2.jpg";
 import process_1_3 from "../assets/img/process/process_1_3.jpg";
 import process_1_4 from "../assets/img/process/process_1_4.jpg";
 
 const WorkProcess = () => {
+   const workProcessTitle ="Our 4-Step Process for Delivering AI Solutions"
+      const delay = 50;
+  
+     const workProcessTitleRef = useRef(null);
+      const [processTitleVisible, setProcessTitleVisible] = useState(false);
+      //work process title intersersection observer
+            useEffect(() => {
+              const observerProcessTitle = new IntersectionObserver(
+                ([entry]) => {
+                  if (entry.isIntersecting) {
+                    setProcessTitleVisible(true);
+                    observerProcessTitle.disconnect();
+                  }
+                },
+                { threshold: 0.3 } // Start animation when 30% of the heading is visible
+              );
+          
+              if (workProcessTitleRef.current) {
+                observerProcessTitle.observe(workProcessTitleRef.current);
+              }
+          
+              return () => observerProcessTitle.disconnect();
+              
+            }, []);
   return (
     <React.Fragment>
       <section className="position-relative space overflow-hidden">
@@ -16,8 +40,16 @@ const WorkProcess = () => {
                 <span className="sub-title2 text-gradient text-uppercase mb-30">
                   Work Process
                 </span>
-                <h2 className="sec-title style2 fw-bold text-uppercase text-anim2">
-                  Our 4-Step Process for Delivering AI Solutions
+                <h2 ref={workProcessTitleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
+                  {workProcessTitle.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${processTitleVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms`, fontSize: '65px' }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
                 </h2>
               </div>
             </div>

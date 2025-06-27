@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -77,6 +77,30 @@ const TestimonialSlider = () => {
     ],
   };
 
+   const title ="What Our Clients Say About us?"
+            const delay = 50;
+        
+           const titleRef = useRef(null);
+            const [titleVisible, setPTitleVisible] = useState(false);
+            //work process title intersersection observer
+                  useEffect(() => {
+                    const observerTitle = new IntersectionObserver(
+                      ([entry]) => {
+                        if (entry.isIntersecting) {
+                          setPTitleVisible(true);
+                          observerTitle.disconnect();
+                        }
+                      },
+                      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+                    );
+                
+                    if (titleRef.current) {
+                      observerTitle.observe(titleRef.current);
+                    }
+                
+                    return () => observerTitle.disconnect();
+                    
+                  }, []);
   return (
     <section
       className="overflow-hidden space"
@@ -91,8 +115,16 @@ const TestimonialSlider = () => {
             <span className="sub-title2 text-gradient text-uppercase mb-3">
               Testimonials
             </span>
-            <h2 className="sec-title style2 fw-bold text-uppercase">
-              What Our Clients Say About us?
+            <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase">
+              {title.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms`, fontSize: "3.3rem" }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
             </h2>
           </div>
           <div className="col-lg-auto justify-end d-flex gap-2">

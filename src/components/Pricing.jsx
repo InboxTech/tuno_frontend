@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import testi_bg_3_1 from "../assets/img/bg/testi-bg-3-1.png";
 import pricingCardShape2_1 from "../assets/img/shape/pricing-card-shape2-1.png";
 import price_thumb2_1 from "../assets/img/normal/price-thumb2-1.png";
@@ -163,6 +163,30 @@ const PricingCard = ({ plan, isActive }) => {
 };
 
 const Pricing = () => {
+   const title ="Competitive package best Ai Expertise"
+              const delay = 50;
+          
+             const titleRef = useRef(null);
+              const [titleVisible, setPTitleVisible] = useState(false);
+              //work process title intersersection observer
+                    useEffect(() => {
+                      const observerTitle = new IntersectionObserver(
+                        ([entry]) => {
+                          if (entry.isIntersecting) {
+                            setPTitleVisible(true);
+                            observerTitle.disconnect();
+                          }
+                        },
+                        { threshold: 0.3 } // Start animation when 30% of the heading is visible
+                      );
+                  
+                      if (titleRef.current) {
+                        observerTitle.observe(titleRef.current);
+                      }
+                  
+                      return () => observerTitle.disconnect();
+                      
+                    }, []);
   return (
     <section
       className="space overflow-hidden position-relative"
@@ -179,8 +203,16 @@ const Pricing = () => {
               <span className="sub-title2 text-gradient text-uppercase mb-30">
                 Popular Package
               </span>
-              <h2 className="sec-title style2 fw-bold text-uppercase text-anim2">
-                Competitive package best Ai Expertise
+              <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
+                {title.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms`, fontSize: "3.3rem" }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
               </h2>
             </div>
           </div>

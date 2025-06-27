@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect,useRef} from "react";
 import Slider from "react-slick";
 import serviceCard3Shape from "../assets/img/shape/service-card3-shape.png";
 import service_card_3_1 from "../assets/img/service/service_card_3_1.jpg";
@@ -88,6 +88,32 @@ const services = [
 ];
 
 const ServiceSlider = () => {
+  const serviceSliderTitle ="AI technology services aim to provide intelligent solutions."
+    const delay = 50;
+
+   const srviceTitleRef = useRef(null);
+    const [titleVisible, setTitleVisible] = useState(false);
+
+    //about intersersection observer
+      useEffect(() => {
+        const observerServiceTitle = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setTitleVisible(true);
+              observerServiceTitle.disconnect();
+            }
+          },
+          { threshold: 0.3 } // Start animation when 30% of the heading is visible
+        );
+    
+        if (srviceTitleRef.current) {
+          observerServiceTitle.observe(srviceTitleRef.current);
+        }
+    
+        return () => observerServiceTitle.disconnect();
+        
+      }, []);
+    
   return (
     <section className="service-area-3 space overflow-hidden" id="service-sec">
       <div className="container">
@@ -110,7 +136,7 @@ const ServiceSlider = () => {
                 Our Services
               </span>
 
-              <h2
+              <h2 ref={srviceTitleRef}
                 className="sec-title style2 text-uppercase fw-bold text-anim2"
                 data-cue="slideInUp"
                 data-show="true"
@@ -123,7 +149,16 @@ const ServiceSlider = () => {
                   animationFillMode: "both",
                 }}
               >
-                {" "}
+                {serviceSliderTitle.split('').map((letter, index) => (
+                                            <span
+                                                key={index}
+                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
+                                                style={{ animationDelay: `${index * delay}ms`, fontSize: '1.2em' }}
+                                                >
+                                                {letter === ' ' ? '\u00A0' : letter}
+                                                </span>
+                                        ))}
+                {/* {" "}
                 <span style={{ position: "relative", display: "inline-block" }}>
                   AI
                 </span>{" "}
@@ -147,7 +182,7 @@ const ServiceSlider = () => {
                 </span>{" "}
                 <span style={{ position: "relative", display: "inline-block" }}>
                   solutions.
-                </span>
+                </span> */}
               </h2>
             </div>
           </div>

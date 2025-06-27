@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react'
-import Breadcumbs from "./Breadcumbs";
-import Pricing from "./Pricing";
-import Testimonial from "./Testimonial";
+import Breadcumbs from "../components/Breadcumbs";
+import Pricing from "../components/Pricing";
+import Testimonial from "../components/Testimonial";
 import ServiceIcon11 from "../assets/img/icon/service/service_icon_1_1.svg";
 import ServiceIcon12 from "../assets/img/icon/service/service_icon_1_2.svg";
 import ServiceIcon13 from "../assets/img/icon/service/service_icon_1_3.svg";
