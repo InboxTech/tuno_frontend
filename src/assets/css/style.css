@@ -11589,6 +11589,7 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  
 }
 @media (max-width: 1399px) {
   .hero-style3 .hero-title .hero-text-thumb {
@@ -22415,7 +22416,7 @@ span.select2-selection.select2-selection--single:focus {
   display: inline-block;
   opacity: 0;
   transform: translateY(20px);
-  font-size: 55px;
+  font-size: 3.6rem;
 }
 
 .animated-letter.visible {
@@ -22454,7 +22455,7 @@ span.select2-selection.select2-selection--single:focus {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s forwards ease-out;
-  font-size: 104px;
+  font-size: 4.2rem;
 }
 
 .animated-text-container .animated-letter.visible {
@@ -22469,5 +22470,10 @@ span.select2-selection.select2-selection--single:focus {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media screen and(max-width: 768px) {
+  .animated-letter {
+    font-size: 1.5rem!important;
   }
 }

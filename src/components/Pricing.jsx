@@ -61,8 +61,8 @@ const PricingCard = ({ plan, isActive }) => {
   // const isMonthly = activeTab === "monthly";
 
   return (
-    <div className="col-xl-3 col-md-6">
-      <div className={`price-card style2 ${isActive ? "active" : ""}`}  data-aos="fade-up" data-aos-duration="2000">
+    <div className="col-xl-3 col-md-6" data-aos="fade-up">
+      <div className={`price-card style2 ${isActive ? "active" : ""}`}  >
         <div
           className="card-bg-img"
           style={{

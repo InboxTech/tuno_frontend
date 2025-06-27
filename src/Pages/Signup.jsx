@@ -1,4 +1,6 @@
 import React,{useState} from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import ConsultingThumb11 from "../assets/img/normal/consulting-thumb1-1.jpg";
 import Breadcumbs from '../components/Breadcumbs';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';

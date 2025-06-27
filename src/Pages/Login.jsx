@@ -33,7 +33,7 @@ const Login = () => {
               <div className="col-xxl-6">
                 <div className="consulting-form-wrap1">
                   <div className="title-area mb-20">
-                    <h2 className="sec-title">SignIn</h2>
+                    <h2 className="sec-title">LogIn</h2>
                   </div>
                   <div className="contact-form-v1">
                     <form className="contact-form ajax-contact">
@@ -73,10 +73,8 @@ const Login = () => {
 
                         <div className="form-btn col-12">
                           <button className="th-btn style5 fs-5">
-                            Signin 
+                           Login 
                           </button>
-
-                          
                         </div>
                       </div>
                       <p className="form-messages mb-0 mt-3" />
@@ -88,7 +86,7 @@ const Login = () => {
           </div>
         </Container>
 
-        {userData.email}  {userData.password}
+       
       </div>
     </React.Fragment>
   );

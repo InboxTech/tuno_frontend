@@ -35,13 +35,14 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Breadcumbs from "../components/Breadcumbs";
 import BlogSlider from "../components/BlogSlider";
+import BannerModel from "../components/model/BannerModel";
 function About() {
     const [counterOn, setCounterOn] = useState(false);
     const text = "Revolutionizing Voice Automation with AIDriven Precision ";
     const text2 = "How Does TUNO Work?";
     const text3_experts = "Our Expert Creative Minds";
     const text4_advancetech = "Innovation Through Voice AI Technology";
-    const text_faq = "Frequently asked questions";
+    const text_faq = "Frequently Asked Questions";
     const text_blog = "Our Latest News & Blogs";
     const delay = 50;
     const aboutHeadRef = useRef(null);
@@ -220,16 +221,10 @@ function About() {
                                             </text>
                                         </svg>
                                     </span>
+                                   
 
-                                    <a
-                                        href="https://www.youtube.com/watch?v=_sI_Ps7JSEk"
-                                        className="play-btn popup-video text-decoration-none"
-                                    >
-                                        <FontAwesomeIcon
-                                            icon={faPlay}
-                                            style={{ fontSize: "50px" }}
-                                        />
-                                    </a>
+                                   <BannerModel/>
+                                    
                                 </div>
                                 <div className="img3">
                                     <div className="thumb" data-delay="300">
@@ -260,7 +255,7 @@ function About() {
                                                     }`}
                                                 style={{
                                                     animationDelay: `${index * delay}ms`,
-                                                    fontSize: "66px",
+                                                    fontSize: "4.1rem",
                                                 }}
                                             >
                                                 {letter === " " ? "\u00A0" : letter}
@@ -471,7 +466,7 @@ function About() {
                                             key={index}
                                             className={`animated-letter ${expertHeadVisible ? "visible" : ""
                                                 }`}
-                                            style={{ animationDelay: `${index * delay}ms` }}
+                                            style={{ animationDelay: `${index * delay}ms`, fontSize: "3.5rem" }}
                                         >
                                             {letter === " " ? "\u00A0" : letter}
                                         </span>
@@ -699,7 +694,7 @@ function About() {
                                             key={index}
                                             className={`animated-letter ${advanceTechHeadVisible ? "visible" : ""
                                                 }`}
-                                            style={{ animationDelay: `${index * delay}ms` }}
+                                            style={{ animationDelay: `${index * delay}ms`, fontSize: '4.2rem' }}
                                         >
                                             {letter === " " ? "\u00A0" : letter}
                                         </span>
@@ -788,7 +783,7 @@ function About() {
                                                 }`}
                                             style={{
                                                 animationDelay: `${index * delay}ms`,
-                                                fontSize: "70px",
+                                                fontSize: '3rem'
                                             }}
                                         >
                                             {letter === " " ? "\u00A0" : letter}

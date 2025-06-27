@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import HeroBgThree from "../assets/img/hero/hero-bg3.png";
 import ThumbalanImg from "../assets/img/hero/hero-thumb3-mask.png";
 import hero_thumb_3_2 from "../assets/img/hero/bannerNew.jpg";
@@ -7,77 +7,77 @@ import heroPlayArrow3 from "../assets/img/hero/hero-play-arrow3.svg";
 import BaneerModel from "./model/BannerModel";
 import { Link } from "react-router-dom";
 const Banner = () => {
-  const bannerTitle1= "Redefining Voice";
-  const bannerTitle2= "with Smart AI Tech";
+  const bannerTitle1 = "Redefining Voice";
+  const bannerTitle2 = "with Smart AI Tech";
   const bannerText = "TUNO unlocks business potential with AI-powered voice tech that accelerates service and streamlines tasks."
-   const delay = 50;
+  const delay = 50;
   const title1Ref = useRef(null);
   const title2Ref = useRef(null);
   const bannerTextRef = useRef(null);
-   const [title1Visible, setTitle1Visible] = useState(false);
-   const [title2Visible, setTitle2Visible] = useState(false);
-   const [bannerTextVisible, setBannerTextVisible] = useState(false);
+  const [title1Visible, setTitle1Visible] = useState(false);
+  const [title2Visible, setTitle2Visible] = useState(false);
+  const [bannerTextVisible, setBannerTextVisible] = useState(false);
 
-    //title 1 intersersection observer
-     useEffect(() => {
-       const observerTitle1 = new IntersectionObserver(
-         ([entry]) => {
-           if (entry.isIntersecting) {
-             setTitle1Visible(true);
-             observerTitle1.disconnect();
-           }
-         },
-         { threshold: 0.3 } // Start animation when 30% of the heading is visible
-       );
-   
-       if (title1Ref.current) {
-         observerTitle1.observe(title1Ref.current);
-       }
-   
-       return () => observerTitle1.disconnect();
-       
-     }, []);
+  //title 1 intersersection observer
+  useEffect(() => {
+    const observerTitle1 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitle1Visible(true);
+          observerTitle1.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
 
-     
-    //title 2 intersersection observer
-     useEffect(() => {
-       const observerTitle2 = new IntersectionObserver(
-         ([entry]) => {
-           if (entry.isIntersecting) {
-             setTitle2Visible(true);
-             observerTitle2.disconnect();
-           }
-         },
-         { threshold: 0.3 } // Start animation when 30% of the heading is visible
-       );
-   
-       if (title2Ref.current) {
-         observerTitle2.observe(title2Ref.current);
-       }
-   
-       return () => observerTitle2.disconnect();
-       
-     }, []);
+    if (title1Ref.current) {
+      observerTitle1.observe(title1Ref.current);
+    }
 
-     //banner text intersersection observer
-     useEffect(() => {
-       const observerBannerText= new IntersectionObserver(
-         ([entry]) => {
-           if (entry.isIntersecting) {
-             setBannerTextVisible(true);
-             observerBannerText.disconnect();
-           }
-         },
-         { threshold: 0.3 } // Start animation when 30% of the heading is visible
-       );
-   
-       if (bannerTextRef.current) {
-         observerBannerText.observe(bannerTextRef.current);
-       }
-   
-       return () => observerBannerText.disconnect();
-       
-     }, []);
+    return () => observerTitle1.disconnect();
+
+  }, []);
+
+
+  //title 2 intersersection observer
+  useEffect(() => {
+    const observerTitle2 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitle2Visible(true);
+          observerTitle2.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (title2Ref.current) {
+      observerTitle2.observe(title2Ref.current);
+    }
+
+    return () => observerTitle2.disconnect();
+
+  }, []);
+
+  //banner text intersersection observer
+  useEffect(() => {
+    const observerBannerText = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBannerTextVisible(true);
+          observerBannerText.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (bannerTextRef.current) {
+      observerBannerText.observe(bannerTextRef.current);
+    }
+
+    return () => observerBannerText.disconnect();
+
+  }, []);
 
   return (
     <React.Fragment>
@@ -108,28 +108,28 @@ const Banner = () => {
                       animationFillMode: "both",
                     }}
                   >
-                    <div
+                    <div className="row justify-content-between align-items-center"
                       style={{ position: "relative", display: "inline-block" }}
                     >
-                       <div ref={title1Ref} className="animated-text-container">
-                          {bannerTitle1.split("").map((letter, index) => (
-                            <span
-                              key={index}
-                              className={`animated-letter ${title1Visible ? "visible" : ""}`}
-                              style={{ animationDelay: `${index * delay}ms` }}
-                            >
-                              {letter === " " ? "\u00A0" : letter}
-                            </span>
-                          ))}
-                        </div>
+                      <div ref={title1Ref} className="animated-text-container col-lg-8 col-md-6">
+                        {bannerTitle1.split("").map((letter, index) => (
+                          <span
+                            key={index}
+                            className={`animated-letter ${title1Visible ? "visible" : ""}`}
+                            style={{ animationDelay: `${index * delay}ms` }}
+                          >
+                            {letter === " " ? "\u00A0" : letter}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="hero-text-thumb col-lg-4 col-md-6">
+                        <img src={hero_thumb_3_1} alt="img"  className="w-100 h-100"/>
+                      </div>
                     </div>
-                    <span className="hero-text-thumb">
-                      <img src={hero_thumb_3_1} alt="img" />
-                    </span>
                     <div
                       style={{ position: "relative", display: "inline-block" }}
                     >
-                     <div ref={title2Ref} className="animated-text-container">
+                      <div ref={title2Ref} className="animated-text-container">
                         {bannerTitle2.split("").map((letter, index) => (
                           <span
                             key={index}
@@ -175,15 +175,15 @@ const Banner = () => {
                             transform: "translate(0px, 0px)",
                           }}
                         >
-                           {bannerText.split("").map((letter, index) => (
-                          <span
-                            key={index}
-                            className={`animated-letter ${bannerTextVisible ? "visible" : ""}`}
-                            style={{ animationDelay: `${index * delay}ms`, fontSize: "1.05rem" }}
-                          >
-                            {letter === " " ? "\u00A0" : letter}
-                          </span>
-                        ))}
+                          {bannerText.split("").map((letter, index) => (
+                            <span
+                              key={index}
+                              className={`animated-letter ${bannerTextVisible ? "visible" : ""}`}
+                              style={{ animationDelay: `${index * delay}ms`, fontSize: "1.05rem" }}
+                            >
+                              {letter === " " ? "\u00A0" : letter}
+                            </span>
+                          ))}
                         </div>
                       </div>{" "}
                     </p>

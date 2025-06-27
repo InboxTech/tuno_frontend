@@ -37,7 +37,7 @@ function MobileSidebar() {
               <i className="fal fa-times" />
             </button>
             <div className="mobile-logo mb-4">
-              <Link to="index.html">
+              <Link to="/">
                 <img src={Logo}alt="Logo" />
               </Link>
             </div>
@@ -46,16 +46,19 @@ function MobileSidebar() {
               <ul className="mobile-menu-list">
                 {/* Home */}
                 <li className={`menu-item-has-children ${openMenus.home ? "open" : ""}`}>
-                  <Link to="#" onClick={() => toggleMenu("home")}>Home</Link>
-                  {openMenus.home && (
+                  <Link to="/"
+                  //  onClick={() => toggleMenu("home")}
+                   >
+                    Home</Link>
+                  {/* {openMenus.home && (
                     <ul className="sub-menu">
                       <li className={`menu-item-has-children ${openMenus.multipage ? "open" : ""}`}>
                         <Link to="#" onClick={() => toggleMenu("multipage")}>Multipage</Link>
                         {openMenus.multipage && (
                           <ul className="sub-menu">
                             <li><Link to="index.html">Home I (AI Startup)</Link></li>
-                            <li><Link to="home-2.html">Home II (AI Technology)</Link></li>
-                            <li><Link to="home-3.html">Home III (AI Agency)</Link></li>
+                            <li><Link to="home-2.html">Home II (AI Technology)</Link></li> 
+                            <li><Link to="/">Home </Link></li>
                           </ul>
                         )}
                       </li>
@@ -70,19 +73,19 @@ function MobileSidebar() {
                         )}
                       </li>
                     </ul>
-                  )}
+                  )} */}
                 </li>
 
                 {/* About */}
-                <li><Link to="about.html">About Us</Link></li>
+                <li><Link to="/about">About Us</Link></li>
 
                 {/* Services */}
                 <li className={`menu-item-has-children ${openMenus.services ? "open" : ""}`}>
                   <Link to="#" onClick={() => toggleMenu("services")}>Services</Link>
                   {openMenus.services && (
                     <ul className="sub-menu">
-                      <li><Link to="service.html">Services</Link></li>
-                      <li><Link to="service-details.html">Service Details</Link></li>
+                      <li><Link to="/service">Services</Link></li>
+                      <li><Link to="/service-details">Service Details</Link></li>
                     </ul>
                   )}
                 </li>
@@ -120,14 +123,16 @@ function MobileSidebar() {
 
                 {/* Blog */}
                 <li className={`menu-item-has-children ${openMenus.blog ? "open" : ""}`}>
-                  <Link to="#" onClick={() => toggleMenu("blog")}>Blog</Link>
-                  {openMenus.blog && (
+                  <Link to="/blog"
+                  //  onClick={() => toggleMenu("blog")}
+                   >Blog</Link>
+                  {/* {openMenus.blog && (
                     <ul className="sub-menu">
                       <li><Link to="blog.html">Blog Standard</Link></li>
                       <li><Link to="blog-2.html">Blog Grid</Link></li>
                       <li><Link to="blog-details.html">Blog Details</Link></li>
                     </ul>
-                  )}
+                  )} */}
                 </li>
 
                 {/* Contact */}

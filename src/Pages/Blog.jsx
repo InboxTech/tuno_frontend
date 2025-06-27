@@ -1,5 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { faCalendar } from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import blog_1_1 from "../assets/img/blog/blog_1_1.jpg"
 import blog_1_2 from "../assets/img/blog/blog_1_2.jpg"
 import blog_1_3 from "../assets/img/blog/blog_1_3.jpg"
@@ -99,11 +105,11 @@ const Blog = () => {
                 <div className="blog-content">
                   <div className="blog-meta">
                     <Link to="/blog">
-                      <i className="far fa-calendar" />
+                      <FontAwesomeIcon icon={faCalendar} className="me-2"/>
                       {post.date}
                     </Link>
                     <Link to="/blog">
-                      <i className="far fa-user" />
+                      <FontAwesomeIcon icon={faUser} className="me-2"/>
                       by admin
                     </Link>
                   </div>
@@ -111,7 +117,7 @@ const Blog = () => {
                     <Link to={post.path}>{post.title}</Link>
                   </h3>
                   <Link to={post.path} className="link-btn style4">
-                    Read More <i className="fas fa-long-arrow-right ms-2" />
+                    Read More  <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" />
                   </Link>
                 </div>
               </div>
@@ -123,7 +129,7 @@ const Blog = () => {
           <ul>
             <li>
               <Link to="#">
-                <i className="far fa-arrow-left" />
+                <FontAwesomeIcon icon={faArrowLeftLong} />
               </Link>
             </li>
             <li>
@@ -134,7 +140,7 @@ const Blog = () => {
             </li>
             <li>
               <Link to="#">
-                <i className="far fa-arrow-right" />
+                 <FontAwesomeIcon icon={faArrowRightLong} />
               </Link>
             </li>
           </ul>
