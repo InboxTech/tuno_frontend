@@ -83,7 +83,7 @@ const BlogDetails = () => {
                         <strong>Sign Up:</strong> Create an Tuno account with a paid plan for access to professional voice cloning.
                       </li>
                       <li>
-                       <strong>Access Voice Cloning:</strong> Go to Settings > Voice Design > Professional Voice Cloning.
+                       <strong>Access Voice Cloning:</strong> Go to Settings &gt; Voice Design &gt; Professional Voice Cloning.
                        </li>
                       <li>
                          <strong>Upload Samples:</strong> Submit 1-3 hours of high-quality, noise-free recordings in your natural voice. Variety in tone and expression is key.
