@@ -1,12 +1,63 @@
 import React from "react";
-import consultingThumb1_1 from "../assets/img/normal/consulting-thumb1-1.jpg"
+import consultingThumb1_1 from "../assets/img/normal/consulting-thumb1-1.jpg";
 import Breadcumbs from "../components/Breadcumbs";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";  
+import { useAuth } from "../store/auth";
+import { toast, ToastContainer } from "react-toastify";
 
 const Contact = () => {
+  // Initial form values
+    const { API } = useAuth();
+  
+  const initialValues = {
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    company: "",
+    message: "",
+  };
+
+  // Validation schema
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    phone: Yup.string()
+      .matches(/^[0-9]+$/, "Must be only digits")
+      .min(10, "Phone must be at least 10 digits")
+      .required("Phone number is required"),
+    subject: Yup.string().required("Subject is required"),
+    company: Yup.string().required("Company name is required"),
+    message: Yup.string().required("Please enter a message"),
+  });
+
+ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      // Make POST request to backend
+      const response = await axios.post(`${API}/api/form/contact`, values);
+      
+      if (response.status === 200) {
+        toast.success(response.data.message || "Message sent successfully!");
+        resetForm();
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.err(
+        error.response?.data?.message || "Failed to send message. Please try again later."
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <React.Fragment>
-       
-       <Breadcumbs prevLink="Home" currentLink="Contact" pageTitle="Contact" />
+      <ToastContainer />
+      <Breadcumbs prevLink="Home" currentLink="Contact" pageTitle="Contact" />
 
       {/* conatact Info  ====> */}
 
@@ -76,7 +127,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* contact form ===> */}
+      {/* Contact Form Section */}
       <div
         className="space-bottom overflow-hidden contact-area-1 position-relative z-index-common"
         id="contact-sec"
@@ -86,10 +137,7 @@ const Contact = () => {
             <div className="row align-items-center">
               <div className="col-xxl-6">
                 <div className="page-img mb-0">
-                  <img
-                    src={consultingThumb1_1}
-                    alt="img"
-                  />
+                  <img src={consultingThumb1_1} alt="img" />
                 </div>
               </div>
               <div className="col-xxl-6">
@@ -98,98 +146,138 @@ const Contact = () => {
                     <h2 className="sec-title">Get In Touch!</h2>
                   </div>
                   <div className="contact-form-v1">
-                    <form
-                     
-                      className="contact-form ajax-contact"
+                    <Formik
+                      initialValues={initialValues}
+                      validationSchema={validationSchema}
+                      onSubmit={handleSubmit}
                     >
-                      <div className="row">
-                        <div className="form-group style-border col-md-6">
-                          <input
-                            type="text"
-                            className="form-control"
-                            name="name"
-                            id="name"
-                            placeholder="Your name"
-                          />
-                          <i className="far fa-user" />
-                        </div>
-                        <div className="form-group style-border col-md-6">
-                          <input
-                            type="email"
-                            className="form-control"
-                            name="email"
-                            id="email"
-                            placeholder="Email Address"
-                          />
-                          <i className="far fa-envelope" />
-                        </div>
-                        <div className="form-group style-border col-md-6">
-                          <input
-                            type="number"
-                            className="form-control"
-                            name="number"
-                            id="number"
-                            placeholder="Phone Number"
-                          />
-                          <i className="far fa-phone" />
-                        </div>
-                        <div className="form-group style-border col-md-6">
-                          <select
-                            name="subject"
-                            id="subject"
-                            className="form-select bg-white"
-                          >
-                            <option
-                              value
-                              disabled="disabled"
-                              selected="selected"
-                              hidden
-                            >
-                              Select Subject
-                            </option>
-                            <option value="Web Development">
-                              Web Development
-                            </option>
-                            <option value="Brand Marketing">
-                              Brand Marketing
-                            </option>
-                            <option value="UI/UX Designing">
-                              UI/UX Designing
-                            </option>
-                            <option value="Digital Marketing">
-                              Digital Marketing
-                            </option>
-                          </select>
-                        </div>
-                        <div className="form-group style-border col-12">
-                          <input
-                            type="number"
-                            className="form-control"
-                            name="number"
-                            id="number"
-                            placeholder="Company name"
-                          />
-                          <i className="far fa-circle-info" />
-                        </div>
-                        <div className="form-group style-border col-12">
-                          <textarea
-                            name="message"
-                            id="message"
-                            cols={30}
-                            rows={3}
-                            className="form-control"
-                            placeholder="How can we help you? feel free to get in touch!*"
-                            defaultValue={""}
-                          />
-                        </div>
-                        <div className="form-btn col-12">
-                          <button className="th-btn style5">
-                            Submit Message
-                          </button>
-                        </div>
-                      </div>
-                      <p className="form-messages mb-0 mt-3" />
-                    </form>
+                      {({ isSubmitting }) => (
+                        <Form className="contact-form">
+                          <div className="row">
+                            {/* Name */}
+                            <div className="form-group style-border col-md-6">
+                              <Field
+                                type="text"
+                                name="name"
+                                placeholder="Your name"
+                                className="form-control"
+                              />
+                              <i className="far fa-user" />
+                              <ErrorMessage
+                                name="name"
+                                component="div"
+                                className="text-danger small mt-1"
+                              />
+                            </div>
+
+                            {/* Email */}
+                            <div className="form-group style-border col-md-6">
+                              <Field
+                                type="email"
+                                name="email"
+                                placeholder="Email Address"
+                                className="form-control"
+                              />
+                              <i className="far fa-envelope" />
+                              <ErrorMessage
+                                name="email"
+                                component="div"
+                                className="text-danger small mt-1"
+                              />
+                            </div>
+
+                            {/* Phone */}
+                            <div className="form-group style-border col-md-6">
+                              <Field
+                                type="text"
+                                name="phone"
+                                placeholder="Phone Number"
+                                className="form-control"
+                              />
+                              <i className="far fa-phone" />
+                              <ErrorMessage
+                                name="phone"
+                                component="div"
+                                className="text-danger small mt-1"
+                              />
+                            </div>
+
+                            {/* Subject */}
+                            <div className="form-group style-border col-md-6">
+                              <Field
+                                as="select"
+                                name="subject"
+                                className="form-select bg-white"
+                              >
+                                <option value="" disabled hidden>
+                                  Select Subject
+                                </option>
+                                <option value="Web Development">
+                                  Web Development
+                                </option>
+                                <option value="Brand Marketing">
+                                  Brand Marketing
+                                </option>
+                                <option value="UI/UX Designing">
+                                  UI/UX Designing
+                                </option>
+                                <option value="Digital Marketing">
+                                  Digital Marketing
+                                </option>
+                              </Field>
+                              <ErrorMessage
+                                name="subject"
+                                component="div"
+                                className="text-danger small mt-1"
+                              />
+                            </div>
+
+                            {/* Company */}
+                            <div className="form-group style-border col-12">
+                              <Field
+                                type="text"
+                                name="company"
+                                placeholder="Company name"
+                                className="form-control"
+                              />
+                              <i className="far fa-circle-info" />
+                              <ErrorMessage
+                                name="company"
+                                component="div"
+                                className="text-danger small mt-1"
+                              />
+                            </div>
+
+                            {/* Message */}
+                            <div className="form-group style-border col-12">
+                              <Field
+                                as="textarea"
+                                name="message"
+                                rows={3}
+                                placeholder="How can we help you? feel free to get in touch!"
+                                className="form-control"
+                              />
+                              <ErrorMessage
+                                name="message"
+                                component="div"
+                                className="text-danger small mt-1"
+                              />
+                            </div>
+
+                            {/* Submit Button */}
+                            <div className="form-btn col-12">
+                              <button
+                                type="submit"
+                                className="th-btn style5"
+                                disabled={isSubmitting}
+                              >
+                                Submit Message
+                              </button>
+                            </div>
+                          </div>
+                        </Form>
+                      )}
+                    </Formik>
                   </div>
                 </div>
               </div>

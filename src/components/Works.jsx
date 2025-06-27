@@ -98,7 +98,7 @@ const Work = () => {
       >
         <MarqueeSlider wrapClass="marquee-wrap2" bgColor="bg-gradient" />
         <MarqueeSlider wrapClass="marquee-wrap3" bgColor="bg-gray" />
-        {/* <MarqueeSlider wrapClass="marquee-wrap3" bgColor="bg-gradient" /> */}
+        <MarqueeSlider wrapClass="marquee-wrap3" bgColor="bg-gradient" />
       </div>
       <section
         className="space-bottom overflow-hidden position-relative"
@@ -158,12 +158,11 @@ const Work = () => {
               className="th-slider"
             >
               {projectItems.concat(projectItems).map((item, idx) => (
-                <SwiperSlide key={idx}>
-                  <div
-                    className="project-card3"
-                    data-aos="fade-up"
-                    data-aos-duration="2000"
-                  >
+                <SwiperSlide
+                
+                  key={idx}
+                >
+                  <div className="project-card3">
                     <div
                       className="box-img"
                       style={{

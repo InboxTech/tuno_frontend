@@ -115,7 +115,7 @@ const Banner = () => {
                           {bannerTitle1.split("").map((letter, index) => (
                             <span
                               key={index}
-                              className={`animated-letter ${title1Visible ? "visible" : ""}`}
+                              className={`animated-letter hero-title ${title1Visible ? "visible" : ""}`}
                               style={{ animationDelay: `${index * delay}ms` }}
                             >
                               {letter === " " ? "\u00A0" : letter}
@@ -133,7 +133,7 @@ const Banner = () => {
                         {bannerTitle2.split("").map((letter, index) => (
                           <span
                             key={index}
-                            className={`animated-letter ${title2Visible ? "visible" : ""}`}
+                            className={`animated-letter hero-title ${title2Visible ? "visible" : ""}`}
                             style={{ animationDelay: `${index * delay}ms` }}
                           >
                             {letter === " " ? "\u00A0" : letter}
