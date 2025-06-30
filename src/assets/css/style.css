@@ -4205,13 +4205,13 @@ hr.title-line {
 .color-masking2 {
   position: relative;
   display: inline-block;
-}
+} 
 .color-masking2 .masking-src {
   position: absolute;
   inset: 0;
   mix-blend-mode: color;
   background: var(--theme-color2);
-}
+} 
 .mfp-zoom-in .mfp-content {
   opacity: 0;
   -webkit-transition: all 0.4s ease;

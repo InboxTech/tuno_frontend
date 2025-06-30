@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import serviceCard3Shape from "../assets/img/shape/service-card3-shape.png";
 import service_card_3_1 from "../assets/img/service/service_card_3_1.jpg";
 import service_card_3_2 from "../assets/img/service/service_card_3_2.jpg";
+// import machineLearning from "../assets/img/service/machine_learning_solution.jpg";
+// import dataAnalysisInsights from "../assets/img/service/data_analysis_insights.jpg";
 import service_card_3_3 from "../assets/img/service/service_card_3_3.jpg";
 import serviceCard3ThumbShape2 from "../assets/img/shape/service-card3-thumb-shape2.png";
 import ServiceShapThumbImg from "../assets/img/shape/service-card3-thumb-shape.png";
@@ -79,11 +81,11 @@ const services = [
   },
   {
     title: "Data Analytics and Insights",
-    image: service_card_3_3,
+    image:  service_card_3_3,
   },
     {
     title: "Data Analytics and Insights",
-    image: service_card_3_3,
+    image:  service_card_3_3,
   },
 ];
 
@@ -207,6 +209,12 @@ const ServiceSlider = () => {
                     style={{
                       WebkitMaskImage: `url(${ServiceShapThumbImg})`,
                       maskImage: `url(${ServiceShapThumbImg})`,
+                      WebkitMaskSize: 'cover',
+                      maskSize: 'cover',
+                      WebkitMaskPosition: 'center',
+                      maskPosition: 'center',
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskRepeat: 'no-repeat',
                     }}
                   >
                     <img src={service.image} alt="Icon" />

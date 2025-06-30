@@ -1,6 +1,8 @@
 import React from 'react'
 import Breadcumbs from '../components/Breadcumbs'
-import Services11 from '../assets/img/service/service-s-1-1.jpg'
+// import Services11 from '../assets/img/service/service-s-1-1.jpg'
+import service_details1 from '../assets/img/service/service_details1.jpg'
+
 import Services12 from '../assets/img/service/service-s-1-2.jpg'
 import Services13 from '../assets/img/service/service-s-1-3.jpg'
 
@@ -15,7 +17,7 @@ function Servicedetails() {
                 <div className="col-xl-8 col-lg-7">
                     <div className="page-single">
                         <div className="page-img gsap-parallax mb-35">
-                            <img src={Services11} alt="Service Image"/>
+                            <img src={service_details1} alt="Service Image"/>
                             </div>
                         <p className="mb-0">AI Machine Learning (ML) is a core branch of Artificial Intelligence (AI) that
                             enables computers and systems to automatically learn from data, identify patterns, and make

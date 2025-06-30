@@ -1,8 +1,14 @@
 import React,{useState,useEffect,useRef} from "react";
-import process_1_1 from "../assets/img/process/process_1_1.jpg";
-import process_1_2 from "../assets/img/process/process_1_2.jpg";
+// import process_1_1 from "../assets/img/process/process_1_1.jpg";
+import discovery_consultation from "../assets/img/process/discovery_consultation.jpg";
+
+// import process_1_2 from "../assets/img/process/process_1_2.jpg";
+import solution_design_development from "../assets/img/process/solution_design_development.jpg";
+
 import process_1_3 from "../assets/img/process/process_1_3.jpg";
-import process_1_4 from "../assets/img/process/process_1_4.jpg";
+// import process_1_4 from "../assets/img/process/process_1_4.jpg";
+import monitoring_conti_improvement from "../assets/img/process/monitoring_conti_improvement.jpg";
+
 
 const WorkProcess = () => {
    const workProcessTitle ="Our 4-Step Process for Delivering AI Solutions"
@@ -63,7 +69,7 @@ const WorkProcess = () => {
                   data-aos="fade-up"
                   data-aos-duration="2000"
                 >
-                  <img src={process_1_1} alt="img" />
+                  <img src={discovery_consultation} alt="img" />
                 </div>
               </div>
               <div
@@ -87,7 +93,7 @@ const WorkProcess = () => {
                   data-aos="fade-down"
                   data-aos-duration="2000"
                 >
-                  <img src={process_1_2} alt="img" />
+                  <img src={solution_design_development} alt="img" />
                 </div>
               </div>
               <div
@@ -135,7 +141,7 @@ const WorkProcess = () => {
                   data-aos="fade-down"
                   data-aos-duration="2000"
                 >
-                  <img src={process_1_4} alt="img" />
+                  <img src={monitoring_conti_improvement} alt="img" />
                 </div>
               </div>
               <div

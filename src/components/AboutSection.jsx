@@ -6,9 +6,12 @@ import wave2 from "../assets/img/shape/wave2.png";
 import aboutThumb32Shape from "../assets/img/shape/about-thumb3-2-shape.jpg";
 import aboutThumb31Shape from "../assets/img/shape/about-thumb3-1-shape.jpg";
 import aboutThumb33Shape from "../assets/img/shape/about-thumb3-3-shape.jpg";
-import AboutThumbImg from "../assets/img/normal/about-thumb3-1.jpg";
+// import AboutThumbImg from "../assets/img/normal/about-thumb3-1.jpg";
+import aboutSection1 from "../assets/img/normal/aboutSection1.jpg";
+import aboutSection2 from "../assets/img/normal/aboutSection2.jpg";
+
 import aboutThumb32 from "../assets/img/normal/about-thumb3-2.jpg";
-import aboutThumb33 from "../assets/img/normal/about-thumb3-3.jpg";
+// import aboutThumb33 from "../assets/img/normal/about-thumb3-3.jpg";
 import checkIcon12 from "../assets/img/icon/check-icon1-2.svg";
 
 const AboutSection = () => {
@@ -42,7 +45,7 @@ const AboutSection = () => {
                 className="img1 bg-mask"
                 style={{ maskImage: `url(${aboutThumb31Shape})` }}
               >
-                <img src={AboutThumbImg} alt="About" />
+                <img src={aboutSection1} alt="About" />
               </div>
               <div className="img2">
                 <div
@@ -107,7 +110,7 @@ const AboutSection = () => {
                     className="img-box3-2 bg-mask"
                     style={{ maskImage: `url(${aboutThumb33Shape})` }}
                   >
-                    <img src={aboutThumb33} alt="img" />
+                    <img src={aboutSection2} alt="img" />
                   </div>
                 </div>
                 <div className="col-xl-8 col-lg-8">

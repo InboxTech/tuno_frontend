@@ -4,19 +4,28 @@ import CountUp from "react-countup";
 
 import AboutThumb41 from "../assets/img/normal/about-thumb4-1.jpg";
 import AboutThumb42 from "../assets/img/normal/about-thumb4-2.jpg";
+// import about2 from "../assets/img/normal/about2.jpg";
+
 import AboutThumb13 from "../assets/img/normal/about-thumb1-3.jpg";
 import AboutFeatureIcon11 from "../assets/img/icon/about-feature-icon1-1.svg";
 import AboutFeatureIcon12 from "../assets/img/icon/about-feature-icon1-2.svg";
-import Process21 from "../assets/img/process/process_2_1.jpg";
+// import Process21 from "../assets/img/process/process_2_1.jpg";
+import about_work_process from "../assets/img/process/about_work_process.jpg";
+
 import ProcessArrow21 from "../assets/img/icon/process-arrow2-1.svg";
 import ProcessArrow22 from "../assets/img/icon/process-arrow2-2.svg";
 import team11 from "../assets/img/team/team_1_1.png";
 import team12 from "../assets/img/team/team_1_2.png";
 import team13 from "../assets/img/team/team_1_3.png";
 import team14 from "../assets/img/team/team_1_4.png";
-import feature41 from "../assets/img/feature/4-1.jpg";
-import feature42 from "../assets/img/feature/4-2.jpg";
-import feature43 from "../assets/img/feature/4-3.jpg";
+
+// import feature41 from "../assets/img/feature/4-1.jpg";
+import advance_technology1 from "../assets/img/feature/advance_technology1.jpg";
+// import feature42 from "../assets/img/feature/4-2.jpg";
+import advance_technology2 from "../assets/img/feature/advance_technology2.jpg";
+// import feature43 from "../assets/img/feature/4-3.jpg";
+import advance_technology3 from "../assets/img/feature/advance_technology3.jpg";
+
 import Featureicon41 from "../assets/img/icon/feature-icon4-1.svg";
 import Featureicon42 from "../assets/img/icon/feature-icon4-2.svg";
 import Featureicon43 from "../assets/img/icon/feature-icon4-3.svg";
@@ -367,7 +376,7 @@ function About() {
                     <div className="row gy-60 gx-80 align-items-center flex-row-reverse">
                         <div className="col-xl-6">
                             <div className="process-img-box2" data-aos="fade-left">
-                                <img src={Process21} alt="img" />
+                                <img src={about_work_process} alt="img" />
                             </div>
                         </div>
                         <div className="col-xl-6">
@@ -666,15 +675,15 @@ function About() {
                                 <div className="row gy-4" data-aos="fade-left">
                                     <div className="col-md-6">
                                         <div className="img1">
-                                            <img src={feature41} alt="img" />
+                                            <img src={advance_technology1} alt="img" />
                                         </div>
                                     </div>
                                     <div className="col-md-6">
                                         <div className="img2 mb-4">
-                                            <img src={feature42} alt="img" />
+                                            <img src={advance_technology2} alt="img" />
                                         </div>
                                         <div className="img3">
-                                            <img src={feature43} alt="img" />
+                                            <img src={advance_technology3} alt="img" />
                                         </div>
                                     </div>
                                 </div>
