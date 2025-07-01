@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useRef} from "react";
+import {Link} from 'react-router-dom';
 import team_1_2 from "../assets/img/team/team_1_2.png";
 import team_1_4 from "../assets/img/team/team_1_4.png";
 import team_1_6 from "../assets/img/team/team_1_6.png";
@@ -173,7 +174,7 @@ const Teams = () => {
                 </div>
                 <div className="team-card-content">
                   <h3 className="box-title">
-                    <a href="team-details.html">{member.name}</a>
+                    <Link to="/team-details">{member.name}</Link>
                   </h3>
                 </div>
                 <div className="th-social">

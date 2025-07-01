@@ -24,6 +24,7 @@ import ProjectDetails from "./Pages/ProjectDetails";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Error from "./Pages/Error";
+import TeamDetails from "./Pages/TeamDetails";
 
 
 
@@ -133,6 +134,16 @@ function App() {
           <Header />
           <Signup />
          
+        </>
+      ),
+    },
+    {
+      path: "/team-details",
+      element: (
+        <>
+           <Header />
+          <TeamDetails />
+          <Footer/>
         </>
       ),
     },
