@@ -133,15 +133,7 @@ const Header = () => {
                       <li>
                         <Link to="/contact">Contact Us</Link>
                       </li>
-                      {isLoggedIn ? (
-                        <li>
-                          <Link to="/logout">Logout</Link>
-                        </li>
-                      ) : (
-                        <li>
-                          <Link to="/login">Login</Link>
-                        </li>
-                      )}
+                    
                     </ul>
                   </nav>
                   <div className="header-button d-flex d-lg-none">
@@ -152,10 +144,23 @@ const Header = () => {
                 </div>
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
-                    <Link to="/login" className="th-btn style-gradient">
-                     Login{" "}
+                   
+                     {isLoggedIn ? (
+                       
+                          <Link to="/logout" className="th-btn style-gradient">Logout <i className="far fa-long-arrow-right ms-2"> </i>
+                          </Link>
+
+                        
+                      ) : (
+                       <div>
+                          <Link to="/login" className="th-btn style-gradient">Login
                       <i className="far fa-long-arrow-right ms-2"> </i>
-                    </Link>
+                          
+                          </Link>
+                        
+
+                      </div>
+                      )}
                   </div>
                 </div>
               </div>

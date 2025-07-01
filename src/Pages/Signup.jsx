@@ -9,12 +9,12 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { toast, ToastContainer } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { API } = useAuth();
+  const { API } = useAuth(); // Make sure this returns a valid base URL like http://localhost:5000
 
   const initialValues = {
     username: '',
@@ -24,31 +24,61 @@ function Signup() {
   };
 
   const validationSchema = Yup.object({
-    username: Yup.string().min(3, 'Minimum 3 characters').required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
+    username: Yup.string().min(3, 'Minimum 3 characters').required('Username is Required'),
+    email: Yup.string()
+      .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email format')
+      .required('Email is Required'),
     phone: Yup.string()
       .matches(/^[0-9]{10}$/, 'Must be exactly 10 digits')
-      .required('Required'),
-    password: Yup.string().min(6, 'Minimum 6 characters').required('Required'),
+      .required('Phone number is Required'),
+    password: Yup.string()
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&^_-])[A-Za-z\d@$!%*#?&^_-]{6,}$/,
+        'Password must be at least 6 characters, include at least one letter, one number, and one special character'
+      )
+      .required('Password is Required'),
   });
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      const response = await axios.post(`${API}/api/auth/register`, values);
+      // Optional: console for debugging
+      console.log("Submitting to:", `${API}/api/auth/register`);
+      console.log("Form values:", values);
 
-      if (response.status === 201) {
+      const response = await axios.post(`${API}/api/auth/register`, values, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true, // if using cookies/sessions
+      });
+
+      if (response.status === 200 || response.status === 201) {
         toast.success('Registration Successful!');
-        navigate('/login');
         resetForm();
+        navigate('/login');
       } else {
-        toast.error(response.data.msg || 'Registration failed');
+        toast.error(response.data?.msg || 'Registration failed');
       }
     } catch (error) {
-      console.error(error);
-      toast.error(error.response?.data?.msg || 'Something went wrong');
-    } finally {
-      setSubmitting(false);
-    }
+  console.error("Axios error object:", error);
+
+  if (error.response) {
+    // Backend returned an error response
+    console.error("Response data:", error.response.data);
+    console.error("Response status:", error.response.status);
+    toast.error(error.response.data?.msg || 'Server error');
+  } else if (error.request) {
+    // Request was made but no response received
+    console.error("No response received:", error.request);
+    toast.error('No response from server. Is the backend running?');
+  } else {
+    // Other errors
+    console.error("Error message:", error.message);
+    toast.error(error.message || 'Unexpected error');
+  }
+
+  setSubmitting(false);
+}
   };
 
   return (
@@ -62,7 +92,7 @@ function Signup() {
             <div className="row align-items-center">
               <div className="col-xxl-6">
                 <div className="page-img mb-0">
-                  <img src={ConsultingThumb11} alt="img" />
+                  <img src={ConsultingThumb11} alt="signup" />
                 </div>
               </div>
               <div className="col-xxl-6">
@@ -79,6 +109,7 @@ function Signup() {
                       {({ isSubmitting }) => (
                         <Form className="contact-form">
                           <div className="row">
+
                             {/* Username */}
                             <div className="form-group style-border col-md-12">
                               <Field
