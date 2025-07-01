@@ -13,11 +13,12 @@ import { toast, ToastContainer } from "react-toastify";
 import axios from 'axios';
 import { useAuth } from '../store/auth';
 
-
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);  
-  const navigate = useNavigate(); // to redirect after login
-  const { API } = useAuth();
+  const navigate = useNavigate();
+
+  //  storeTokenInLs from AuthContext
+  const { API, storeTokenInLs } = useAuth();
 
   const initialValues = {
     email: '',
@@ -31,16 +32,18 @@ const Login = () => {
 
   const onSubmit = async (values, { setSubmitting, setErrors }) => {
     try {
-      // Adjust baseURL to your backend API URL
       const response = await axios.post(`${API}/api/auth/login`, values);
       console.log('Login success:', response.data);
-      toast.success("Login success",response.data)
-      // Save token to localStorage or context/state
-      localStorage.setItem('token', response.data.token);
+
+      toast.success("Login success");
+
+      
+      storeTokenInLs(response.data.token);
+
+    
       localStorage.setItem('userId', response.data.userId);
 
-      // Redirect or do other post-login logic
-      navigate('/');  // change as per your app route
+      navigate('/');
 
     } catch (error) {
       console.error(error);
@@ -51,13 +54,13 @@ const Login = () => {
         setErrors({ email: 'Something went wrong, try again later' });
       }
     }
+
     setSubmitting(false);
   };
 
   return (
     <>
-          <ToastContainer />
-    
+      <ToastContainer />
       <Breadcumbs prevLink="Home" currentLink="Login" pageTitle="Login" />
       <div className="space">
         <Container>

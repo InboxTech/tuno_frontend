@@ -1,18 +1,78 @@
-    import { createContext, useContext, useEffect,  } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
+  // const [user, setUser] = useState("");
+  // const [loading, setLoading] = useState(true);
+
+ const authorizationToken = useMemo(() => `Bearer ${token}`, [token]);
+
+  console.log(authorizationToken);
   const API = import.meta.env.VITE_APP_API_TUNO_URL;
 
-  useEffect(() => {
+  const storeTokenInLs = (serverToken) => {
+    setToken(serverToken);
+    setIsLoggedIn(true);
+    return localStorage.setItem("token", serverToken);
+  };
 
-  }, []);
+  const logoutUser = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    setIsLoggedIn(false);
+  };
+
+  // jwt authentication ==> to get the login user data
+//   const userAuthentication = async () => {
+//   try {
+//     setLoading(true);
+//     const response = await fetch(`${API}/api/auth/user`, {
+//       method: "GET",
+//       headers: {
+//         Authorization: authorizationToken,
+//       },
+//     });
+
+//     const data = await response.json();
+//     if (response.ok) {
+//       console.log(data.userData, "user data =>>");
+//       setUser(data.userData);
+//       setIsLoggedIn(true); 
+//     } else {
+//       setIsLoggedIn(false); 
+//     }
+
+//     setLoading(false);
+//   } catch (error) {
+//     console.log("Error fetching data", error);
+//     setIsLoggedIn(false); 
+//     setLoading(false);
+//   }
+// };
+
+
+useEffect(() => {
+  const checkAuth = async () => {
+    // await userAuthentication();
+  };
+  checkAuth();
+}, []);
 
   return (
     <AuthContext.Provider
       value={{
-   API
+        storeTokenInLs,
+        logoutUser,
+        isLoggedIn,
+        token,
+
+
+        authorizationToken,
+
+        API,  
       }}
     >
       {children}
