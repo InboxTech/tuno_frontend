@@ -3,10 +3,11 @@ import HeaderBackgroundImg from "../assets/img/theme-img/header3-bg-shape.png";
 import Logo from "../assets/img/logo2.svg";
 import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
-
+import { useAuth } from "../store/auth";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -115,7 +116,7 @@ const Header = () => {
                           </li>
                         </ul>
                       </li>
-                      <li >
+                      <li>
                         <Link to="/blog">Blog</Link>
                         {/* <ul className="sub-menu">
                           <li>
@@ -132,14 +133,19 @@ const Header = () => {
                       <li>
                         <Link to="/contact">Contact Us</Link>
                       </li>
-                      {/* <li>
-                        <Link to="/login">Login</Link>
-                      </li> */}
+                      {isLoggedIn ? (
+                        <li>
+                          <Link to="/logout">Logout</Link>
+                        </li>
+                      ) : (
+                        <li>
+                          <Link to="/login">Login</Link>
+                        </li>
+                      )}
                     </ul>
                   </nav>
                   <div className="header-button d-flex d-lg-none">
                     <div className="sidebar-btn">
-                      
                       <MobileSidebar />
                     </div>
                   </div>

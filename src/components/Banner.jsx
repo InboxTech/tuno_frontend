@@ -111,20 +111,17 @@ const Banner = () => {
                     <div className="row justify-content-between align-items-center"
                       style={{ position: "relative", display: "inline-block" }}
                     >
-                      <div ref={title1Ref} className="animated-text-container col-lg-8 col-md-6">
-                        {bannerTitle1.split("").map((letter, index) => (
-                          <span
-                            key={index}
-                            className={`animated-letter ${title1Visible ? "visible" : ""}`}
-                            style={{ animationDelay: `${index * delay}ms` }}
-                          >
-                            {letter === " " ? "\u00A0" : letter}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="hero-text-thumb col-lg-4 col-md-6">
-                        <img src={hero_thumb_3_1} alt="img"  className="w-100 h-100"/>
-                      </div>
+                       <div ref={title1Ref} className="animated-text-container">
+                          {bannerTitle1.split("").map((letter, index) => (
+                            <span
+                              key={index}
+                              className={`animated-letter hero-title ${title1Visible ? "visible" : ""}`}
+                              style={{ animationDelay: `${index * delay}ms` }}
+                            >
+                              {letter === " " ? "\u00A0" : letter}
+                            </span>
+                          ))}
+                        </div>
                     </div>
                     <div
                       style={{ position: "relative", display: "inline-block" }}
@@ -133,7 +130,7 @@ const Banner = () => {
                         {bannerTitle2.split("").map((letter, index) => (
                           <span
                             key={index}
-                            className={`animated-letter ${title2Visible ? "visible" : ""}`}
+                            className={`animated-letter hero-title ${title2Visible ? "visible" : ""}`}
                             style={{ animationDelay: `${index * delay}ms` }}
                           >
                             {letter === " " ? "\u00A0" : letter}

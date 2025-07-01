@@ -11578,7 +11578,7 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
 }
 @media (max-width: 575px) {
   .hero-style3 .hero-title {
-    font-size: 38px;
+    font-size: 30px;
   }
 }
 .hero-style3 .hero-title .hero-text-thumb {
@@ -22455,7 +22455,7 @@ span.select2-selection.select2-selection--single:focus {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s forwards ease-out;
-  font-size: 4.2rem;
+  /* font-size: 104px; */
 }
 
 .animated-text-container .animated-letter.visible {

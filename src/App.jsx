@@ -25,6 +25,7 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Error from "./Pages/Error";
 import TeamDetails from "./Pages/TeamDetails";
+import Logout from "./Pages/Logout";
 
 
 
@@ -153,6 +154,16 @@ function App() {
         <>
 
           <Error />
+         
+        </>
+      ),
+    },
+     {
+      path: "/logout",
+      element: (
+        <>
+
+        <Logout />
          
         </>
       ),
