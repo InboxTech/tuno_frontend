@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useRef} from "react";
+import {Link} from 'react-router-dom';
 import Slider from "react-slick";
 import serviceCard3Shape from "../assets/img/shape/service-card3-shape.png";
 import service_card_3_1 from "../assets/img/service/service_card_3_1.jpg";
@@ -72,20 +73,24 @@ const sliderSettings = {
 
 const services = [
   {
-    title: "Machine Learning Solutions",
+    title: "Conversational Voice AI ",
     image: service_card_3_1,
+    description: "TUNO creates lifelike voice interactions using advanced NLP, perfect for customer support, onboarding, and more.",
   },
   {
-    title: "Custom AI Software Development",
+    title: "Multilingual Voice Assistants ",
     image: service_card_3_2,
+    description: "Engage users globally with voicebots fluent in 40+ languages and dialects. Ideal for enterprises with a global reach. "
   },
   {
-    title: "Data Analytics and Insights",
+    title: "AI-Powered IVR Systems ",
     image:  service_card_3_3,
+    description: "Automate calls using intelligent routing and smart conversations. Reduce wait times and improve user satisfaction. "
   },
     {
-    title: "Data Analytics and Insights",
+    title: "Voice Analytics & Insights ",
     image:  service_card_3_3,
+    description: "Extract actionable insights from every voice interaction using emotion detection, speech pacing, and call trends. "
   },
 ];
 
@@ -221,12 +226,10 @@ const ServiceSlider = () => {
                   </div>
                   <div className="box-content">
                     <h3 className="box-title">
-                      <a href="service.html">{service.title}</a>
+                      <Link to="/service">{service.title}</Link>
                     </h3>
                     <p className="box-text">
-                      AI technology services aim to provide intelligent
-                      solutions that help businesses improve efficiency, make
-                      better decisions.
+                     {service.description}
                     </p>
                     <a className="icon-btn style4" href="service-details.html">
                       <i className="fal fa-arrow-right" />
