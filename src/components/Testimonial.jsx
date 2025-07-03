@@ -79,7 +79,7 @@ const TestimonialSlider = () => {
 
    const title ="What Our Clients Say About us?"
             const delay = 50;
-        
+        let letterCount = 0;
            const titleRef = useRef(null);
             const [titleVisible, setPTitleVisible] = useState(false);
             //work process title intersersection observer
@@ -116,15 +116,33 @@ const TestimonialSlider = () => {
               Testimonials
             </span>
             <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase">
-              {title.split('').map((letter, index) => (
+              {/* {title.split('').map((letter, index) => (
                                             <span
                                                 key={index}
                                                 className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms`, fontSize: "3.3rem" }}
+                                                style={{ animationDelay: `${index * delay}ms` }}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
                                                 </span>
-                                        ))}
+                                        ))} */}
+                                        
+                                        {title.split(' ').map((word, wordIndex) => (
+    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+      {word.split('').map((letter, letterIndex) => {
+         const currentIndex = letterCount++; // unique index for animation delay
+        return (
+          <span
+            key={currentIndex}
+            className={`animated-letter ${titleVisible ? 'visible' : ''}`}
+            style={{ animationDelay: `${currentIndex * delay}ms` }}
+          >
+            {letter}
+          </span>
+        );
+      })}
+      <span>&nbsp;</span> {/* Add space between words */}
+    </span>
+  ))}
             </h2>
           </div>
           <div className="col-lg-auto justify-end d-flex gap-2">

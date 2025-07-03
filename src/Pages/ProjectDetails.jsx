@@ -161,28 +161,17 @@ const ProjectDetails = () => {
                 <div className="row">
                   <div className="col-md-4">
                     <div className="page-img overflow-hidden">
-                      <img
-                        src={project_s_1_3}
-                        alt="img"
-                      />
+                      <img src={project_s_1_3} alt="img" />
                     </div>
                   </div>
                   <div className="col-md-4">
                     <div className="page-img overflow-hidden">
-                      <img
-                                               src={project_s_1_4}
-
-                        alt="img"
-                      />
+                      <img src={project_s_1_4} alt="img" />
                     </div>
                   </div>
                   <div className="col-md-4">
                     <div className="page-img overflow-hidden">
-                      <img
-                                                src={project_s_1_5}
-
-                        alt="img"
-                      />
+                      <img src={project_s_1_5} alt="img"/>
                     </div>
                   </div>
                 </div>

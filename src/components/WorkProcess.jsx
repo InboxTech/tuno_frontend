@@ -13,6 +13,7 @@ import monitoring_conti_improvement from "../assets/img/process/monitoring_conti
 const WorkProcess = () => {
    const workProcessTitle ="Our 4-Step Process for Delivering AI Solutions"
       const delay = 50;
+    let letterCount = 0;
   
      const workProcessTitleRef = useRef(null);
       const [processTitleVisible, setProcessTitleVisible] = useState(false);
@@ -47,15 +48,33 @@ const WorkProcess = () => {
                   Work Process
                 </span>
                 <h2 ref={workProcessTitleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
-                  {workProcessTitle.split('').map((letter, index) => (
+                  {/* {workProcessTitle.split('').map((letter, index) => (
                                             <span
                                                 key={index}
                                                 className={`animated-letter ${processTitleVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms`, fontSize: '65px' }}
+                                                style={{ animationDelay: `${index * delay}ms`}}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
                                                 </span>
-                                        ))}
+                                        ))} */}
+
+                                 {workProcessTitle.split(' ').map((word, wordIndex) => (
+                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                      {word.split('').map((letter, letterIndex) => {
+                                        const currentIndex = letterCount++; // unique index for animation delay
+                                        return (
+                                          <span
+                                            key={currentIndex}
+                                            className={`animated-letter ${processTitleVisible ? 'visible' : ''}`}
+                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                          >
+                                            {letter}
+                                          </span>
+                                        );
+                                      })}
+                                      <span>&nbsp;</span> {/* Add space between words */}
+                                    </span>
+                                  ))}
                 </h2>
               </div>
             </div>

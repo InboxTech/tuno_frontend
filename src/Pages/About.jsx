@@ -54,6 +54,7 @@ function About() {
     const text_faq = "Frequently Asked Questions";
     const text_blog = "Our Latest News & Blogs";
     const delay = 50;
+    let letterCount = 0;
     const aboutHeadRef = useRef(null);
     const workProcessHeadRef = useRef(null);
     const expertHeadRef = useRef(null);
@@ -215,7 +216,6 @@ function About() {
                                 </div>
                                 <div className="circle-tag">
                                     <span className="circle-title-anime">
-                                        {/* ROBOR - AI AND AUTOMATION INTEGRATION. */}
                                         <svg viewBox="0 0 300 300" className="circle-svg">
                                             <defs>
                                                 <path
@@ -257,19 +257,34 @@ function About() {
                                         className="sec-title mb-0 text-anim2"
                                         data-delay="300"
                                     >
-                                        {text.split("").map((letter, index) => (
+                                        {/* {text.split("").map((letter, index) => (
                                             <span
                                                 key={index}
                                                 className={`animated-letter ${aboutVisible ? "visible" : ""
                                                     }`}
-                                                style={{
-                                                    animationDelay: `${index * delay}ms`,
-                                                    fontSize: "4.1rem",
-                                                }}
+                                                style={{animationDelay: `${index * delay}ms`}}
                                             >
                                                 {letter === " " ? "\u00A0" : letter}
                                             </span>
-                                        ))}
+                                        ))} */}
+
+                                         {text.split(' ').map((word, wordIndex) => (
+                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                      {word.split('').map((letter, letterIndex) => {
+                                       const currentIndex = letterCount++; // unique index for animation delay
+                                        return (
+                                          <span
+                                            key={currentIndex}
+                                            className={`animated-letter ${aboutVisible ? 'visible' : ''}`}
+                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                          >
+                                            {letter}
+                                          </span>
+                                        );
+                                      })}
+                                      <span>&nbsp;</span> {/* Add space between words */}
+                                    </span>
+                                  ))}
                                     </h2>
                                     <p className="mt-15" data-delay="400">
                                         TUNO is built to help businesses automate conversations,
@@ -388,7 +403,7 @@ function About() {
                                     ref={workProcessHeadRef}
                                     className="sec-title mb-0 text-anim2 heading-letters"
                                 >
-                                    {text2.split("").map((letter, index) => (
+                                    {/* {text2.split("").map((letter, index) => (
                                         <span
                                             key={index}
                                             className={`animated-letter ${workHeadVisible ? "visible" : ""
@@ -397,7 +412,25 @@ function About() {
                                         >
                                             {letter === " " ? "\u00A0" : letter}
                                         </span>
-                                    ))}
+                                    ))} */}
+
+                                      {text2.split(' ').map((word, wordIndex) => (
+                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                      {word.split('').map((letter, letterIndex) => {
+                                         const currentIndex = letterCount++;// unique index for animation delay
+                                        return (
+                                          <span
+                                            key={currentIndex}
+                                            className={`animated-letter ${workHeadVisible ? 'visible' : ''}`}
+                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                          >
+                                            {letter}
+                                          </span>
+                                        );
+                                      })}
+                                      <span>&nbsp;</span> {/* Add space between words */}
+                                    </span>
+                                  ))}
                                 </h2>
                                 <p className="mt-15">
                                     Choosing us means partnering with a forward-thinking team
@@ -470,16 +503,34 @@ function About() {
                                     ref={expertHeadRef}
                                     className="sec-title text-white fw-bold text-anim2 heading-letters"
                                 >
-                                    {text3_experts.split("").map((letter, index) => (
+                                    {/* {text3_experts.split("").map((letter, index) => (
                                         <span
                                             key={index}
                                             className={`animated-letter ${expertHeadVisible ? "visible" : ""
                                                 }`}
-                                            style={{ animationDelay: `${index * delay}ms`, fontSize: "3.5rem" }}
+                                            style={{ animationDelay: `${index * delay}ms` }}
                                         >
                                             {letter === " " ? "\u00A0" : letter}
                                         </span>
-                                    ))}
+                                    ))} */}
+
+                                       {text3_experts.split(' ').map((word, wordIndex) => (
+                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                      {word.split('').map((letter, letterIndex) => {
+                                         const currentIndex = letterCount++; // unique index for animation delay
+                                        return (
+                                          <span
+                                            key={currentIndex}
+                                            className={`animated-letter ${expertHeadVisible ? 'visible' : ''}`}
+                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                          >
+                                            {letter}
+                                          </span>
+                                        );
+                                      })}
+                                      <span>&nbsp;</span> {/* Add space between words */}
+                                    </span>
+                                  ))}
                                 </h2>
                             </div>
                         </div>
@@ -698,16 +749,34 @@ function About() {
                                     ref={advanceTechHeadRef}
                                     className="sec-title fw-bold text-anim2 heading-letters"
                                 >
-                                    {text4_advancetech.split("").map((letter, index) => (
+                                    {/* {text4_advancetech.split("").map((letter, index) => (
                                         <span
                                             key={index}
                                             className={`animated-letter ${advanceTechHeadVisible ? "visible" : ""
                                                 }`}
-                                            style={{ animationDelay: `${index * delay}ms`, fontSize: '4.2rem' }}
+                                            style={{ animationDelay: `${index * delay}ms`}}
                                         >
                                             {letter === " " ? "\u00A0" : letter}
                                         </span>
-                                    ))}
+                                    ))} */}
+
+                                      {text4_advancetech.split(' ').map((word, wordIndex) => (
+                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                      {word.split('').map((letter, letterIndex) => {
+                                         const currentIndex = letterCount++;// unique index for animation delay
+                                        return (
+                                          <span
+                                            key={currentIndex}
+                                            className={`animated-letter ${advanceTechHeadVisible ? 'visible' : ''}`}
+                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                          >
+                                            {letter}
+                                          </span>
+                                        );
+                                      })}
+                                      <span>&nbsp;</span> {/* Add space between words */}
+                                    </span>
+                                  ))}
                                 </h2>
                             </div>
                             <div className="row gy-4">
@@ -785,19 +854,35 @@ function About() {
                                     ref={faqHeadRef}
                                     className="sec-title text-anim2 heading-letters"
                                 >
-                                    {text_faq.split("").map((letter, index) => (
+                                    {/* {text_faq.split("").map((letter, index) => (
                                         <span
                                             key={index}
                                             className={`animated-letter ${faqHeadVisible ? "visible" : ""
                                                 }`}
                                             style={{
-                                                animationDelay: `${index * delay}ms`,
-                                                fontSize: '3rem'
-                                            }}
+                                                animationDelay: `${index * delay}ms`}}
                                         >
                                             {letter === " " ? "\u00A0" : letter}
                                         </span>
-                                    ))}
+                                    ))} */}
+
+                                      {text_faq.split(' ').map((word, wordIndex) => (
+                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                      {word.split('').map((letter, letterIndex) => {
+                                       const currentIndex = letterCount++; // unique index for animation delay
+                                        return (
+                                          <span
+                                            key={currentIndex}
+                                            className={`animated-letter ${faqHeadVisible ? 'visible' : ''}`}
+                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                          >
+                                            {letter}
+                                          </span>
+                                        );
+                                      })}
+                                      <span>&nbsp;</span> {/* Add space between words */}
+                                    </span>
+                                  ))}
                                 </h2>
                             </div>
                         </div>

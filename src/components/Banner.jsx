@@ -10,7 +10,8 @@ const Banner = () => {
   const bannerTitle1 = "Redefining Voice";
   const bannerTitle2 = "with Smart AI Tech";
   const bannerText = "TUNO unlocks business potential with AI-powered voice tech that accelerates service and streamlines tasks."
-  const delay = 50;
+  const delay = 80;
+  let letterCount = 0;
   const title1Ref = useRef(null);
   const title2Ref = useRef(null);
   const bannerTextRef = useRef(null);
@@ -93,7 +94,7 @@ const Banner = () => {
               <div className="hero-wrap3">
                 <div className="hero-style3">
                   <h1
-                    className="hero-title text-anim2 text-anim"
+                    className="hero-title banner-title text-anim2 text-anim"
                     data-cue="slideInUp"
                     data-aos="fade-up"
                     data-aos-duration="2000"
@@ -108,11 +109,12 @@ const Banner = () => {
                       animationFillMode: "both",
                     }}
                   >
-                    <div className="row justify-content-between align-items-center"
-                      style={{ position: "relative", display: "inline-block" }}
-                    >
+               
+
+                    
+                    <div className="d-flex justify-content-between" style={{ position: "relative", display: "inline-block" }}>
                        <div ref={title1Ref} className="animated-text-container">
-                          {bannerTitle1.split("").map((letter, index) => (
+                          {/* {bannerTitle1.split("").map((letter, index) => (
                             <span
                               key={index}
                               className={`animated-letter hero-title ${title1Visible ? "visible" : ""}`}
@@ -120,14 +122,33 @@ const Banner = () => {
                             >
                               {letter === " " ? "\u00A0" : letter}
                             </span>
+                          ))} */}
+
+                           {bannerTitle1.split(' ').map((word, wordIndex) => (
+                            <span key={wordIndex} className="word-wrapper" >
+                              {word.split('').map((letter) => {
+                                const currentIndex = letterCount++; // unique index for animation delay
+                                return (
+                                  <span
+                                    key={currentIndex}
+                                    className={`animated-letter ${title1Visible ? 'visible' : ''}`}
+                                    style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                  >
+                                    {letter}
+                                  </span>
+                                );
+                              })}
+                             <span className="animated-letter">&nbsp;</span> {/* Add space between words */}
+                            </span>
                           ))}
                         </div>
+                    <span className="hero-text-thumb">
+                      <img src={hero_thumb_3_1} alt="img" />
+                    </span>
                     </div>
-                    <div
-                      style={{ position: "relative", display: "inline-block" }}
-                    >
+                    <div style={{ position: "relative", display: "inline-block" }} >
                       <div ref={title2Ref} className="animated-text-container">
-                        {bannerTitle2.split("").map((letter, index) => (
+                        {/* {bannerTitle2.split("").map((letter, index) => (
                           <span
                             key={index}
                             className={`animated-letter hero-title ${title2Visible ? "visible" : ""}`}
@@ -135,9 +156,29 @@ const Banner = () => {
                           >
                             {letter === " " ? "\u00A0" : letter}
                           </span>
-                        ))}
+                        ))} */}
+
+                        
+                       {bannerTitle2.split(' ').map((word, wordIndex) => (
+                      <span key={wordIndex} className="word-wrapper">
+                        {word.split('').map((letter, letterIndex) => {
+                          const currentIndex = letterCount++; // unique index for animation delay
+                          return (
+                            <span
+                              key={currentIndex}
+                              className={`animated-letter ${title2Visible ? 'visible' : ''}`}
+                              style={{ animationDelay: `${currentIndex * delay}ms` }}
+                            >
+                              {letter}
+                            </span>
+                          );
+                        })}
+                        <span className="animated-letter">&nbsp;</span>{/* Add space between words */}
+                      </span>
+                    ))}
                       </div>
                     </div>
+                  
                   </h1>
                   <div className="hero-content-wrap">
                     <p

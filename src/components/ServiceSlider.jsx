@@ -97,7 +97,7 @@ const services = [
 const ServiceSlider = () => {
   const serviceSliderTitle ="AI technology services aim to provide intelligent solutions."
     const delay = 50;
-
+let letterCount = 0;
    const srviceTitleRef = useRef(null);
     const [titleVisible, setTitleVisible] = useState(false);
 
@@ -145,7 +145,7 @@ const ServiceSlider = () => {
 
               <h2 ref={srviceTitleRef}
                 className="sec-title style2 text-uppercase fw-bold text-anim2"
-                data-cue="slideInUp"
+                // data-cue="slideInUp"
                 data-show="true"
                 style={{
                   animationName: "slideInUp",
@@ -156,15 +156,33 @@ const ServiceSlider = () => {
                   animationFillMode: "both",
                 }}
               >
-                {serviceSliderTitle.split('').map((letter, index) => (
+                {/* {serviceSliderTitle.split('').map((letter, index) => (
                                             <span
                                                 key={index}
                                                 className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms`, fontSize: '1.2em' }}
+                                                style={{ animationDelay: `${index * delay}ms` }}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
                                                 </span>
-                                        ))}
+                                        ))} */}
+                                        
+                                        {serviceSliderTitle.split(' ').map((word, wordIndex) => (
+    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+      {word.split('').map((letter, letterIndex) => {
+         const currentIndex = letterCount++; // unique index for animation delay
+        return (
+          <span
+            key={currentIndex}
+            className={`animated-letter ${titleVisible ? 'visible' : ''}`}
+            style={{ animationDelay: `${currentIndex * delay}ms` }}
+          >
+            {letter}
+          </span>
+        );
+      })}
+      <span>&nbsp;</span> {/* Add space between words */}
+    </span>
+  ))}
                 {/* {" "}
                 <span style={{ position: "relative", display: "inline-block" }}>
                   AI

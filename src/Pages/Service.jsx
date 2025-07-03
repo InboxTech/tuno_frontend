@@ -53,7 +53,7 @@ function Service() {
                                             <span
                                                 key={index}
                                                 className={`animated-letter ${serviceHeadVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms`, fontSize: '74px' }}
+                                                style={{ animationDelay: `${index * delay}ms`}}
                                                 >
                                                 {letter === ' ' ? '\u00A0' : letter}
                                                 </span>

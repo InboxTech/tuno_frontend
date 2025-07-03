@@ -11013,7 +11013,7 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
   margin-top: -0.25em;
 }
 .hero-title span {
-  display: block;
+  display: inline-block;
 }
 .hero-title span .text-theme {
   display: inline-block;
@@ -22416,7 +22416,10 @@ span.select2-selection.select2-selection--single:focus {
   display: inline-block;
   opacity: 0;
   transform: translateY(20px);
-  font-size: 3.6rem;
+  /* font-size: 3rem; */
+vertical-align: top; /* 👈 Aligns all letters properly */
+  line-height: 1;       /* Optional: tighter control over vertical spacing */
+  
 }
 
 .animated-letter.visible {
@@ -22434,7 +22437,12 @@ span.select2-selection.select2-selection--single:focus {
   display: inline-block;
   overflow: hidden;
 } */
-
+.word-wrapper {
+  display: inline-block;
+  white-space: nowrap; 
+  /* Prevent word breaks */
+   vertical-align: top;
+}
 .form-input{
   position: relative;
 }
@@ -22448,6 +22456,7 @@ span.select2-selection.select2-selection--single:focus {
 .animated-text-container {
   display: inline-block;
   white-space: nowrap; /* Prevent line breaks */
+  line-height: 1;
 }
 
 .animated-text-container .animated-letter {
@@ -22461,6 +22470,9 @@ span.select2-selection.select2-selection--single:focus {
 .animated-text-container .animated-letter.visible {
   opacity: 1;
 }
+/* .banner-title .animated-letter {
+  font-size: 6.7rem;
+} */
 
 @keyframes fadeInUp {
   /* from {
@@ -22470,10 +22482,5 @@ span.select2-selection.select2-selection--single:focus {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-@media screen and(max-width: 768px) {
-  .animated-letter {
-    font-size: 1.5rem!important;
   }
 }
