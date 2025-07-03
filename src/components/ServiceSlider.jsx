@@ -10,6 +10,7 @@ import serviceCard3ThumbShape2 from "../assets/img/shape/service-card3-thumb-sha
 import ServiceShapThumbImg from "../assets/img/shape/service-card3-thumb-shape.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 const NextArrow = ({ onClick }) => (
   <button onClick={onClick} className="slider-arrow style-border4 slider-next">
@@ -221,16 +222,16 @@ const ServiceSlider = () => {
                   </div>
                   <div className="box-content">
                     <h3 className="box-title">
-                      <a href="service.html">{service.title}</a>
+                      <Link to="#">{service.title}</Link>
                     </h3>
                     <p className="box-text">
                       AI technology services aim to provide intelligent
                       solutions that help businesses improve efficiency, make
                       better decisions.
                     </p>
-                    <a className="icon-btn style4" href="service-details.html">
+                    <Link className="icon-btn style4" to="#">
                       <i className="fal fa-arrow-right" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

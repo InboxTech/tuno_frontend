@@ -1,4 +1,4 @@
-import React, { useRef, useState,useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -71,40 +71,39 @@ const TestimonialSlider = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
         },
       },
     ],
   };
 
-   const title ="What Our Clients Say About us?"
-            const delay = 50;
-        
-           const titleRef = useRef(null);
-            const [titleVisible, setPTitleVisible] = useState(false);
-            //work process title intersersection observer
-                  useEffect(() => {
-                    const observerTitle = new IntersectionObserver(
-                      ([entry]) => {
-                        if (entry.isIntersecting) {
-                          setPTitleVisible(true);
-                          observerTitle.disconnect();
-                        }
-                      },
-                      { threshold: 0.3 } // Start animation when 30% of the heading is visible
-                    );
-                
-                    if (titleRef.current) {
-                      observerTitle.observe(titleRef.current);
-                    }
-                
-                    return () => observerTitle.disconnect();
-                    
-                  }, []);
+  const title = "What Our Clients Say About us?";
+  const delay = 50;
+
+  const titleRef = useRef(null);
+  const [titleVisible, setPTitleVisible] = useState(false);
+  //work process title intersersection observer
+  useEffect(() => {
+    const observerTitle = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPTitleVisible(true);
+          observerTitle.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (titleRef.current) {
+      observerTitle.observe(titleRef.current);
+    }
+
+    return () => observerTitle.disconnect();
+  }, []);
   return (
     <section
       className="overflow-hidden space"
-      style={{ backgroundImage: `url(${testi_bg_3_1})` }}
+      style={{ backgroundImage: `url(${testi_bg_3_1})`,backgroundSize:"cover" }}
     >
       <div className="container">
         <div
@@ -115,16 +114,22 @@ const TestimonialSlider = () => {
             <span className="sub-title2 text-gradient text-uppercase mb-3">
               Testimonials
             </span>
-            <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase">
-              {title.split('').map((letter, index) => (
-                                            <span
-                                                key={index}
-                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms`, fontSize: "3.3rem" }}
-                                                >
-                                                {letter === ' ' ? '\u00A0' : letter}
-                                                </span>
-                                        ))}
+            <h2
+              ref={titleRef}
+              className="sec-title style2 fw-bold text-uppercase"
+            >
+              {title.split("").map((letter, index) => (
+                <span
+                  key={index}
+                  className={`animated-letter ${titleVisible ? "visible" : ""}`}
+                  style={{
+                    animationDelay: `${index * delay}ms`,
+                    fontSize: "3.3rem",
+                  }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </span>
+              ))}
             </h2>
           </div>
           <div className="col-lg-auto justify-end d-flex gap-2">
@@ -183,6 +188,7 @@ const TestimonialSlider = () => {
                   maskRepeat: "no-repeat",
                   WebkitMaskSize: "cover",
                   maskSize: "cover",
+                  
                 }}
                 data-aos="fade-up"
                 data-aos-duration="2000"
@@ -195,7 +201,7 @@ const TestimonialSlider = () => {
                 <p className="box-text mb-3">{item.text}</p>
                 <div className="testi-card-profile">
                   <div className="testi-card-avater">
-                    <img src={item.image} alt={item.name} />
+                    {/* <img src={item.image} alt={item.name} /> */}
                   </div>
                   <div className="testi-card-profile-detaile">
                     <h3 className="box-title mb-0">{item.name}</h3>

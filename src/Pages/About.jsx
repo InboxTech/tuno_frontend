@@ -45,6 +45,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Breadcumbs from "../components/Breadcumbs";
 import BlogSlider from "../components/BlogSlider";
 import BannerModel from "../components/model/BannerModel";
+import { Link } from "react-router-dom";
 function About() {
     const [counterOn, setCounterOn] = useState(false);
     const text = "Revolutionizing Voice Automation with AIDriven Precision ";
@@ -190,7 +191,7 @@ function About() {
                             <div className="breadcumb-content">
                                 <h1 className="breadcumb-title text-anim"  data-delay="100">About Us</h1>
                                 <ul className="breadcumb-menu"  data-delay="300">
-                                    <li><a href="/">Home</a></li>
+                                    <li><Link to="/">Home</Link></li>
                                     <li>About Us</li>
                                 </ul>
                             </div>
@@ -224,7 +225,7 @@ function About() {
                                                 />
                                             </defs>
                                             <text fill="#fff" fontSize="22" fontFamily="Arial">
-                                                <textPath href="#circlePath" startOffset="0">
+                                                <textPath to="#circlePath" startOffset="0">
                                                     TUNO - AI AND AUTOMATION INTEGRATION.
                                                 </textPath>
                                             </text>
@@ -316,10 +317,10 @@ function About() {
                                     </div>
                                 </div>
                                 <div className="btn-wrap mt-40">
-                                    <a className="th-btn text-decoration-none" href="about.html">
+                                    <Link className="th-btn text-decoration-none" to="#">
                                         Explore Features{" "}
                                         <i className="far fa-long-arrow-right ms-2"></i>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -492,40 +493,40 @@ function About() {
                                 </div>
                                 <div className="team-card-content">
                                     <h3 className="box-title">
-                                        <a href="team-details.html">Alex Javed</a>
+                                        <Link to="#">Alex Javed</Link>
                                     </h3>
                                 </div>
                                 <div className="th-social">
-                                    <a
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://facebook.com/"
+                                        to="#"
                                     >
                                         <FontAwesomeIcon icon={faFacebookF} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://twitter.com/"
+                                        to="#"
                                     >
                                         {" "}
                                         <FontAwesomeIcon icon={faTwitter} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://instagram.com/"
+                                        to="#"
                                     >
                                         <FontAwesomeIcon icon={faInstagram} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://whatsapp.com/"
+                                        to="3"
                                     >
                                         {" "}
                                         <FontAwesomeIcon icon={faWhatsapp} />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -536,40 +537,40 @@ function About() {
                                 </div>
                                 <div className="team-card-content">
                                     <h3 className="box-title">
-                                        <a href="team-details.html">Jenny William</a>
+                                        <Link to="#">Jenny William</Link>
                                     </h3>
                                 </div>
                                 <div className="th-social">
-                                    <a
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://facebook.com/"
+                                        to="https://facebook.com/"
                                     >
                                         <FontAwesomeIcon icon={faFacebookF} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://twitter.com/"
+                                        to="https://twitter.com/"
                                     >
                                         {" "}
                                         <FontAwesomeIcon icon={faTwitter} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://instagram.com/"
+                                        to="https://instagram.com/"
                                     >
                                         <FontAwesomeIcon icon={faInstagram} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://whatsapp.com/"
+                                        to="https://whatsapp.com/"
                                     >
                                         {" "}
                                         <FontAwesomeIcon icon={faWhatsapp} />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -580,40 +581,40 @@ function About() {
                                 </div>
                                 <div className="team-card-content">
                                     <h3 className="box-title">
-                                        <a href="team-details.html">Daniel Thomas</a>
+                                        <Link to="#">Daniel Thomas</Link>
                                     </h3>
                                 </div>
                                 <div className="th-social">
-                                    <a
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://facebook.com/"
+                                        to="https://facebook.com/"
                                     >
                                         <FontAwesomeIcon icon={faFacebookF} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://twitter.com/"
+                                        to="https://twitter.com/"
                                     >
                                         {" "}
                                         <FontAwesomeIcon icon={faTwitter} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://instagram.com/"
+                                        to="https://instagram.com/"
                                     >
                                         <FontAwesomeIcon icon={faInstagram} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://whatsapp.com/"
+                                        to="https://whatsapp.com/"
                                     >
                                         {" "}
                                         <FontAwesomeIcon icon={faWhatsapp} />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -624,40 +625,40 @@ function About() {
                                 </div>
                                 <div className="team-card-content">
                                     <h3 className="box-title">
-                                        <a href="team-details.html">Jessica Lauren</a>
+                                        <Link to="#">Jessica Lauren</Link>
                                     </h3>
                                 </div>
                                 <div className="th-social">
-                                    <a
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://facebook.com/"
+                                        to="https://facebook.com/"
                                     >
                                         <FontAwesomeIcon icon={faFacebookF} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://twitter.com/"
+                                        to="https://twitter.com/"
                                     >
                                         {" "}
                                         <FontAwesomeIcon icon={faTwitter} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://instagram.com/"
+                                        to="https://instagram.com/"
                                     >
                                         <FontAwesomeIcon icon={faInstagram} />
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="text-decoration-none"
                                         target="_blank"
-                                        href="https://whatsapp.com/"
+                                        to="https://whatsapp.com/"
                                     >
                                         {" "}
                                         <FontAwesomeIcon icon={faWhatsapp} />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -955,7 +956,7 @@ function About() {
                             </div>
                         <div className="col-auto align-self-end">
                             <div className="sec-btn">
-                                <a href="blog.html" className="th-btn style-border text-decoration-none">View All Post <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
+                                <Link to="blog.html" className="th-btn style-border text-decoration-none">View All Post <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></Link>
                             </div>
                         </div>
                     </div>
@@ -963,54 +964,54 @@ function About() {
                         <div className="col-xl-4 col-lg-6" >
                             <div className="blog-card" data-aos="fade-up">
                                 <div className="blog-img">
-                                    <a href="blog-details.html" className="text-decoration-none">
-                                    <img src={Blog11} alt="blog image" /></a>
+                                    <Link to="blog-details.html" className="text-decoration-none">
+                                    <img src={Blog11} alt="blog image" /></Link>
                                 </div>
                                 <div className="blog-content">
                                     <div className="blog-meta">
-                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</a>
-                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faUser} className="me-2"/>by admin</a>
+                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</Link>
+                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faUser} className="me-2"/>by admin</Link>
                                     </div>
                                     <h3 className="box-title">
-                                        <a className="text-decoration-none" href="blog-details.html">The rise of AI and Robotics in retail customer experiences</a>
+                                        <Link className="text-decoration-none" to="blog-details.html">The rise of AI and Robotics in retail customer experiences</Link>
                                     </h3>
-                                    <a href="blog-details.html" className="link-btn style4">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
+                                    <Link to="blog-details.html" className="link-btn style4">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></Link>
                                 </div>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6" >
                             <div className="blog-card" data-aos="fade-up">
                                 <div className="blog-img">
-                                    <a href="blog-details.html">
+                                    <Link to="blog-details.html">
                                         <img src={Blog12} alt="blog image" />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="blog-content">
                                     <div className="blog-meta">
-                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</a>
-                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</a>
+                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</Link>
+                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</Link>
                                     </div>
                                     <h3 className="box-title">
-                                        <a className="text-decoration-none" href="blog-details.html">How AI is Transforming Businesses Across Industries</a></h3>
-                                    <a href="blog-details.html" className="link-btn style4 text-decoration-none">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
+                                        <Link className="text-decoration-none" to="blog-details.html">How AI is Transforming Businesses Across Industries</Link></h3>
+                                    <Link to="blog-details.html" className="link-btn style4 text-decoration-none">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></Link>
                                 </div>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6" >
                             <div className="blog-card" data-aos="fade-up">
                                 <div className="blog-img">
-                                    <a href="blog-details.html">
+                                    <Link to="blog-details.html">
                                         <img src={Blog13} alt="blog image" />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="blog-content">
                                     <div className="blog-meta">
-                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</a>
-                                        <a className="text-decoration-none" href="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</a>
+                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</Link>
+                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</Link>
                                     </div>
                                     <h3 className="box-title">
-                                        <a className="text-decoration-none" href="blog-details.html">Understanding Deep Learning and Neural Networks in AI</a></h3>
-                                    <a  href="blog-details.html" className="link-btn style4 text-decoration-none">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></a>
+                                        <Link className="text-decoration-none" to="blog-details.html">Understanding Deep Learning and Neural Networks in AI</Link></h3>
+                                    <Link  to="blog-details.html" className="link-btn style4 text-decoration-none">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></Link>
                                 </div>
                             </div>
                         </div>

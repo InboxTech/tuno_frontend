@@ -6,6 +6,7 @@ import threeThree from "../assets/img/feature/3-3.png";
 import threeFour from "../assets/img/feature/3-4.png";
 import threeFive from "../assets/img/feature/3-5.png";
 import threeSix from "../assets/img/feature/3-6.png";
+import { Link } from "react-router-dom";
 
 const IndustrieServe = () => {
    const title ="Industries Where ai is optimizing the Processes"
@@ -196,12 +197,12 @@ const IndustrieServe = () => {
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a
+                      <Link
                         className="icon-btn style4"
-                        href="service-details.html"
+                        to="#"
                       >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -239,12 +240,12 @@ const IndustrieServe = () => {
                       delivering 24/7 financial assistance.
                     </p>
                     <div className="btn-wrap mt-40">
-                      <a
+                      <Link
                         className="icon-btn style4"
-                        href="service-details.html"
+                        to="#"
                       >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -281,12 +282,12 @@ const IndustrieServe = () => {
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a
+                      <Link
                         className="icon-btn style4"
-                        href="service-details.html"
+                        to="#"
                       >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -323,12 +324,12 @@ const IndustrieServe = () => {
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a
+                      <Link
                         className="icon-btn style4"
-                        href="service-details.html"
+                        to="#"
                       >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -365,12 +366,12 @@ const IndustrieServe = () => {
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a
+                      <Link
                         className="icon-btn style4"
-                        href="service-details.html"
+                        to="#"
                       >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -406,12 +407,12 @@ const IndustrieServe = () => {
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a
+                      <Link
                         className="icon-btn style4"
-                        href="service-details.html"
+                        to="#"
                       >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

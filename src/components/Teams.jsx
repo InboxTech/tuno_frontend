@@ -178,18 +178,18 @@ const Teams = () => {
                   </h3>
                 </div>
                 <div className="th-social">
-                  <a target="_blank" href={member.links.facebook}>
+                  <Link target="_blank" to={member.links.facebook}>
                     <FontAwesomeIcon icon={faFacebookF} />
-                  </a>
-                  <a target="_blank" href={member.links.twitter}>
+                  </Link>
+                  <Link target="_blank" to={member.links.twitter}>
                    <FontAwesomeIcon icon={faTwitter}  />
-                  </a>
-                  <a target="_blank" href={member.links.instagram}>
+                  </Link>
+                  <Link target="_blank" to={member.links.instagram}>
                    <FontAwesomeIcon icon={faInstagram} />
-                  </a>
-                  <a target="_blank" href={member.links.whatsapp}>
+                  </Link>
+                  <Link target="_blank" to={member.links.whatsapp}>
                     <FontAwesomeIcon icon={faWhatsapp}  />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

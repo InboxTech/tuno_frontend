@@ -13,6 +13,7 @@ import aboutSection2 from "../assets/img/normal/aboutSection2.jpg";
 import aboutThumb32 from "../assets/img/normal/about-thumb3-2.jpg";
 // import aboutThumb33 from "../assets/img/normal/about-thumb3-3.jpg";
 import checkIcon12 from "../assets/img/icon/check-icon1-2.svg";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
    const [counterOn, setCounterOn] = useState(false)
@@ -55,10 +56,10 @@ const AboutSection = () => {
                   <img src={aboutThumb32} alt="About" />
                 </div>
                 <div className="btn-wrap mt-40">
-                  <a href="/about" className="th-btn style-gradient2">
+                  <Link to="/about" className="th-btn style-gradient2">
                     More About Us{" "}
                     <i className="far fa-long-arrow-right ms-2"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="experience-wrap">

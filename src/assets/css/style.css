@@ -15939,7 +15939,7 @@ span.select2-selection.select2-selection--single:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  gap: 16px;
+  /* gap: 16px; */
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -19126,7 +19126,7 @@ span.select2-selection.select2-selection--single:focus {
 }
 @media (max-width: 1299px) {
   .feature-wrap3 .feature-tab .nav-item .nav-link {
-    font-size: 30px;
+    font-size: 25px;
     padding: 29px 0;
   }
 }
@@ -19217,6 +19217,9 @@ span.select2-selection.select2-selection--single:focus {
 @media (max-width: 991px) {
   .feature-wrap3 .feature-tab .nav-item {
     width: 100%;
+  }
+  .sec-title.style2{
+    font-size: 30px;
   }
 }
 @media (max-width: 767px) {
