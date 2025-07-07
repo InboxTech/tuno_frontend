@@ -10,9 +10,9 @@ function Breadcumbs(props) {
                 style={{ backgroundImage: `url(${BreadcumbBg})` }}
             >
                 <div className="container">
-                    <div className="row">
-                        <div className="col-xxl-12">
-                            <div className="breadcumb-content">
+                    <div className="row ">
+                        <div className="col-xxl-12 ">
+                            <div className="breadcumb-content ">
                                 <h1 className="breadcumb-title text-anim" data-delay="100" data-show="true"
                                     style={{
                                         animationName: 'slideInUp',

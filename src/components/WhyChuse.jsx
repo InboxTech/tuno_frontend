@@ -1,9 +1,13 @@
 import React,{useState,useEffect,useRef} from "react";
-import whyThumb31 from "../assets/img/normal/why-thumb3-1.jpg";
 import WhyThumbShap31 from "../assets/img/shape/why-thumb-shape3-1.png";
 import whyThumbShape32 from "../assets/img/shape/why-thumb-shape3-2.png";
 import WhyBg31 from "../assets/img/bg/why-bg-3-1.png";
-import whyThumb32 from "../assets/img/normal/why-thumb3-2.jpg";
+// import whyThumb31 from "../assets/img/normal/why-thumb3-1.jpg";
+import why_choose1 from "../assets/img/normal/Why_choose_Us1.jpg";
+
+// import whyThumb32 from "../assets/img/normal/why-thumb3-2.jpg";
+import why_choose2 from "../assets/img/normal/Why_choose_Us2.jpg";
+
 
 const WhyChuse = () => {
   const title ="Our 4-Step Process for Delivering AI Solutions"
@@ -49,7 +53,7 @@ const WhyChuse = () => {
                 data-aos="fade-right"
                 data-aos-duration="2000"
               >
-                <img src={whyThumb31} alt="img" />
+                <img src={why_choose1} alt="img" />
               </div>
               <div
                 className="img2"
@@ -64,7 +68,7 @@ const WhyChuse = () => {
                   maskSize: "cover",
                 }}
               >
-                <img src={whyThumb32} alt="img" />
+                <img src={why_choose2} alt="img" />
               </div>
             </div>
             <div

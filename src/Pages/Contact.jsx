@@ -1,5 +1,6 @@
 import React from "react";
-import consultingThumb1_1 from "../assets/img/normal/consulting-thumb1-1.jpg";
+// import consultingThumb1_1 from "../assets/img/normal/consulting-thumb1-1.jpg";
+import contact from "../assets/img/normal/Contact_US.jpg";
 import Breadcumbs from "../components/Breadcumbs";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -137,7 +138,7 @@ const Contact = () => {
             <div className="row align-items-center">
               <div className="col-xxl-6">
                 <div className="page-img mb-0">
-                  <img src={consultingThumb1_1} alt="img" />
+                  <img src={contact} alt="img" />
                 </div>
               </div>
               <div className="col-xxl-6">

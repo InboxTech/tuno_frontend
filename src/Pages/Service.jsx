@@ -1,5 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react'
 import Breadcumbs from "../components/Breadcumbs";
+import { Link } from 'react-router-dom';
 import Pricing from "../components/Pricing";
 import Testimonial from "../components/Testimonial";
 import ServiceIcon11 from "../assets/img/icon/service/service_icon_1_1.svg";
@@ -76,8 +77,8 @@ function Service() {
                         <p className="box-text">
                            TUNO creates lifelike voice interactions using advanced NLP, perfect for customer support, onboarding, and more. 
                         </p>
-                        <a href="service-details.html" className="link-btn style4">Read More <i
-                                className="fas fa-long-arrow-right ms-2"></i></a>
+                        <Link to="/service-details" className="link-btn style4">Read More <i
+                                className="fas fa-long-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
                 <div className="col-xxl-3 col-xl-4 col-md-6">
@@ -110,8 +111,8 @@ function Service() {
                         <p className="box-text">
                            Automate calls using intelligent routing and smart conversations. Reduce wait times and improve user satisfaction. 
                         </p>
-                        <a href="service-details.html" className="link-btn style4">Read More <i
-                                className="fas fa-long-arrow-right ms-2"></i></a>
+                        <Link to="/service-details" className="link-btn style4">Read More <i
+                                className="fas fa-long-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
                 <div className="col-xxl-3 col-xl-4 col-md-6">
@@ -127,8 +128,8 @@ function Service() {
                         <p className="box-text">
                            Extract actionable insights from every voice interaction using emotion detection, speech pacing, and call trends. 
                         </p>
-                        <a href="service-details.html" className="link-btn style4">Read More <i
-                                className="fas fa-long-arrow-right ms-2"></i></a>
+                        <Link to="/service-details" className="link-btn style4">Read More <i
+                                className="fas fa-long-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
                 <div className="col-xxl-3 col-xl-4 col-md-6">
@@ -144,8 +145,8 @@ function Service() {
                         <p className="box-text">
                             Plug TUNO into mobile or web apps to deliver voice commands, feedback systems, and hands-free experiences. 
                         </p>
-                        <a href="service-details.html" className="link-btn style4">Read More <i
-                                className="fas fa-long-arrow-right ms-2"></i></a>
+                        <Link to="/service-details" className="link-btn style4">Read More <i
+                                className="fas fa-long-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
                 <div className="col-xxl-3 col-xl-4 col-md-6">
@@ -161,8 +162,8 @@ function Service() {
                         <p className="box-text">
                            Generate custom AI voices for your brand using ethical, secure cloning. Bring your identity to life with speech. 
                         </p>
-                        <a href="service-details.html" className="link-btn style4">Read More <i
-                                className="fas fa-long-arrow-right ms-2"></i></a>
+                        <Link to="/service-details" className="link-btn style4">Read More <i
+                                className="fas fa-long-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
                 <div className="col-xxl-3 col-xl-4 col-md-6">
@@ -176,8 +177,8 @@ function Service() {
                         <p className="box-text">
                            Use TUNO to automate appointment reminders, follow-ups, or time-based notifications with natural-sounding voices. 
                         </p>
-                        <a href="service-details.html" className="link-btn style4">Read More <i
-                                className="fas fa-long-arrow-right ms-2"></i></a>
+                        <Link to="/service-details" className="link-btn style4">Read More <i
+                                className="fas fa-long-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
                 <div className="col-xxl-3 col-xl-4 col-md-6">
@@ -193,8 +194,8 @@ function Service() {
                         <p className="box-text">
                            Enable product discovery, order tracking, and customer care using conversational AI integrated with your platform. 
                         </p>
-                        <a href="service-details.html" className="link-btn style4">Read More <i
-                                className="fas fa-long-arrow-right ms-2"></i></a>
+                        <Link to="/service-details" className="link-btn style4">Read More <i
+                                className="fas fa-long-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
             </div>

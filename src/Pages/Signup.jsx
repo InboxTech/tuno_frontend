@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ConsultingThumb11 from "../assets/img/normal/consulting-thumb1-1.jpg";
+import Registraion from "../assets/img/normal/Registration.jpg";
 import Breadcumbs from '../components/Breadcumbs';
 import { faEnvelope, faUser, faPhone, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -92,7 +92,7 @@ function Signup() {
             <div className="row align-items-center">
               <div className="col-xxl-6">
                 <div className="page-img mb-0">
-                  <img src={ConsultingThumb11} alt="signup" />
+                  <img src={Registraion} alt="signup" />
                 </div>
               </div>
               <div className="col-xxl-6">

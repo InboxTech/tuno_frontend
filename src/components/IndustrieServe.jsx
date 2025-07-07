@@ -1,11 +1,24 @@
 import React,{useState,useRef,useEffect} from "react";
 import whyThumbShape31 from "../assets/img/shape/why-thumb-shape3-1.png";
-import theerOne from "../assets/img/feature/3-1.png";
-import threeTwo from "../assets/img/feature/3-2.png";
-import threeThree from "../assets/img/feature/3-3.png";
-import threeFour from "../assets/img/feature/3-4.png";
-import threeFive from "../assets/img/feature/3-5.png";
-import threeSix from "../assets/img/feature/3-6.png";
+// import theerOne from "../assets/img/feature/3-1.png";
+import Healthcare from "../assets/img/feature/Healthcare.jpg";
+
+// import threeTwo from "../assets/img/feature/3-2.png";
+import finance_Banking from "../assets/img/feature/finance_Banking.jpg";
+
+// import threeThree from "../assets/img/feature/3-3.png";
+import Education from "../assets/img/feature/Education.jpg";
+
+// import threeFour from "../assets/img/feature/3-4.png";
+import BPO_Callcenter from "../assets/img/feature/BPO_Callcenter.jpg";
+
+// import threeFive from "../assets/img/feature/3-5.png";
+import Travel_hospitality from "../assets/img/feature/Travel_hospitality.jpg";
+
+// import threeSix from "../assets/img/feature/3-6.png";
+import e_commarce_retail from "../assets/img/feature/e_commarce_retail.jpg";
+import Logistics_Pharma from "../assets/img/feature/Logistics_Pharma.jpg";
+
 
 const IndustrieServe = () => {
    const title ="Industries Where ai is optimizing the Processes"
@@ -99,111 +112,52 @@ let letterCount = 0;
           <div className="feature-wrap3">
             <ul className="nav nav-tabs feature-tab" role="tablist">
               <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link active"
-                  id="feature-tab1"
-                  data-bs-toggle="tab"
-                  data-bs-target="#featureTab1"
-                  type="button"
-                  role="tab"
-                  aria-controls="featureTab"
-                  aria-selected="true"
-                >
-                  <span className="box-number">#01</span>Healthcare AI
-                </button>
+                <button className="nav-link active" id="feature-tab1" data-bs-toggle="tab" data-bs-target="#featureTab1" type="button" role="tab" aria-controls="featureTab"
+                  aria-selected="true" > <span className="box-number">#01</span>Healthcare AI </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link"
-                  id="feature-tab2"
-                  data-bs-toggle="tab"
-                  data-bs-target="#featureTab2"
-                  type="button"
-                  role="tab"
-                  aria-controls="featureTab2"
-                  aria-selected="false"
-                >
-                  <span className="box-number">#02</span>Finance AI
-                </button>
+                <button className="nav-link" id="feature-tab2" data-bs-toggle="tab" data-bs-target="#featureTab2" type="button" role="tab" aria-controls="featureTab2" 
+                  aria-selected="false" > <span className="box-number">#02</span>Banking & Finance </button>
+              </li>
+
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="feature-tab3" data-bs-toggle="tab" data-bs-target="#featureTab3" type="button" role="tab" aria-controls="featureTab3"
+                  aria-selected="false" > <span className="box-number">#03</span>E-commerce Ai </button>
+              </li>
+
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="feature-tab4" data-bs-toggle="tab" data-bs-target="#featureTab4" type="button" role="tab" aria-controls="featureTab4"
+                  aria-selected="false" > <span className="box-number">#04</span>Education Ai </button>
+              </li>
+
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="feature-tab5" data-bs-toggle="tab" data-bs-target="#featureTab5" type="button" role="tab" aria-controls="featureTab5"
+                  aria-selected="false" > <span className="box-number">#05</span>BPOs & Call Centers </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link"
-                  id="feature-tab3"
-                  data-bs-toggle="tab"
-                  data-bs-target="#featureTab3"
-                  type="button"
-                  role="tab"
-                  aria-controls="featureTab3"
-                  aria-selected="false"
-                >
-                  <span className="box-number">#03</span>Education Ai
-                </button>
+                <button className="nav-link" id="feature-tab6" data-bs-toggle="tab" data-bs-target="#featureTab6" type="button" role="tab" aria-controls="featureTab6"
+                  aria-selected="false" > <span className="box-number">#06</span>Travel & Hospitality </button> 
               </li>
               <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link"
-                  id="feature-tab4"
-                  data-bs-toggle="tab"
-                  data-bs-target="#featureTab4"
-                  type="button"
-                  role="tab"
-                  aria-controls="featureTab4"
-                  aria-selected="false"
-                >
-                  <span className="box-number">#04</span>BPOs & Call Centers
-                </button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link"
-                  id="feature-tab5"
-                  data-bs-toggle="tab"
-                  data-bs-target="#featureTab5"
-                  type="button"
-                  role="tab"
-                  aria-controls="featureTab5"
-                  aria-selected="false"
-                >
-                  <span className="box-number">#05</span>Travel & Hospitality
-                </button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link"
-                  id="feature-tab6"
-                  data-bs-toggle="tab"
-                  data-bs-target="#featureTab6"
-                  type="button"
-                  role="tab"
-                  aria-controls="featureTab6"
-                  aria-selected="false"
-                >
-                  <span className="box-number">#06</span>E-commerce Ai
-                </button>
+                <button className="nav-link" id="feature-tab7" data-bs-toggle="tab" data-bs-target="#featureTab7" type="button" role="tab" aria-controls="featureTab7"
+                  aria-selected="false" > <span className="box-number">#07</span> Logistics & Pharma </button>
               </li>
             </ul>
             <div className="tab-content">
-              <div
-                className="tab-pane fade show active"
-                id="featureTab1"
-                role="tabpanel"
-                aria-labelledby="feature-tab1"
-              >
+              <div className="tab-pane fade show active" id="featureTab1" role="tabpanel" aria-labelledby="feature-tab1" >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
-                    style={{
-                      WebkitMaskImage: `url(${whyThumbShape31})`,
-                      maskImage: `url(${whyThumbShape31})`,
+                  <div className="feature-tab-thumb"
+                   // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    style={{ 
+                      WebkitMaskImage: `url(${whyThumbShape31})`, 
+                    maskImage: `url(${whyThumbShape31})`,
                       WebkitMaskRepeat: "no-repeat",
                       maskRepeat: "no-repeat",
                       WebkitMaskSize: "cover",
                       maskSize: "cover",
                     }}
                   >
-                    <img src={theerOne} alt="img" />
+                    <img src={Healthcare} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">Healthcare Ai</h4>
@@ -216,26 +170,17 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a
-                        className="icon-btn style4"
-                        href="service-details.html"
-                      >
+                      <a className="icon-btn style4" href="service-details.html" >
                         <i className="fal fa-arrow-right" />
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                className="tab-pane fade"
-                id="featureTab2"
-                role="tabpanel"
-                aria-labelledby="feature-tab2"
-              >
+              <div className="tab-pane fade" id="featureTab2" role="tabpanel" aria-labelledby="feature-tab2" >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                  <div className="feature-tab-thumb" 
+                  // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
                       maskImage: `url(${whyThumbShape31})`,
@@ -245,7 +190,7 @@ let letterCount = 0;
                       maskSize: "cover",
                     }}
                   >
-                    <img src={threeTwo} alt="img" />
+                    <img src={finance_Banking} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">Banking & Finance</h4>
@@ -259,10 +204,7 @@ let letterCount = 0;
                       delivering 24/7 financial assistance.
                     </p>
                     <div className="btn-wrap mt-40">
-                      <a
-                        className="icon-btn style4"
-                        href="service-details.html"
-                      >
+                      <a className="icon-btn style4" href="service-details.html" >
                         <i className="fal fa-arrow-right" />
                       </a>
                     </div>
@@ -276,9 +218,8 @@ let letterCount = 0;
                 aria-labelledby="feature-tab3"
               >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                  <div className="feature-tab-thumb"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
                       maskImage: `url(${whyThumbShape31})`,
@@ -288,7 +229,39 @@ let letterCount = 0;
                       maskSize: "cover",
                     }}
                   >
-                    <img src={threeThree} alt="img" />
+                    <img src={e_commarce_retail} alt="img" />
+                  </div>
+                  <div className="feature-tab-content">
+                    <h4 className="box-title">E-commerce Ai</h4>
+                    <p className="box-text">
+                      AI voicebots manage order tracking, product discovery,
+                      customer service, and post-sale feedback. TUNO enhances
+                      shopping experiences by enabling instant, conversational
+                      engagement that drives sales and reduces support costs
+                    </p>
+
+                    <div className="btn-wrap mt-40">
+                      <a className="icon-btn style4" href="service-details.html">
+                        <i className="fal fa-arrow-right" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+              <div className="tab-pane fade" id="featureTab4" role="tabpanel" aria-labelledby="feature-tab4" >
+                <div className="feature-tab-content-wrap" data-aos="fade-left">
+                  <div className="feature-tab-thumb"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                    style={{
+                      WebkitMaskImage: `url(${whyThumbShape31})`,
+                      maskImage: `url(${whyThumbShape31})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskSize: "cover",
+                      maskSize: "cover",
+                    }}
+                  >
+                    <img src={Education} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">Education Ai</h4>
@@ -301,25 +274,16 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a
-                        className="icon-btn style4"
-                        href="service-details.html"
-                      >
+                      <a className="icon-btn style4" href="service-details.html" >
                         <i className="fal fa-arrow-right" />
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                className="tab-pane fade"
-                id="featureTab4"
-                role="tabpanel"
-                aria-labelledby="feature-tab4"
-              >
+              <div className="tab-pane fade" id="featureTab5" role="tabpanel" aria-labelledby="feature-tab5" >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
+                  <div className="feature-tab-thumb"
                     // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
@@ -330,7 +294,7 @@ let letterCount = 0;
                       maskSize: "cover",
                     }}
                   >
-                    <img src={threeFour} alt="img" />
+                    <img src={BPO_Callcenter} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">BPOs & Call Centers </h4>
@@ -342,26 +306,17 @@ let letterCount = 0;
                       satisfaction at scale.
                     </p>
 
-                    <div className="btn-wrap mt-40">
-                      <a
-                        className="icon-btn style4"
-                        href="service-details.html"
-                      >
+                    <div className="btn-wrap mt-40"> 
+                      <a className="icon-btn style4" href="service-details.html" >
                         <i className="fal fa-arrow-right" />
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                className="tab-pane fade"
-                id="featureTab5"
-                role="tabpanel"
-                aria-labelledby="feature-tab5"
-              >
+              <div className="tab-pane fade" id="featureTab6" role="tabpanel" aria-labelledby="feature-tab6" >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
+                  <div className="feature-tab-thumb"
                     // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
@@ -372,7 +327,7 @@ let letterCount = 0;
                       maskSize: "cover",
                     }}
                   >
-                    <img src={threeFive} alt="img" />
+                    <img src={Travel_hospitality} alt="img" />
                   </div>
                   <div className="feature-tab-content">
                     <h4 className="box-title">Travel & Hospitality </h4>
@@ -385,26 +340,17 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a
-                        className="icon-btn style4"
-                        href="service-details.html"
-                      >
+                      <a className="icon-btn style4" href="service-details.html" >
                         <i className="fal fa-arrow-right" />
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                className="tab-pane fade"
-                id="featureTab6"
-                role="tabpanel"
-                aria-labelledby="feature-tab6"
-              >
+              <div className="tab-pane fade" id="featureTab7" role="tabpanel" aria-labelledby="feature-tab7" >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                  <div className="feature-tab-thumb"
+                   // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
                       maskImage: `url(${whyThumbShape31})`,
@@ -414,22 +360,16 @@ let letterCount = 0;
                       maskSize: "cover",
                     }}
                   >
-                    <img src={threeSix} alt="img" />
+                    <img src={Logistics_Pharma} alt="img" />
                   </div>
                   <div className="feature-tab-content">
-                    <h4 className="box-title">E-commerce Ai</h4>
+                    <h4 className="box-title">Logistics & Pharma </h4>
                     <p className="box-text">
-                      AI voicebots manage order tracking, product discovery,
-                      customer service, and post-sale feedback. TUNO enhances
-                      shopping experiences by enabling instant, conversational
-                      engagement that drives sales and reduces support costs
+                     TUNO automates dispatch alerts, inventory updates, and customer notifications in logistics and pharma. Our secure, voice-enabled systems reduce human error, speed up delivery chains, and improve last-mile coordination. 
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a
-                        className="icon-btn style4"
-                        href="service-details.html"
-                      >
+                      <a className="icon-btn style4" href="service-details.html" >
                         <i className="fal fa-arrow-right" />
                       </a>
                     </div>

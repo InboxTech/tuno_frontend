@@ -5,7 +5,9 @@ import discovery_consultation from "../assets/img/process/discovery_consultation
 // import process_1_2 from "../assets/img/process/process_1_2.jpg";
 import solution_design_development from "../assets/img/process/solution_design_development.jpg";
 
-import process_1_3 from "../assets/img/process/process_1_3.jpg";
+// import process_1_3 from "../assets/img/process/process_1_3.jpg";
+import implement_integration from "../assets/img/process/Implement_ integration.jpg";
+
 // import process_1_4 from "../assets/img/process/process_1_4.jpg";
 import monitoring_conti_improvement from "../assets/img/process/monitoring_conti_improvement.jpg";
 
@@ -136,7 +138,7 @@ const WorkProcess = () => {
                   data-aos="fade-down"
                   data-aos-duration="2000"
                 >
-                  <img src={process_1_3} alt="img" />
+                  <img src={implement_integration} alt="img" />
                 </div>
               </div>
               <div

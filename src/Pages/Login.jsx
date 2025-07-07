@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import LoginImg from "../assets/img/normal/about-thumb4-1.jpg";
+import LoginImg from "../assets/img/normal/Login.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import Breadcumbs from "../components/Breadcumbs";
 
