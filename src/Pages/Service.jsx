@@ -72,7 +72,7 @@ function Service() {
                             </div>
                         </div>
                         <h3 className="box-title">
-                            <a href="service.html">Conversational Voice AI </a>
+                            <Link to="#">Conversational Voice AI </Link>
                         </h3>
                         <p className="box-text">
                            TUNO creates lifelike voice interactions using advanced NLP, perfect for customer support, onboarding, and more. 
@@ -89,13 +89,13 @@ function Service() {
                             </div>
                         </div>
                         <h3 className="box-title">
-                            <a href="service.html">Multilingual Voice Assistants </a>
+                            <Link to="#">Multilingual Voice Assistants </Link>
                         </h3>
                         <p className="box-text">
                            Engage users globally with voicebots fluent in 40+ languages and dialects. Ideal for enterprises with a global reach. 
                         </p>
-                        <a href="service-details.html" className="link-btn style4">Read More <i
-                                className="fas fa-long-arrow-right ms-2"></i></a>
+                        <Link to="#" className="link-btn style4">Read More <i
+                                className="fas fa-long-arrow-right ms-2"></i></Link>
                     </div>
                 </div>
                 <div className="col-xxl-3 col-xl-4 col-md-6">
@@ -106,7 +106,7 @@ function Service() {
                             </div>
                         </div>
                         <h3 className="box-title">
-                            <a href="service.html">AI-Powered IVR Systems</a>
+                            <Link to="#">AI-Powered IVR Systems</Link>
                         </h3>
                         <p className="box-text">
                            Automate calls using intelligent routing and smart conversations. Reduce wait times and improve user satisfaction. 
@@ -123,7 +123,7 @@ function Service() {
                             </div>
                         </div>
                         <h3 className="box-title">
-                            <a href="service.html">Voice Analytics & Insights </a>
+                            <Link to="#">Voice Analytics & Insights </Link>
                         </h3>
                         <p className="box-text">
                            Extract actionable insights from every voice interaction using emotion detection, speech pacing, and call trends. 
@@ -140,7 +140,7 @@ function Service() {
                             </div>
                         </div>
                         <h3 className="box-title">
-                            <a href="service.html">Voice Integration for Apps</a>
+                            <Link to="#">Voice Integration for Apps</Link>
                         </h3>
                         <p className="box-text">
                             Plug TUNO into mobile or web apps to deliver voice commands, feedback systems, and hands-free experiences. 
@@ -157,7 +157,7 @@ function Service() {
                             </div>
                         </div>
                         <h3 className="box-title">
-                            <a href="service.html">Custom Voice Cloning </a>
+                            <Link to="#">Custom Voice Cloning </Link>
                         </h3>
                         <p className="box-text">
                            Generate custom AI voices for your brand using ethical, secure cloning. Bring your identity to life with speech. 
@@ -173,7 +173,7 @@ function Service() {
                                 <img src={ServiceIcon17} alt="icon" />
                             </div>
                         </div>
-                        <h3 className="box-title"><a href="service.html">Smart Voice Scheduling </a></h3>
+                        <h3 className="box-title"><Link to="#">Smart Voice Scheduling </Link></h3>
                         <p className="box-text">
                            Use TUNO to automate appointment reminders, follow-ups, or time-based notifications with natural-sounding voices. 
                         </p>
@@ -189,7 +189,7 @@ function Service() {
                             </div>
                         </div>
                         <h3 className="box-title">
-                            <a href="service.html">Voice AI in E-Commerce </a>
+                            <Link to="#">Voice AI in E-Commerce </Link>
                         </h3>
                         <p className="box-text">
                            Enable product discovery, order tracking, and customer care using conversational AI integrated with your platform. 

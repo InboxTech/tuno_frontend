@@ -69,7 +69,7 @@ function TeamDetails() {
                                     <li>
                                         <div>
                                             <strong className="title">Phone Number:</strong> 
-                                            <span className="text"><a href="tel:+00-1234567889">+00-123 456 7889</a></span>
+                                            <span className="text"><Link to="tel:+00-1234567889">+00-123 456 7889</Link></span>
                                         </div>
                                     </li>
                                     <li>
@@ -84,18 +84,18 @@ function TeamDetails() {
                                     </li>
                                     <li>
                                         <div><strong className="title">Services</strong>
-                                         <span className="text"><a href="#">Business,</a>
-                                         <a href="#">Consulting,</a>
-                                         <a href="#">Finance</a></span>
+                                         <span className="text"><Link to="#">Business,</Link>
+                                         <Link to="#">Consulting,</Link>
+                                         <Link to="#">Finance</Link></span>
                                          </div>
                                     </li>
                                     <li>
                                         <div><strong className="title">Get In Touch:</strong>
                                             <div className="th-social style2">
-                                                <a href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a>
-                                                 <a href="https://www.twitter.com/"><i className="fab fa-twitter"></i></a>
-                                                <a href="https://www.linkedin.com/"><i className="fab fa-linkedin-in"></i></a> 
-                                                <a href="https://www.instagram.com/"><i className="fab fa-instagram"></i></a>
+                                                <Link to="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></Link>
+                                                 <Link to="https://www.twitter.com/"><i className="fab fa-twitter"></i></Link>
+                                                <Link to="https://www.linkedin.com/"><i className="fab fa-linkedin-in"></i></Link> 
+                                                <Link to="https://www.instagram.com/"><i className="fab fa-instagram"></i></Link>
                                             </div>
                                         </div>
                                     </li>

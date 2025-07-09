@@ -1,4 +1,4 @@
-import React, { useRef, useState,useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -71,7 +71,7 @@ const TestimonialSlider = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
         },
       },
     ],
@@ -104,7 +104,7 @@ const TestimonialSlider = () => {
   return (
     <section
       className="overflow-hidden space"
-      style={{ backgroundImage: `url(${testi_bg_3_1})` }}
+      style={{ backgroundImage: `url(${testi_bg_3_1})`,backgroundSize:"cover" }}
     >
       <div className="container">
         <div
@@ -201,6 +201,7 @@ const TestimonialSlider = () => {
                   maskRepeat: "no-repeat",
                   WebkitMaskSize: "cover",
                   maskSize: "cover",
+                  
                 }}
                 data-aos="fade-up"
                 data-aos-duration="2000"
@@ -213,7 +214,7 @@ const TestimonialSlider = () => {
                 <p className="box-text mb-3">{item.text}</p>
                 <div className="testi-card-profile">
                   <div className="testi-card-avater">
-                    <img src={item.image} alt={item.name} />
+                    {/* <img src={item.image} alt={item.name} /> */}
                   </div>
                   <div className="testi-card-profile-detaile">
                     <h3 className="box-title mb-0">{item.name}</h3>

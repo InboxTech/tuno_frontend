@@ -10,6 +10,7 @@ import project3_5 from "../assets/img/project/project3-5.jpg";
 import projectCard3Shape from "../assets/img/shape/project-card3-shape.png";
 import "swiper/css"; // Required styles
 import "swiper/css/autoplay";
+import { Link } from "react-router-dom";
 
 // Static list of items
 const sliderItems = [
@@ -68,9 +69,9 @@ const MarqueeSlider = ({
           {[...sliderItems, ...sliderItems].map((item, index) => (
             <SwiperSlide key={index} className="!w-auto">
               <div className="marquee-card style2 text-white">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <Link to="#" target="_blank" rel="noopener noreferrer">
                   {item}
-                </a>
+                </Link>
               </div>
             </SwiperSlide>
           ))}
@@ -98,7 +99,7 @@ const Work = () => {
       >
         <MarqueeSlider wrapClass="marquee-wrap2" bgColor="bg-gradient" />
         <MarqueeSlider wrapClass="marquee-wrap3" bgColor="bg-gray" />
-        <MarqueeSlider wrapClass="marquee-wrap3" bgColor="bg-gradient" />
+        {/* <MarqueeSlider wrapClass="marquee-wrap3" bgColor="bg-gradient" /> */}
       </div>
       <section
         className="space-bottom overflow-hidden position-relative"
@@ -175,14 +176,14 @@ const Work = () => {
                       }}
                     >
                       <img src={item.img} alt="project image" />
-                      <a href="/project-details" className="icon-btn style5">
+                      <Link to="/project-details" className="icon-btn style5">
                         <i className="fal fa-arrow-right"></i>
-                      </a>
+                      </Link>
                     </div>
                     <div className="box-content">
                       <p className="box-subtitle text-white">{item.subtitle}</p>
                       <h3 className="box-title text-white">
-                        <a href="/project-details">{item.title}</a>
+                        <Link to="/project-details">{item.title}</Link>
                       </h3>
                     </div>
                   </div>

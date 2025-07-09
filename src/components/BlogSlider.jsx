@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import blogImg1 from "../assets/img/blog/blog_3_1.jpg";
 import blogImg2 from "../assets/img/blog/blog_3_2.jpg";
 import blogShape from "../assets/img/shape/blog-card3-shape.png";
+import { Link } from "react-router-dom";
 
 const blogPosts = [
   {
@@ -145,25 +146,25 @@ const BlogSlider = () => {
                       maskSize: "cover",
                     }}
                   >
-                    <a href={post.link}>
+                    <Link to={post.link}>
                       <img src={post.img} alt="blog" />
-                    </a>
+                    </Link>
                   </div>
                   <div className="blog-content">
                     <div className="blog-meta">
-                      <a href="blog.html">
+                      <Link to="#">
                         <FontAwesomeIcon icon={faCalendar} className="me-2"/> {post.date}
-                      </a>
-                      <a href="blog.html">
+                      </Link>
+                      <Link to="#">
                        <FontAwesomeIcon icon={faUser} className="me-2"/> by {post.author}
-                      </a>
+                      </Link>
                     </div>
                     <h3 className="box-title">
-                      <a href={post.link}>{post.title}</a>
+                      <Link to={post.link}>{post.title}</Link>
                     </h3>
-                    <a href={post.link} className="th-btn style-gradient3">
+                    <Link to={post.link} className="th-btn style-gradient3">
                       Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </SwiperSlide>

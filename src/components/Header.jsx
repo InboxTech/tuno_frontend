@@ -66,69 +66,57 @@ const Header = () => {
                             <Link to="#">Shop</Link>
                             <ul className="sub-menu">
                               <li>
-                                <Link to="shop.html">Shop</Link>
+                                <Link to="#">Shop</Link>
                               </li>
                               <li>
-                                <Link to="shop-details.html">Shop Details</Link>
+                                <Link to="#">Shop Details</Link>
                               </li>
                               <li>
-                                <Link to="cart.html">Cart Page</Link>
+                                <Link to="#">Cart Page</Link>
                               </li>
                               <li>
-                                <Link to="checkout.html">Checkout</Link>
+                                <Link to="3">Checkout</Link>
                               </li>
                               <li>
-                                <Link to="wishlist.html">Wishlist</Link>
+                                <Link to="#">Wishlist</Link>
                               </li>
                             </ul>
                           </li>
                           <li>
-                            <Link to="project.html">Project</Link>
+                            <Link to="#">Project</Link>
                           </li>
                           <li>
-                            <Link to="project-details.html">
+                            <Link to="#">
                               Project Details
                             </Link>
                           </li>
                           <li>
-                            <Link to="team.html">Our Team</Link>
+                            <Link to="#">Our Team</Link>
                           </li>
                           <li>
-                            <Link to="team-details.html">Team Details</Link>
+                            <Link to="#">Team Details</Link>
                           </li>
                           <li>
-                            <Link to="chatbot.html">Chatbot Integration</Link>
+                            <Link to="#">Chatbot Integration</Link>
                           </li>
                           <li>
-                            <Link to="pricing.html">Pricing</Link>
+                            <Link to="#">Pricing</Link>
                           </li>
                           <li>
-                            <Link to="testimonial.html">Testimonial</Link>
+                            <Link to="#">Testimonial</Link>
                           </li>
                           <li>
-                            <Link to="faq.html">FAQ'S Page</Link>
+                            <Link to="#">FAQ'S Page</Link>
                           </li>
                           <li>
-                            <Link to="ai-consulting.html">AI Consulting</Link>
+                            <Link to="#">AI Consulting</Link>
                           </li>
-                          <li>
-                            <Link to="error.html">Error Page</Link>
-                          </li>
+                         
                         </ul>
                       </li>
                       <li>
                         <Link to="/blog">Blog</Link>
-                        {/* <ul className="sub-menu">
-                          <li>
-                            <Link to="blog.html">Blog Standard</Link>
-                          </li>
-                          <li>
-                            <Link to="blog-2.html">Blog Grid</Link>
-                          </li>
-                          <li>
-                            <Link to="blog-details.html">Blog Details</Link>
-                          </li>
-                        </ul> */}
+                      
                       </li>
                       <li>
                         <Link to="/contact">Contact Us</Link>

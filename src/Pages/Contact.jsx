@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import axios from "axios";  
 import { useAuth } from "../store/auth";
 import { toast, ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   // Initial form values
@@ -94,10 +95,10 @@ const Contact = () => {
                 </div>
                 <h4 className="box-title">Email us</h4>
                 <p className="box-text">
-                  <a href="mailto:help24/7.info@robor.com">
+                  <Link to="mailto:help24/7.info@robor.com">
                     help24/7.info@robor.com
-                  </a>
-                  <a href="mailto:info@robor.com">info@robor.com</a>
+                  </Link>
+                  <Link to="mailto:info@robor.com">info@robor.com</Link>
                 </p>
               </div>
             </div>
@@ -108,8 +109,8 @@ const Contact = () => {
                 </div>
                 <h4 className="box-title">Free Call</h4>
                 <p className="box-text">
-                  <a href="tel:+919175513773">+919 (175) 513 663</a>
-                  <a href="tel:+919175513773">+919 (175) 513 773</a>
+                  <Link to="tel:+919175513773">+919 (175) 513 663</Link>
+                  <Link to="tel:+919175513773">+919 (175) 513 773</Link>
                 </p>
               </div>
             </div>

@@ -50,30 +50,7 @@ function MobileSidebar() {
                   //  onClick={() => toggleMenu("home")}
                    >
                     Home</Link>
-                  {/* {openMenus.home && (
-                    <ul className="sub-menu">
-                      <li className={`menu-item-has-children ${openMenus.multipage ? "open" : ""}`}>
-                        <Link to="#" onClick={() => toggleMenu("multipage")}>Multipage</Link>
-                        {openMenus.multipage && (
-                          <ul className="sub-menu">
-                            <li><Link to="index.html">Home I (AI Startup)</Link></li>
-                            <li><Link to="home-2.html">Home II (AI Technology)</Link></li> 
-                            <li><Link to="/">Home </Link></li>
-                          </ul>
-                        )}
-                      </li>
-                      <li className={`menu-item-has-children ${openMenus.onepage ? "open" : ""}`}>
-                        <Link to="#" onClick={() => toggleMenu("onepage")}>Onepage</Link>
-                        {openMenus.onepage && (
-                          <ul className="sub-menu">
-                            <li><Link to="home-1-op.html">Home I (AI Startup)</Link></li>
-                            <li><Link to="home-2-op.html">Home II (AI Technology)</Link></li>
-                            <li><Link to="home-3-op.html">Home III (AI Agency)</Link></li>
-                          </ul>
-                        )}
-                      </li>
-                    </ul>
-                  )} */}
+              
                 </li>
 
                 {/* About */}
@@ -99,24 +76,24 @@ function MobileSidebar() {
                         <Link to="#" onClick={() => toggleMenu("shop")}>Shop</Link>
                         {openMenus.shop && (
                           <ul className="sub-menu">
-                            <li><Link to="shop.html">Shop</Link></li>
-                            <li><Link to="shop-details.html">Shop Details</Link></li>
-                            <li><Link to="cart.html">Cart Page</Link></li>
-                            <li><Link to="checkout.html">Checkout</Link></li>
-                            <li><Link to="wishlist.html">Wishlist</Link></li>
+                            <li><Link to="#">Shop</Link></li>
+                            <li><Link to="#">Shop Details</Link></li>
+                            <li><Link to="#">Cart Page</Link></li>
+                            <li><Link to="#">Checkout</Link></li>
+                            <li><Link to="#">Wishlist</Link></li>
                           </ul>
                         )}
                       </li>
-                      <li><Link to="project.html">Project</Link></li>
-                      <li><Link to="project-details.html">Project Details</Link></li>
-                      <li><Link to="team.html">Our Team</Link></li>
-                      <li><Link to="team-details.html">Team Details</Link></li>
-                      <li><Link to="chatbot.html">Chatbot Integration</Link></li>
-                      <li><Link to="pricing.html">Pricing</Link></li>
-                      <li><Link to="testimonial.html">Testimonial</Link></li>
-                      <li><Link to="faq.html">FAQ'S Page</Link></li>
-                      <li><Link to="ai-consulting.html">AI Consulting</Link></li>
-                      <li><Link to="error.html">Error Page</Link></li>
+                      <li><Link to="#">Project</Link></li>
+                      <li><Link to="#">Project Details</Link></li>
+                      <li><Link to="#">Our Team</Link></li>
+                      <li><Link to="#">Team Details</Link></li>
+                      <li><Link to="#">Chatbot Integration</Link></li>
+                      <li><Link to="#">Pricing</Link></li>
+                      <li><Link to="#">Testimonial</Link></li>
+                      <li><Link to="3">FAQ'S Page</Link></li>
+                      <li><Link to="#">AI Consulting</Link></li>
+                   
                     </ul>
                   )}
                 </li>
@@ -126,17 +103,11 @@ function MobileSidebar() {
                   <Link to="/blog"
                   //  onClick={() => toggleMenu("blog")}
                    >Blog</Link>
-                  {/* {openMenus.blog && (
-                    <ul className="sub-menu">
-                      <li><Link to="blog.html">Blog Standard</Link></li>
-                      <li><Link to="blog-2.html">Blog Grid</Link></li>
-                      <li><Link to="blog-details.html">Blog Details</Link></li>
-                    </ul>
-                  )} */}
+                
                 </li>
 
                 {/* Contact */}
-                <li><Link to="contact.html">Contact Us</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
               </ul>
             </div>
           </div>

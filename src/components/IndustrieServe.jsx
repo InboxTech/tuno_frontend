@@ -170,9 +170,12 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a className="icon-btn style4" href="service-details.html" >
+                      <Link
+                        className="icon-btn style4"
+                        to="/service-details"
+                      >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -204,9 +207,12 @@ let letterCount = 0;
                       delivering 24/7 financial assistance.
                     </p>
                     <div className="btn-wrap mt-40">
-                      <a className="icon-btn style4" href="service-details.html" >
+                      <Link
+                        className="icon-btn style4"
+                        to="/service-details"
+                      >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -274,9 +280,12 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a className="icon-btn style4" href="service-details.html" >
+                      <Link
+                        className="icon-btn style4"
+                        to="/service-details"
+                      >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -306,10 +315,13 @@ let letterCount = 0;
                       satisfaction at scale.
                     </p>
 
-                    <div className="btn-wrap mt-40"> 
-                      <a className="icon-btn style4" href="service-details.html" >
+                    <div className="btn-wrap mt-40">
+                      <Link
+                        className="icon-btn style4"
+                        to="/service-details"
+                      >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -340,9 +352,12 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a className="icon-btn style4" href="service-details.html" >
+                      <Link
+                        className="icon-btn style4"
+                        to="/service-details"
+                      >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -369,9 +384,12 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a className="icon-btn style4" href="service-details.html" >
+                      <Link
+                        className="icon-btn style4"
+                        to="/service-details"
+                      >
                         <i className="fal fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

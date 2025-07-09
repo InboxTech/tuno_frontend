@@ -2,6 +2,7 @@ import React, { useState,useRef,useEffect } from "react";
 import testi_bg_3_1 from "../assets/img/bg/testi-bg-3-1.png";
 import pricingCardShape2_1 from "../assets/img/shape/pricing-card-shape2-1.png";
 import price_thumb2_1 from "../assets/img/normal/price-thumb2-1.png";
+import { Link } from "react-router-dom";
 
 const pricingData = [
   {
@@ -153,9 +154,9 @@ const PricingCard = ({ plan, isActive }) => {
         </div>
 
         <div className="btn-wrap">
-          <a href="/contact" className="th-btn style-gradient3">
+          <Link to="/contact" className="th-btn style-gradient3">
             Choose Package
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -218,9 +219,9 @@ const Pricing = () => {
           </div>
           <div className="col-lg-auto">
             <div className="sec-btn">
-              <a href="/about" className="th-btn style-gradient">
+              <Link to="/about" className="th-btn style-gradient">
                 More About Us <i className="far fa-long-arrow-right ms-2" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

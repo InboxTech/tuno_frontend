@@ -5,6 +5,7 @@ import service_details1 from '../assets/img/service/service_details1.jpg'
 
 import Services12 from '../assets/img/service/service-s-1-2.jpg'
 import Services13 from '../assets/img/service/service-s-1-3.jpg'
+import { Link } from 'react-router-dom'
 
 function Servicedetails() {
   return (
@@ -148,7 +149,7 @@ function Servicedetails() {
                                 <div className="box-content">
                                     <p className="info-box_title">Call Us</p>
                                     <p className="info-box_text">
-                                        <a href="tel:+11278956825" className="info-box_link">+286 985 2156</a>
+                                        <Link to="tel:+11278956825" className="info-box_link">+286 985 2156</Link>
                                     </p>
                                 </div>
                             </div>
@@ -157,7 +158,7 @@ function Servicedetails() {
                                 <div className="box-content">
                                     <p className="info-box_title">Mail Us</p>
                                     <p className="info-box_text">
-                                        <a href="mailto:info@example.com" className="info-box_link">info@example.com</a>
+                                        <Link to="mailto:info@example.com" className="info-box_link">info@example.com</Link>
                                     </p>
                                 </div>
                             </div>
@@ -166,7 +167,7 @@ function Servicedetails() {
                                 <div className="box-content">
                                     <p className="info-box_title">Office Address</p>
                                     <p className="info-box_text">
-                                        <a href="https://www.google.ca/maps/" className="info-box_link">125 Berlin, Germany</a>
+                                        <Link to="https://www.google.ca/maps/" className="info-box_link">125 Berlin, Germany</Link>
                                     </p>
                                 </div>
                             </div>
