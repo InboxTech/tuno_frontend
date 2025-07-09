@@ -11,7 +11,7 @@ import serviceCard3ThumbShape2 from "../assets/img/shape/service-card3-thumb-sha
 import ServiceShapThumbImg from "../assets/img/shape/service-card3-thumb-shape.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Link } from "react-router-dom";
+
 
 const NextArrow = ({ onClick }) => (
   <button onClick={onClick} className="slider-arrow style-border4 slider-next">
@@ -250,7 +250,7 @@ let letterCount = 0;
                     <p className="box-text">
                      {service.description}
                     </p>
-                    <Link className="icon-btn style4" to="#">
+                    <Link className="icon-btn style4" to="service">
                       <i className="fal fa-arrow-right" />
                     </Link>
                   </div>

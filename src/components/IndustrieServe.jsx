@@ -18,7 +18,7 @@ import Travel_hospitality from "../assets/img/feature/Travel_hospitality.jpg";
 // import threeSix from "../assets/img/feature/3-6.png";
 import e_commarce_retail from "../assets/img/feature/e_commarce_retail.jpg";
 import Logistics_Pharma from "../assets/img/feature/Logistics_Pharma.jpg";
-
+import {Link} from 'react-router-dom'
 
 const IndustrieServe = () => {
    const title ="Industries Where ai is optimizing the Processes"
