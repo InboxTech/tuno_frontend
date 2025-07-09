@@ -9,6 +9,6 @@ const blogSchema = new Schema({
 })
 
 // create a model or collection
-const Contact = new model("Contact", contactSchema);
+const Contact = new model("Blog", blogSchema);
 
 module.exports = Contact;
