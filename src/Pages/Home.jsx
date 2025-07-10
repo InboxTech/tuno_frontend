@@ -51,7 +51,7 @@ const Home = () => {
 
       {/* Pricing ==> */}
 
-      <Pricing />
+      {/* <Pricing /> */}
 
       {/* /// blog slider ===> */}
 

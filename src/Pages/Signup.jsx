@@ -66,7 +66,7 @@ function Signup() {
     // Backend returned an error response
     console.error("Response data:", error.response.data);
     console.error("Response status:", error.response.status);
-    toast.error(error.response.data?.msg || 'Server error');
+    toast.error(error.response.data?.msg || 'email already exists');
   } else if (error.request) {
     // Request was made but no response received
     console.error("No response received:", error.request);

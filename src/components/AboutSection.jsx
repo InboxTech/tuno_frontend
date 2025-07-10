@@ -218,7 +218,7 @@ const AboutSection = () => {
                                       Voice Tech Innovation
                                     </li>
                                     <li>
-                                      <img src={checkIcon12} alt="img" />{" "}
+                                      <img src={checkIcon12} alt="img" />
                                       Long-term Customer Success
                                     </li>
                                     <li>
@@ -240,15 +240,15 @@ const AboutSection = () => {
                                 <div className="checklist style4 style-white">
                                   <ul>
                                     <li>
-                                      <img src={checkIcon12} alt="img" />{" "}
+                                      <img src={checkIcon12} alt="img" />
                                      Natural-sounding AI voices
                                     </li>
                                     <li>
-                                      <img src={checkIcon12} alt="img" />{" "}
+                                      <img src={checkIcon12} alt="img" />
                                       Fast, real-time response handling
                                     </li>
                                     <li>
-                                      <img src={checkIcon12} alt="img" />{" "}
+                                      <img src={checkIcon12} alt="img" />
                                      Easy API & platform integration
                                     </li>
                                     <li>
