@@ -34,14 +34,14 @@ const userSchema = new mongoose.Schema({
     enum: ["Active", "Inactive", "Pending"],
     default: "Active",
   },
-  joinDate: {
-    type: Date,
-    default: Date.now,
-  },
   avatar: {
     type: String,
     default: "", 
-  }
+  },
+   createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 // 🔐 Hash the password before saving

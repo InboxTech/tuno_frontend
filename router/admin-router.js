@@ -8,5 +8,7 @@ const router = express.Router();
 router.route('/users').get(authMiddleware,adminMidelware,adminControler.getAllUsers);
 router.route('/users/:id').get(authMiddleware,adminMidelware,adminControler.getUserById)
 router.route('/users/update/:id').patch(authMiddleware,adminMidelware,adminControler.updateUserById)
+router.route('/users/delete/:id').delete(authMiddleware,adminMidelware,adminControler.deleteUserById)
+router.post("/delete-multiple-users", authMiddleware, adminMidelware, adminControler.deleteMultipleUsers);
 
 module.exports = router;

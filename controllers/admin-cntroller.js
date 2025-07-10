@@ -21,7 +21,7 @@ const getAllUsers = async (req,res)=>{
 const getUserById = async (req,res)=>{
 try {
   const id = req.params.id;
-  const data  =await User.findOne({_id:id},{password:0})
+  const data  =await User.findOne({_id:id},{password:0}).sort({ createdAt: -1 });
   return res.status(200).json({data})
   
 } catch (error) {
@@ -47,7 +47,16 @@ try {
   
 }
 }
-
+// delete multi usr ==>
+  const deleteMultipleUsers = async (req, res) => {
+  try {
+    const { userIds } = req.body;
+    await User.deleteMany({ _id: { $in: userIds } });
+    res.status(200).json({ message: "Users deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting users", error });
+  }
+};
 // singal user update ===>
 const updateUserById = async (req,res) =>{
   try {
@@ -62,35 +71,8 @@ const updateUserById = async (req,res) =>{
   }
 }
 
-// contact get ==>
 
-  const getAllContact = async (req,res)=>{
-  try {
 
-    const contactUser = await  Contact.find()
-    if(!contactUser || contactUser.lenth === 0) {
-     return  res.status(404).json({msg:" not contact found"})
-    }
-    return res.status(200).json(contactUser)
-    
-  } catch (error) {
-    console.log(error);
-    
-  }
-}
 
-// delete contact
-const deleteContactById = async (req,res)=>{
-try {
-  const id = req.params.id;
-  await Contact.deleteOne({_id:id})
-  return res.status(200).json({msg:"delete contact sucessfully"})
-  
-} catch (error) {
-  console.log(error);
-  next(error);
-  
-}
-}
 
-module.exports={getAllUsers,getAllContact,deleteUserById,getUserById,updateUserById,deleteContactById};
+module.exports={getAllUsers,deleteUserById,getUserById,updateUserById,deleteMultipleUsers};
