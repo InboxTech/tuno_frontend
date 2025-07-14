@@ -42,30 +42,42 @@ const getServices = async (req, res) => {
 
 
 // update service 
-const updateServices = async (req,res) => {
-try {
-        const serviceId = req.params.id;
-        const updateData = req.body;
+// const updateServices = async (req,res) => {
+// try {
+//         const serviceId = req.params.id;
+//         const updateData = req.body;
 
-        // Optional: Validate required fields
-        if (!updateData.title || !updateData.short_description || !updateData.full_description) {
-            return res.status(400).json({ msg: "Missing required fields" });
-        }
+//         // Optional: Validate required fields
+//         if (!updateData.title || !updateData.short_description || !updateData.full_description) {
+//             return res.status(400).json({ msg: "Missing required fields" });
+//         }
 
-        const updatedService = await Service.findByIdAndUpdate(
-            serviceId,
-            updateData,
-            { new: true } // Return the updated document
-        );
+//         const updatedService = await Service.findByIdAndUpdate(
+//             serviceId,
+//             updateData,
+//             { new: true } // Return the updated document
+//         );
 
-        if (!updatedService) {
-            return res.status(404).json({ msg: "Service not found" });
-        }
+//         if (!updatedService) {
+//             return res.status(404).json({ msg: "Service not found" });
+//         }
 
-        res.status(200).json({ msg: "Service updated successfully", service: updatedService });
+//         res.status(200).json({ msg: "Service updated successfully", service: updatedService });
+//     } catch (error) {
+//         console.error("updateService error:", error);
+//         res.status(500).json({ msg: "Server error", error: error.message });
+//     }
+// }
+
+
+//delete services 
+const deleteServices = async (req, res) => {
+     try {
+        const id = req.params.id;
+        await Service.deleteOne({_id: id})
+        return res.status(200).json({message: "Service deleted successfully"})
     } catch (error) {
-        console.error("updateService error:", error);
-        res.status(500).json({ msg: "Server error", error: error.message });
+        next(error)
     }
 }
-module.exports = {getServices,addServices,updateServices};
+module.exports = {getServices,addServices,deleteServices};
