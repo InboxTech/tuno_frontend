@@ -33,7 +33,12 @@ router.route("/team/:id").get(getTeamMemberById);
 //  update one member
 router
   .route("/team/update/:id")
-  .put(authMiddleware, adminMiddleware, updateTeamMember);
+  .put(
+    authMiddleware,
+    adminMiddleware,
+    uploadSingleImage("image"),
+    updateTeamMember
+  );
 
 //  delete one member
 router
