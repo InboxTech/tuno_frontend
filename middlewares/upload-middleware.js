@@ -2,20 +2,27 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-//  Storage config
+// Dynamic destination folder based on request
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = "uploads";
-    // Ensure folder exists
-    fs.mkdirSync(uploadPath, { recursive: true });
-    cb(null, uploadPath);
+    let folder = "uploads"; // default
+
+    // Set subfolder based on route URL
+    if (req.baseUrl.includes("team")) {
+      folder = "uploads/teams";
+    } else if (req.baseUrl.includes("testimonial")) {
+      folder = "uploads/testimonials";
+    }
+
+    fs.mkdirSync(folder, { recursive: true }); // ensure folder exists
+    cb(null, folder);
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     cb(null, uniqueSuffix + path.extname(file.originalname));
   },
 });
-//  File filter validation (type)
+
 const fileFilter = (req, file, cb) => {
   const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
   if (allowedTypes.includes(file.mimetype)) {
@@ -25,26 +32,22 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-//  Multer instance with size limit (500 KB)
 const upload = multer({
   storage,
   fileFilter,
-  limits: { fileSize: 500 * 1024 }, // 500 KB max
+  limits: { fileSize: 500 * 1024 }, // 500 KB
 });
 
-//  Custom middleware wrapper to handle errors gracefully
 const uploadSingleImage = (fieldName) => {
   return (req, res, next) => {
     const singleUpload = upload.single(fieldName);
     singleUpload(req, res, (err) => {
       if (err instanceof multer.MulterError) {
-        // Multer-specific errors
         if (err.code === "LIMIT_FILE_SIZE") {
           return res.status(400).json({ message: "Image size should not exceed 500 KB" });
         }
         return res.status(400).json({ message: err.message });
       } else if (err) {
-        // Any other error
         return res.status(400).json({ message: err.message });
       }
       next();

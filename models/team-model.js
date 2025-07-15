@@ -12,7 +12,7 @@ const teamSchema = new Schema({
   description: { type: String, required: true, trim: true },
   status: {
     type: String,
-    enum: ["active", "inactive", "pending"],
+    enum: ["Active", "Inactive", "Pending"],
     default: "active",
   },
   createdAt: {

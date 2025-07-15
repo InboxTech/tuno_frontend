@@ -10,6 +10,7 @@ const serviceRoute = require("./router/service-router")
 const adminRouter = require('./router/admin-router')
 
 const teamRouter = require ('./router/team-route')
+const testimonialRouter = require ('./router/testimonial-routes')
 const connectDB = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 const path = require("path");
@@ -34,6 +35,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
 app.use("/api/admin",adminRouter);
 app.use("/api/teamMeber",teamRouter);
+app.use("/api/testimonialData",testimonialRouter);
 
 //  Error handler
 app.use(errorMiddleware);
