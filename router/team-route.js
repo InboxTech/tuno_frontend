@@ -31,7 +31,14 @@ router
 router.route("/team/:id").get(authMiddleware, adminMiddleware,getTeamMemberById);
 
 //  update one member
-router.route("/team/update/:id").put(authMiddleware, adminMiddleware, updateTeamMember);
+router
+  .route("/team/update/:id")
+  .put(
+    authMiddleware,
+    adminMiddleware,
+    uploadSingleImage("image"),
+    updateTeamMember
+  );
 
 //  delete one member
 router.route("/team/delete/:id").delete(authMiddleware, adminMiddleware, deleteTeamMember);
