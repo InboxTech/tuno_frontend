@@ -28,7 +28,7 @@ router
   );
 
 //  get one member
-router.route("/team/:id").get(getTeamMemberById);
+router.route("/team/:id").get(authMiddleware, adminMiddleware,getTeamMemberById);
 
 //  update one member
 router.route("/team/update/:id").put(authMiddleware, adminMiddleware, updateTeamMember);
