@@ -40,8 +40,10 @@ router
     updateTeamMember
   );
 
-//  delete one member
-router.route("/team/delete/:id").delete(authMiddleware, adminMiddleware, deleteTeamMember);
+//  delete one member 
+router
+  .route("/team/delete/:id")
+  .delete(authMiddleware, adminMiddleware, deleteTeamMember);
 
 //  delete multiple members
 router.route("/team/delete-multiple-members").post(authMiddleware, adminMiddleware, deleteMultipleTeamMembers);
