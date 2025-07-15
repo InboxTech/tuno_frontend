@@ -52,4 +52,27 @@ const uploadSingleImage = (fieldName) => {
   };
 };
 
-module.exports = uploadSingleImage;
+
+// myltiple images
+const uploadMultipleImages = (fieldName, maxFiles = 5) => {
+  return (req, res, next) => {
+    const multipleUpload = upload.array(fieldName, maxFiles); // Allow multiple images (default max 5 files)
+    multipleUpload(req, res, (err) => {
+      if (err instanceof multer.MulterError) {
+        // Multer-specific errors
+        if (err.code === "LIMIT_FILE_SIZE") {
+          return res.status(400).json({ message: "Image size should not exceed 500 KB" });
+        }
+        if (err.code === "LIMIT_UNEXPECTED_FILE") {
+          return res.status(400).json({ message: `You can only upload up to ${maxFiles} images.` });
+        }
+        return res.status(400).json({ message: err.message });
+      } else if (err) {
+        // Any other error
+        return res.status(400).json({ message: err.message });
+      }
+      next();
+    });
+  };
+};
+module.exports = {uploadSingleImage, uploadMultipleImages};

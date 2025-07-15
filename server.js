@@ -6,6 +6,8 @@ const fs = require("fs");
 const authRoute = require("./router/auth-router");
 const contactRoute = require("./router/contact-router");
 const serviceRoute = require("./router/service-router")
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 const adminRouter = require('./router/admin-router')
 
