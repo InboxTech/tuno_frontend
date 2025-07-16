@@ -12,30 +12,38 @@ const createTeamMember = async (req, res) => {
       linkedIn,
       instagram,
       description,
+      status,
     } = req.body;
 
-    const image = req.file ? `/uploads/${req.file.filename}` : null;
+    const image = req.file ? `/uploads/teams/${req.file.filename}` : null;
 
     if (!title || !designation || !experience || !linkedIn || !description || !image) {
-      return res.status(400).json({ message: "Please fill all required fields including image" });
+      return res
+        .status(400)
+        .json({ message: "Please fill all required fields including image." });
     }
 
-    const teamMember = new Team({
+    const team = new Team({
       title,
       designation,
       experience,
-      image,
       facebook,
       twitter,
       linkedIn,
       instagram,
       description,
+      status,
+      image,
     });
 
-    await teamMember.save();
-    res.status(201).json({ message: "Team member created successfully", teamMember });
+    await team.save();
+    res.status(201).json({ message: "Team member created successfully", team });
   } catch (error) {
-    res.status(500).json({ message: "Failed to create team member", error: error.message });
+    console.error("Error creating team member:", error);
+    res.status(500).json({
+      message: "Failed to create team member",
+      error: error.message,
+    });
   }
 };
 

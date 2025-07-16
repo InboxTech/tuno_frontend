@@ -23,10 +23,9 @@ router
   .post(
     authMiddleware,
     adminMiddleware,
-    uploadSingleImage("image"), 
+    uploadSingleImage("image"),
     createTeamMember
   );
-
 //  get one member
 router.route("/team/:id").get(authMiddleware, adminMiddleware,getTeamMemberById);
 

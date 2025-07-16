@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const uploadSingleImage = require("../middlewares/upload-middleware");
+const {uploadSingleImage} = require("../middlewares/upload-middleware");
 
 const {
   createTestimonial,
