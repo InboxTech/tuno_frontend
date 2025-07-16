@@ -68,10 +68,7 @@ useEffect(() => {
         logoutUser,
         isLoggedIn,
         token,
-
-
         authorizationToken,
-
         API,  
       }}
     >

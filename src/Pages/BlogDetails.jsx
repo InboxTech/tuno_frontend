@@ -159,38 +159,10 @@ const BlogDetails = () => {
                     collaboratively with clients to design, develop, and
                     implement AI solutions tailored to their unique needs.
                   </p>
-                  <div className="share-links clearfix">
-                    <div className="row justify-content-between">
-                      <div className="col-md-auto">
-                        <span className="share-links-title">Tags:</span>
-                        <div className="tagcloud">
-                          <Link to="/blog">Automation</Link>
-                          <Link to="/blog">Technology</Link>
-                          <Link to="/blog">Digital</Link>
-                        </div>
-                      </div>
-                      <div className="col-md-auto text-xl-end">
-                        <span className="share-links-title">Share:</span>
-                        <div className="th-social style2 align-items-center">
-                          <Link to="https://www.facebook.com/">
-                            <i className="fab fa-facebook-f" />
-                          </Link>
-                          <Link to="https://www.twitter.com/">
-                            <i className="fab fa-twitter" />
-                          </Link>
-                          <Link to="https://www.instagram.com/">
-                            <i className="fab fa-instagram" />
-                          </Link>
-                          <Link to="https://www.linkedin.com/">
-                            <i className="fab fa-linkedin-in" />
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              
                 </div>
               </div>
-              <div className="th-comments-wrap">
+              {/* <div className="th-comments-wrap">
                 <h2 className="blog-inner-title h4">
                   <i className="fas fa-comments" /> Comments (3)
                 </h2>
@@ -323,11 +295,11 @@ const BlogDetails = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="col-xl-4 col-lg-5">
               <div className="sidebar-area sidebar-sticky">
-                <div className="widget widget_search">
+                {/* <div className="widget widget_search">
                   <h3 className="widget_title">Search</h3>
                   <form className="search-form">
                     <input type="text" placeholder="Search Products..." />
@@ -335,7 +307,7 @@ const BlogDetails = () => {
                       <i className="far fa-search" />
                     </button>
                   </form>
-                </div>
+                </div> */}
                 <div className="widget widget_categories">
                   <h3 className="widget_title">Categories</h3>
                   <ul>

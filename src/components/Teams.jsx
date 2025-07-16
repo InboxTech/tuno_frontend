@@ -1,5 +1,5 @@
-import React,{useState,useEffect,useRef} from "react";
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import team_1_2 from "../assets/img/team/team_1_2.png";
 import team_1_4 from "../assets/img/team/team_1_4.png";
 import team_1_6 from "../assets/img/team/team_1_6.png";
@@ -10,11 +10,10 @@ import team_1_5 from "../assets/img/team/team_1_5.png";
 import team_1_8 from "../assets/img/team/team_1_8.png";
 import teamBackground from "../assets/img/bg/team-bg-3.jpg";
 import teamCard2_shape from "../assets/img/shape/team-card2-shape.png";
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const teamMembers = [
   {
     name: "Alex Javed",
@@ -23,7 +22,7 @@ const teamMembers = [
       facebook: "https://facebook.com/",
       twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
-      whatsapp: "https://whatsapp.com/",
+      linkdin: "https://linkdin.com/",
     },
   },
   {
@@ -33,7 +32,7 @@ const teamMembers = [
       facebook: "https://facebook.com/",
       twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
-      whatsapp: "https://whatsapp.com/",
+      linkdin: "https://linkdin.com/",
     },
   },
   {
@@ -43,7 +42,7 @@ const teamMembers = [
       facebook: "https://facebook.com/",
       twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
-      whatsapp: "https://whatsapp.com/",
+      linkdin: "https://linkdin.com/",
     },
   },
   {
@@ -53,7 +52,7 @@ const teamMembers = [
       facebook: "https://facebook.com/",
       twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
-      whatsapp: "https://whatsapp.com/",
+      linkdin: "https://linkdin.com/",
     },
   },
   {
@@ -63,7 +62,7 @@ const teamMembers = [
       facebook: "https://facebook.com/",
       twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
-      whatsapp: "https://whatsapp.com/",
+      linkdin: "https://linkdin.com/",
     },
   },
   {
@@ -73,7 +72,7 @@ const teamMembers = [
       facebook: "https://facebook.com/",
       twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
-      whatsapp: "https://whatsapp.com/",
+      linkdin: "https://linkdin.com/",
     },
   },
   {
@@ -83,7 +82,7 @@ const teamMembers = [
       facebook: "https://facebook.com/",
       twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
-      whatsapp: "https://whatsapp.com/",
+      linkdin: "https://linkdin.com/",
     },
   },
   {
@@ -93,36 +92,35 @@ const teamMembers = [
       facebook: "https://facebook.com/",
       twitter: "https://twitter.com/",
       instagram: "https://instagram.com/",
-      whatsapp: "https://whatsapp.com/",
+      linkdin: "https://linkdin.com/",
     },
   },
 ];
 
 const Teams = () => {
-  const title ="Expert Team"
-          const delay = 50;
-      
-         const titleRef = useRef(null);
-          const [titleVisible, setPTitleVisible] = useState(false);
-          //work process title intersersection observer
-                useEffect(() => {
-                  const observerTitle = new IntersectionObserver(
-                    ([entry]) => {
-                      if (entry.isIntersecting) {
-                        setPTitleVisible(true);
-                        observerTitle.disconnect();
-                      }
-                    },
-                    { threshold: 0.3 } // Start animation when 30% of the heading is visible
-                  );
-              
-                  if (titleRef.current) {
-                    observerTitle.observe(titleRef.current);
-                  }
-              
-                  return () => observerTitle.disconnect();
-                  
-                }, []);
+  const title = "Expert Team";
+  const delay = 50;
+
+  const titleRef = useRef(null);
+  const [titleVisible, setPTitleVisible] = useState(false);
+  //work process title intersersection observer
+  useEffect(() => {
+    const observerTitle = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPTitleVisible(true);
+          observerTitle.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (titleRef.current) {
+      observerTitle.observe(titleRef.current);
+    }
+
+    return () => observerTitle.disconnect();
+  }, []);
   return (
     <section
       className="space overflow-hidden team-area-2 team-bg-gradient-overlay"
@@ -139,17 +137,21 @@ const Teams = () => {
               <span className="sub-title2 text-gradient text-uppercase mb-30">
                 AI Expert Team
               </span>
-              <h2 ref={titleRef } className="sec-title text-white fw-bold text-uppercase text-anim2">
-                
-                 {title.split('').map((letter, index) => (
-                                            <span
-                                                key={index}
-                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms` }}
-                                                >
-                                                {letter === ' ' ? '\u00A0' : letter}
-                                                </span>
-                                        ))}
+              <h2
+                ref={titleRef}
+                className="sec-title text-white fw-bold text-uppercase text-anim2"
+              >
+                {title.split("").map((letter, index) => (
+                  <span
+                    key={index}
+                    className={`animated-letter ${
+                      titleVisible ? "visible" : ""
+                    }`}
+                    style={{ animationDelay: `${index * delay}ms` }}
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </span>
+                ))}
               </h2>
             </div>
           </div>
@@ -157,7 +159,11 @@ const Teams = () => {
         <div className="row gy-4 justify-content-center">
           {teamMembers.map((member, index) => (
             <div className="col-xl-3 col-lg-4 col-md-6" key={index}>
-              <div className="th-team team-card style2" data-aos="fade-up" data-aos-duration="2000">
+              <div
+                className="th-team team-card style2"
+                data-aos="fade-up"
+                data-aos-duration="2000"
+              >
                 <div
                   className="team-img"
                   data-mask-src="assets/img/shape/team-card2-shape.png"
@@ -182,13 +188,13 @@ const Teams = () => {
                     <FontAwesomeIcon icon={faFacebookF} />
                   </Link>
                   <Link target="_blank" to={member.links.twitter}>
-                   <FontAwesomeIcon icon={faTwitter}  />
+                    <FontAwesomeIcon icon={faTwitter} />
                   </Link>
                   <Link target="_blank" to={member.links.instagram}>
-                   <FontAwesomeIcon icon={faInstagram} />
+                    <FontAwesomeIcon icon={faInstagram} />
                   </Link>
-                  <Link target="_blank" to={member.links.whatsapp}>
-                    <FontAwesomeIcon icon={faWhatsapp}  />
+                  <Link target="_blank" to={member.links.linkdin}>
+                  <i className="fab fa-linkedin-in"></i>
                   </Link>
                 </div>
               </div>

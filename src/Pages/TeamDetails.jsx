@@ -3,6 +3,7 @@ import Breadcumbs from '../components/Breadcumbs'
 import teaminner11 from "../assets/img/team/team_inner_1_1.png"
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Link } from 'react-router-dom';
 
 
 function TeamDetails() {

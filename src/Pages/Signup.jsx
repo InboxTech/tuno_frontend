@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { API } = useAuth(); // Make sure this returns a valid base URL like http://localhost:5000
+  const { API } = useAuth(); 
 
   const initialValues = {
     username: '',

@@ -15944,7 +15944,7 @@ span.select2-selection.select2-selection--single:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  /* gap: 16px; */
+  gap: 16px;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -15957,6 +15957,16 @@ span.select2-selection.select2-selection--single:focus {
   flex: none;
   border-radius: 50%;
   overflow: hidden;
+}
+.text-yellow-500 {
+  color: #facc15;
+}
+.text-gray-300 {
+  color: #d1d5db;
+}
+.testimonialImg{
+  width: 64px;
+  height: 64px !important;
 }
 .testi-wrap2 {
   position: relative;
