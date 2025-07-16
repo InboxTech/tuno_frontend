@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {uploadSingleImage} = require("../middlewares/upload-middleware"); // ✅ Correct import
+const { uploadHandler } = require("../middlewares/upload-middleware");
 
 const {
   createTeamMember,
@@ -23,7 +23,7 @@ router
   .post(
     authMiddleware,
     adminMiddleware,
-    uploadSingleImage("image"), 
+    uploadHandler([{ name: "image", maxCount: 1 }]),
     createTeamMember
   );
 
@@ -36,7 +36,7 @@ router
   .put(
     authMiddleware,
     adminMiddleware,
-    uploadSingleImage("image"),
+    uploadHandler([{ name: "image", maxCount: 1 }]),
     updateTeamMember
   );
 

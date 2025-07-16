@@ -1,9 +1,11 @@
 const Service = require("../models/service-model");
-
+const mongoose = require("mongoose");
+// const { ObjectId } = require("mongodb");
 //add services
 const addServices = async (req, res) => {
   try {
-    console.log(req.body); // Log the form data
+    console.log("req.body:", req.body);
+    console.log("req.files:", req.files);
 
     const {
       title,
@@ -13,35 +15,50 @@ const addServices = async (req, res) => {
       status,
     } = req.body;
 
-    // For single image upload
-    const image = req.file ? `/uploads/${req.file.filename}` : null;
-    // For multiple image uploads
-    const service_images = req.files ? req.files.map(file => `/uploads/${file.filename}`) : [];
+    // ✅ Correctly handle files from multer.fields
+    const serviceImageFile = req.files?.["service_image"]?.[0];
+    const serviceImagesFiles = req.files?.["service_images"] || [];
 
-    // Validate required fields
-    if (!title || !short_description || !full_description || !image_alt_text || !status || !image) {
+    const image = serviceImageFile
+      ? `/uploads/serviceimage/${serviceImageFile.filename}`
+      : null;
+
+    const service_images = serviceImagesFiles.map(
+      (file) => `/uploads/serviceimage/${file.filename}`
+    );
+
+    if (
+      !title ||
+      !short_description ||
+      !full_description ||
+      !image_alt_text ||
+      !status ||
+      !image
+    ) {
       return res.status(400).json({ msg: "Please add all required fields" });
     }
 
-    // Create and save the new service
     const newService = new Service({
       title,
       short_description,
       full_description,
-      service_image: image, // single image or null
-      service_images, // multiple images array
+      service_image: image,
+      service_images,
       image_alt_text,
       status,
     });
 
     const savedService = await newService.save();
 
-    res.status(200).json({ msg: "Service added successfully", service: savedService });
+    return res
+      .status(200)
+      .json({ msg: "Service added successfully", service: savedService });
   } catch (error) {
-    console.error('Error in addService:', error); // Log the error
-    res.status(500).json({ msg: "Server error", error: error.message });
+    console.error("addServices error:", error);
+    return res.status(500).json({ msg: "Server error", error: error.message });
   }
 };
+
 
 
 //get services
@@ -67,33 +84,54 @@ const getServices = async (req, res, next) => {
   }
 };
 
-// update service 
-const updateServices = async (req,res) => {
-try {
-        const serviceId = req.params.id;
-        const updateData = req.body;
+// Get single service by ID
+const getServiceById = async (req, res) => {
+  try {
+    const serviceId = req.params.id;
+    const service = await Service.findById(serviceId);
 
-        // Optional: Validate required fields
-        // if (!updateData.title || !updateData.short_description || !updateData.full_description) {
-        //     return res.status(400).json({ msg: "Missing required fields" });
-        // }
-
-        const updatedService = await Service.findByIdAndUpdate(
-            serviceId,
-            updateData,
-            { new: true } // Return the updated document
-        );
-
-        if (!updatedService) {
-            return res.status(404).json({ msg: "Service not found" });
-        }
-
-        res.status(200).json({ msg: "Service updated successfully", service: updatedService });
-    } catch (error) {
-        console.error("updateService error:", error);
-        res.status(500).json({ msg: "Server error", error: error.message });
+    if (!service) {
+      return res.status(404).json({ message: "Service not found" });
     }
-}
+
+    return res.status(200).json(service);
+  } catch (error) {
+    console.error("Error fetching service by ID:", error);
+    return res.status(500).json({ msg: "Server error", error: error.message });
+  }
+};
+
+// update service 
+const updateServices = async (req, res) => {
+  try {
+    const serviceId = req.params.id;
+    const updateData = req.body;
+
+    // Handle new uploaded single image
+    if (req.file) {
+      updateData.service_image = `/uploads/serviceimage/${req.file.filename}`;
+    }
+
+    // Handle new uploaded multiple images
+    if (req.files && req.files.length > 0) {
+      updateData.service_images = req.files.map(file => `/uploads/serviceimage/${file.filename}`);
+    }
+
+    const updatedService = await Service.findByIdAndUpdate(serviceId, updateData, {
+      new: true, // Return the updated document
+    });
+
+    if (!updatedService) {
+      return res.status(404).json({ msg: "Service not found" });
+    }
+
+    res.status(200).json({ msg: "Service updated successfully", service: updatedService });
+  } catch (error) {
+    console.error("updateService error:", error);
+    res.status(500).json({ msg: "Server error", error: error.message });
+  }
+};
+
 
 
 //delete services 
@@ -106,4 +144,32 @@ const deleteServices = async (req, res) => {
         next(error)
     }
 }
-module.exports = {addServices,getServices,updateServices,deleteServices};
+
+
+//delete selected services 
+const deleteSelectedServices = async (req, res) => {
+  try {
+    const { ids } = req.body;
+    console.log("BODY:", req.body);
+
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return res.status(400).json({ message: "No service IDs provided" });
+    }
+
+    // ✅ Convert using `createFromHexString` (recommended for Mongoose v8+)
+const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
+
+const objectIds = ids
+  .filter(isValidObjectId)
+  .map((id) => mongoose.Types.ObjectId.createFromHexString(id));
+    const result = await Service.deleteMany({ _id: { $in: objectIds } });
+
+    return res.status(200).json({
+      message: `${result.deletedCount} service(s) deleted successfully`,
+    });
+  } catch (error) {
+    console.error("Error deleting selected services:", error);
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+module.exports = {addServices,getServices,updateServices,deleteServices,getServiceById,deleteSelectedServices};

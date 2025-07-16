@@ -24,17 +24,17 @@ const serviceSchema = new Schema({
     required: false
   },
   service_images: {
-    type: [String], // Array of image URLs
+     type: [String], // Array of image URLs
     default: []
   },
   status: {
     type: String,
-    enum: ['active', 'inactive', 'pending'],
-    default: 'pending'
+    enum: ['Active', 'Inactive', 'Pending'],
+    default: 'Pending'
   },
   created_at: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updated_at: {
     type: Date

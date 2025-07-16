@@ -1,15 +1,37 @@
 const express = require("express");
-const {addServices,getServices,updateServices,deleteServices} = require("../controllers/service-controller");
-const {uploadSingleImage,uploadMultipleImages} = require("../middlewares/upload-middleware"); // ✅ Correct import
+const {addServices,getServices,updateServices,deleteServices,getServiceById,deleteSelectedServices} = require("../controllers/service-controller");
+const { uploadHandler } = require("../middlewares/upload-middleware"); // ✅ Correct import
 const adminMiddleware = require("../middlewares/admin-middleware");
 const authMiddleware = require("../middlewares/auth-middleware");
 
 
 const router = express.Router();
 
-router.route("/addService").post(authMiddleware,adminMiddleware, uploadSingleImage("service_image"),uploadMultipleImages("service_images"), addServices);
+router
+  .route("/addService")
+  .post(
+    authMiddleware,
+    adminMiddleware,
+    uploadHandler([
+      { name: "service_image", maxCount: 1 },
+      { name: "service_images", maxCount: 5 },
+    ]),
+    addServices
+  );
+
+  //get all services
 router.route("/getService").get(authMiddleware,adminMiddleware,getServices);
-router.route("/updateService/:id").put(authMiddleware,adminMiddleware, uploadSingleImage("service_image"),uploadMultipleImages("service_images"),updateServices);
+
+//get single sevic by id
+router.route("/getServiceById/:id").get(authMiddleware,adminMiddleware,getServiceById);
+
+router.route("/updateService/:id").put(
+    authMiddleware,adminMiddleware,  uploadHandler([
+      { name: "service_image", maxCount: 1 },
+      { name: "service_images", maxCount: 5 },
+    ]),
+        updateServices);
 router.route("/deleteService/:id").delete(authMiddleware,adminMiddleware,deleteServices);
+router.route("/deleteSelectedService").post(authMiddleware,adminMiddleware,deleteSelectedServices);
 
 module.exports = router;

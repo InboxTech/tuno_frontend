@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const uploadSingleImage = require("../middlewares/upload-middleware");
-
+const { uploadHandler } = require("../middlewares/upload-middleware");
 const {
   createTestimonial,
   getAllTestimonials,
@@ -23,7 +22,7 @@ router
   .post(
     authMiddleware,
     adminMiddleware,
-    uploadSingleImage("image"), 
+    uploadHandler([{ name: "image", maxCount: 1 }]),
     createTestimonial
   );
 
@@ -36,7 +35,7 @@ router
   .put(
     authMiddleware,
     adminMiddleware,
-    uploadSingleImage("image"),
+       uploadHandler([{ name: "image", maxCount: 1 }]),
     updateTestimonial
   );
 
