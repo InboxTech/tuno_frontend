@@ -4,11 +4,16 @@ import Logo from "../assets/img/logo2.svg";
 import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
+
 
 const Header = () => {
+  const {API} = useAuth()
   const [isSticky, setIsSticky] = useState(false);
   const { isLoggedIn } = useAuth();
-
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 300); // adjust value as needed
@@ -17,12 +22,37 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  //get service title in sub menu
+  const getAllServices = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`${API}/api/admin/getService`,{method: "GET",});
+      const data = await response.json();
+      console.log("API response:", data);
+
+      // If response is { services: [...] }
+      // 👉 adjust this based on your API
+      const serviceList = Array.isArray(data) ? data : data.services;
+
+      setServices(serviceList); // ✅ Just titles needed
+    } catch (error) {
+      console.error("Services Error:", error);
+      toast.error(error.message || "Error fetching services");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getAllServices();
+  }, []);
+
   return (
     <React.Fragment>
       <header
-        className={`th-header header-layout2 ${
-          isSticky ? "sticky-active" : ""
-        }`}
+        className={`th-header header-layout2 ${isSticky ? "sticky-active" : ""
+          }`}
       >
         <div className="sticky-wrapper">
           <div className="container">
@@ -54,6 +84,22 @@ const Header = () => {
                           <li>
                             <Link to="/service">Services</Link>
                           </li>
+
+                          {loading ? (
+                            <li className="text-center">Loading services...</li>
+                          ) : services.length > 0 ? (
+                            services.map((service) => {
+                              console.log("service.title:", service.title)
+                              return (
+                                <li key={service._id}>
+                                  <Link to="#">{service.title || "No Title"}</Link> {/* ✅ Only title shown */}
+                                </li>
+                              )
+                            })
+                          ) : (
+                            <li className="text-center">No services found</li>
+                          )}
+
                           <li>
                             <Link to="/service-details">Services Details</Link>
                           </li>
@@ -111,17 +157,17 @@ const Header = () => {
                           <li>
                             <Link to="#">AI Consulting</Link>
                           </li>
-                         
+
                         </ul>
                       </li>
                       <li>
                         <Link to="/blog">Blog</Link>
-                      
+
                       </li>
                       <li>
                         <Link to="/contact">Contact Us</Link>
                       </li>
-                    
+
                     </ul>
                   </nav>
                   <div className="header-button d-flex d-lg-none">
@@ -132,23 +178,23 @@ const Header = () => {
                 </div>
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
-                   
-                     {isLoggedIn ? (
-                       
-                          <Link to="/logout" className="th-btn style-gradient">Logout <i className="far fa-long-arrow-right ms-2"> </i>
-                          </Link>
 
-                        
-                      ) : (
-                       <div>
-                          <Link to="/login" className="th-btn style-gradient">Login
-                      <i className="far fa-long-arrow-right ms-2"> </i>
-                          
-                          </Link>
-                        
+                    {isLoggedIn ? (
+
+                      <Link to="/logout" className="th-btn style-gradient">Logout <i className="far fa-long-arrow-right ms-2"> </i>
+                      </Link>
+
+
+                    ) : (
+                      <div>
+                        <Link to="/login" className="th-btn style-gradient">Login
+                          <i className="far fa-long-arrow-right ms-2"> </i>
+
+                        </Link>
+
 
                       </div>
-                      )}
+                    )}
                   </div>
                 </div>
               </div>
