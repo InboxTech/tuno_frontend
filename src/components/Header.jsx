@@ -42,9 +42,7 @@ const Header = () => {
                 <div className="col-auto">
                   <nav className="main-menu d-none d-lg-inline-block">
                     <ul>
-                      <li className="">
-                        <Link to="/">Home </Link>
-                      </li>
+                    
                       <li>
                         <Link to="/about">About Us</Link>
                       </li>
@@ -54,74 +52,42 @@ const Header = () => {
                           <li>
                             <Link to="/service">Services</Link>
                           </li>
-                          <li>
-                            <Link to="/service-details">Services Details</Link>
-                          </li>
                         </ul>
                       </li>
                       <li className="menu-item-has-children">
-                        <Link to="#">Pages</Link>
+                        <Link to="#">Projects</Link>
                         <ul className="sub-menu">
-                          <li className="menu-item-has-children">
-                            <Link to="#">Shop</Link>
-                            <ul className="sub-menu">
-                              <li>
-                                <Link to="#">Shop</Link>
-                              </li>
-                              <li>
-                                <Link to="#">Shop Details</Link>
-                              </li>
-                              <li>
-                                <Link to="#">Cart Page</Link>
-                              </li>
-                              <li>
-                                <Link to="3">Checkout</Link>
-                              </li>
-                              <li>
-                                <Link to="#">Wishlist</Link>
-                              </li>
-                            </ul>
+                          <li>
+                            <Link to="#">Project One</Link>
+                   
                           </li>
                           <li>
-                            <Link to="#">Project</Link>
+                            <Link to="#">Project Two</Link>
                           </li>
                           <li>
-                            <Link to="#">
-                              Project Details
-                            </Link>
+                            <Link to="#">Project Three</Link>
                           </li>
                           <li>
-                            <Link to="#">Our Team</Link>
+                            <Link to="#">Project Five</Link>
                           </li>
                           <li>
-                            <Link to="#">Team Details</Link>
+                            <Link to="#">Project six</Link>
                           </li>
                           <li>
-                            <Link to="#">Chatbot Integration</Link>
+                            <Link to="#">Project seven</Link>
                           </li>
-                          <li>
-                            <Link to="#">Pricing</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Testimonial</Link>
-                          </li>
-                          <li>
-                            <Link to="#">FAQ'S Page</Link>
-                          </li>
-                          <li>
-                            <Link to="#">AI Consulting</Link>
-                          </li>
-                         
+                          
                         </ul>
                       </li>
                       <li>
                         <Link to="/blog">Blog</Link>
-                      
+                      </li>
+                      <li>
+                        <Link to="#">Career</Link>
                       </li>
                       <li>
                         <Link to="/contact">Contact Us</Link>
                       </li>
-                    
                     </ul>
                   </nav>
                   <div className="header-button d-flex d-lg-none">
@@ -132,23 +98,18 @@ const Header = () => {
                 </div>
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
-                   
-                     {isLoggedIn ? (
-                       
-                          <Link to="/logout" className="th-btn style-gradient">Logout <i className="far fa-long-arrow-right ms-2"> </i>
-                          </Link>
-
-                        
-                      ) : (
-                       <div>
-                          <Link to="/login" className="th-btn style-gradient">Login
-                      <i className="far fa-long-arrow-right ms-2"> </i>
-                          
-                          </Link>
-                        
-
+                    {isLoggedIn ? (
+                      <Link to="/logout" className="th-btn style-gradient">
+                        Logout <i className="far fa-long-arrow-right ms-2"> </i>
+                      </Link>
+                    ) : (
+                      <div>
+                        <Link to="/login" className="th-btn style-gradient">
+                          Login
+                          <i className="far fa-long-arrow-right ms-2"> </i>
+                        </Link>
                       </div>
-                      )}
+                    )}
                   </div>
                 </div>
               </div>

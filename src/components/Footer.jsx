@@ -79,11 +79,11 @@ const Footer = () => {
                 <div className="widget widget_nav_menu footer-widget">
                   <h3 className="widget_title">Useful Links</h3>
                   <ul className="menu">
-                    <li><Link to="#">Home</Link></li>
-                    <li><Link to="#">About Us</Link></li>
-                    <li><Link to="#">Features</Link></li>
-                    <li><Link to="#">Projects</Link></li>
-                    <li><Link to="#">Blog</Link></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/service">Service</Link></li>
+                    <li><Link to="/project">Projects</Link></li>
+                    <li><Link to="/blog">Blog</Link></li>
                   </ul>
                 </div>
               </div>
@@ -92,11 +92,11 @@ const Footer = () => {
                 <div className="widget widget_nav_menu footer-widget">
                   <h3 className="widget_title">Company</h3>
                   <ul className="menu">
-                    <li><Link to="#">What we Offer</Link></li>
-                    <li><Link to="#">Our Story</Link></li>
-                    <li><Link to="#">Latest Posts</Link></li>
-                    <li><Link to="#">Help Center</Link></li>
-                    <li><Link to="#">Our Partners</Link></li>
+                    <li><Link to="/about">What we Offer</Link></li>
+                    <li><Link to="/about">Our Story</Link></li>
+                    <li><Link to="/blog">Latest Posts</Link></li>
+                    <li><Link to="/contact">Help Center</Link></li>
+                    <li><Link to="/about">Our Partners</Link></li>
                   </ul>
                 </div>
               </div>
@@ -105,11 +105,11 @@ const Footer = () => {
                 <div className="widget widget_nav_menu footer-widget">
                   <h3 className="widget_title">Our Service</h3>
                   <ul className="menu">
-                    <li><Link to="#">Robotic Automation</Link></li>
-                    <li><Link to="#">Education & Science</Link></li>
-                    <li><Link to="#">Machine Learning</Link></li>
-                    <li><Link to="#">Predictive Analysis</Link></li>
-                    <li><Link to="#">Data Security</Link></li>
+                    <li><Link to="#">Service One</Link></li>
+                    <li><Link to="#">Service Two</Link></li>
+                    <li><Link to="#">Service Three</Link></li>
+                    <li><Link to="#">Sercie Four</Link></li>
+                    <li><Link to="#">Service Five</Link></li>
                   </ul>
                 </div>
               </div>
