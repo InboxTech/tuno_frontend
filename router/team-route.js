@@ -26,7 +26,6 @@ router
     uploadHandler([{ name: "image", maxCount: 1 }]),
     createTeamMember
   );
-
 //  get one member
 router.route("/team/:id").get(authMiddleware, adminMiddleware,getTeamMemberById);
 
