@@ -14,21 +14,21 @@ router
     adminMiddleware,
     uploadHandler([
       { name: "service_image", maxCount: 1 },
-      { name: "service_images", maxCount: 5 },
+      { name: "service_images", maxCount: 10 },
     ]),
     addServices
   );
 
   //get all services
-router.route("/getService").get(authMiddleware,adminMiddleware,getServices);
+router.route("/getService").get(getServices);
 
 //get single sevic by id
-router.route("/getServiceById/:id").get(authMiddleware,adminMiddleware,getServiceById);
+router.route("/getServiceById/:id").get(getServiceById);
 
 router.route("/updateService/:id").put(
     authMiddleware,adminMiddleware,  uploadHandler([
       { name: "service_image", maxCount: 1 },
-      { name: "service_images", maxCount: 5 },
+      { name: "service_images", maxCount: 10 },
     ]),
         updateServices);
 router.route("/deleteService/:id").delete(authMiddleware,adminMiddleware,deleteServices);

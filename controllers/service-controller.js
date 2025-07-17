@@ -18,7 +18,9 @@ const addServices = async (req, res) => {
     // ✅ Correctly handle files from multer.fields
     const serviceImageFile = req.files?.["service_image"]?.[0];
     const serviceImagesFiles = req.files?.["service_images"] || [];
-
+//       updateData.service_images = serviceImagesFiles.map(
+//       (file) => `/uploads/serviceimage/${file.filename}`
+// );
     const image = serviceImageFile
       ? `/uploads/serviceimage/${serviceImageFile.filename}`
       : null;
@@ -50,9 +52,7 @@ const addServices = async (req, res) => {
 
     const savedService = await newService.save();
 
-    return res
-      .status(200)
-      .json({ msg: "Service added successfully", service: savedService });
+    return res.status(200).json({ msg: "Service added successfully", service: savedService });
   } catch (error) {
     console.error("addServices error:", error);
     return res.status(500).json({ msg: "Server error", error: error.message });
