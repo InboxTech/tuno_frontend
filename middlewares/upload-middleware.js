@@ -13,6 +13,8 @@ const storage = multer.diskStorage({
       folder = "uploads/testimonials";
     } else if (req.baseUrl.includes("service")) {
       folder = "uploads/serviceimage";
+    } else if (req.baseUrl.includes("project")) {
+      folder = "uploads/projects";
     }
 
     fs.mkdirSync(folder, { recursive: true });
@@ -67,5 +69,4 @@ const uploadHandler = (fields) => {
   };
 };
 
-
-module.exports = {uploadHandler,};
+module.exports = { uploadHandler };
