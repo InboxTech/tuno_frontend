@@ -1,63 +1,43 @@
 const Service = require("../models/service-model");
 const mongoose = require("mongoose");
 // const { ObjectId } = require("mongodb");
+
 //add services
 const addServices = async (req, res) => {
   try {
-    console.log("req.body:", req.body);
-    console.log("req.files:", req.files);
+    console.log("REQ.BODY:", req.body);
+    console.log("REQ.FILES:", req.files); // ✅ Never use string concatenation here
 
-    const {
-      title,
-      short_description,
-      full_description,
-      image_alt_text,
-      status,
-    } = req.body;
+    const { title, short_description, full_description, image_alt_text, status } = req.body;
 
-    // ✅ Correctly handle files from multer.fields
-    const serviceImageFile = req.files?.["service_image"]?.[0];
-    const serviceImagesFiles = req.files?.["service_images"] || [];
-//       updateData.service_images = serviceImagesFiles.map(
-//       (file) => `/uploads/serviceimage/${file.filename}`
-// );
-    const image = serviceImageFile
-      ? `/uploads/serviceimage/${serviceImageFile.filename}`
+    const service_image = req.files && req.files.service_image && req.files.service_image[0]
+      ? `/uploads/services/${req.files.service_image[0].filename}`
       : null;
 
-    const service_images = serviceImagesFiles.map(
-      (file) => `/uploads/serviceimage/${file.filename}`
-    );
+    // const service_images = req.files && req.files.service_images
+    //   ? req.files.service_images.map(file => `/uploads/serviceimage/${file.filename}`)
+    //   : [];
 
-    if (
-      !title ||
-      !short_description ||
-      !full_description ||
-      !image_alt_text ||
-      !status ||
-      !image
-    ) {
-      return res.status(400).json({ msg: "Please add all required fields" });
-    }
-
-    const newService = new Service({
+    const service = new Service({
       title,
       short_description,
       full_description,
-      service_image: image,
-      service_images,
       image_alt_text,
       status,
+      service_image,
+      // service_images,
     });
 
-    const savedService = await newService.save();
+    await service.save();
 
-    return res.status(200).json({ msg: "Service added successfully", service: savedService });
+    res.status(201).json({ message: "Service added successfully", service: service });
+
   } catch (error) {
-    console.error("addServices error:", error);
-    return res.status(500).json({ msg: "Server error", error: error.message });
+    console.error("Error in addService:", error); // 🔥 This log is very important
+    res.status(500).json({ message: "Internal server error" });
   }
 };
+
 
 
 
@@ -107,15 +87,15 @@ const updateServices = async (req, res) => {
     const serviceId = req.params.id;
     const updateData = req.body;
 
-    // Handle new uploaded single image
-    if (req.file) {
-      updateData.service_image = `/uploads/serviceimage/${req.file.filename}`;
-    }
+  //  // Handle new uploaded single image
+  //   if (req.file) {
+  //     updateData.service_image = `/uploads/serviceimage/${req.file.filename}`;
+  //   }
 
-    // Handle new uploaded multiple images
-    if (req.files && req.files.length > 0) {
-      updateData.service_images = req.files.map(file => `/uploads/serviceimage/${file.filename}`);
-    }
+  //   // Handle new uploaded multiple images
+  //   if (req.files && req.files.length > 0) {
+  //     updateData.service_images = req.files.map(file => `/uploads/serviceimage/${file.filename}`);
+  //   }
 
     const updatedService = await Service.findByIdAndUpdate(serviceId, updateData, {
       new: true, // Return the updated document

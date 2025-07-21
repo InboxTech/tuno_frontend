@@ -8,7 +8,7 @@ const authMiddleware = require("../middlewares/auth-middleware");
 const router = express.Router();
 
 router
-  .route("/addService")
+  .route("/service/addService")
   .post(
     authMiddleware,
     adminMiddleware,
@@ -20,18 +20,18 @@ router
   );
 
   //get all services
-router.route("/getService").get(getServices);
+router.route("/service/getService").get(getServices);
 
 //get single sevic by id
-router.route("/getServiceById/:id").get(getServiceById);
+router.route("/service/getServiceById/:id").get(getServiceById);
 
-router.route("/updateService/:id").put(
+router.route("/service/updateService/:id").put(
     authMiddleware,adminMiddleware,  uploadHandler([
       { name: "service_image", maxCount: 1 },
       { name: "service_images", maxCount: 10 },
     ]),
         updateServices);
-router.route("/deleteService/:id").delete(authMiddleware,adminMiddleware,deleteServices);
-router.route("/deleteSelectedService").post(authMiddleware,adminMiddleware,deleteSelectedServices);
+router.route("/service/deleteService/:id").delete(authMiddleware,adminMiddleware,deleteServices);
+router.route("/service/deleteSelectedService").post(authMiddleware,adminMiddleware,deleteSelectedServices);
 
 module.exports = router;

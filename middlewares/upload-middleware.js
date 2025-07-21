@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
     } else if (req.baseUrl.includes("testimonial")) {
       folder = "uploads/testimonials";
     } else if (req.originalUrl.includes("service")) {
-      folder = "uploads/serviceimage";
+      folder = "uploads/services";
     }
 
     fs.mkdirSync(folder, { recursive: true });

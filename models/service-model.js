@@ -17,16 +17,16 @@ const serviceSchema = new Schema({
   },
   service_image: {
     type: String, // URL
-    required: false
+    required: true
   },
   image_alt_text: {
     type: String,
-    required: false
+    required: true
   },
-  service_images: {
-     type: [String], // Array of image URLs
-    default: []
-  },
+  // service_images: {
+  //    type: [String], // Array of image URLs
+  //   default: []
+  // },
   status: {
     type: String,
     enum: ['Active', 'Inactive', 'Pending'],

@@ -35,6 +35,8 @@ app.use(express.json());
 //  Routes
 app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
+
+// admin user router
 app.use("/api/admin",adminRouter);
 app.use("/api/teamMeber",teamRouter);
 app.use("/api/testimonialData",testimonialRouter);
@@ -42,7 +44,7 @@ app.use("/api/testimonialData",testimonialRouter);
 //  Error handler
 app.use(errorMiddleware);
 
-//admin service
+//admin service router
 app.use("/api/admin", serviceRoute);
 
 const PORT = 5000;
