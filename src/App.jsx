@@ -26,7 +26,8 @@ import Signup from "./Pages/Signup";
 import Error from "./Pages/Error";
 import TeamDetails from "./Pages/TeamDetails";
 import Logout from "./Pages/Logout";
-
+import Career from "./Pages/Career";
+import CareerDetails from "./Pages/CareerDetails";
 
 
 // import other components/pages as needed
@@ -94,6 +95,26 @@ function App() {
         <>
           <Header />
           <Blog />
+          <Footer />
+        </>
+      ),
+    },
+     {
+      path: "/career",
+      element: (
+        <>
+          <Header />
+          <Career />
+          <Footer />
+        </>
+      ),
+    },
+      {
+      path: "/career-details",
+      element: (
+        <>
+          <Header />
+          <CareerDetails />
           <Footer />
         </>
       ),

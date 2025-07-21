@@ -45,7 +45,7 @@ function Service() {
   const getAllServices = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${API}/api/admin/getService`, {
+      const response = await fetch(`${API}/api/admin/service/getService`, {
         method: "GET",
         // headers: {
         //   Authorization: authorizationToken,

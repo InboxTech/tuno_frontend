@@ -27,7 +27,7 @@ const Header = () => {
   const getAllServices = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${API}/api/admin/getService`,{method: "GET",});
+      const response = await fetch(`${API}/api/admin/service/getService`,{method: "GET",});
       const data = await response.json();
       console.log("API response:", data);
 
@@ -162,7 +162,9 @@ const Header = () => {
                       </li>
                       <li>
                         <Link to="/blog">Blog</Link>
-
+                      </li>
+                       <li>
+                        <Link to="/career">Career</Link>
                       </li>
                       <li>
                         <Link to="/contact">Contact Us</Link>
