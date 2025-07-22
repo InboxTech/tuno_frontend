@@ -6,7 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useAuth } from "../store/auth";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 function CareerDetails() {
@@ -32,15 +32,15 @@ function CareerDetails() {
             .matches(/^[0-9]+$/, "Must be only digits")
             .min(10, "Phone must be at least 10 digits")
             .required("Phone number is required"),
-        subject: Yup.string().required("Subject is required"),
+        applyfor: Yup.string().required("Please select a role you apply for"),
         address: Yup.string().required("Address is required"),
         city: Yup.string().required("City is required"),
         state: Yup.string().required("State is required"),
         message: Yup.string().required("Please enter a message"),
         resume: Yup.mixed()
-            .required("Resume is required")
+            .test("required", "Resume is required", (value) => value instanceof File)
             .test("fileSize", "File too large", (value) => {
-                return value && value.size <= 5 * 1024 * 1024; // 5MB
+                return value && value.size <= 5 * 1024 * 1024;
             })
             .test("fileType", "Unsupported file format", (value) => {
                 return (
@@ -53,26 +53,50 @@ function CareerDetails() {
     });
 
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-        try {
-            // Make POST request to backend
-            const response = await axios.post(`${API}/api/form/contact`, values);
 
-            if (response.status === 200) {
-                toast.success(response.data.message || "Message sent successfully!");
+        try {
+            const formData = new FormData();
+
+            // Append text fields
+            formData.append("name", values.name);
+            formData.append("email", values.email);
+            formData.append("phone", values.phone);
+            formData.append("position", values.applyfor); // backend expects "position"
+            formData.append("address", values.address);
+            formData.append("message", values.message);
+
+            // Optional: Include city and state if needed (you can store them in DB later)
+            formData.append("city", values.city);
+            formData.append("state", values.state);
+
+            // Append the resume file
+            if (values.resume) {
+                formData.append("resume", values.resume);
+            }
+
+            // Send to backend
+            const response = await fetch(`${API}/api/jobApplication/applyJobDetails`,{
+                method: "POST",
+                // headers: {
+                //     "Content-Type": "multipart/form-data",
+                // },
+                body: formData
+            });
+            const data = await response.json();
+            if (response.ok) {
+                toast.success(data.message || "Application submitted successfully");
                 resetForm();
             } else {
-                toast.error("Something went wrong. Please try again.");
+                toast.error(data.error || "Failed to submit");
             }
+            // ✅ Handle success
         } catch (error) {
-            console.error("Error sending message:", error);
-            toast.err(
-                error.response?.data?.message || "Failed to send message. Please try again later."
-            );
+            console.error("Error submitting application:", error);
+            toast.error("Failed to submit application. Please try again.");
         } finally {
             setSubmitting(false);
         }
     };
-
     return (
         <>
 
@@ -166,12 +190,9 @@ function CareerDetails() {
                                         <h4 className="sub-title before-none fs-3" > Fill your details with updated resume</h4>
                                     </div>
                                     <div className="contact-form-v1">
-                                        <Formik
-                                            initialValues={initialValues}
-                                            validationSchema={validationSchema}
-                                            onSubmit={handleSubmit}
-                                        >
-                                            {({ isSubmitting }) => (
+                                        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
+                                            {({ isSubmitting, setFieldValue }) => (
+
                                                 <Form className="contact-form">
                                                     <div className="row">
                                                         {/* Name */}

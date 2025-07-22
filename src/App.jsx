@@ -28,6 +28,7 @@ import TeamDetails from "./Pages/TeamDetails";
 import Logout from "./Pages/Logout";
 import Career from "./Pages/Career";
 import CareerDetails from "./Pages/CareerDetails";
+import { ToastContainer } from "react-toastify";
 
 
 // import other components/pages as needed
@@ -130,7 +131,7 @@ function App() {
       ),
     },
      {
-      path: "/service-details",
+      path: "/service-details/:id",
       element: (
         <>
           <Header />
@@ -195,9 +196,11 @@ function App() {
 
   return (
     <>
+     <ToastContainer position="top-right" autoClose={3000} />
       <RouterProvider router={router} />
       <ScrollToTop />
       <Preloader />
+     
     </>
   );
 }

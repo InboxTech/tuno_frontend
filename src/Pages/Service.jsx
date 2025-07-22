@@ -113,7 +113,7 @@ function Service() {
                     <Link to="#">{service.title}</Link>
                   </h3>
                   <p className="box-text">{service.short_description}</p>
-                  <Link to="/service-details" className="link-btn style4">
+                  <Link to={`/service-details/${service._id}`} className="link-btn style4">
                     Read More <i className="fas fa-long-arrow-right ms-2"></i>
                   </Link>
                 </div>
