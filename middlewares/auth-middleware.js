@@ -18,9 +18,13 @@ const authMiddleware = async (req, res, next) => {
         const isVerified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
           console.log("Token verified payload:", isVerified);
 
-        const userData = await User.findOne({email:isVerified.email}).select({password:0,});
+        // const userData = await User.findOne({email:isVerified.email}).select({password:0,});
+         const userData = await User.findById(isVerified.userId).select("-password");
         console.log("user found",userData);
         
+          if (!userData) {
+            return res.status(401).json({ message: "Unauthorized. User not found." });
+        }
         req.user = userData;
         req.token = token;
         req.userID = userData._id;

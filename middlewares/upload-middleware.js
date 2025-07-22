@@ -13,6 +13,8 @@ const storage = multer.diskStorage({
       folder = "uploads/testimonials";
     } else if (req.originalUrl.includes("service")) {
       folder = "uploads/services";
+    } else if (req.originalUrl.includes("applyJobDetails")) {
+      folder = "uploads/resumes";
     }
 
     fs.mkdirSync(folder, { recursive: true });
@@ -27,11 +29,26 @@ const storage = multer.diskStorage({
 
 // File type filter
 const fileFilter = (req, file, cb) => {
-  const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-  if (allowedTypes.includes(file.mimetype)) {
-    cb(null, true);
+  const imageTypes = ["image/jpeg", "image/png", "image/jpg"];
+  const resumeTypes = [
+    "application/pdf",
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .docx
+  ];
+
+  // Route-specific validation
+  if (req.originalUrl.includes("applyJobDetails")) {
+    if (resumeTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only PDF, DOC, or DOCX files are allowed for resumes!"), false);
+    }
   } else {
-    cb(new Error("Only .jpg, .jpeg, .png files are allowed!"), false);
+    if (imageTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only .jpg, .jpeg, .png files are allowed!"), false);
+    }
   }
 };
 
@@ -55,7 +72,7 @@ const uploadHandler = (fields) => {
       if (err instanceof multer.MulterError) {
         if (err.code === "LIMIT_FILE_SIZE") {
           return res.status(400).json({
-            message: "Image size should not exceed 500 KB",
+            message: "File size should not exceed 500 KB",
           });
         }
         return res.status(400).json({ message: err.message });
@@ -67,5 +84,4 @@ const uploadHandler = (fields) => {
   };
 };
 
-
-module.exports = {uploadHandler,};
+module.exports = { uploadHandler };

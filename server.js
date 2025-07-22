@@ -6,6 +6,7 @@ const fs = require("fs");
 const authRoute = require("./router/auth-router");
 const contactRoute = require("./router/contact-router");
 const serviceRoute = require("./router/service-router")
+const jobApplyRoute = require("./router/jobApplication-router");
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 
@@ -41,11 +42,14 @@ app.use("/api/admin",adminRouter);
 app.use("/api/teamMeber",teamRouter);
 app.use("/api/testimonialData",testimonialRouter);
 
+//admin service router
+app.use("/api/admin", serviceRoute);
+
+//job application router
+app.use("/api/jobApplication", jobApplyRoute);
 //  Error handler
 app.use(errorMiddleware);
 
-//admin service router
-app.use("/api/admin", serviceRoute);
 
 const PORT = 5000;
 
