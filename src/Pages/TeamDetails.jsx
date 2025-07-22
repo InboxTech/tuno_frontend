@@ -107,6 +107,7 @@ function TeamDetails() {
                 </div>
                 <div className="col-xxl-9 col-xl-8 col-lg-7">
                     <div className="page-single">
+                        <div>
                         <h2 className="page-title mt-n2 mb-20">About Me</h2>
                         <p className="mb-25">Jenny Willam is one of the best online resources for learning about technology
                             in the medical sphere. There’s a real sense skepticiesm cillum dolore eu fugiat nulla
@@ -137,6 +138,7 @@ function TeamDetails() {
                                 <li>Database provides returns for exchange rates, fixed income tax, price earnings,
                                     prices, equity data</li>
                             </ul>
+                        </div>
                         </div>
                         <div className="contact-form-v4 bg-smoke mt-60">
                             <div className="title-area mb-30">

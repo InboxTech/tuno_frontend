@@ -8,6 +8,7 @@ import { useAuth } from "../store/auth";
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const { isLoggedIn } = useAuth();
+  const { projectItems } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,27 +56,17 @@ const Header = () => {
                         </ul>
                       </li>
                       <li className="menu-item-has-children">
-                        <Link to="#">Projects</Link>
+                        <Link to="/project">Projects</Link>
                         <ul className="sub-menu">
+                          {projectItems?.map((l)=>
+                          (
                           <li>
-                            <Link to="#">Project One</Link>
+                            <Link to={`/project/${l._id}`}>{l.title}</Link>
                    
                           </li>
-                          <li>
-                            <Link to="#">Project Two</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Project Three</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Project Five</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Project six</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Project seven</Link>
-                          </li>
+                          )
+                          )}
+                   
                           
                         </ul>
                       </li>

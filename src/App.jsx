@@ -70,7 +70,7 @@ function App() {
       ),
     },
      {
-      path: "/project-details",
+      path: "/project/:id",
       element: (
         <>
           <Header />
