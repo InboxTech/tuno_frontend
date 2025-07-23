@@ -22,12 +22,18 @@ const createProject = async (req, res) => {
     );
 
     //  Basic validation
-  if (!title || !shortDescription || !fullDescription || !status || !projectImage) {
-  return res.status(400).json({
-    success: false,
-    message: "Please fill in all required fields",
-  });
-}
+    if (
+      !title ||
+      !shortDescription ||
+      !fullDescription ||
+      !status ||
+      !projectImage
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Please fill in all required fields",
+      });
+    }
 
     const newProject = new Project({
       title,
@@ -54,7 +60,6 @@ const createProject = async (req, res) => {
     });
   }
 };
-
 
 //  Get all  projects
 const getAllProjects = async (req, res) => {
@@ -99,16 +104,17 @@ const updateProject = async (req, res) => {
       status,
     };
 
-    if (req.file) {
-      updateData.projectImage = `/uploads/projects/${req.file.filename}`;
+    //  For single image
+    if (req.files?.projectImage?.[0]) {
+      updateData.projectImage = `/uploads/projects/${req.files.projectImage[0].filename}`;
     }
 
+    //  For multiple images
     if (req.files?.projectImages?.length > 0) {
       updateData.projectImages = req.files.projectImages.map(
         (file) => `/uploads/projects/${file.filename}`
       );
     }
-
     const updated = await Project.findOneAndUpdate(
       { _id: req.params.id, deleted: false },
       updateData,
@@ -144,13 +150,11 @@ const softDeleteProject = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Soft deleted", project: updated });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Soft delete failed",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Soft delete failed",
+      error: error.message,
+    });
   }
 };
 
@@ -170,20 +174,16 @@ const softDeleteSelectedProjects = async (req, res) => {
       { $set: { deleted: true } }
     );
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: `${result.modifiedCount} projects soft deleted`,
-      });
+    res.status(200).json({
+      success: true,
+      message: `${result.modifiedCount} projects soft deleted`,
+    });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Bulk soft delete failed",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Bulk soft delete failed",
+      error: error.message,
+    });
   }
 };
 
@@ -203,13 +203,11 @@ const restoreProject = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Restored", project: restored });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Restore failed",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Restore failed",
+      error: error.message,
+    });
   }
 };
 

@@ -27,7 +27,7 @@ router
     createTeamMember
   );
 //  get one member
-router.route("/team/:id").get(authMiddleware, adminMiddleware,getTeamMemberById);
+router.route("/team/:id").get(getTeamMemberById);
 
 //  update one member
 router
