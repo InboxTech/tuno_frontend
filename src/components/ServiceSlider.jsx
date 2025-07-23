@@ -11,6 +11,7 @@ import serviceCard3ThumbShape2 from "../assets/img/shape/service-card3-thumb-sha
 import ServiceShapThumbImg from "../assets/img/shape/service-card3-thumb-shape.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useAuth } from "../store/auth";
 
 
 const NextArrow = ({ onClick }) => (
@@ -72,30 +73,31 @@ const sliderSettings = {
 };
 
 
-const services = [
-  {
-    title: "Conversational Voice AI ",
-    image: service_card_3_1,
-    description: "TUNO creates lifelike voice interactions using advanced NLP, perfect for customer support, onboarding, and more.",
-  },
-  {
-    title: "Multilingual Voice Assistants ",
-    image: service_card_3_2,
-    description: "Engage users globally with voicebots fluent in 40+ languages and dialects. Ideal for enterprises with a global reach. "
-  },
-  {
-    title: "AI-Powered IVR Systems ",
-    image:  service_card_3_3,
-    description: "Automate calls using intelligent routing and smart conversations. Reduce wait times and improve user satisfaction. "
-  },
-    {
-    title: "Voice Analytics & Insights ",
-    image:  service_card_3_3,
-    description: "Extract actionable insights from every voice interaction using emotion detection, speech pacing, and call trends. "
-  },
-];
+// const services = [
+//   {
+//     title: "Conversational Voice AI ",
+//     image: service_card_3_1,
+//     description: "TUNO creates lifelike voice interactions using advanced NLP, perfect for customer support, onboarding, and more.",
+//   },
+//   {
+//     title: "Multilingual Voice Assistants ",
+//     image: service_card_3_2,
+//     description: "Engage users globally with voicebots fluent in 40+ languages and dialects. Ideal for enterprises with a global reach. "
+//   },
+//   {
+//     title: "AI-Powered IVR Systems ",
+//     image:  service_card_3_3,
+//     description: "Automate calls using intelligent routing and smart conversations. Reduce wait times and improve user satisfaction. "
+//   },
+//     {
+//     title: "Voice Analytics & Insights ",
+//     image:  service_card_3_3,
+//     description: "Extract actionable insights from every voice interaction using emotion detection, speech pacing, and call trends. "
+//   },
+// ];
 
 const ServiceSlider = () => {
+    const { services, API } = useAuth();
   const serviceSliderTitle ="AI technology services aim to provide intelligent solutions."
     const delay = 50;
 let letterCount = 0;
@@ -216,15 +218,9 @@ let letterCount = 0;
 
         <div className="slider-area service-slider3">
           <Slider {...sliderSettings}>
-            {services.concat(services).map((service, idx) => (
-              <div className="swiper-slide" key={idx}>
-                <div
-                  className="service-card3 bg-mask"
-                  style={{ maskImage: `url(${serviceCard3Shape})` }}
-                  mask-image
-                  data-aos="fade-up"
-                  data-aos-duration="2000"
-                >
+            {services.concat(services).map((service) => (
+              <div className="swiper-slide" key={service._id}>
+                <div className="service-card3 bg-mask" style={{ maskImage: `url(${serviceCard3Shape})` }} mask-image data-aos="fade-up" data-aos-duration="2000">
                   <div className="service-card-bg-shape">
                     <img src={serviceCard3ThumbShape2} alt="img" />
                   </div>
@@ -241,17 +237,17 @@ let letterCount = 0;
                       maskRepeat: 'no-repeat',
                     }}
                   >
-                    <img src={service.image} alt="Icon" />
+                    <img src={`${API}${service.service_image}`} alt="Icon" className="w-100 h-100" />
                   </div>
                   <div className="box-content">
                     <h3 className="box-title">
                       <Link to="/service">{service.title}</Link>
                     </h3>
                     <p className="box-text">
-                     {service.description}
+                     {service.short_description}
                     </p>
-                    <Link className="icon-btn style4" to="service">
-                      <i className="fal fa-arrow-right" />
+                    <Link className="icon-btn style4" to={`/service-details/${service._id}`}>
+                    <i className="fal fa-arrow-right" />
                     </Link>
                   </div>
                 </div>

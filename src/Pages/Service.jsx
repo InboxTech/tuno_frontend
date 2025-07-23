@@ -14,9 +14,8 @@ import ServiceIcon18 from "../assets/img/icon/service/service_icon_1_8.svg";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 function Service() {
-  const { API, authorizationToken } = useAuth();
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const { services, loading } = useAuth();
+  // const [loading, setLoading] = useState(false);
   const serviceheading = "Smarter Voice Automation for a Seamless Future";
   const delay = 50;
 
@@ -42,33 +41,7 @@ function Service() {
     return () => observerService.disconnect();
   }, []);
 
-  const getAllServices = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(`${API}/api/admin/service/getService`, {
-        method: "GET",
-        // headers: {
-        //   Authorization: authorizationToken,
-        // },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setServices(Array.isArray(data) ? data : []);
-      } else {
-        throw new Error("Failed to fetch services");
-      }
-    } catch (error) {
-      console.error("Services Error:", error);
-      toast.error(error.message || "Error fetching services");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getAllServices();
-  }, []);
+  
   return (
     <>
       <Breadcumbs prevLink="Home" currentLink="Services" pageTitle="Services" />

@@ -8,12 +8,10 @@ import { toast } from "react-toastify";
 
 
 const Header = () => {
-  const {API} = useAuth()
+
   const [isSticky, setIsSticky] = useState(false);
   const { isLoggedIn } = useAuth();
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(false);
-  
+   const { services, loading } = useAuth();
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 300); // adjust value as needed
@@ -23,31 +21,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //get service title in sub menu
-  const getAllServices = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(`${API}/api/admin/service/getService`,{method: "GET",});
-      const data = await response.json();
-      console.log("API response:", data);
-
-      // If response is { services: [...] }
-      // 👉 adjust this based on your API
-      const serviceList = Array.isArray(data) ? data : data.services;
-
-      setServices(serviceList); // ✅ Just titles needed
-    } catch (error) {
-      console.error("Services Error:", error);
-      toast.error(error.message || "Error fetching services");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getAllServices();
-  }, []);
-
+  
   return (
     <React.Fragment>
       <header

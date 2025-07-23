@@ -6,7 +6,8 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
   // const [user, setUser] = useState("");
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [services, setServices] = useState([]);
 
  const authorizationToken = useMemo(() => `Bearer ${token}`, [token]);
 
@@ -54,11 +55,39 @@ export const AuthProvider = ({ children }) => {
 // };
 
 
+//get all services
+const getAllServices = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`${API}/api/admin/service/getService`, {
+        method: "GET",
+        // headers: {
+        //   Authorization: authorizationToken,
+        // },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setServices(Array.isArray(data) ? data : []);
+      } else {
+        throw new Error("Failed to fetch services");
+      }
+    } catch (error) {
+      console.error("Services Error:", error);
+      toast.error(error.message || "Error fetching services");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+ 
+
 useEffect(() => {
   const checkAuth = async () => {
     // await userAuthentication();
   };
   checkAuth();
+   getAllServices();
 }, []);
 
   return (
@@ -69,7 +98,7 @@ useEffect(() => {
         isLoggedIn,
         token,
         authorizationToken,
-        API,  
+        API, services ,loading
       }}
     >
       {children}
