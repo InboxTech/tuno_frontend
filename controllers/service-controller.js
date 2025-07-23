@@ -41,8 +41,31 @@ const addServices = async (req, res) => {
 
 
 
-//get services
+//get services for frontend which only shows the active status
 const getServices = async (req, res, next) => {
+  try {
+    const services = await Service.find({status: 'Active'});
+
+    // Log the services to check if the data is being fetched properly
+    console.log("Services from DB:", services);
+
+    if (!services || services.length === 0) {
+      // If no services are found, return 404
+      return res.status(404).json({ message: "No services found" });
+    }
+
+    // If services are found, return them with a 200 response
+    return res.status(200).json(services);
+   
+  } catch (error) {
+    // Log the error and send a 500 response in case of an exception
+    console.error("Error fetching services:", error);
+    return res.status(500).json({ msg: "Server error", error: error.message });
+  }
+};
+
+//get services for admin which shows all status
+const getServicesAdmin = async (req, res, next) => {
   try {
     const services = await Service.find();
 
@@ -152,4 +175,4 @@ const objectIds = ids
     return res.status(500).json({ message: "Server error", error: error.message });
   }
 };
-module.exports = {addServices,getServices,updateServices,deleteServices,getServiceById,deleteSelectedServices};
+module.exports = {addServices,getServices,updateServices,deleteServices,getServiceById,deleteSelectedServices,getServicesAdmin};

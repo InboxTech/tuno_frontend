@@ -34,6 +34,7 @@ const jobApplySchema = new Schema({
         type: String,
         required: true
     },
+  
 })
 
 const JobApply = new model('JobApply', jobApplySchema);
