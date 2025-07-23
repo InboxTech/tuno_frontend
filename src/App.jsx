@@ -140,7 +140,7 @@ function App() {
       ),
     },
     {
-      path: "/team-details",
+      path: "/team-details/:id",
       element: (
         <>
            <Header />
