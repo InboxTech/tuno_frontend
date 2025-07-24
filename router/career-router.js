@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const adminMiddleware = require("../middlewares/admin-middleware");
 const authMiddleware = require("../middlewares/auth-middleware");
-const {addJobOpenings,getJobOpenings,getJobOpeningsAdmin,deleteJobOpenings,deleteSelectedJobOpenings,updateJobOpenings,getJobOpeningById} = require('../controllers/career-controller');
+const {addJobOpenings,getJobOpenings,getJobOpeningsAdmin,deleteJobOpenings,deleteSelectedJobOpenings,updateJobOpenings,getJobOpeningById,getRelatedJobsByCategory} = require('../controllers/career-controller');
 
 //add jon openings
 router.route('/addJobOpening').post(authMiddleware, adminMiddleware,addJobOpenings);
@@ -15,6 +15,9 @@ router.route('/getJobOpenings').get( getJobOpenings);
 
 //get job openings by id
 router.route('/getJobOpeningById/:id').get(getJobOpeningById);
+
+//get related job openings
+router.route('/getRelatedJobOpenings/:id').get(getRelatedJobsByCategory);
 
 //delete job openings
 router.route('/deleteJobOpening/:id').delete(authMiddleware, adminMiddleware, deleteJobOpenings);

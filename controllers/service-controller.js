@@ -44,7 +44,7 @@ const addServices = async (req, res) => {
 //get services for frontend which only shows the active status
 const getServices = async (req, res, next) => {
   try {
-    const services = await Service.find({status: 'Active'});
+    const services = await Service.find({status: 'Active',isDeleted: false});
 
     // Log the services to check if the data is being fetched properly
     console.log("Services from DB:", services);
@@ -67,7 +67,7 @@ const getServices = async (req, res, next) => {
 //get services for admin which shows all status
 const getServicesAdmin = async (req, res, next) => {
   try {
-    const services = await Service.find();
+    const services = await Service.find({isDeleted: false});
 
     // Log the services to check if the data is being fetched properly
     console.log("Services from DB:", services);
@@ -92,6 +92,7 @@ const getServiceById = async (req, res) => {
   try {
     const serviceId = req.params.id;
     const service = await Service.findById(serviceId);
+    const services = await Service.find({ isDeleted: false });
 
     if (!service) {
       return res.status(404).json({ message: "Service not found" });
@@ -141,7 +142,10 @@ const updateServices = async (req, res) => {
 const deleteServices = async (req, res) => {
      try {
         const id = req.params.id;
-        await Service.deleteOne({_id: id})
+        await Service.findByIdAndUpdate({_id: id},
+          { isDeleted: true }, // mark as deleted
+          { new: true }
+        )
         return res.status(200).json({message: "Service deleted successfully"})
     } catch (error) {
         next(error)
@@ -165,7 +169,7 @@ const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
 const objectIds = ids
   .filter(isValidObjectId)
   .map((id) => mongoose.Types.ObjectId.createFromHexString(id));
-    const result = await Service.deleteMany({ _id: { $in: objectIds } });
+    const result = await Service.updateMany({ _id: { $in: objectIds } },{ $set: { isDeleted: true } } );
 
     return res.status(200).json({
       message: `${result.deletedCount} service(s) deleted successfully`,

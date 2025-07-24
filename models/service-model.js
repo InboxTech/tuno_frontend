@@ -38,7 +38,11 @@ const serviceSchema = new Schema({
   },
   updated_at: {
     type: Date
-  }
+  },
+   isDeleted: {
+    type: Boolean,
+    default: false,
+  } 
 });
 
 const Service = new model("Service", serviceSchema);

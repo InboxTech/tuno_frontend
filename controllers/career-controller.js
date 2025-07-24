@@ -2,31 +2,69 @@ const Career = require('../models/career-model');
 
 const addJobOpenings = async (req, res) => {
   try {
-     const { designation, skills, short_description, full_description, openings, experience, jobtype, joinin, last_date } = req.body;
+    const {
+      designation,
+      skills,
+      short_description,
+      full_description,
+      openings,
+      experience,
+      jobtype,
+      joinin,
+      last_date,
+      status,
+      category,
+    } = req.body;
 
-     if(!designation || !skills || !short_description || !full_description || !openings || !experience || !jobtype || !joinin || !last_date) {
-        return res.status(400).json({ msg: "Please fill all the fields" });
-     }
-
-       const parsedLastDate = new Date(last_date);
-    if (isNaN(parsedLastDate)) {
-      return res.status(400).json({ msg: "Invalid last_date format" });
+    // Basic validation
+    if (
+      !designation ||
+      !skills ||
+      !short_description ||
+      !full_description ||
+      !openings ||
+      !experience ||
+      !jobtype ||
+      !joinin ||
+      !last_date ||
+      !status ||
+      !category
+    ) {
+      return res.status(400).json({ message: "All fields are required" });
     }
-    const newJobOpening = new Career({designation, skills, short_description, full_description, openings, experience, jobtype, joinin, last_date })
-    await newJobOpening.save();
-    console.log("New Job Opening:", newJobOpening);
-    res.status(201).json({ message: "Job opening added successfully", jobOpening: newJobOpening });
+
+    const newOpening = new Career({
+      designation,
+      skills,
+      short_description,
+      full_description,
+      openings,
+      experience,
+      jobtype,
+      joinin,
+      last_date: new Date(last_date), // ensure it's a Date
+      status,
+      category,
+    });
+
+    await newOpening.save();
+
+    res.status(201).json({
+      message: "Job opening created successfully",
+      job: newOpening,
+    });
   } catch (error) {
-    console.error("Error adding job opening:", error);
-    return res.status(500).json({ msg: "Server error", error: error.message });
+    console.error("Error in addJobOpenings:", error);
+    res.status(500).json({ message: error.message || "Internal Server Error" });
   }
-}
+};
+
 
 
 //get all job openings for admin
 const getJobOpeningsAdmin = async (req, res) => {
   try {
-    const jobOpenings = await Career.find();
+    const jobOpenings = await Career.find({isDeleted: false});
     res.status(200).json({message: "get openings successfully",jobOpenings});
   } catch (error) {
     console.error("Error fetching job openings:", error);
@@ -38,7 +76,7 @@ const getJobOpeningsAdmin = async (req, res) => {
 //get all job openings for frontend only shows active status
 const getJobOpenings = async (req, res) => {
   try {
-    const jobOpenings = await Career.find({ status: 'Active' });
+    const jobOpenings = await Career.find({ status: 'Active',isDeleted: false });
     res.status(200).json({message: "get openings successfully",jobOpenings});
   } catch (error) {
     console.error("Error fetching job openings:", error);
@@ -51,6 +89,7 @@ const getJobOpeningById = async (req, res) => {
   try {
     const id = req.params.id;
     const jobOpening = await Career.findById(id);
+    const jobOpenings = await Career.find({ isDeleted: false });
     if (!jobOpening) {
       return res.status(404).json({ msg: "Job opening not found" });
     }
@@ -62,36 +101,71 @@ const getJobOpeningById = async (req, res) => {
   }
 };
 
-//delete job openings
-const deleteJobOpenings = async(req,res) => {
-    try {
-        const id = req.params.id;
-        const jobOpening = await Career.findByIdAndDelete(id);
-        if (!jobOpening) {
-            return res.status(404).json({ msg: "Job opening not found" });
-        }
-        res.status(200).json({ message: "Job opening deleted successfully" });
-    } catch (error) {
-        console.error("Error deleting job opening:", error);
-        return res.status(500).json({ msg: "Server error", error: error.message });
-        
+
+// Get related job openings
+const getRelatedJobsByCategory = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const currentJob = await Career.findById(id);
+    if (!currentJob) {
+      return res.status(404).json({ msg: "Job not found" });
     }
-}
+
+    const relatedJobs = await Career.find({
+      _id: { $ne: id },
+      status: "Active",
+      isDeleted: false, 
+      category: currentJob.category,
+    }).limit(5);
+
+    res.status(200).json({ message: "Related job openings fetched", relatedJobs });
+  } catch (error) {
+    console.error("Error fetching related jobs by category:", error);
+    res.status(500).json({ msg: "Server error", error: error.message });
+  }
+};
+
+
+//delete job openings
+const deleteJobOpenings = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    const jobOpening = await Career.findByIdAndUpdate(
+      id,
+      { isDeleted: true }, // mark as deleted
+      { new: true }
+    );
+
+    if (!jobOpening) {
+      return res.status(404).json({ msg: "Job opening not found" });
+    }
+
+    res.status(200).json({ message: "Job opening soft deleted successfully" });
+  } catch (error) {
+    console.error("Error soft deleting job opening:", error);
+    return res.status(500).json({ msg: "Server error", error: error.message });
+  }
+};
 
 //delete selected job openings
 const deleteSelectedJobOpenings = async (req, res) => {
   try {
     const { ids } = req.body;
-    console.log("BODY:", req.body);
-    
+
     if (!ids || !Array.isArray(ids) || ids.length === 0) {
       return res.status(400).json({ msg: "No IDs provided" });
     }
 
-    const result = await Career.deleteMany({ _id: { $in: ids } });
-    res.status(200).json({ message: "Selected job openings deleted successfully", result });
+    const result = await Career.updateMany(
+      { _id: { $in: ids } },
+      { $set: { isDeleted: true } } // soft delete
+    );
+
+    res.status(200).json({ message: "Selected job openings soft deleted successfully", result });
   } catch (error) {
-    console.error("Error deleting selected job openings:", error);
+    console.error("Error soft deleting selected job openings:", error);
     return res.status(500).json({ msg: "Server error", error: error.message });
   }
 };
@@ -115,4 +189,4 @@ const updateJobOpenings = async (req, res) => {
         
     }
 }
-module.exports = {addJobOpenings,getJobOpenings,getJobOpeningsAdmin, deleteJobOpenings,deleteSelectedJobOpenings,updateJobOpenings,getJobOpeningById}   
+module.exports = {addJobOpenings,getJobOpenings,getJobOpeningsAdmin, deleteJobOpenings,deleteSelectedJobOpenings,updateJobOpenings,getJobOpeningById,getRelatedJobsByCategory};

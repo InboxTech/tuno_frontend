@@ -9,6 +9,10 @@ const careerschema = new Schema({
         type: String,
         required: true
     },
+    category: {
+        type: String,
+        required: true
+    },
     short_description: {
         type: String,
         required: true
@@ -45,7 +49,11 @@ const careerschema = new Schema({
     created_at: {
         type: Date,
         default: Date.now
-    }
+    },
+     isDeleted: {
+    type: Boolean,
+    default: false,
+  } 
     })
 
 const Career = new model('Career', careerschema);

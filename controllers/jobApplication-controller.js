@@ -37,7 +37,7 @@ const addApplication = async (req, res) => {
 //get all applications
 const getAllApplications = async (req, res) => {
   try {
-    const applications = await JobApply.find();
+    const applications = await JobApply.find({isDeleted: false});
 
     const result = applications.map((app) => ({
       ...app._doc,
@@ -55,7 +55,9 @@ const getAllApplications = async (req, res) => {
 const deleteApplication = async (req, res) => {
 try {
     const id = req.params.id;
-   await JobApply.findByIdAndDelete(id);
+   await JobApply.findByIdAndUpdate(id,
+    { isDeleted: true }, // mark as deleted
+      { new: true });
         res.status(200).json({message: "Application deleted successfully"});
 } catch (error) {
     console.log(error)
@@ -79,7 +81,7 @@ const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
 const objectIds = ids
   .filter(isValidObjectId)
   .map((id) => mongoose.Types.ObjectId.createFromHexString(id));
-    const result = await JobApply.deleteMany({ _id: { $in: objectIds } });
+    const result = await JobApply.updateMany({ _id: { $in: objectIds } },{ $set: { isDeleted: true } } );
 
     return res.status(200).json({
       message: `${result.deletedCount} application(s) deleted successfully`,
