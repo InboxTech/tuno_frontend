@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   ///// fetch the project data
    const fetchProjects = async () => {
         try {
-          const res = await axios.get(`${API}/api/projectData/project`);
+          const res = await axios.get(`${API}/api/projectData/frontend/projects`);
           setProjectItems(res.data.projects || []);
         } catch (err) {
           console.error("Failed to fetch projects:", err);

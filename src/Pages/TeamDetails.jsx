@@ -194,7 +194,7 @@ function TeamDetails() {
                     </div>
                   </form>
                 </div>
-              </div>
+              </div> 
             </div>
           </div>
         </div>

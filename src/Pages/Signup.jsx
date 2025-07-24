@@ -8,8 +8,8 @@ import { useAuth } from '../store/auth';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -83,7 +83,7 @@ function Signup() {
 
   return (
     <>
-      <ToastContainer />
+   
 
       <Breadcumbs prevLink="Home" currentLink="Sign up" pageTitle="Sign up" />
       <div className="space-bottom overflow-hidden contact-area-1 position-relative z-index-common" id="contact-sec">

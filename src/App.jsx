@@ -27,6 +27,8 @@ import Error from "./Pages/Error";
 import TeamDetails from "./Pages/TeamDetails";
 import Logout from "./Pages/Logout";
 import Project from "./Pages/Project";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -185,6 +187,7 @@ function App() {
 
   return (
     <>
+    <ToastContainer position="top-right" autoClose={3000} />
       <RouterProvider router={router} />
       <ScrollToTop />
       <Preloader />
