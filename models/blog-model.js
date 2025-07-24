@@ -6,9 +6,10 @@ const blogSchema = new Schema({
     category: { type: String, required: true},
     shortDescription: { type: String, required: true},
     description: { type: String, required: true},
-    author: { type: String, required: true, default:"Admin" },
-    createdAt: { type: Date, default: Date.now },
     status: { type: String, enum: ["Active", "Inactive", "Pending"], default: "active",},
+    author: { type: String, default:"Admin" },
+    createdAt: { type: Date, default: Date.now },
+    deleted: { type: Boolean, default: false,},
 })
 
 // create a model or collection
