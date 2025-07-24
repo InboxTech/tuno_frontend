@@ -5,9 +5,11 @@ const Testimonial = require("../models/testimonial-model");
 const createTestimonial = async (req, res) => {
   try {
     const { description, name, position, rating } = req.body;
-    const image = req.file
-      ? `/uploads/testimonials/${req.file.filename}`
-      : null;
+
+    const image =
+      req.files && req.files.image && req.files.image[0]
+        ? `/uploads/testimonials/${req.files.image[0].filename}`
+        : null;
 
     if (!description || !name || !position || !rating) {
       return res
@@ -24,15 +26,19 @@ const createTestimonial = async (req, res) => {
     });
 
     await testimonial.save();
-    res
-      .status(201)
-      .json({ message: "Testimonial created successfully", testimonial });
+
+    res.status(201).json({
+      message: "Testimonial created successfully",
+      testimonial,
+    });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Failed to create testimonial", error: error.message });
+    res.status(500).json({
+      message: "Failed to create testimonial",
+      error: error.message,
+    });
   }
 };
+
 
 //  Get all testimonials
 const getAllTestimonials = async (req, res) => {
@@ -82,8 +88,9 @@ const updateTestimonial = async (req, res) => {
       status,
     };
 
-    if (req.file) {
-      updatedFields.image = `/uploads/testimonials/${req.file.filename}`;
+    if (req.files && req.files.image && req.files.image[0]) {
+      updatedFields.image = `/uploads/testimonials/${req.files.image[0].filename}`;
+       console.log("Uploaded files:", req.files);
     }
 
     await Testimonial.findByIdAndUpdate(id, updatedFields);

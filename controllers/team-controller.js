@@ -15,9 +15,20 @@ const createTeamMember = async (req, res) => {
       status,
     } = req.body;
 
-    const image = req.file ? `/uploads/teams/${req.file.filename}` : null;
+    //  Correctly access uploaded image
+    const image =
+      req.files && req.files.image && req.files.image[0]
+        ? `/uploads/teams/${req.files.image[0].filename}`
+        : null;
 
-    if (!title || !designation || !experience || !linkedIn || !description || !image) {
+    if (
+      !title ||
+      !designation ||
+      !experience ||
+      !linkedIn ||
+      !description ||
+      !image
+    ) {
       return res
         .status(400)
         .json({ message: "Please fill all required fields including image." });
@@ -47,6 +58,7 @@ const createTeamMember = async (req, res) => {
   }
 };
 
+
 const handleDeleteTeam = async (id) => {
   try {
     await axios.delete(`/team/delete/${id}`);
@@ -62,7 +74,9 @@ const getAllTeamMembers = async (req, res) => {
     const members = await Team.find().sort({ createdAt: -1 });
     res.status(200).json(members);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch team members", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Failed to fetch team members", error: error.message });
   }
 };
 
@@ -76,7 +90,9 @@ const getTeamMemberById = async (req, res) => {
     }
     res.status(200).json(member);
   } catch (error) {
-    res.status(500).json({ message: "Failed to get team member", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Failed to get team member", error: error.message });
   }
 };
 
@@ -84,19 +100,25 @@ const getTeamMemberById = async (req, res) => {
 const updateTeamMember = async (req, res) => {
   try {
     const { id } = req.params;
+    const updateData = { ...req.body };
 
-    const updatedMember = await Team.findByIdAndUpdate(id, req.body, {
+    if (req.files && req.files.image && req.files.image[0]) {
+      updateData.image = `/uploads/teams/${req.files.image[0].filename}`;
+      console.log("Uploaded files:", req.files); 
+    }
+
+    const updatedMember = await Team.findByIdAndUpdate(id, updateData, {
       new: true,
-      runValidators: true,
     });
 
     if (!updatedMember) {
       return res.status(404).json({ message: "Team member not found" });
     }
 
-    res.status(200).json({ message: "Team member updated successfully", updatedMember });
+    res.status(200).json(updatedMember);
   } catch (error) {
-    res.status(500).json({ message: "Failed to update team member", error: error.message });
+    console.error("Update error:", error);
+    res.status(500).json({ message: "Server error during update" });
   }
 };
 
@@ -112,7 +134,9 @@ const deleteTeamMember = async (req, res) => {
 
     res.status(200).json({ message: "Team member deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Failed to delete team member", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Failed to delete team member", error: error.message });
   }
 };
 
@@ -122,14 +146,21 @@ const deleteMultipleTeamMembers = async (req, res) => {
     const { ids } = req.body;
 
     if (!Array.isArray(ids) || ids.length === 0) {
-      return res.status(400).json({ message: "No team members selected for deletion" });
+      return res
+        .status(400)
+        .json({ message: "No team members selected for deletion" });
     }
 
     await Team.deleteMany({ _id: { $in: ids } });
 
-    res.status(200).json({ message: "Selected team members deleted successfully" });
+    res
+      .status(200)
+      .json({ message: "Selected team members deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Error deleting multiple team members", error: error.message });
+    res.status(500).json({
+      message: "Error deleting multiple team members",
+      error: error.message,
+    });
   }
 };
 module.exports = {
@@ -138,5 +169,5 @@ module.exports = {
   getTeamMemberById,
   updateTeamMember,
   deleteTeamMember,
-  deleteMultipleTeamMembers
+  deleteMultipleTeamMembers,
 };
