@@ -8,6 +8,7 @@ const contactRoute = require("./router/contact-router");
 const serviceRoute = require("./router/service-router")
 const jobApplyRoute = require("./router/jobApplication-router");
 const careerRoute = require("./router/career-router");
+const blogRoute = require("./router/blog-router");
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 
@@ -42,6 +43,7 @@ app.use("/api/form", contactRoute);
 
 // admin user router
 app.use("/api/admin",adminRouter);
+app.use("/api/data", blogRoute);
 app.use("/api/teamMeber",teamRouter);
 app.use("/api/testimonialData",testimonialRouter);
 app.use("/api/projectData",projectRouter);
