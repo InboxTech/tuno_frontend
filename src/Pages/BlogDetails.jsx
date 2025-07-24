@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import blog_s_1_1 from "../assets/img/blog/blog_1_1.jpg";
 import blog_inner_1 from "../assets/img/blog/blog_inner_1.jpg";
 import blog_inner_2 from "../assets/img/blog/blog_inner_2.jpg";
@@ -8,13 +8,38 @@ import comment_author_3 from "../assets/img/blog/comment-author-3.jpg";
 import recent_post_1_1 from "../assets/img/blog/recent-post-1-1.jpg";
 import recent_post_1_2 from "../assets/img/blog/recent-post-1-2.jpg";
 import recent_post_1_3 from "../assets/img/blog/recent-post-1-3.jpg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Breadcumbs from "../components/Breadcumbs";
+import { useAuth } from "../store/auth";
+
 
 const BlogDetails = () => {
+  const [blog, setBlog] = useState([]);
+  const params = useParams();
+  const { API } = useAuth();
+
+  const getSingleBlog = async () => {
+    try {
+      const response = await fetch(`${API}/api/data/blog/${params.id}`, {
+        method: "GET",
+      });
+      if(response.ok){
+        const data = await response.json();
+        console.log("Single Blog data", data);
+        setBlog(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getSingleBlog();
+  }, []);
+
   return (
     <React.Fragment>
-      <Breadcumbs prevLink="Home" currentLink="Blog Details" pageTitle="Blog Details" />
+      <Breadcumbs prevLink="Home" currentLink={blog.title} pageTitle={"Blog Details"} />
     
       <section className="th-blog-wrapper blog-details space-top space-extra-bottom">
         <div className="container">
@@ -22,24 +47,26 @@ const BlogDetails = () => {
             <div className="col-xl-8 col-lg-7">
               <div className="th-blog blog-single">
                 <div className="blog-img">
-                  <img className="blogDetailsImg" src={blog_s_1_1} alt="Blog Image" />
+                  <img className="blogDetailsImg" src={`${API}${blog.image}`} alt="Blog Image" />
                 </div>
                 <div className="blog-content">
                   <div className="blog-meta">
                     <Link to="/blog">
                       <i className="far fa-calendar" />
-                      24 Jun, 2025
+                      {blog.createdAt}
                     </Link>
                     <Link to="/blog">
                       <i className="far fa-user" />
-                      by admin
+                      by {blog.author}
                     </Link>
                   </div>
                   <h2 className="mb-20">
-                    Voice Cloning: How It Works and Why It Matters
+                    {blog.title}
                   </h2>
 
-                  <div>
+                  <div dangerouslySetInnerHTML={{ __html: blog.description }}></div>
+
+                  {/* <div>
                    <h4> How Voice Cloning Works</h4>
                    <p> Your voice is a blend of tone, rhythm, and inflection, shaped over years of speaking. Voice cloning captures these patterns to recreate your voice digitally. Here’s the process in a nutshell:</p>
                    <ol>
@@ -158,7 +185,7 @@ const BlogDetails = () => {
                     experts, data scientists, and software engineers work
                     collaboratively with clients to design, develop, and
                     implement AI solutions tailored to their unique needs.
-                  </p>
+                  </p> */}
               
                 </div>
               </div>

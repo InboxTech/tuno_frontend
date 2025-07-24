@@ -79,7 +79,7 @@ function App() {
       ),
     },
      {
-      path: "/blog-details",
+      path: "/blog/:id",
       element: (
         <>
           <Header />
