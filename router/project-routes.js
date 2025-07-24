@@ -9,6 +9,7 @@ const {
   softDeleteProject,
   softDeleteSelectedProjects,
   restoreProject,
+  getFrontendProjects
 } = require("../controllers/project-controller");
 
 const authMiddleware = require("../middlewares/auth-middleware");
@@ -16,7 +17,8 @@ const adminMiddleware = require("../middlewares/admin-middleware");
 
 //  Get all projects
 router.route("/project").get(getAllProjects);
-
+// Public/Frontend route
+router.get("/frontend/projects", getFrontendProjects);
 //  Create new project
 router.route("/project/create").post(
   authMiddleware,

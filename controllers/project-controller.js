@@ -71,7 +71,29 @@ const getAllProjects = async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .json({ success: false, message: "Fetch failed", error: error.message });
+      .json({
+        success: false,
+        message: "Admin fetch failed",
+        error: error.message,
+      });
+  }
+};
+// get frontend ==>
+const getFrontendProjects = async (req, res) => {
+  try {
+    const projects = await Project.find({
+      deleted: false,
+      status: "Active",
+    }).sort({ createdAt: -1 });
+    res.status(200).json({ success: true, projects });
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Frontend fetch failed",
+        error: error.message,
+      });
   }
 };
 
@@ -219,4 +241,5 @@ module.exports = {
   softDeleteProject,
   softDeleteSelectedProjects,
   restoreProject,
+  getFrontendProjects,
 };
