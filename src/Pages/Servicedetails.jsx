@@ -23,7 +23,7 @@ function Servicedetails() {
 
      useEffect(() => {
         getServiceDetails()
-     },[])
+     },[id])
 
     return (
         <>

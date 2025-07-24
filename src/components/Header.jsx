@@ -74,9 +74,9 @@ const Header = () => {
                             <li className="text-center">No services found</li>
                           )}
 
-                          <li>
+                          {/* <li>
                             <Link to="/service-details">Services Details</Link>
-                          </li>
+                          </li> */}
                         </ul>
                       </li>
                       <li className="menu-item-has-children">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import Breadcumbs from "../components/Breadcumbs";
 import contact from "../assets/img/normal/Contact_US.jpg";
 
@@ -7,11 +7,13 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function CareerDetails() {
     const { API } = useAuth();
-
+    const [jobDetails, setJobDetails] = useState([]);
+    const [relatedJobs, setRelatedJobs] = useState([]);
+    const { id } = useParams();
     const initialValues = {
         name: "",
         email: "",
@@ -45,15 +47,17 @@ function CareerDetails() {
             .test("fileType", "Unsupported file format", (value) => {
                 return (
                     value &&
-                    ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"].includes(
-                        value.type
-                    )
+                    [
+                        "application/pdf",
+                        "application/msword",
+                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    ].includes(value.type)
                 );
             }),
     });
 
+    // add job application
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-
         try {
             const formData = new FormData();
 
@@ -75,13 +79,16 @@ function CareerDetails() {
             }
 
             // Send to backend
-            const response = await fetch(`${API}/api/jobApplication/applyJobDetails`,{
-                method: "POST",
-                // headers: {
-                //     "Content-Type": "multipart/form-data",
-                // },
-                body: formData
-            });
+            const response = await fetch(
+                `${API}/api/jobApplication/applyJobDetails`,
+                {
+                    method: "POST",
+                    // headers: {
+                    //     "Content-Type": "multipart/form-data",
+                    // },
+                    body: formData,
+                }
+            );
             const data = await response.json();
             if (response.ok) {
                 toast.success(data.message || "Application submitted successfully");
@@ -97,33 +104,90 @@ function CareerDetails() {
             setSubmitting(false);
         }
     };
+
+    //get job details
+    const getJobDetails = async () => {
+        try {
+            const response = await fetch(
+                `${API}/api/career/getJobOpeningById/${id}`,
+                {
+                    method: "GET",
+                }
+            );
+            const data = await response.json();
+            if (response.ok) {
+                setJobDetails(data.jobOpening);
+            } else {
+                toast.error(data.message || "Failed to fetch job details");
+            }
+        } catch (error) {
+            toast.error("Something went wrong while fetching job details");
+        }
+    };
+
+    // get related jobs 
+   const getRelatedJobs = async () => {
+  try {
+    const response = await fetch(`${API}/api/career/getRelatedJobOpenings/${id}`, {
+      method: "GET",
+    });
+    const data = await response.json();
+    
+    // Protect against undefined
+    if (response.ok && Array.isArray(data.relatedJobs)) {
+      setRelatedJobs(data.relatedJobs);
+    } else {
+      setRelatedJobs([]); // fallback to empty array
+    }
+  } catch (error) {
+    console.error("Error fetching related jobs:", error);
+    setRelatedJobs([]); // prevent undefined errors
+    toast.error("Failed to fetch related jobs");
+  }
+};
+
+    useEffect(() => {
+        getJobDetails();
+        getRelatedJobs();
+    }, [id]);
     return (
         <>
-
-            <Breadcumbs prevLink="Home" currentLink="Career-Details" pageTitle="Career-Description" />
+            <Breadcumbs
+                prevLink="Home"
+                currentLink={jobDetails?.designation?.toUpperCase() || "Designation"}
+                pageTitle="Current Job Opening"
+            />
 
             {/* Job details */}
 
             <div className="container my-5">
-                <div className="page-single">
-                    <div className="page-img gsap-parallax mb-35">
-                        {/* <img src={service_details1} alt="Service Image"/> */}
-                        <h3 className="sub-title before-none fs-4"> Job Title : Front End Developer</h3>
-                    </div>
+                <div className="row">
+                    <div className="col-xl-8 col-lg-7">
+                        <div className="page-single">
+                            {/* <div className="page-img gsap-parallax mb-35"> */}
+                                {/* <img src={service_details1} alt="Service Image"/> */}
+                                <h3 className="sub-title before-none fs-4"> Designation : {jobDetails.designation} </h3>
+                            {/* </div> */}
 
-                    <div>
-                        <h5 className="sub-title before-none fs-4"> Job summary </h5>
-                        <p> Crafts the user-facing part of websites and applications, turning designs into interactive and visually appealing experiences. They use HTML, CSS, and JavaScript to build the structure, style, and functionality of web pages, ensuring a smooth and engaging user experience. </p>
-                    </div>
+                            <div>
+                                <h5 className="sub-title before-none fs-4"> Job summary </h5>
+                                <p> {jobDetails.short_description} </p>
+                            </div>
 
+                            <div>
+                                <h5 className="sub-title before-none fs-4"> Required Skills </h5>
+                                <p> {jobDetails.skills}</p>
+                            </div>
 
-                    <div>
-                        <h5 className="sub-title before-none fs-4"> Required Skills  </h5>
-                        <p> HTML, CSS, Javascript, Bootstrap, Jquery, React.js </p>
-                    </div>
-
-                    <div>
-                        <h5 className="sub-title before-none fs-4"> Roles &  Responsibilities : </h5>
+                            <div>
+                                <h5 className="sub-title before-none fs-4">
+                                    {" "}
+                                    Roles & Responsibilities :{" "}
+                                </h5>
+                                <div
+                                    dangerouslySetInnerHTML={{ __html: jobDetails.full_description }}
+                                >
+                                    {/* 
                         <ul>
                             <li> Develop user interfaces: Implement designs using HTML, CSS, and JavaScript, creating the visual elements users interact with. </li>
                             <li> Ensure responsiveness: Make sure the website or application looks and functions well on various devices and browsers. </li>
@@ -131,51 +195,77 @@ function CareerDetails() {
                             <li> Optimize performance: Improve website loading speed and overall performance. </li>
                             <li>Maintain code quality: Write clean, well-documented, and reusable code, potentially using component libraries. </li>
                             <li> Troubleshoot and debug: Identify and fix issues related to layout, functionality, and performance. </li>
-                        </ul>
+                        </ul> */}
+                                </div>
+                            </div>
+
+                            <div className="row gy-40">
+                                <div className="col-xl-2 col-lg-4 col-md-6">
+                                    <h4 className="page-subtitle mb-10">No of Openings</h4>
+                                    <p className="box-text"> {jobDetails.openings} </p>
+                                </div>
+                                <div className="col-xl-2 col-lg-4 col-md-6">
+                                    <h4 className="page-subtitle mb-10">Job Type </h4>
+                                    <p className="box-text">{jobDetails.jobtype} </p>
+                                </div>
+                                <div className="col-xl-2 col-lg-4 col-md-6">
+                                    <h4 className="page-subtitle mb-10"> Years of Experience</h4>
+                                    <p className="box-text"> {jobDetails.experience} </p>
+                                </div>
+                                <div className="col-xl-2 col-lg-4 col-md-6">
+                                    <h4 className="page-subtitle mb-10"> Join in </h4>
+                                    <p className="box-text"> {jobDetails.joinin}</p>
+                                </div>
+                                <div className="col-xl-2 col-lg-4 col-md-6">
+                                    <h4 className="page-subtitle mb-10"> Last date to apply </h4>
+                                    <p className="box-text">
+                                        {" "}
+                                        {new Date(jobDetails.last_date).toLocaleDateString()}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="page-img-wrap mt-40">
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <div className="page-img radius-20">
+                                            {/* <img src={Services12} alt="img"/> */}
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="page-img radius-20">
+                                            {/* <img src={Services13} alt="img"/> */}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-xl-4 col-lg-5">
+                        <div className="related-jobs mt-5">
+        <h3 className="sub-title before-none fs-4">Related Job Openings</h3>
+        {relatedJobs.length > 0 ? (
+          relatedJobs.map((job) => (
+            <div key={job._id} className="border p-3 mb-3 rounded shadow-sm">
+              <h5>{job.designation}</h5>
+              <p>{job.skills}</p>
+              <Link to={`/career-details/${job._id}`} className="th-btn style-gradient btn-sm">View Details</Link>
+            </div>
+          ))
+        ) : (
+          <p>No related jobs found.</p>
+        )}
+      </div>
                     </div>
 
-                    <div className="row gy-40">
-                        <div className="col-xl-2 col-lg-4 col-md-6">
-                            <h4 className="page-subtitle mb-10">No of Openings</h4>
-                            <p className="box-text"> 3 </p>
-                        </div>
-                        <div className="col-xl-2 col-lg-4 col-md-6">
-                            <h4 className="page-subtitle mb-10">Job Type </h4>
-                            <p className="box-text"> Full Time </p>
-                        </div>
-                        <div className="col-xl-2 col-lg-4 col-md-6">
-                            <h4 className="page-subtitle mb-10"> Years of Experience</h4>
-                            <p className="box-text"> 2-5 years </p>
-                        </div>
-                        <div className="col-xl-2 col-lg-4 col-md-6">
-                            <h4 className="page-subtitle mb-10"> Join in </h4>
-                            <p className="box-text"> Imediate</p>
-                        </div>
-                        <div className="col-xl-2 col-lg-4 col-md-6">
-                            <h4 className="page-subtitle mb-10"> Last date to apply </h4>
-                            <p className="box-text"> 30/07/2025 </p>
-                        </div>
-                    </div>
-                    <div className="page-img-wrap mt-40">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <div className="page-img radius-20">
-                                    {/* <img src={Services12} alt="img"/> */}
-                                </div>
-                            </div>
-                            <div className="col-md-6">
-                                <div className="page-img radius-20">
-                                    {/* <img src={Services13} alt="img"/> */}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
 
             {/* Job application Form */}
-            <div className="space-bottom overflow-hidden contact-area-1 position-relative z-index-common" id="contact-sec" >
+            <div
+                className="space-bottom overflow-hidden contact-area-1 position-relative z-index-common"
+                id="contact-sec"
+            >
                 <div className="container my-3">
                     <div className="consulting-wrap1 bg-smoke">
                         <div className="row align-items-center">
@@ -187,12 +277,18 @@ function CareerDetails() {
                             <div className="col-xxl-6">
                                 <div className="consulting-form-wrap1">
                                     <div className="title-area mb-20">
-                                        <h4 className="sub-title before-none fs-3" > Fill your details with updated resume</h4>
+                                        <h4 className="sub-title before-none fs-3">
+                                            {" "}
+                                            Fill your details with updated resume
+                                        </h4>
                                     </div>
                                     <div className="contact-form-v1">
-                                        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
+                                        <Formik
+                                            initialValues={initialValues}
+                                            validationSchema={validationSchema}
+                                            onSubmit={handleSubmit}
+                                        >
                                             {({ isSubmitting, setFieldValue }) => (
-
                                                 <Form className="contact-form">
                                                     <div className="row">
                                                         {/* Name */}
@@ -341,10 +437,13 @@ function CareerDetails() {
                                                                 id="resume"
                                                                 name="resume"
                                                                 type="file"
-                                                                placeholder='Upload Resume'
+                                                                placeholder="Upload Resume"
                                                                 className="form-control py-3 pe-0"
                                                                 onChange={(event) => {
-                                                                    setFieldValue("resume", event.currentTarget.files[0]);
+                                                                    setFieldValue(
+                                                                        "resume",
+                                                                        event.currentTarget.files[0]
+                                                                    );
                                                                 }}
                                                             />
                                                             <i className="far fa-file" />
@@ -377,7 +476,7 @@ function CareerDetails() {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default CareerDetails
+export default CareerDetails;

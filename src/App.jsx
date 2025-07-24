@@ -111,7 +111,7 @@ function App() {
       ),
     },
       {
-      path: "/career-details",
+      path: "/career-details/:id",
       element: (
         <>
           <Header />
