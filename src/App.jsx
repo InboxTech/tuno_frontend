@@ -30,7 +30,7 @@ import Career from "./Pages/Career";
 import CareerDetails from "./Pages/CareerDetails";
 import { ToastContainer } from "react-toastify";
 import Project from "./Pages/Project";
-import { ToastContainer } from "react-toastify";
+
 import 'react-toastify/dist/ReactToastify.css';
 
 
