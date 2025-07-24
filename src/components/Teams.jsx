@@ -1,109 +1,39 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import team_1_2 from "../assets/img/team/team_1_2.png";
-import team_1_4 from "../assets/img/team/team_1_4.png";
-import team_1_6 from "../assets/img/team/team_1_6.png";
-import team_1_7 from "../assets/img/team/team_1_7.png";
-import team_1_3 from "../assets/img/team/team_1_3.png";
-import team_1_1 from "../assets/img/team/team_1_1.png";
-import team_1_5 from "../assets/img/team/team_1_5.png";
-import team_1_8 from "../assets/img/team/team_1_8.png";
-import teamBackground from "../assets/img/bg/team-bg-3.jpg";
-import teamCard2_shape from "../assets/img/shape/team-card2-shape.png";
-import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const teamMembers = [
-  {
-    name: "Alex Javed",
-    image: team_1_2,
-    links: {
-      facebook: "https://facebook.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://instagram.com/",
-      linkdin: "https://linkdin.com/",
-    },
-  },
-  {
-    name: "Jessica Lauren",
-    image: team_1_4,
-    links: {
-      facebook: "https://facebook.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://instagram.com/",
-      linkdin: "https://linkdin.com/",
-    },
-  },
-  {
-    name: "Jenny William",
-    image: team_1_6,
-    links: {
-      facebook: "https://facebook.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://instagram.com/",
-      linkdin: "https://linkdin.com/",
-    },
-  },
-  {
-    name: "Daniel Thomas",
-    image: team_1_7,
-    links: {
-      facebook: "https://facebook.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://instagram.com/",
-      linkdin: "https://linkdin.com/",
-    },
-  },
-  {
-    name: "Alex Joseph",
-    image: team_1_3,
-    links: {
-      facebook: "https://facebook.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://instagram.com/",
-      linkdin: "https://linkdin.com/",
-    },
-  },
-  {
-    name: "Michael Clark",
-    image: team_1_1,
-    links: {
-      facebook: "https://facebook.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://instagram.com/",
-      linkdin: "https://linkdin.com/",
-    },
-  },
-  {
-    name: "John Greyman",
-    image: team_1_5,
-    links: {
-      facebook: "https://facebook.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://instagram.com/",
-      linkdin: "https://linkdin.com/",
-    },
-  },
-  {
-    name: "Ross Bailey",
-    image: team_1_8,
-    links: {
-      facebook: "https://facebook.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://instagram.com/",
-      linkdin: "https://linkdin.com/",
-    },
-  },
-];
+import {
+  faFacebookF,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+
+import teamCard2_shape from "../assets/img/shape/team-card2-shape.png";
+import teamBackground from "../assets/img/bg/team-bg-3.jpg";
+import axios from "axios";
+import { useAuth } from "../store/auth";
 
 const Teams = () => {
+  const [teamMembers, setTeamMembers] = useState([]);
+  const {API} = useAuth()
   const title = "Expert Team";
   const delay = 50;
-
   const titleRef = useRef(null);
   const [titleVisible, setPTitleVisible] = useState(false);
-  //work process title intersersection observer
+
+  // Fetch members from backend
+  const fetchTeamMembers = async () => {
+    try {
+      const res = await axios.get(`${API}/api/teamMeber/team`);
+      setTeamMembers(res.data);
+    } catch (error) {
+      console.error("Failed to fetch team members:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTeamMembers();
+  }, []);
+
   useEffect(() => {
     const observerTitle = new IntersectionObserver(
       ([entry]) => {
@@ -112,19 +42,17 @@ const Teams = () => {
           observerTitle.disconnect();
         }
       },
-      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+      { threshold: 0.3 }
     );
 
-    if (titleRef.current) {
-      observerTitle.observe(titleRef.current);
-    }
+    if (titleRef.current) observerTitle.observe(titleRef.current);
 
     return () => observerTitle.disconnect();
   }, []);
+
   return (
     <section
       className="space overflow-hidden team-area-2 team-bg-gradient-overlay"
-      data-bg-src="assets/img/bg/team-bg-2.jpg"
       style={{
         backgroundImage: `url(${teamBackground})`,
         backgroundRepeat: "no-repeat",
@@ -156,9 +84,13 @@ const Teams = () => {
             </div>
           </div>
         </div>
+
         <div className="row gy-4 justify-content-center">
           {teamMembers.map((member, index) => (
-            <div className="col-xl-3 col-lg-4 col-md-6" key={index}>
+            <div
+              className="col-xl-3 col-lg-4 col-md-6"
+              key={member._id || index}
+            >
               <div
                 className="th-team team-card style2"
                 data-aos="fade-up"
@@ -166,7 +98,6 @@ const Teams = () => {
               >
                 <div
                   className="team-img"
-                  data-mask-src="assets/img/shape/team-card2-shape.png"
                   style={{
                     WebkitMaskImage: `url(${teamCard2_shape})`,
                     maskImage: `url(${teamCard2_shape})`,
@@ -176,26 +107,45 @@ const Teams = () => {
                     maskSize: "cover",
                   }}
                 >
-                  <img src={member.image} alt={member.name} />
+                  <img src={`${API}${member.image}`} alt={member.title} />
                 </div>
                 <div className="team-card-content">
                   <h3 className="box-title">
-                    <Link to="/team-details">{member.name}</Link>
+                    <Link to={`/team-details/${member._id}`}>
+                      {member.title}
+                    </Link>
                   </h3>
+                 
                 </div>
                 <div className="th-social">
-                  <Link target="_blank" to={member.links.facebook}>
+                  <a
+                    href={member.facebook || "#"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FontAwesomeIcon icon={faFacebookF} />
-                  </Link>
-                  <Link target="_blank" to={member.links.twitter}>
+                  </a>
+                  <a
+                    href={member.twitter || "#"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FontAwesomeIcon icon={faTwitter} />
-                  </Link>
-                  <Link target="_blank" to={member.links.instagram}>
+                  </a>
+                  <a
+                    href={member.instagram || "#"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FontAwesomeIcon icon={faInstagram} />
-                  </Link>
-                  <Link target="_blank" to={member.links.linkdin}>
-                  <i className="fab fa-linkedin-in"></i>
-                  </Link>
+                  </a>
+                  <a
+                    href={member.linkedIn || "#"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i className="fab fa-linkedin-in"></i>
+                  </a>
                 </div>
               </div>
             </div>

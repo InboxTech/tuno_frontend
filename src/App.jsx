@@ -29,6 +29,10 @@ import Logout from "./Pages/Logout";
 import Career from "./Pages/Career";
 import CareerDetails from "./Pages/CareerDetails";
 import { ToastContainer } from "react-toastify";
+import Project from "./Pages/Project";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 // import other components/pages as needed
@@ -71,7 +75,7 @@ function App() {
       ),
     },
      {
-      path: "/project-details",
+      path: "/project/:id",
       element: (
         <>
           <Header />
@@ -161,11 +165,21 @@ function App() {
       ),
     },
     {
-      path: "/team-details",
+      path: "/team-details/:id",
       element: (
         <>
            <Header />
           <TeamDetails />
+          <Footer/>
+        </>
+      ),
+    },
+     {
+      path: "/project",
+      element: (
+        <>
+           <Header />
+          <Project />
           <Footer/>
         </>
       ),
@@ -196,7 +210,7 @@ function App() {
 
   return (
     <>
-     <ToastContainer position="top-right" autoClose={3000} />
+    <ToastContainer position="top-right" autoClose={3000} />
       <RouterProvider router={router} />
       <ScrollToTop />
       <Preloader />

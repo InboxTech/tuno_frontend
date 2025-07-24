@@ -12,6 +12,8 @@ const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const { isLoggedIn } = useAuth();
    const { services, loading } = useAuth();
+  const { projectItems } = useAuth();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 300); // adjust value as needed
@@ -46,9 +48,7 @@ const Header = () => {
                 <div className="col-auto">
                   <nav className="main-menu d-none d-lg-inline-block">
                     <ul>
-                      <li className="">
-                        <Link to="/">Home </Link>
-                      </li>
+                    
                       <li>
                         <Link to="/about">About Us</Link>
                       </li>
@@ -80,58 +80,18 @@ const Header = () => {
                         </ul>
                       </li>
                       <li className="menu-item-has-children">
-                        <Link to="#">Pages</Link>
+                        <Link to="/project">Projects</Link>
                         <ul className="sub-menu">
-                          <li className="menu-item-has-children">
-                            <Link to="#">Shop</Link>
-                            <ul className="sub-menu">
-                              <li>
-                                <Link to="#">Shop</Link>
-                              </li>
-                              <li>
-                                <Link to="#">Shop Details</Link>
-                              </li>
-                              <li>
-                                <Link to="#">Cart Page</Link>
-                              </li>
-                              <li>
-                                <Link to="3">Checkout</Link>
-                              </li>
-                              <li>
-                                <Link to="#">Wishlist</Link>
-                              </li>
-                            </ul>
-                          </li>
+                          {projectItems?.map((l)=>
+                          (
                           <li>
-                            <Link to="#">Project</Link>
+                            <Link to={`/project/${l._id}`}>{l.title}</Link>
+                   
                           </li>
-                          <li>
-                            <Link to="#">
-                              Project Details
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="#">Our Team</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Team Details</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Chatbot Integration</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Pricing</Link>
-                          </li>
-                          <li>
-                            <Link to="#">Testimonial</Link>
-                          </li>
-                          <li>
-                            <Link to="#">FAQ'S Page</Link>
-                          </li>
-                          <li>
-                            <Link to="#">AI Consulting</Link>
-                          </li>
-
+                          )
+                          )}
+                   
+                          
                         </ul>
                       </li>
                       <li>
@@ -143,7 +103,6 @@ const Header = () => {
                       <li>
                         <Link to="/contact">Contact Us</Link>
                       </li>
-
                     </ul>
                   </nav>
                   <div className="header-button d-flex d-lg-none">
@@ -154,21 +113,16 @@ const Header = () => {
                 </div>
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
-
                     {isLoggedIn ? (
-
-                      <Link to="/logout" className="th-btn style-gradient">Logout <i className="far fa-long-arrow-right ms-2"> </i>
+                      <Link to="/logout" className="th-btn style-gradient">
+                        Logout <i className="far fa-long-arrow-right ms-2"> </i>
                       </Link>
-
-
                     ) : (
                       <div>
-                        <Link to="/login" className="th-btn style-gradient">Login
+                        <Link to="/login" className="th-btn style-gradient">
+                          Login
                           <i className="far fa-long-arrow-right ms-2"> </i>
-
                         </Link>
-
-
                       </div>
                     )}
                   </div>

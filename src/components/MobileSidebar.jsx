@@ -2,10 +2,12 @@ import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link } from "react-router-dom";
 import Logo from "../assets/img/logo2.svg";
+import { useAuth } from "../store/auth";
 
 function MobileSidebar() {
   const [show, setShow] = useState(false);
   const [openMenus, setOpenMenus] = useState({});
+  const { projectItems } = useAuth();
 
   const handleShow = () => setShow(true);
   const handleClose = () => {
@@ -30,7 +32,12 @@ function MobileSidebar() {
         <i className="far fa-bars" />
       </button>
 
-      <Offcanvas className="mobileSidebar" show={show} onHide={handleClose} placement="start">
+      <Offcanvas
+        className="mobileSidebar"
+        show={show}
+        onHide={handleClose}
+        placement="start"
+      >
         <Offcanvas.Body>
           <div className="th-menu-area text-center">
             <button onClick={handleClose} className="th-menu-toggle-btn">
@@ -38,76 +45,75 @@ function MobileSidebar() {
             </button>
             <div className="mobile-logo mb-4">
               <Link to="/">
-                <img src={Logo}alt="Logo" />
+                <img src={Logo} alt="Logo" />
               </Link>
             </div>
 
             <div className="th-mobile-menu">
               <ul className="mobile-menu-list">
                 {/* Home */}
-                <li className={`menu-item-has-children ${openMenus.home ? "open" : ""}`}>
-                  <Link to="/"
-                  //  onClick={() => toggleMenu("home")}
-                   >
-                    Home</Link>
-              
+                <li>
+                  <Link to="/">Home</Link>
                 </li>
 
                 {/* About */}
-                <li><Link to="/about">About Us</Link></li>
+                <li>
+                  <Link to="/about">About Us</Link>
+                </li>
 
                 {/* Services */}
-                <li className={`menu-item-has-children ${openMenus.services ? "open" : ""}`}>
-                  <Link to="#" onClick={() => toggleMenu("services")}>Services</Link>
+                <li
+                  className={`menu-item-has-children ${
+                    openMenus.services ? "open" : ""
+                  }`}
+                >
+                  <Link to="#" onClick={() => toggleMenu("services")}>
+                    Services
+                  </Link>
                   {openMenus.services && (
                     <ul className="sub-menu">
-                      <li><Link to="/service">Services</Link></li>
-                      <li><Link to="/service-details">Service Details</Link></li>
+                      <li>
+                        <Link to="/service">Services</Link>
+                      </li>
+                      <li>
+                        <Link to="/service-details">Service Details</Link>
+                      </li>
                     </ul>
                   )}
                 </li>
 
-                {/* Pages */}
-                <li className={`menu-item-has-children ${openMenus.pages ? "open" : ""}`}>
-                  <Link to="#" onClick={() => toggleMenu("pages")}>Pages</Link>
+                {/* Projects */}
+                <li
+                  className={`menu-item-has-children ${
+                    openMenus.pages ? "open" : ""
+                  }`}
+                >
+                  <Link to="#" onClick={() => toggleMenu("pages")}>
+                    Projects
+                  </Link>
                   {openMenus.pages && (
                     <ul className="sub-menu">
-                      <li className={`menu-item-has-children ${openMenus.shop ? "open" : ""}`}>
-                        <Link to="#" onClick={() => toggleMenu("shop")}>Shop</Link>
-                        {openMenus.shop && (
-                          <ul className="sub-menu">
-                            <li><Link to="#">Shop</Link></li>
-                            <li><Link to="#">Shop Details</Link></li>
-                            <li><Link to="#">Cart Page</Link></li>
-                            <li><Link to="#">Checkout</Link></li>
-                            <li><Link to="#">Wishlist</Link></li>
-                          </ul>
-                        )}
-                      </li>
-                      <li><Link to="#">Project</Link></li>
-                      <li><Link to="#">Project Details</Link></li>
-                      <li><Link to="#">Our Team</Link></li>
-                      <li><Link to="#">Team Details</Link></li>
-                      <li><Link to="#">Chatbot Integration</Link></li>
-                      <li><Link to="#">Pricing</Link></li>
-                      <li><Link to="#">Testimonial</Link></li>
-                      <li><Link to="3">FAQ'S Page</Link></li>
-                      <li><Link to="#">AI Consulting</Link></li>
-                   
+                      {projectItems?.map((p) => (
+                        <li>
+                          <Link to={`/project/${p._id}`}>{p.title}</Link>
+                        </li>
+                      ))}
                     </ul>
                   )}
                 </li>
 
                 {/* Blog */}
-                <li className={`menu-item-has-children ${openMenus.blog ? "open" : ""}`}>
-                  <Link to="/blog"
-                  //  onClick={() => toggleMenu("blog")}
-                   >Blog</Link>
-                
+                <li>
+                  <Link to="/blog">Blog</Link>
+                </li>
+                <li>
+                  <Link to="#">Creer</Link>
                 </li>
 
                 {/* Contact */}
-                <li><Link to="/contact">Contact Us</Link></li>
+                <li>
+                  <Link to="/contact">Contact Us</Link>
+                </li>
               </ul>
             </div>
           </div>

@@ -2,15 +2,12 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import project3_1 from "../assets/img/project/project3-1.jpg";
-import project3_2 from "../assets/img/project/project3-2.jpg";
-import project3_3 from "../assets/img/project/project3-3.jpg";
-import project3_4 from "../assets/img/project/project3-4.jpg";
-import project3_5 from "../assets/img/project/project3-5.jpg";
+
 import projectCard3Shape from "../assets/img/shape/project-card3-shape.png";
 import "swiper/css"; // Required styles
 import "swiper/css/autoplay";
 import { Link } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 // Static list of items
 const sliderItems = [
@@ -20,33 +17,33 @@ const sliderItems = [
   "Deep Learning",
   "Customer Service",
 ];
-const projectItems = [
-  {
-    img: project3_1,
-    subtitle: "Banking Sector",
-    title: "Decreased customer verification time by 50% ",
-  },
-  {
-    img: project3_2,
-    subtitle: "Healthcare Client",
-    title: "Automated prescription refill reminders ",
-  },
-  {
-    img: project3_3,
-    subtitle: "E-commerce Brand",
-    title: "42% increase in post-purchase engagement ",
-  },
-  {
-    img: project3_4,
-    subtitle: "Travel & Airlines",
-    title: "Shortened itinerary response time by 55%",
-  },
-  {
-    img: project3_5,
-    subtitle: "EdTech Platform",
-    title: "2x increase in lead conversions during admission driv",
-  },
-];
+// const projectItems = [
+//   {
+//     img: project3_1,
+//     subtitle: "Banking Sector",
+//     title: "Decreased customer verification time by 50% ",
+//   },
+//   {
+//     img: project3_2,
+//     subtitle: "Healthcare Client",
+//     title: "Automated prescription refill reminders ",
+//   },
+//   {
+//     img: project3_3,
+//     subtitle: "E-commerce Brand",
+//     title: "42% increase in post-purchase engagement ",
+//   },
+//   {
+//     img: project3_4,
+//     subtitle: "Travel & Airlines",
+//     title: "Shortened itinerary response time by 55%",
+//   },
+//   {
+//     img: project3_5,
+//     subtitle: "EdTech Platform",
+//     title: "2x increase in lead conversions during admission driv",
+//   },
+// ];
 // Reusable marquee component
 const MarqueeSlider = ({
   bgColor = "bg-gradient",
@@ -83,6 +80,11 @@ const MarqueeSlider = ({
 
 // Main wrapper
 const Work = () => {
+  const { API, projectItems: originalItems } = useAuth();
+  const projectItems =
+    originalItems.length === 5
+      ? [...originalItems, originalItems[0]] // 👈 add first again for safe loop
+      : originalItems;
   return (
     <React.Fragment>
       <div
@@ -139,57 +141,61 @@ const Work = () => {
 
         <div className="container-fluid p-0">
           <div className="slider-area project-slider3">
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={30}
-              slidesPerView={1}
-              centeredSlides={true}
-              loop={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              breakpoints={{
-                601: { slidesPerView: 2 },
-                991: { slidesPerView: 2.5 },
-                1200: { slidesPerView: 3.5 },
-                1600: { slidesPerView: 5 },
-              }}
-              className="th-slider"
-            >
-              {projectItems.concat(projectItems).map((item, idx) => (
-                <SwiperSlide
-                
-                  key={idx}
-                >
-                  <div className="project-card3">
-                    <div
-                      className="box-img"
-                      style={{
-                        WebkitMaskImage: `url(${projectCard3Shape})`,
-                        maskImage: `url(${projectCard3Shape})`,
-                        WebkitMaskRepeat: "no-repeat",
-                        maskRepeat: "no-repeat",
-                        WebkitMaskSize: "cover",
-                        maskSize: "cover",
-                      }}
-                    >
-                      <img src={item.img} alt="project image" />
-                      <Link to="/project-details" className="icon-btn style5">
-                        <i className="fal fa-arrow-right"></i>
-                      </Link>
+            {projectItems.length > 0 && (
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={30}
+                slidesPerView={1}
+                centeredSlides={true}
+                loop={true}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                breakpoints={{
+                  601: { slidesPerView: 2 },
+                  991: { slidesPerView: 2.5 },
+                  1200: { slidesPerView: 3.5 },
+                  1600: { slidesPerView: 5 },
+                }}
+                className="th-slider"
+              >
+                {projectItems.map((item, idx) => (
+                  <SwiperSlide key={idx}>
+                    <div className="project-card3">
+                      <div
+                        className="box-img"
+                        style={{
+                          WebkitMaskImage: `url(${projectCard3Shape})`,
+                          maskImage: `url(${projectCard3Shape})`,
+                          WebkitMaskRepeat: "no-repeat",
+                          maskRepeat: "no-repeat",
+                          WebkitMaskSize: "cover",
+                          maskSize: "cover",
+                        }}
+                      >
+                        <img src={`${API}${item.projectImage}`} alt="project" />
+                        <Link
+                          to={`/project/${item._id}`}
+                          className="icon-btn style5"
+                        >
+                          <i className="fal fa-arrow-right"></i>
+                        </Link>
+                      </div>
+                      <div className="box-content">
+                        <p className="box-subtitle text-white">{item.title}</p>
+                        <h3 className="box-title text-white">
+                          <Link to={`/project/${item._id}`}>
+                            {item.shortDescription}
+                          </Link>
+                        </h3>
+                      </div>
                     </div>
-                    <div className="box-content">
-                      <p className="box-subtitle text-white">{item.subtitle}</p>
-                      <h3 className="box-title text-white">
-                        <Link to="/project-details">{item.title}</Link>
-                      </h3>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
           </div>
         </div>
       </section>

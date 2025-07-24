@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export const AuthContext = createContext();
@@ -5,6 +6,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
+      const [projectItems, setProjectItems] = useState([]);
   // const [user, setUser] = useState("");
   const [loading, setLoading] = useState(false);
   const [services, setServices] = useState([]);
@@ -19,6 +21,16 @@ export const AuthProvider = ({ children }) => {
     setIsLoggedIn(true);
     return localStorage.setItem("token", serverToken);
   };
+
+  ///// fetch the project data
+   const fetchProjects = async () => {
+        try {
+          const res = await axios.get(`${API}/api/projectData/frontend/projects`);
+          setProjectItems(res.data.projects || []);
+        } catch (err) {
+          console.error("Failed to fetch projects:", err);
+        }
+      };
 
   const logoutUser = () => {
     localStorage.removeItem("token");
@@ -88,6 +100,7 @@ useEffect(() => {
   };
   checkAuth();
    getAllServices();
+  fetchProjects()
 }, []);
 
   return (
@@ -95,6 +108,7 @@ useEffect(() => {
       value={{
         storeTokenInLs,
         logoutUser,
+        projectItems,
         isLoggedIn,
         token,
         authorizationToken,
