@@ -53,11 +53,11 @@ const Header = () => {
                         <Link to="/about">About Us</Link>
                       </li>
                       <li className="menu-item-has-children">
-                        <Link to="#">Services</Link>
+                        <Link to="/service">Services</Link>
                         <ul className="sub-menu">
-                          <li>
+                          {/* <li>
                             <Link to="/service">Services</Link>
-                          </li>
+                          </li> */}
 
                           {loading ? (
                             <li className="text-center">Loading services...</li>

@@ -7,7 +7,7 @@ import { useAuth } from "../store/auth";
 function MobileSidebar() {
   const [show, setShow] = useState(false);
   const [openMenus, setOpenMenus] = useState({});
-  const { projectItems } = useAuth();
+  const { projectItems, services, loading } = useAuth();
 
   const handleShow = () => setShow(true);
   const handleClose = () => {
@@ -67,17 +67,31 @@ function MobileSidebar() {
                     openMenus.services ? "open" : ""
                   }`}
                 >
-                  <Link to="#" onClick={() => toggleMenu("services")}>
+                  <Link to="/service" onClick={() => toggleMenu("services")}>
                     Services
                   </Link>
                   {openMenus.services && (
                     <ul className="sub-menu">
-                      <li>
+                      {/* <li>
                         <Link to="/service">Services</Link>
-                      </li>
-                      <li>
+                      </li> */}
+                       {loading ? (
+                                                  <li className="text-center">Loading services...</li>
+                                                ) : services.length > 0 ? (
+                                                  services.map((service) => {
+                                                    console.log("service.title:", service.title)
+                                                    return (
+                                                      <li key={service._id}>
+                                                        <Link to={`/service-details/${service._id}`}>{service.title || "No Title"}</Link> {/* ✅ Only title shown */}
+                                                      </li>
+                                                    )
+                                                  })
+                                                ) : (
+                                                  <li className="text-center">No services found</li>
+                                                )}
+                      {/* <li>
                         <Link to="/service-details">Service Details</Link>
-                      </li>
+                      </li> */}
                     </ul>
                   )}
                 </li>
