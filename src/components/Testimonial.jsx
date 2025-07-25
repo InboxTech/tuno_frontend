@@ -20,8 +20,8 @@ const TestimonialSlider = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await axios.get(`${API}/api/testimonialData/testimonial`);
-        setTestimonials(res.data);
+        const res = await axios.get(`${API}/api/testimonialData/frontend/testimonial`);
+        setTestimonials(res.data.testimonial);
       } catch (error) {
         console.error("Error fetching testimonials:", error);
       }

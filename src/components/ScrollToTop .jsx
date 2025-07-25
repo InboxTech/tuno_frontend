@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { FaAnglesUp } from "react-icons/fa6";
 
 const ScrollToTop = () => {
   const [scrollPercent, setScrollPercent] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation(); 
 
-  // Scroll event to update circle progress and visibility
+  // ✅ Auto scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" }); // or 'smooth' if you want animation
+  }, [location.pathname]);
+
+  // Scroll progress + visibility
   const handleScroll = () => {
     const scrollTop = window.scrollY;
     const winHeight =
@@ -16,7 +23,7 @@ const ScrollToTop = () => {
     setIsVisible(scrollTop > 300);
   };
 
-  // Scroll to top
+  // Scroll to top on click
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -26,7 +33,6 @@ const ScrollToTop = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Circle stroke calculation
   const radius = 49;
   const circumference = 2 * Math.PI * radius;
   const dashOffset = circumference - (scrollPercent / 100) * circumference;
@@ -56,9 +62,17 @@ const ScrollToTop = () => {
             strokeDashoffset: dashOffset,
           }}
         />
-
-        
       </svg>
+      <FaAnglesUp
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          fontSize: "20px",
+          color: "#000",
+        }}
+      />
     </div>
   );
 };

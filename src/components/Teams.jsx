@@ -23,8 +23,8 @@ const Teams = () => {
   // Fetch members from backend
   const fetchTeamMembers = async () => {
     try {
-      const res = await axios.get(`${API}/api/teamMeber/team`);
-      setTeamMembers(res.data);
+      const res = await axios.get(`${API}/api/teamMeber/frontend/team`);
+      setTeamMembers(res.data.Teams);
     } catch (error) {
       console.error("Failed to fetch team members:", error);
     }
