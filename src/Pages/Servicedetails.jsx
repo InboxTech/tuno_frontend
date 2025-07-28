@@ -83,7 +83,7 @@ function Servicedetails() {
                         </div>
                         <div className="col-xl-4 col-lg-5">
                             <aside className="sidebar-area sidebar-sticky rounded-0 p-0 bg-transparent">
-                                <div className="widget widget-contact-form">
+                                {/* <div className="widget widget-contact-form">
                                     <h3 className="widget_title">Get In touch</h3>
                                     <form action="https://html.themeholy.com/robor/demo/mail.php" method="POST"
                                         className="ajax-contact">
@@ -103,7 +103,7 @@ function Servicedetails() {
                                         </div>
                                         <p className="form-messages mb-0 mt-3"></p>
                                     </form>
-                                </div>
+                                </div> */}
                                 <div className="widget widget-contact-wrap">
                                     <h3 className="widget_title">Contact info</h3>
                                     <p className="box-text">Need Any Help, Call Us 24/7 For Support</p>
