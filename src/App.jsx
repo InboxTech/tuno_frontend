@@ -30,8 +30,8 @@ import Career from "./Pages/Career";
 import CareerDetails from "./Pages/CareerDetails";
 import { ToastContainer } from "react-toastify";
 import Project from "./Pages/Project";
-
-import 'react-toastify/dist/ReactToastify.css';
+import Layout from "./components/Layout "
+import 'react-toastify/dist/ReactToastify.css'
 
 
 
@@ -43,176 +43,42 @@ function App() {
   }, []);
 
   // Define your router
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <>
-          <Header />
-          <Home />
-          <Footer />
-        </>
-      ),
-    },
-    {
-      path: "/about",
-      element: (
-        <>
-          <Header />
-          <About />
-          <Footer />
-        </>
-      ),
-    },
-     {
-      path: "/contact",
-      element: (
-        <>
-          <Header />
-          <Contact />
-          <Footer />
-        </>
-      ),
-    },
-     {
-      path: "/project/:id",
-      element: (
-        <>
-          <Header />
-          <ProjectDetails />
-          <Footer />
-        </>
-      ),
-    },
-     {
-      path: "/blog/:id",
-      element: (
-        <>
-          <Header />
-          <BlogDetails />
-          <Footer />
-        </>
-      ),
-    },
-     {
-      path: "/blog",
-      element: (
-        <>
-          <Header />
-          <Blog />
-          <Footer />
-        </>
-      ),
-    },
-     {
-      path: "/career",
-      element: (
-        <>
-          <Header />
-          <Career />
-          <Footer />
-        </>
-      ),
-    },
-      {
-      path: "/career-details/:id",
-      element: (
-        <>
-          <Header />
-          <CareerDetails />
-          <Footer />
-        </>
-      ),
-    },
-     {
-      path: "/service",
-      element: (
-        <>
-          <Header />
-          <Service />
-          <Footer />
-        </>
-      ),
-    },
-     {
-      path: "/service-details/:id",
-      element: (
-        <>
-          <Header />
-          <Servicedetails />
-          <Footer />
-        </>
-      ),
-    },
-     {
-      path: "/login",
-      element: (
-        <>
-          <Header />
-          <Login />
-         
-        </>
-      ),
-    },
-     {
-      path: "/signup",
-      element: (
-        <>
-          <Header />
-          <Signup />
-         
-        </>
-      ),
-    },
-    {
-      path: "/team-details/:id",
-      element: (
-        <>
-           <Header />
-          <TeamDetails />
-          <Footer/>
-        </>
-      ),
-    },
-     {
-      path: "/project",
-      element: (
-        <>
-           <Header />
-          <Project />
-          <Footer/>
-        </>
-      ),
-    },
-    {
-      path: "*",
-      element: (
-        <>
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <Contact /> },
+      { path: "project/:id", element: <ProjectDetails /> },
+      { path: "blog", element: <Blog /> },
+      { path: "blog/:id", element: <BlogDetails /> },
+      { path: "career", element: <Career /> },
+      { path: "career-details/:id", element: <CareerDetails /> },
+      { path: "service", element: <Service /> },
+      { path: "service-details/:id", element: <Servicedetails /> },
+      { path: "login", element: <Login /> },
+      { path: "signup", element: <Signup /> },
+      { path: "team-details/:id", element: <TeamDetails /> },
+      { path: "project", element: <Project /> },
+    ],
+  },
+  {
+    path: "/logout",
+    element: <Logout />,
+  },
+  {
+    path: "*",
+    element: <Error />,
+  },
+]);
 
-          <Error />
-         
-        </>
-      ),
-    },
-     {
-      path: "/logout",
-      element: (
-        <>
-
-        <Logout />
-         
-        </>
-      ),
-    },
-    
-    // add more routes here
-  ]);
 
   return (
     <>
     <ToastContainer position="top-right" autoClose={3000} />
       <RouterProvider router={router} />
-      <ScrollToTop />
       <Preloader />
      
     </>
