@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Registraion from "../assets/img/normal/Registration.jpg";
+import Registraion from "../assets/img/form/Registration.jpg";
 import Breadcumbs from '../components/Breadcumbs';
 import { faEnvelope, faUser, faPhone, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

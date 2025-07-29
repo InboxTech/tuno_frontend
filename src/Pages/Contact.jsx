@@ -1,6 +1,6 @@
 import React from "react";
 // import consultingThumb1_1 from "../assets/img/normal/consulting-thumb1-1.jpg";
-import contact from "../assets/img/normal/Contact_US.jpg";
+import contact from "../assets/img/form/Contact_US.jpg";
 import Breadcumbs from "../components/Breadcumbs";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";

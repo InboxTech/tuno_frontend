@@ -7,8 +7,8 @@ import aboutThumb32Shape from "../assets/img/shape/about-thumb3-2-shape.jpg";
 import aboutThumb31Shape from "../assets/img/shape/about-thumb3-1-shape.jpg";
 import aboutThumb33Shape from "../assets/img/shape/about-thumb3-3-shape.jpg";
 // import AboutThumbImg from "../assets/img/normal/about-thumb3-1.jpg";
-import aboutSection1 from "../assets/img/normal/aboutSection1.jpg";
-import aboutSection2 from "../assets/img/normal/aboutSection2.jpg";
+import aboutSection1 from "../assets/img/about/aboutSection1.jpg";
+import aboutSection2 from "../assets/img/about/aboutSection2.jpg";
 
 import aboutThumb32 from "../assets/img/normal/about-thumb3-2.jpg";
 // import aboutThumb33 from "../assets/img/normal/about-thumb3-3.jpg";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Breadcumbs from "../components/Breadcumbs";
-import contact from "../assets/img/normal/Contact_US.jpg";
+import contact from "../assets/img/form/Contact_US.jpg";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -166,21 +166,21 @@ function CareerDetails() {
                         <div className="page-single">
                             {/* <div className="page-img gsap-parallax mb-35"> */}
                                 {/* <img src={service_details1} alt="Service Image"/> */}
-                                <h3 className="sub-title before-none fs-4"> Designation : {jobDetails.designation} </h3>
+                                <h3 className="fs-4"> Designation : {jobDetails.designation} </h3>
                             {/* </div> */}
 
                             <div>
-                                <h5 className="sub-title before-none fs-4"> Job summary </h5>
+                                <h5 className="fs-4"> Job summary </h5>
                                 <p> {jobDetails.short_description} </p>
                             </div>
 
                             <div>
-                                <h5 className="sub-title before-none fs-4"> Required Skills </h5>
+                                <h5 className="fs-4"> Required Skills </h5>
                                 <p> {jobDetails.skills}</p>
                             </div>
 
                             <div>
-                                <h5 className="sub-title before-none fs-4">
+                                <h5 className="fs-4">
                                     {" "}
                                     Roles & Responsibilities :{" "}
                                 </h5>
@@ -242,7 +242,7 @@ function CareerDetails() {
                     </div>
                     <div className="col-xl-4 col-lg-5">
                         <div className="related-jobs mt-5">
-        <h3 className="sub-title before-none fs-4">Related Job Openings</h3>
+        <h3 className="fs-4">Related Job Openings</h3>
         {relatedJobs.length > 0 ? (
           relatedJobs.map((job) => (
             <div key={job._id} className="border p-3 mb-3 rounded shadow-sm">

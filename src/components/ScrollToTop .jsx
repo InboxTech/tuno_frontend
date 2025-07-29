@@ -8,9 +8,13 @@ const ScrollToTop = () => {
   const location = useLocation(); 
 
   // ✅ Auto scroll to top on route change
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" }); // or 'smooth' if you want animation
-  }, [location.pathname]);
+useEffect(() => {
+  const timeout = setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 100); // small delay to let content render
+
+  return () => clearTimeout(timeout);
+}, [location.pathname]);
 
   // Scroll progress + visibility
   const handleScroll = () => {

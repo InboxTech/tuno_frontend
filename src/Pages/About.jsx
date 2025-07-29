@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import CountUp from "react-countup";
 // import ScrollTrigger from 'react-scroll-trigger';
-
+import Teams from "../components/Teams"
 import AboutThumb41 from "../assets/img/normal/about-thumb4-1.jpg";
 import AboutThumb42 from "../assets/img/normal/about-thumb4-2.jpg";
 // import about2 from "../assets/img/normal/about2.jpg";
@@ -10,7 +10,7 @@ import AboutThumb13 from "../assets/img/normal/about-thumb1-3.jpg";
 import AboutFeatureIcon11 from "../assets/img/icon/about-feature-icon1-1.svg";
 import AboutFeatureIcon12 from "../assets/img/icon/about-feature-icon1-2.svg";
 // import Process21 from "../assets/img/process/process_2_1.jpg";
-import about_work_process from "../assets/img/process/about_work_process.jpg";
+import about_work_process from "../assets/img/about/about_work_process.jpg";
 
 import ProcessArrow21 from "../assets/img/icon/process-arrow2-1.svg";
 import ProcessArrow22 from "../assets/img/icon/process-arrow2-2.svg";
@@ -20,11 +20,11 @@ import team13 from "../assets/img/team/team_1_3.png";
 import team14 from "../assets/img/team/team_1_4.png";
 
 // import feature41 from "../assets/img/feature/4-1.jpg";
-import advance_technology1 from "../assets/img/feature/advance_technology1.jpg";
+import advance_technology1 from "../assets/img/about/advance_technology1.jpg";
 // import feature42 from "../assets/img/feature/4-2.jpg";
-import advance_technology2 from "../assets/img/feature/advance_technology2.jpg";
+import advance_technology2 from "../assets/img/about/advance_technology2.jpg";
 // import feature43 from "../assets/img/feature/4-3.jpg";
-import advance_technology3 from "../assets/img/feature/advance_technology3.jpg";
+import advance_technology3 from "../assets/img/about/advance_technology3.jpg";
 
 import Featureicon41 from "../assets/img/icon/feature-icon4-1.svg";
 import Featureicon42 from "../assets/img/icon/feature-icon4-2.svg";
@@ -488,7 +488,7 @@ function About() {
             {/* work process start */}
 
             {/* out experts team start */}
-            <section
+            {/* <section
                 className="space bg-title overflow-hidden team-bg-theme"
                 id="team-sec"
                 style={{ backgroundImage: `url(${Teambg3})` }}
@@ -504,16 +504,6 @@ function About() {
                                     ref={expertHeadRef}
                                     className="sec-title text-white fw-bold text-anim2 heading-letters"
                                 >
-                                    {/* {text3_experts.split("").map((letter, index) => (
-                                        <span
-                                            key={index}
-                                            className={`animated-letter ${expertHeadVisible ? "visible" : ""
-                                                }`}
-                                            style={{ animationDelay: `${index * delay}ms` }}
-                                        >
-                                            {letter === " " ? "\u00A0" : letter}
-                                        </span>
-                                    ))} */}
 
                                        {text3_experts.split(' ').map((word, wordIndex) => (
                                     <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
@@ -529,7 +519,7 @@ function About() {
                                           </span>
                                         );
                                       })}
-                                      <span>&nbsp;</span> {/* Add space between words */}
+                                      <span>&nbsp;</span> 
                                     </span>
                                   ))}
                                 </h2>
@@ -715,7 +705,8 @@ function About() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
+            <Teams />
             {/* out experts team start */}
 
             {/* advance technology start */}

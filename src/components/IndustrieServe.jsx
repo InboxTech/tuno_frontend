@@ -1,23 +1,23 @@
 import React,{useState,useRef,useEffect} from "react";
 import whyThumbShape31 from "../assets/img/shape/why-thumb-shape3-1.png";
 // import theerOne from "../assets/img/feature/3-1.png";
-import Healthcare from "../assets/img/feature/Healthcare.jpg";
+import Healthcare from "../assets/img/industry/Healthcare.jpg";
 
 // import threeTwo from "../assets/img/feature/3-2.png";
-import finance_Banking from "../assets/img/feature/finance_Banking.jpg";
+import finance_Banking from "../assets/img/industry/finance_Banking.jpg";
 
 // import threeThree from "../assets/img/feature/3-3.png";
-import Education from "../assets/img/feature/Education.jpg";
+import Education from "../assets/img/industry/Education.jpg";
 
 // import threeFour from "../assets/img/feature/3-4.png";
-import BPO_Callcenter from "../assets/img/feature/BPO_Callcenter.jpg";
+import BPO_Callcenter from "../assets/img/industry/BPO_Callcenter.jpg";
 
 // import threeFive from "../assets/img/feature/3-5.png";
-import Travel_hospitality from "../assets/img/feature/Travel_hospitality.jpg";
+import Travel_hospitality from "../assets/img/industry/Travel_hospitality.jpg";
 
 // import threeSix from "../assets/img/feature/3-6.png";
-import e_commarce_retail from "../assets/img/feature/e_commarce_retail.jpg";
-import Logistics_Pharma from "../assets/img/feature/Logistics_Pharma.jpg";
+import e_commarce_retail from "../assets/img/industry/e_commarce_retail.jpg";
+import Logistics_Pharma from "../assets/img/industry/Logistics_Pharma.jpg";
 import {Link} from 'react-router-dom'
 
 const IndustrieServe = () => {

@@ -190,7 +190,7 @@ return (
                   {loading ? (
                     <li className="text-center">Loading services...</li>
                   ) : services.length > 0 ? (
-                    services.map((service) => {
+                    services.slice(0, 5).map((service) => {
                       console.log("service.title:", service.title)
                       return (
                         <li key={service._id}>

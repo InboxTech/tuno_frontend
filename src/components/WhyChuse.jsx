@@ -3,10 +3,10 @@ import WhyThumbShap31 from "../assets/img/shape/why-thumb-shape3-1.png";
 import whyThumbShape32 from "../assets/img/shape/why-thumb-shape3-2.png";
 import WhyBg31 from "../assets/img/bg/why-bg-3-1.png";
 // import whyThumb31 from "../assets/img/normal/why-thumb3-1.jpg";
-import why_choose1 from "../assets/img/normal/Why_choose_Us1.jpg";
+import why_choose1 from "../assets/img/whyChooseUs/Why_choose_Us1.jpg";
 
 // import whyThumb32 from "../assets/img/normal/why-thumb3-2.jpg";
-import why_choose2 from "../assets/img/normal/Why_choose_Us2.jpg";
+import why_choose2 from "../assets/img/whyChooseUs/Why_choose_Us2.jpg";
 
 
 const WhyChuse = () => {
