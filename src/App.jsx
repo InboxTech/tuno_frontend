@@ -30,6 +30,7 @@ import Career from "./Pages/Career";
 import CareerDetails from "./Pages/CareerDetails";
 import { ToastContainer } from "react-toastify";
 import Project from "./Pages/Project";
+import IndustryDetails from "./Pages/IndustryDetails"
 import Layout from "./components/Layout "
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
       { path: "career-details/:id", element: <CareerDetails /> },
       { path: "service", element: <Service /> },
       { path: "service-details/:id", element: <Servicedetails /> },
+      { path: "industry-details/:id", element: <IndustryDetails /> },
       { path: "login", element: <Login /> },
       { path: "signup", element: <Signup /> },
       { path: "team-details/:id", element: <TeamDetails /> },

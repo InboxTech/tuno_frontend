@@ -1,4 +1,7 @@
-import React,{useState,useRef,useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
+
 import whyThumbShape31 from "../assets/img/shape/why-thumb-shape3-1.png";
 // import theerOne from "../assets/img/feature/3-1.png";
 import Healthcare from "../assets/img/industry/Healthcare.jpg";
@@ -18,34 +21,58 @@ import Travel_hospitality from "../assets/img/industry/Travel_hospitality.jpg";
 // import threeSix from "../assets/img/feature/3-6.png";
 import e_commarce_retail from "../assets/img/industry/e_commarce_retail.jpg";
 import Logistics_Pharma from "../assets/img/industry/Logistics_Pharma.jpg";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const IndustrieServe = () => {
-   const title ="Industries Where ai is optimizing the Processes"
-          const delay = 50;
-let letterCount = 0;
-      
-         const titleRef = useRef(null);
-          const [titleVisible, setPTitleVisible] = useState(false);
-          //work process title intersersection observer
-                useEffect(() => {
-                  const observerTitle = new IntersectionObserver(
-                    ([entry]) => {
-                      if (entry.isIntersecting) {
-                        setPTitleVisible(true);
-                        observerTitle.disconnect();
-                      }
-                    },
-                    { threshold: 0.3 } // Start animation when 30% of the heading is visible
-                  );
-              
-                  if (titleRef.current) {
-                    observerTitle.observe(titleRef.current);
-                  }
-              
-                  return () => observerTitle.disconnect();
-                  
-                }, []);
+  const title = "Industries Where ai is optimizing the Processes";
+  const delay = 50;
+  let letterCount = 0;
+  const [getIndustry, setGetIndustry] = useState([]);
+  const { API } = useAuth();
+  const [activeTab, setActiveTab] = useState(0);
+  const titleRef = useRef(null);
+  const [titleVisible, setPTitleVisible] = useState(false);
+  //work process title intersersection observer
+  useEffect(() => {
+    const observerTitle = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPTitleVisible(true);
+          observerTitle.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (titleRef.current) {
+      observerTitle.observe(titleRef.current);
+    }
+
+    return () => observerTitle.disconnect();
+  }, []);
+
+  //get industry using fetch api
+  const getAllIndustry = async () => {
+    try {
+      const response = await fetch(`${API}/api/industry/getIndustry`, {
+        method: "GET"
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setGetIndustry(Array.isArray(data) ? data : []);
+      } else {
+        throw new Error("Failed to fetch Industries");
+      }
+    } catch (error) {
+      console.error("Industry Error:", error);
+      toast.error(error.message || "Error fetching industries");
+    }
+  };
+
+  useEffect(() => {
+    getAllIndustry();
+  }, []);
   return (
     <React.Fragment>
       <section className="space overflow-hidden">
@@ -60,8 +87,11 @@ let letterCount = 0;
                 <span className="sub-title2 text-gradient text-uppercase mb-30">
                   Industries We Serve
                 </span>
-                <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
-                   {/* {title.split('').map((letter, index) => (
+                <h2
+                  ref={titleRef}
+                  className="sec-title style2 fw-bold text-uppercase text-anim2"
+                >
+                  {/* {title.split('').map((letter, index) => (
                                             <span
                                                 key={index}
                                                 className={`animated-letter ${titleVisible ? 'visible' : ''}`}
@@ -71,24 +101,30 @@ let letterCount = 0;
                                                 </span>
                                         ))} */}
 
-
-                                        {title.split(' ').map((word, wordIndex) => (
-    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
-      {word.split('').map((letter, letterIndex) => {
-        const currentIndex = letterCount++;  // unique index for animation delay
-        return (
-          <span
-            key={currentIndex}
-            className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-            style={{ animationDelay: `${currentIndex * delay}ms` }}
-          >
-            {letter}
-          </span>
-        );
-      })}
-      <span>&nbsp;</span> {/* Add space between words */}
-    </span>
-  ))}
+                  {title.split(" ").map((word, wordIndex) => (
+                    <span
+                      key={wordIndex}
+                      className="word-wrapper"
+                      style={{ whiteSpace: "nowrap" }}
+                    >
+                      {word.split("").map((letter, letterIndex) => {
+                        const currentIndex = letterCount++; // unique index for animation delay
+                        return (
+                          <span
+                            key={currentIndex}
+                            className={`animated-letter ${titleVisible ? "visible" : ""
+                              }`}
+                            style={{
+                              animationDelay: `${currentIndex * delay}ms`,
+                            }}
+                          >
+                            {letter}
+                          </span>
+                        );
+                      })}
+                      <span>&nbsp;</span> {/* Add space between words */}
+                    </span>
+                  ))}
                 </h2>
               </div>
             </div>
@@ -111,79 +147,76 @@ let letterCount = 0;
           </div>
           <div className="feature-wrap3">
             <ul className="nav nav-tabs feature-tab" role="tablist">
-              <li className="nav-item" role="presentation">
-                <button className="nav-link active" id="feature-tab1" data-bs-toggle="tab" data-bs-target="#featureTab1" type="button" role="tab" aria-controls="featureTab"
-                  aria-selected="true" > <span className="box-number">#01</span>Healthcare AI </button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="feature-tab2" data-bs-toggle="tab" data-bs-target="#featureTab2" type="button" role="tab" aria-controls="featureTab2" 
-                  aria-selected="false" > <span className="box-number">#02</span>Banking & Finance </button>
-              </li>
 
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="feature-tab3" data-bs-toggle="tab" data-bs-target="#featureTab3" type="button" role="tab" aria-controls="featureTab3"
-                  aria-selected="false" > <span className="box-number">#03</span>E-commerce Ai </button>
-              </li>
+              {getIndustry.map((industry, index) => (
+                <li className="nav-item" role="presentation" key={industry._id}>
+                  <button
+                    className={`nav-link ${activeTab === index ? "active" : ""}`}
+                    id={`feature-tab${index + 1}`}
+                    data-bs-toggle="tab"
+                    data-bs-target={`#featureTab${index + 1}`}
+                    type="button"
+                    role="tab"
+                    aria-controls={`featureTab${index + 1}`}
+                    aria-selected={activeTab === index}
+                    onClick={() => setActiveTab(index)}
+                  >
+                    <span className="box-number">#{String(index + 1).padStart(2, "0")}</span>
+                    {industry.title}
+                  </button>
+                </li>
+              ))}
 
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="feature-tab4" data-bs-toggle="tab" data-bs-target="#featureTab4" type="button" role="tab" aria-controls="featureTab4"
-                  aria-selected="false" > <span className="box-number">#04</span>Education Ai </button>
-              </li>
-
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="feature-tab5" data-bs-toggle="tab" data-bs-target="#featureTab5" type="button" role="tab" aria-controls="featureTab5"
-                  aria-selected="false" > <span className="box-number">#05</span>BPOs & Call Centers </button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="feature-tab6" data-bs-toggle="tab" data-bs-target="#featureTab6" type="button" role="tab" aria-controls="featureTab6"
-                  aria-selected="false" > <span className="box-number">#06</span>Travel & Hospitality </button> 
-              </li>
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="feature-tab7" data-bs-toggle="tab" data-bs-target="#featureTab7" type="button" role="tab" aria-controls="featureTab7"
-                  aria-selected="false" > <span className="box-number">#07</span> Logistics & Pharma </button>
-              </li>
             </ul>
             <div className="tab-content">
-              <div className="tab-pane fade show active" id="featureTab1" role="tabpanel" aria-labelledby="feature-tab1" >
-                <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div className="feature-tab-thumb"
-                   // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
-                    style={{ 
-                      WebkitMaskImage: `url(${whyThumbShape31})`, 
-                    maskImage: `url(${whyThumbShape31})`,
-                      WebkitMaskRepeat: "no-repeat",
-                      maskRepeat: "no-repeat",
-                      WebkitMaskSize: "cover",
-                      maskSize: "cover",
-                    }}
-                  >
-                    <img src={Healthcare} alt="img" />
-                  </div>
-                  <div className="feature-tab-content">
-                    <h4 className="box-title">Healthcare Ai</h4>
-                    <p className="box-text">
-                      Voice AI that assists in clinical documentation, patient
-                      support, appointment reminders, and treatment
-                      personalization. TUNO helps healthcare providers reduce
-                      admin time, increase patient engagement, and deliver
-                      better outcomes with real-time, secure voice automation
-                    </p>
+              {getIndustry.map((industry, index) => (
 
-                    <div className="btn-wrap mt-40">
-                      <Link
-                        className="icon-btn style4"
-                        to="/service-details"
-                      >
-                        <i className="fal fa-arrow-right" />
-                      </Link>
+                <div key={industry._id}
+                  className={`tab-pane fade show ${activeTab === index ? "active" : ""}`}
+                  id={`featureTab${index + 1}`}
+                  role="tabpanel"
+                  aria-labelledby={`feature-tab${index + 1}`}
+                >
+                  <div className="feature-tab-content-wrap" data-aos="fade-left">
+                    <div
+                      className="feature-tab-thumb"
+                      // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                      style={{
+                        WebkitMaskImage: `url(${whyThumbShape31})`,
+                        maskImage: `url(${whyThumbShape31})`,
+                        WebkitMaskRepeat: "no-repeat",
+                        maskRepeat: "no-repeat",
+                        WebkitMaskSize: "cover",
+                        maskSize: "cover",
+                      }}
+                    >
+                      <img src={`${API}${industry.industry_image}`} alt="img" />
+                    </div>
+                    <div className="feature-tab-content">
+                      <h4 className="box-title">{industry.title}</h4>
+                      <p className="box-text">
+                        {industry.short_description}
+                      </p>
+
+                      <div className="btn-wrap mt-40">
+                        <Link className="icon-btn style4" to={`/industry-details/${industry._id}`}>
+                          <i className="fal fa-arrow-right" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="tab-pane fade" id="featureTab2" role="tabpanel" aria-labelledby="feature-tab2" >
+              ))}
+              {/* <div
+                className="tab-pane fade"
+                id="featureTab2"
+                role="tabpanel"
+                aria-labelledby="feature-tab2"
+              >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div className="feature-tab-thumb" 
-                  // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                  <div
+                    className="feature-tab-thumb"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
                       maskImage: `url(${whyThumbShape31})`,
@@ -207,10 +240,7 @@ let letterCount = 0;
                       delivering 24/7 financial assistance.
                     </p>
                     <div className="btn-wrap mt-40">
-                      <Link
-                        className="icon-btn style4"
-                        to="/service-details"
-                      >
+                      <Link className="icon-btn style4" to="/service-details">
                         <i className="fal fa-arrow-right" />
                       </Link>
                     </div>
@@ -224,7 +254,8 @@ let letterCount = 0;
                 aria-labelledby="feature-tab3"
               >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div className="feature-tab-thumb"
+                  <div
+                    className="feature-tab-thumb"
                     // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
@@ -247,16 +278,25 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <a className="icon-btn style4" href="service-details.html">
+                      <a
+                        className="icon-btn style4"
+                        href="service-details.html"
+                      >
                         <i className="fal fa-arrow-right" />
                       </a>
                     </div>
                   </div>
                 </div>
-              </div> 
-              <div className="tab-pane fade" id="featureTab4" role="tabpanel" aria-labelledby="feature-tab4" >
+              </div>
+              <div
+                className="tab-pane fade"
+                id="featureTab4"
+                role="tabpanel"
+                aria-labelledby="feature-tab4"
+              >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div className="feature-tab-thumb"
+                  <div
+                    className="feature-tab-thumb"
                     // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
@@ -280,19 +320,22 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <Link
-                        className="icon-btn style4"
-                        to="/service-details"
-                      >
+                      <Link className="icon-btn style4" to="/service-details">
                         <i className="fal fa-arrow-right" />
                       </Link>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="tab-pane fade" id="featureTab5" role="tabpanel" aria-labelledby="feature-tab5" >
+              <div
+                className="tab-pane fade"
+                id="featureTab5"
+                role="tabpanel"
+                aria-labelledby="feature-tab5"
+              >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div className="feature-tab-thumb"
+                  <div
+                    className="feature-tab-thumb"
                     // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
@@ -316,19 +359,22 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <Link
-                        className="icon-btn style4"
-                        to="/service-details"
-                      >
+                      <Link className="icon-btn style4" to="/service-details">
                         <i className="fal fa-arrow-right" />
                       </Link>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="tab-pane fade" id="featureTab6" role="tabpanel" aria-labelledby="feature-tab6" >
+              <div
+                className="tab-pane fade"
+                id="featureTab6"
+                role="tabpanel"
+                aria-labelledby="feature-tab6"
+              >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div className="feature-tab-thumb"
+                  <div
+                    className="feature-tab-thumb"
                     // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
@@ -352,20 +398,23 @@ let letterCount = 0;
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <Link
-                        className="icon-btn style4"
-                        to="/service-details"
-                      >
+                      <Link className="icon-btn style4" to="/service-details">
                         <i className="fal fa-arrow-right" />
                       </Link>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="tab-pane fade" id="featureTab7" role="tabpanel" aria-labelledby="feature-tab7" >
+              <div
+                className="tab-pane fade"
+                id="featureTab7"
+                role="tabpanel"
+                aria-labelledby="feature-tab7"
+              >
                 <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div className="feature-tab-thumb"
-                   // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
+                  <div
+                    className="feature-tab-thumb"
+                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
                     style={{
                       WebkitMaskImage: `url(${whyThumbShape31})`,
                       maskImage: `url(${whyThumbShape31})`,
@@ -380,20 +429,20 @@ let letterCount = 0;
                   <div className="feature-tab-content">
                     <h4 className="box-title">Logistics & Pharma </h4>
                     <p className="box-text">
-                     TUNO automates dispatch alerts, inventory updates, and customer notifications in logistics and pharma. Our secure, voice-enabled systems reduce human error, speed up delivery chains, and improve last-mile coordination. 
+                      TUNO automates dispatch alerts, inventory updates, and
+                      customer notifications in logistics and pharma. Our
+                      secure, voice-enabled systems reduce human error, speed up
+                      delivery chains, and improve last-mile coordination.
                     </p>
 
                     <div className="btn-wrap mt-40">
-                      <Link
-                        className="icon-btn style4"
-                        to="/service-details"
-                      >
+                      <Link className="icon-btn style4" to="/service-details">
                         <i className="fal fa-arrow-right" />
                       </Link>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
