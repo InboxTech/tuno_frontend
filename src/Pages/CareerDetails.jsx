@@ -180,10 +180,10 @@ function CareerDetails() {
                             </div>
 
                             <div>
-                                <h5 className="fs-4">
+                                {/* <h5 className="fs-4">
                                     {" "}
                                     Roles & Responsibilities :{" "}
-                                </h5>
+                                </h5> */}
                                 <div
                                     dangerouslySetInnerHTML={{ __html: jobDetails.full_description }}
                                 >
