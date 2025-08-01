@@ -62,7 +62,7 @@ const router = createBrowserRouter([
       { path: "industry-details/:id", element: <IndustryDetails /> },
       { path: "login", element: <Login /> },
       { path: "signup", element: <Signup /> },
-      { path: "team-details/:id", element: <TeamDetails /> },
+      { path: "team-details", element: <TeamDetails /> },
       { path: "project", element: <Project /> },
     ],
   },

@@ -346,10 +346,10 @@ function CareerDetails() {
                                                                 name="applyfor"
                                                                 className="form-select bg-white"
                                                             >
-                                                                <option value="" disabled hidden>
-                                                                    Apply For
+                                                                <option value={jobDetails.designation} >
+                                                                    {jobDetails.designation}
                                                                 </option>
-                                                                <option value="Web Development">
+                                                                {/* <option value="Web Development">
                                                                     Web Development
                                                                 </option>
                                                                 <option value="Brand Marketing">
@@ -360,7 +360,7 @@ function CareerDetails() {
                                                                 </option>
                                                                 <option value="Digital Marketing">
                                                                     Digital Marketing
-                                                                </option>
+                                                                </option> */}
                                                             </Field>
                                                             <ErrorMessage
                                                                 name="applyfor"

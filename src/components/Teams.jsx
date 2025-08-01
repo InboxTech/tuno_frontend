@@ -112,9 +112,9 @@ const Teams = () => {
                 </div>
                 <div className="team-card-content">
                   <h3 className="box-title">
-                    <Link to={`/team-details/${member._id}`}>
+                    
                       {member.title}
-                    </Link>
+                    
                   </h3>
                 </div>
                 <div className="th-social">
@@ -150,6 +150,11 @@ const Teams = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="d-flex justify-content-center mt-5">
+          <Link to="/team-details" className="th-btn style-gradient">
+             Read More
+          </Link>
         </div>
       </div>
     </section>

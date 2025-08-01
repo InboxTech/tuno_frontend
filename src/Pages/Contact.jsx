@@ -31,30 +31,39 @@ const Contact = () => {
       .min(10, "Phone must be at least 10 digits")
       .required("Phone number is required"),
     subject: Yup.string().required("Subject is required"),
-    company: Yup.string().required("Company name is required"),
+    // company: Yup.string().required("Company name is required"),
     message: Yup.string().required("Please enter a message"),
   });
 
  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    try {
-      // Make POST request to backend
-      const response = await axios.post(`${API}/api/form/contact`, values);
-      
-      if (response.status === 200) {
-        toast.success(response.data.message || "Message sent successfully!");
-        resetForm();
+  try {
+    // 1️⃣ Save to DB
+    const saveResponse = await axios.post(`${API}/api/form/contact`, values);
+
+    if (saveResponse.status === 200) {
+      toast.success("Contact saved successfully");
+
+      // 2️⃣ Send Email
+      const emailResponse = await axios.post(`${API}/api/form/contact/sendEmail`, values);
+
+      if (emailResponse.status === 200) {
+        toast.success("Email sent to admin successfully!");
+        resetForm(); // ✅ Clear form only after both are successful
       } else {
-        toast.error("Something went wrong. Please try again.");
+        toast.error("Contact saved, but failed to send email");
       }
-    } catch (error) {
-      console.error("Error sending message:", error);
-      toast.err(
-        error.response?.data?.message || "Failed to send message. Please try again later."
-      );
-    } finally {
-      setSubmitting(false);
+    } else {
+      toast.error("Failed to save contact form");
     }
-  };
+  } catch (error) {
+    console.error("Error during form submission:", error);
+    toast.error(
+      error.response?.data?.message || "Something went wrong. Try again later."
+    );
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   return (
     <React.Fragment>
@@ -204,35 +213,21 @@ const Contact = () => {
                               />
                             </div>
 
-                            {/* Subject */}
-                            <div className="form-group style-border col-md-6">
-                              <Field
-                                as="select"
-                                name="subject"
-                                className="form-select bg-white"
-                              >
-                                <option value="" disabled hidden>
-                                  Select Subject
-                                </option>
-                                <option value="Web Development">
-                                  Web Development
-                                </option>
-                                <option value="Brand Marketing">
-                                  Brand Marketing
-                                </option>
-                                <option value="UI/UX Designing">
-                                  UI/UX Designing
-                                </option>
-                                <option value="Digital Marketing">
-                                  Digital Marketing
-                                </option>
-                              </Field>
-                              <ErrorMessage
-                                name="subject"
-                                component="div"
-                                className="text-danger small mt-1"
-                              />
-                            </div>
+                           {/* Subject */}
+<div className="form-group style-border col-md-6">
+  <Field
+    type="text"
+    name="subject"
+    placeholder="Subject"
+    className="form-control"
+  />
+  <i className="far fa-book" /> {/* Optional icon */}
+  <ErrorMessage
+    name="subject"
+    component="div"
+    className="text-danger small mt-1"
+  />
+</div>
 
                             {/* Company */}
                             <div className="form-group style-border col-12">
@@ -242,7 +237,6 @@ const Contact = () => {
                                 placeholder="Company name"
                                 className="form-control"
                               />
-                              <i className="far fa-circle-info" />
                               <ErrorMessage
                                 name="company"
                                 component="div"
