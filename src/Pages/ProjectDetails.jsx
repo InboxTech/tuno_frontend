@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-<<<<<<< HEAD
-=======
 import Breadcumbs from "../components/Breadcumbs";
->>>>>>> 48560776100c18dadbacd156c8bc8b461b187b76
 import { useAuth } from "../store/auth";
 
 const ProjectDetails = () => {
@@ -13,17 +10,6 @@ const ProjectDetails = () => {
   const [loading, setLoading] = useState(true);
   const {API} = useAuth()
 
-<<<<<<< HEAD
-  const initialValues = { newPassword: "", confirmPassword: "" };
-  const validationSchema = Yup.object({
-    newPassword: Yup.string()git 
-      .min(6, "Password must be at least 6 characters")
-      .required("Password is required"),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref("newPassword"), null], "Passwords must match")
-      .required("Confirm password is required"),
-  });
-=======
   useEffect(() => {
     const fetchProject = async () => {
       try {
@@ -37,7 +23,6 @@ const ProjectDetails = () => {
     };
     fetchProject();
   }, [id]);
->>>>>>> 48560776100c18dadbacd156c8bc8b461b187b76
 
   if (loading) return <div className="text-center py-5">Loading...</div>;
   if (!project) return <div className="text-center py-5">Project not found.</div>;
