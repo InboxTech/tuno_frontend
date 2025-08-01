@@ -1,103 +1,105 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { toast } from "react-toastify";
 import axios from "axios";
-import Breadcumbs from "../components/Breadcumbs";
-import { useAuth } from "../store/auth";
+import { useAuth } from "../store/Auth";
 
-const ProjectDetails = () => {
-  const { id } = useParams();
-  const [project, setProject] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const {API} = useAuth()
+export default function ResetPasswordPage() {
+  const navigate = useNavigate();
+  const { API } = useAuth();
+  const { token } = useParams(); // ✅ Corrected here
 
-  useEffect(() => {
-    const fetchProject = async () => {
-      try {
-        const res = await axios.get(`${API}/api/projectData/project/${id}`);
-        setProject(res.data.project);
-      } catch (err) {
-        console.error("Failed to fetch project:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProject();
-  }, [id]);
+  const initialValues = { newPassword: "", confirmPassword: "" };
+  const validationSchema = Yup.object({
+    newPassword: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("newPassword"), null], "Passwords must match")
+      .required("Confirm password is required"),
+  });
 
-  if (loading) return <div className="text-center py-5">Loading...</div>;
-  if (!project) return <div className="text-center py-5">Project not found.</div>;
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      await axios.post(
+        `${API || "http://localhost:5000"}/api/auth/reset-password/${token}`,
+        values
+      );
+      toast.success("Password reset successful! Please log in.");
+      navigate("/login");
+    } catch (error) {
+      console.error("Reset password error:", error.response?.data || error);
+      toast.error(
+        error.response?.data?.message || "Failed to reset password"
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
-    <>
-      <Breadcumbs prevLink="Home" currentLink="Project Details" pageTitle={project.title} />
-
-      <section className="space-top space-extra-bottom">
-        <div className="container">
-          <div className="row gx-40">
-            <div className="col-xxl-9 col-xl-8 col-lg-7">
-              <div className="page-single mb-0">
-                <div className="page-img overflow-hidden">
-                  <img src={`${API}${project.projectImage}`} alt="Main Project" />
-                </div>
-                <div>
-                  {/* <p className="project-meta">Category: {project.status}</p>
-                  <h2 className="page-title mt-n2 mb-20">{project.title}</h2>
-                  <p className="mb-30">{project.shortDescription}</p> */}
-                  <div
-                    className="mb-50"
-                    dangerouslySetInnerHTML={{ __html: project.fullDescription }}
-                  />
-
-                  {/* <div className="row">
-                    {project.projectImages.map((img, idx) => (
-                      <div className="col-md-4 mb-3" key={idx}>
-                        <div className="page-img overflow-hidden">
-                          <img src={`/${img}`} alt={`Project ${idx + 1}`} />
-                        </div>
-                      </div>
-                    ))}
-                  </div> */}
-                </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h2 className="text-2xl font-semibold mb-6 text-center">Reset Password</h2>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form className="space-y-4">
+              <div>
+                <label
+                  htmlFor="newPassword"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  New Password
+                </label>
+                <Field
+                  type="password"
+                  name="newPassword"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                  placeholder="Enter new password"
+                />
+                <ErrorMessage
+                  name="newPassword"
+                  component="p"
+                  className="text-red-500 text-sm mt-1"
+                />
               </div>
-            </div>
-
-            <div className="col-xxl-3 col-xl-4 col-lg-5">
-              <aside className="sidebar-area sidebar-sticky rounded-0 p-0 bg-transparent">
-                <div className="widget widget_info">
-                  <h3 className="widget_title">Project Info</h3>
-                  <div className="info-list">
-                    <ul>
-                      <li>
-                        <div className="box-icon"><i className="fas fa-user" /></div>
-                        <div><div className="box-title">Company:</div><div className="box-text">Digital Tech</div></div>
-                      </li>
-                      <li>
-                        <div className="box-icon"><i className="fas fa-file" /></div>
-                        <div><div className="box-title">Category:</div><div className="box-text">{project.status}</div></div>
-                      </li>
-                      <li>
-                        <div className="box-icon"><i className="fas fa-calendar-days" /></div>
-                        <div><div className="box-title">Start Date:</div><div className="box-text">14/01/2025</div></div>
-                      </li>
-                      <li>
-                        <div className="box-icon"><i className="fas fa-calendar-days" /></div>
-                        <div><div className="box-title">End Date:</div><div className="box-text">26/04/2025</div></div>
-                      </li>
-                      <li>
-                        <div className="box-icon"><i className="fas fa-comments" /></div>
-                        <div><div className="box-title">Feedback:</div><div className="box-text">Happy Client</div></div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </aside>
-            </div>
-
-          </div>
-        </div>
-      </section>
-    </>
+              <div>
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Confirm Password
+                </label>
+                <Field
+                  type="password"
+                  name="confirmPassword"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                  placeholder="Confirm new password"
+                />
+                <ErrorMessage
+                  name="confirmPassword"
+                  component="p"
+                  className="text-red-500 text-sm mt-1"
+                />
+              </div>
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors disabled:bg-purple-400"
+                >
+                  {isSubmitting ? "Resetting..." : "Reset Password"}
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </div>
   );
-};
-
-export default ProjectDetails;
+}

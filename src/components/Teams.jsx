@@ -14,7 +14,7 @@ import { useAuth } from "../store/auth";
 
 const Teams = () => {
   const [teamMembers, setTeamMembers] = useState([]);
-  const {API} = useAuth()
+  const { API } = useAuth();
   const title = "Expert Team";
   const delay = 50;
   const titleRef = useRef(null);
@@ -56,6 +56,7 @@ const Teams = () => {
       style={{
         backgroundImage: `url(${teamBackground})`,
         backgroundRepeat: "no-repeat",
+        backgroundAize: "cover",
       }}
     >
       <div className="container">
@@ -115,7 +116,6 @@ const Teams = () => {
                       {member.title}
                     </Link>
                   </h3>
-                 
                 </div>
                 <div className="th-social">
                   <a
