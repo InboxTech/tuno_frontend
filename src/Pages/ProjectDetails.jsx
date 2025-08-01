@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useAuth } from "../store/Auth";
+import { useAuth } from "../store/auth";
 
 export default function ResetPasswordPage() {
   const navigate = useNavigate();
