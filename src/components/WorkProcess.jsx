@@ -1,43 +1,34 @@
-import React,{useState,useEffect,useRef} from "react";
-// import process_1_1 from "../assets/img/process/process_1_1.jpg";
+import React, { useState, useEffect, useRef } from "react";
 import discovery_consultation from "../assets/img/process/discovery_consultation.jpg";
-
-// import process_1_2 from "../assets/img/process/process_1_2.jpg";
 import solution_design_development from "../assets/img/process/solution_design_development.jpg";
-
-// import process_1_3 from "../assets/img/process/process_1_3.jpg";
 import implement_integration from "../assets/img/process/Implement_ integration.jpg";
-
-// import process_1_4 from "../assets/img/process/process_1_4.jpg";
 import monitoring_conti_improvement from "../assets/img/process/monitoring_conti_improvement.jpg";
 
-
 const WorkProcess = () => {
-   const workProcessTitle ="Our 4-Step Process for Delivering AI Solutions"
-      const delay = 50;
-    let letterCount = 0;
-  
-     const workProcessTitleRef = useRef(null);
-      const [processTitleVisible, setProcessTitleVisible] = useState(false);
-      //work process title intersersection observer
-            useEffect(() => {
-              const observerProcessTitle = new IntersectionObserver(
-                ([entry]) => {
-                  if (entry.isIntersecting) {
-                    setProcessTitleVisible(true);
-                    observerProcessTitle.disconnect();
-                  }
-                },
-                { threshold: 0.3 } // Start animation when 30% of the heading is visible
-              );
-          
-              if (workProcessTitleRef.current) {
-                observerProcessTitle.observe(workProcessTitleRef.current);
-              }
-          
-              return () => observerProcessTitle.disconnect();
-              
-            }, []);
+  const workProcessTitle = "Our 4-Step Process for Delivering AI Solutions";
+  const delay = 50;
+  let letterCount = 0;
+
+  const workProcessTitleRef = useRef(null);
+  const [processTitleVisible, setProcessTitleVisible] = useState(false);
+  //work process title intersersection observer
+  useEffect(() => {
+    const observerProcessTitle = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setProcessTitleVisible(true);
+          observerProcessTitle.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (workProcessTitleRef.current) {
+      observerProcessTitle.observe(workProcessTitleRef.current);
+    }
+
+    return () => observerProcessTitle.disconnect();
+  }, []);
   return (
     <React.Fragment>
       <section className="position-relative space overflow-hidden">
@@ -49,34 +40,36 @@ const WorkProcess = () => {
                 <span className="sub-title2 text-gradient text-uppercase mb-30">
                   Work Process
                 </span>
-                <h2 ref={workProcessTitleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
-                  {/* {workProcessTitle.split('').map((letter, index) => (
-                                            <span
-                                                key={index}
-                                                className={`animated-letter ${processTitleVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms`}}
-                                                >
-                                                {letter === ' ' ? '\u00A0' : letter}
-                                                </span>
-                                        ))} */}
-
-                                 {workProcessTitle.split(' ').map((word, wordIndex) => (
-                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
-                                      {word.split('').map((letter, letterIndex) => {
-                                        const currentIndex = letterCount++; // unique index for animation delay
-                                        return (
-                                          <span
-                                            key={currentIndex}
-                                            className={`animated-letter ${processTitleVisible ? 'visible' : ''}`}
-                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
-                                          >
-                                            {letter}
-                                          </span>
-                                        );
-                                      })}
-                                      <span>&nbsp;</span> {/* Add space between words */}
-                                    </span>
-                                  ))}
+                <h2
+                  ref={workProcessTitleRef}
+                  className="sec-title style2 fw-bold text-uppercase text-anim2"
+                >
+  
+                  {workProcessTitle.split(" ").map((word, wordIndex) => (
+                    <span
+                      key={wordIndex}
+                      className="word-wrapper"
+                      style={{ whiteSpace: "nowrap" }}
+                    >
+                      {word.split("").map((letter) => {
+                        const currentIndex = letterCount++; // unique index for animation delay
+                        return (
+                          <span
+                            key={currentIndex}
+                            className={`animated-letter ${
+                              processTitleVisible ? "visible" : ""
+                            }`}
+                            style={{
+                              animationDelay: `${currentIndex * delay}ms`,
+                            }}
+                          >
+                            {letter}
+                          </span>
+                        );
+                      })}
+                      <span>&nbsp;</span> {/* Add space between words */}
+                    </span>
+                  ))}
                 </h2>
               </div>
             </div>

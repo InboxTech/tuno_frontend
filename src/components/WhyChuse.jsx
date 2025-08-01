@@ -1,39 +1,34 @@
-import React,{useState,useEffect,useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import WhyThumbShap31 from "../assets/img/shape/why-thumb-shape3-1.png";
 import whyThumbShape32 from "../assets/img/shape/why-thumb-shape3-2.png";
 import WhyBg31 from "../assets/img/bg/why-bg-3-1.png";
-// import whyThumb31 from "../assets/img/normal/why-thumb3-1.jpg";
 import why_choose1 from "../assets/img/whyChooseUs/Why_choose_Us1.jpg";
-
-// import whyThumb32 from "../assets/img/normal/why-thumb3-2.jpg";
 import why_choose2 from "../assets/img/whyChooseUs/Why_choose_Us2.jpg";
 
-
 const WhyChuse = () => {
-  const title ="Our 4-Step Process for Delivering AI Solutions"
-        const delay = 50;
-    let letterCount = 0;
-       const titleRef = useRef(null);
-        const [titleVisible, setPTitleVisible] = useState(false);
-        //work process title intersersection observer
-              useEffect(() => {
-                const observerTitle = new IntersectionObserver(
-                  ([entry]) => {
-                    if (entry.isIntersecting) {
-                      setPTitleVisible(true);
-                      observerTitle.disconnect();
-                    }
-                  },
-                  { threshold: 0.3 } // Start animation when 30% of the heading is visible
-                );
-            
-                if (titleRef.current) {
-                  observerTitle.observe(titleRef.current);
-                }
-            
-                return () => observerTitle.disconnect();
-                
-              }, []);
+  const title = "Our 4-Step Process for Delivering AI Solutions";
+  const delay = 50;
+  let letterCount = 0;
+  const titleRef = useRef(null);
+  const [titleVisible, setPTitleVisible] = useState(false);
+  //work process title intersersection observer
+  useEffect(() => {
+    const observerTitle = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPTitleVisible(true);
+          observerTitle.disconnect();
+        }
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (titleRef.current) {
+      observerTitle.observe(titleRef.current);
+    }
+
+    return () => observerTitle.disconnect();
+  }, []);
   return (
     <React.Fragment>
       <section className="why-sec3 overflow-hidden">
@@ -84,34 +79,35 @@ const WhyChuse = () => {
                   <span className="sub-title2 text-gradient text-uppercase mb-30">
                     Why Choose Us
                   </span>
-                  <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
-                   {/* {title.split('').map((letter, index) => (
-                                            <span
-                                                key={index}
-                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms` }}
-                                                >
-                                                {letter === ' ' ? '\u00A0' : letter}
-                                                </span>
-                                        ))} */}
-
-                                          {title.split(' ').map((word, wordIndex) => (
-                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
-                                      {word.split('').map((letter, letterIndex) => {
-                                        const currentIndex = letterCount++; // unique index for animation delay
-                                        return (
-                                          <span
-                                            key={currentIndex}
-                                            className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
-                                          >
-                                            {letter}
-                                          </span>
-                                        );
-                                      })}
-                                      <span>&nbsp;</span> {/* Add space between words */}
-                                    </span>
-                                  ))}
+                  <h2
+                    ref={titleRef}
+                    className="sec-title style2 fw-bold text-uppercase text-anim2"
+                  >
+                    {title.split(" ").map((word, wordIndex) => (
+                      <span
+                        key={wordIndex}
+                        className="word-wrapper"
+                        style={{ whiteSpace: "nowrap" }}
+                      >
+                        {word.split("").map((letter) => {
+                          const currentIndex = letterCount++; // unique index for animation delay
+                          return (
+                            <span
+                              key={currentIndex}
+                              className={`animated-letter ${
+                                titleVisible ? "visible" : ""
+                              }`}
+                              style={{
+                                animationDelay: `${currentIndex * delay}ms`,
+                              }}
+                            >
+                              {letter}
+                            </span>
+                          );
+                        })}
+                        <span>&nbsp;</span> {/* Add space between words */}
+                      </span>
+                    ))}
                   </h2>
                   <p>
                     TUNO is your cutting-edge technology partner in the AI voice
