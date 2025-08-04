@@ -4,7 +4,7 @@ import Logo from "../assets/img/logo2.svg";
 import { Link } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
 import { useAuth } from "../store/auth";
-import { toast } from "react-toastify";
+
 
 
 const Header = () => {
@@ -74,9 +74,7 @@ const Header = () => {
                             <li className="text-center">No services found</li>
                           )}
 
-                          {/* <li>
-                            <Link to="/service-details">Services Details</Link>
-                          </li> */}
+                      
                         </ul>
                       </li>
                       <li className="menu-item-has-children">

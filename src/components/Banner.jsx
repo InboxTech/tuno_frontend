@@ -114,15 +114,7 @@ const Banner = () => {
                     
                     <div className="d-flex justify-content-between" style={{ position: "relative", display: "inline-block" }}>
                        <div ref={title1Ref} className="animated-text-container">
-                          {/* {bannerTitle1.split("").map((letter, index) => (
-                            <span
-                              key={index}
-                              className={`animated-letter hero-title ${title1Visible ? "visible" : ""}`}
-                              style={{ animationDelay: `${index * delay}ms` }}
-                            >
-                              {letter === " " ? "\u00A0" : letter}
-                            </span>
-                          ))} */}
+                        
 
                            {bannerTitle1.split(' ').map((word, wordIndex) => (
                             <span key={wordIndex} className="word-wrapper" >
@@ -148,20 +140,12 @@ const Banner = () => {
                     </div>
                     <div style={{ position: "relative", display: "inline-block" }} >
                       <div ref={title2Ref} className="animated-text-container">
-                        {/* {bannerTitle2.split("").map((letter, index) => (
-                          <span
-                            key={index}
-                            className={`animated-letter hero-title ${title2Visible ? "visible" : ""}`}
-                            style={{ animationDelay: `${index * delay}ms` }}
-                          >
-                            {letter === " " ? "\u00A0" : letter}
-                          </span>
-                        ))} */}
+                     
 
                         
                        {bannerTitle2.split(' ').map((word, wordIndex) => (
                       <span key={wordIndex} className="word-wrapper">
-                        {word.split('').map((letter, letterIndex) => {
+                        {word.split('').map((letter) => {
                           const currentIndex = letterCount++; // unique index for animation delay
                           return (
                             <span
@@ -305,12 +289,7 @@ const Banner = () => {
                       <span className="char37">N</span>
                       <span className="char38">.</span>
                     </span>{" "}
-                    {/* <a
-                      href="https://www.youtube.com/watch?v=_sI_Ps7JSEk"
-                      className="play-btn popup-video"
-                    >
-                      <i className="fa-sharp fa-solid fa-play" />
-                    </a> */}
+              {/* play button  ==> */}
                     <BaneerModel />
                   </div>
                 </div>

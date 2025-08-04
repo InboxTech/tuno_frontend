@@ -95,7 +95,7 @@ const TestimonialSlider = () => {
                   className="word-wrapper"
                   style={{ whiteSpace: "nowrap" }}
                 >
-                  {word.split("").map((letter, letterIndex) => {
+                  {word.split("").map((letter) => {
                     const currentIndex = letterCount++;
                     return (
                       <span

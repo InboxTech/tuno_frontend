@@ -7,7 +7,7 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
   const location = useLocation(); 
 
-  // ✅ Auto scroll to top on route change
+  //  Auto scroll to top on route change
 useEffect(() => {
   const timeout = setTimeout(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

@@ -17,33 +17,6 @@ const sliderItems = [
   "Deep Learning",
   "Customer Service",
 ];
-// const projectItems = [
-//   {
-//     img: project3_1,
-//     subtitle: "Banking Sector",
-//     title: "Decreased customer verification time by 50% ",
-//   },
-//   {
-//     img: project3_2,
-//     subtitle: "Healthcare Client",
-//     title: "Automated prescription refill reminders ",
-//   },
-//   {
-//     img: project3_3,
-//     subtitle: "E-commerce Brand",
-//     title: "42% increase in post-purchase engagement ",
-//   },
-//   {
-//     img: project3_4,
-//     subtitle: "Travel & Airlines",
-//     title: "Shortened itinerary response time by 55%",
-//   },
-//   {
-//     img: project3_5,
-//     subtitle: "EdTech Platform",
-//     title: "2x increase in lead conversions during admission driv",
-//   },
-// ];
 // Reusable marquee component
 const MarqueeSlider = ({
   bgColor = "bg-gradient",
