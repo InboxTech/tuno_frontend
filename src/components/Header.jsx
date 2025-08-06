@@ -66,7 +66,7 @@ const Header = () => {
                               console.log("service.title:", service.title)
                               return (
                                 <li key={service._id}>
-                                  <Link to={`/service-details/${service._id}`}>{service.title || "No Title"}</Link> {/* ✅ Only title shown */}
+                                  <Link to={`/service-details/${service._id}`}>{service.title || "No Title"}</Link> {/*  Only title shown */}
                                 </li>
                               )
                             })

@@ -96,7 +96,7 @@ function CareerDetails() {
             } else {
                 toast.error(data.error || "Failed to submit");
             }
-            // ✅ Handle success
+            //  Handle success
         } catch (error) {
             console.error("Error submitting application:", error);
             toast.error("Failed to submit application. Please try again.");
