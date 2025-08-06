@@ -11,21 +11,22 @@ import recent_post_1_3 from "../assets/img/blog/recent-post-1-3.jpg";
 import { Link, useParams } from "react-router-dom";
 import Breadcumbs from "../components/Breadcumbs";
 import { useAuth } from "../store/auth";
-
+import { toast } from "react-toastify";
 
 const BlogDetails = () => {
   const [blog, setBlog] = useState([]);
-  const params = useParams();
+  const [relatedBlog ,setRelatedBlog] = useState([]);
+  const {id} = useParams();
   const { API } = useAuth();
 
   const getSingleBlog = async () => {
     try {
-      const response = await fetch(`${API}/api/data/blog/${params.id}`, {
+      const response = await fetch(`${API}/api/data/blog/${id}`, {
         method: "GET",
       });
       if(response.ok){
         const data = await response.json();
-        console.log("Single Blog data", data);
+        // console.log("Single Blog data", data);
         setBlog(data);
       }
     } catch (error) {
@@ -33,9 +34,27 @@ const BlogDetails = () => {
     }
   };
 
+  const getRelatedBlog = async () => {
+    try {
+      const response = await fetch(`${API}/api/data/getRelatedBlog/${id}`, {
+        method: "GET",
+      })
+      const data = await response.json();
+      console.log("Related Blog data", data.relatedBlogs);        
+      if(response.ok && Array.isArray(data.relatedBlogs)){
+        setRelatedBlog(data.relatedBlogs);
+      }
+    } catch (error) {
+      console.error("Error fetching related blogs:", error);
+      setRelatedBlog([]); // prevent undefined errors
+      toast.error("Failed to fetch related blogs");
+    }
+  }
+
   useEffect(() => {
     getSingleBlog();
-  }, []);
+    getRelatedBlog();
+  }, [id]);
 
   return (
     <React.Fragment>
@@ -335,84 +354,46 @@ const BlogDetails = () => {
                     </button>
                   </form>
                 </div> */}
-                <div className="widget widget_categories">
+                {/* <div className="widget widget_categories">
                   <h3 className="widget_title">Categories</h3>
                   <ul>
+                    {blogs.map((blogs) => (
                     <li>
-                      <Link to="/blog">
+                      <Link to={`/blog/${blogs._id}`}>
                         <i className="fas fa-circle" />
-                        AI and Privacyness
+                        {blogs.category}
                       </Link>
                     </li>
-                    <li>
-                      <Link to="/blog">
-                        <i className="fas fa-circle" />
-                        AI Applications
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog">
-                        <i className="fas fa-circle" />
-                        AI Development
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog">
-                        <i className="fas fa-circle" />
-                        AI Ethics
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog">
-                        <i className="fas fa-circle" />
-                        Deep Learning
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog">
-                        <i className="fas fa-circle" />
-                        Explainable AI
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog">
-                        <i className="fas fa-circle" />
-                        Introduction to AI
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog">
-                        <i className="fas fa-circle" />
-                        Machine Learning
-                      </Link>
-                    </li>
+                    )) }
                   </ul>
-                </div>
+                </div> */}
                 <div className="widget">
                   <h3 className="widget_title">Recent Posts</h3>
                   <div className="recent-post-wrap">
-                    <div className="recent-post">
-                      <div className="media-img">
-                        <Link to="/blog-details">
-                          <img src={recent_post_1_1} alt="Blog Image" />
-                        </Link>
-                      </div>
-                      <div className="media-body">
-                        <div className="recent-post-meta">
-                          <Link to="/blog">
-                            <i className="fas fa-calendar" />
-                            22 Sep, 2025
+                    {relatedBlog.slice(0, 6).map((blog) => (
+                      <div className="recent-post">
+                        <div className="media-img">
+                          <Link to={`/blog/${blog._id}`}>
+                            <img src={`${API}${blog.image}`} alt="Blog Image" />
                           </Link>
                         </div>
-                        <h4 className="post-title">
-                          <Link className="text-inherit" to="/blog-details">
-                            Developing AI systems that scale efficiently as
-                            data.
-                          </Link>
-                        </h4>
+                        <div className="media-body">
+                          <div className="recent-post-meta">
+                            <Link to={`/blog/${blog._id}`}>
+                              <i className="fas fa-calendar" />
+                              {blog.createdAt}
+                            </Link>
+                          </div>
+                          <h4 className="post-title">
+                            <Link className="text-inherit" to={`/blog/${blog._id}`}>
+                              {blog.title}
+                            </Link>
+                          </h4>
+                        </div>
                       </div>
-                    </div>
-                    <div className="recent-post">
+
+                    ))}
+                    {/* <div className="recent-post">
                       <div className="media-img">
                         <Link to="/blog-details">
                           <img src={recent_post_1_2} alt="Blog Image" />
@@ -452,10 +433,10 @@ const BlogDetails = () => {
                           </Link>
                         </h4>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
-                <div className="widget widget_tag_cloud">
+                {/* <div className="widget widget_tag_cloud">
                   <h3 className="widget_title">Tags</h3>
                   <div className="tagcloud">
                     <Link to="/blog">Banner</Link>
@@ -466,7 +447,7 @@ const BlogDetails = () => {
                     <Link to="/blog">Item</Link>{" "}
                     <Link to="/blog">Branding</Link>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

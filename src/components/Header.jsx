@@ -63,7 +63,7 @@ const Header = () => {
                             <li className="text-center">Loading services...</li>
                           ) : services.length > 0 ? (
                             services.map((service) => {
-                              console.log("service.title:", service.title)
+                              // console.log("service.title:", service.title)
                               return (
                                 <li key={service._id}>
                                   <Link to={`/service-details/${service._id}`}>{service.title || "No Title"}</Link> {/* ✅ Only title shown */}
