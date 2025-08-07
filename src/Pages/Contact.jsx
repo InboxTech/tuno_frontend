@@ -47,7 +47,7 @@ const Contact = () => {
 
       if (emailResponse.status === 200) {
         toast.success("Email sent to admin successfully!");
-        resetForm(); // ✅ Clear form only after both are successful
+        resetForm(); //  Clear form only after both are successful
       } else {
         toast.error("Contact saved, but failed to send email");
       }

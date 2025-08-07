@@ -31,6 +31,7 @@ import Project from "./Pages/Project";
 import IndustryDetails from "./Pages/IndustryDetails"
 import Layout from "./components/Layout "
 import 'react-toastify/dist/ReactToastify.css'
+import ResetPasswordPage from "./Pages/ResetPasswordPage";
 
 
 
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
   {
     path: "/logout",
     element: <Logout />,
+  },
+   {
+    path: "/reset-password/:token",
+    element: <ResetPasswordPage />,
   },
   {
     path: "*",
