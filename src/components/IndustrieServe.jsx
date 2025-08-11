@@ -3,24 +3,7 @@ import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
 import whyThumbShape31 from "../assets/img/shape/why-thumb-shape3-1.png";
-// import theerOne from "../assets/img/feature/3-1.png";
-import Healthcare from "../assets/img/industry/Healthcare.jpg";
 
-// import threeTwo from "../assets/img/feature/3-2.png";
-import finance_Banking from "../assets/img/industry/finance_Banking.jpg";
-
-// import threeThree from "../assets/img/feature/3-3.png";
-import Education from "../assets/img/industry/Education.jpg";
-
-// import threeFour from "../assets/img/feature/3-4.png";
-import BPO_Callcenter from "../assets/img/industry/BPO_Callcenter.jpg";
-
-// import threeFive from "../assets/img/feature/3-5.png";
-import Travel_hospitality from "../assets/img/industry/Travel_hospitality.jpg";
-
-// import threeSix from "../assets/img/feature/3-6.png";
-import e_commarce_retail from "../assets/img/industry/e_commarce_retail.jpg";
-import Logistics_Pharma from "../assets/img/industry/Logistics_Pharma.jpg";
 import { Link } from "react-router-dom";
 
 const IndustrieServe = () => {
@@ -87,37 +70,15 @@ const IndustrieServe = () => {
                 <span className="sub-title2 text-gradient text-uppercase mb-30">
                   Industries We Serve
                 </span>
-                <h2
-                  ref={titleRef}
-                  className="sec-title style2 fw-bold text-uppercase text-anim2"
-                >
-                  {/* {title.split('').map((letter, index) => (
-                                            <span
-                                                key={index}
-                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms`}}
-                                                >
-                                                {letter === ' ' ? '\u00A0' : letter}
-                                                </span>
-                                        ))} */}
+                <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
 
                   {title.split(" ").map((word, wordIndex) => (
-                    <span
-                      key={wordIndex}
-                      className="word-wrapper"
-                      style={{ whiteSpace: "nowrap" }}
-                    >
+                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: "nowrap" }}>
                       {word.split("").map((letter, letterIndex) => {
                         const currentIndex = letterCount++; // unique index for animation delay
                         return (
-                          <span
-                            key={currentIndex}
-                            className={`animated-letter ${titleVisible ? "visible" : ""
-                              }`}
-                            style={{
-                              animationDelay: `${currentIndex * delay}ms`,
-                            }}
-                          >
+                          <span key={currentIndex} className={`animated-letter ${titleVisible ? "visible" : ""}`}
+                            style={{ animationDelay: `${currentIndex * delay}ms`, }}>
                             {letter}
                           </span>
                         );
@@ -207,242 +168,8 @@ const IndustrieServe = () => {
                   </div>
                 </div>
               ))}
-              {/* <div
-                className="tab-pane fade"
-                id="featureTab2"
-                role="tabpanel"
-                aria-labelledby="feature-tab2"
-              >
-                <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
-                    style={{
-                      WebkitMaskImage: `url(${whyThumbShape31})`,
-                      maskImage: `url(${whyThumbShape31})`,
-                      WebkitMaskRepeat: "no-repeat",
-                      maskRepeat: "no-repeat",
-                      WebkitMaskSize: "cover",
-                      maskSize: "cover",
-                    }}
-                  >
-                    <img src={finance_Banking} alt="img" />
-                  </div>
-                  <div className="feature-tab-content">
-                    <h4 className="box-title">Banking & Finance</h4>
-                    <p className="box-text">
-                      TUNO enables banks and fintech firms to automate routine
-                      queries, support KYC, and streamline loan servicing.
-                    </p>
-                    <p className="box-text mt-30">
-                      Our voice AI ensures secure, compliant, and fast customer
-                      interactions—freeing up agents for high-value tasks while
-                      delivering 24/7 financial assistance.
-                    </p>
-                    <div className="btn-wrap mt-40">
-                      <Link className="icon-btn style4" to="/service-details">
-                        <i className="fal fa-arrow-right" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="tab-pane fade"
-                id="featureTab3"
-                role="tabpanel"
-                aria-labelledby="feature-tab3"
-              >
-                <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
-                    style={{
-                      WebkitMaskImage: `url(${whyThumbShape31})`,
-                      maskImage: `url(${whyThumbShape31})`,
-                      WebkitMaskRepeat: "no-repeat",
-                      maskRepeat: "no-repeat",
-                      WebkitMaskSize: "cover",
-                      maskSize: "cover",
-                    }}
-                  >
-                    <img src={e_commarce_retail} alt="img" />
-                  </div>
-                  <div className="feature-tab-content">
-                    <h4 className="box-title">E-commerce Ai</h4>
-                    <p className="box-text">
-                      AI voicebots manage order tracking, product discovery,
-                      customer service, and post-sale feedback. TUNO enhances
-                      shopping experiences by enabling instant, conversational
-                      engagement that drives sales and reduces support costs
-                    </p>
+             
 
-                    <div className="btn-wrap mt-40">
-                      <a
-                        className="icon-btn style4"
-                        href="service-details.html"
-                      >
-                        <i className="fal fa-arrow-right" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="tab-pane fade"
-                id="featureTab4"
-                role="tabpanel"
-                aria-labelledby="feature-tab4"
-              >
-                <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
-                    style={{
-                      WebkitMaskImage: `url(${whyThumbShape31})`,
-                      maskImage: `url(${whyThumbShape31})`,
-                      WebkitMaskRepeat: "no-repeat",
-                      maskRepeat: "no-repeat",
-                      WebkitMaskSize: "cover",
-                      maskSize: "cover",
-                    }}
-                  >
-                    <img src={Education} alt="img" />
-                  </div>
-                  <div className="feature-tab-content">
-                    <h4 className="box-title">Education Ai</h4>
-                    <p className="box-text">
-                      TUNO supports student engagement, smart tutoring, and
-                      administrative automation in education. From inquiry
-                      handling to attendance updates, our AI voice systems
-                      improve learning outcomes and operational efficiency for
-                      schools and ed-tech platforms.
-                    </p>
-
-                    <div className="btn-wrap mt-40">
-                      <Link className="icon-btn style4" to="/service-details">
-                        <i className="fal fa-arrow-right" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="tab-pane fade"
-                id="featureTab5"
-                role="tabpanel"
-                aria-labelledby="feature-tab5"
-              >
-                <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
-                    style={{
-                      WebkitMaskImage: `url(${whyThumbShape31})`,
-                      maskImage: `url(${whyThumbShape31})`,
-                      WebkitMaskRepeat: "no-repeat",
-                      maskRepeat: "no-repeat",
-                      WebkitMaskSize: "cover",
-                      maskSize: "cover",
-                    }}
-                  >
-                    <img src={BPO_Callcenter} alt="img" />
-                  </div>
-                  <div className="feature-tab-content">
-                    <h4 className="box-title">BPOs & Call Centers </h4>
-                    <p className="box-text">
-                      TUNO enhances agent productivity with voicebots that
-                      handle Tier-1 queries, surveys, and appointment calls.
-                      With real-time responses and multi-language support, we
-                      help call centers reduce wait times and boost customer
-                      satisfaction at scale.
-                    </p>
-
-                    <div className="btn-wrap mt-40">
-                      <Link className="icon-btn style4" to="/service-details">
-                        <i className="fal fa-arrow-right" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="tab-pane fade"
-                id="featureTab6"
-                role="tabpanel"
-                aria-labelledby="feature-tab6"
-              >
-                <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
-                    style={{
-                      WebkitMaskImage: `url(${whyThumbShape31})`,
-                      maskImage: `url(${whyThumbShape31})`,
-                      WebkitMaskRepeat: "no-repeat",
-                      maskRepeat: "no-repeat",
-                      WebkitMaskSize: "cover",
-                      maskSize: "cover",
-                    }}
-                  >
-                    <img src={Travel_hospitality} alt="img" />
-                  </div>
-                  <div className="feature-tab-content">
-                    <h4 className="box-title">Travel & Hospitality </h4>
-                    <p className="box-text">
-                      From bookings to feedback collection, TUNO’s AI voice tech
-                      handles guest queries, itinerary updates, and multilingual
-                      support. We streamline the entire travel experience—making
-                      every interaction faster, friendlier, and more
-                      personalized
-                    </p>
-
-                    <div className="btn-wrap mt-40">
-                      <Link className="icon-btn style4" to="/service-details">
-                        <i className="fal fa-arrow-right" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="tab-pane fade"
-                id="featureTab7"
-                role="tabpanel"
-                aria-labelledby="feature-tab7"
-              >
-                <div className="feature-tab-content-wrap" data-aos="fade-left">
-                  <div
-                    className="feature-tab-thumb"
-                    // data-mask-src="assets/img/shape/feature-thumb-shape3-1.png"
-                    style={{
-                      WebkitMaskImage: `url(${whyThumbShape31})`,
-                      maskImage: `url(${whyThumbShape31})`,
-                      WebkitMaskRepeat: "no-repeat",
-                      maskRepeat: "no-repeat",
-                      WebkitMaskSize: "cover",
-                      maskSize: "cover",
-                    }}
-                  >
-                    <img src={Logistics_Pharma} alt="img" />
-                  </div>
-                  <div className="feature-tab-content">
-                    <h4 className="box-title">Logistics & Pharma </h4>
-                    <p className="box-text">
-                      TUNO automates dispatch alerts, inventory updates, and
-                      customer notifications in logistics and pharma. Our
-                      secure, voice-enabled systems reduce human error, speed up
-                      delivery chains, and improve last-mile coordination.
-                    </p>
-
-                    <div className="btn-wrap mt-40">
-                      <Link className="icon-btn style4" to="/service-details">
-                        <i className="fal fa-arrow-right" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>

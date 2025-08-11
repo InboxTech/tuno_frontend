@@ -6,12 +6,12 @@ import wave2 from "../assets/img/shape/wave2.png";
 import aboutThumb32Shape from "../assets/img/shape/about-thumb3-2-shape.jpg";
 import aboutThumb31Shape from "../assets/img/shape/about-thumb3-1-shape.jpg";
 import aboutThumb33Shape from "../assets/img/shape/about-thumb3-3-shape.jpg";
-// import AboutThumbImg from "../assets/img/normal/about-thumb3-1.jpg";
+
 import aboutSection1 from "../assets/img/about/aboutSection1.jpg";
 import aboutSection2 from "../assets/img/about/aboutSection2.jpg";
 
 import aboutThumb32 from "../assets/img/normal/about-thumb3-2.jpg";
-// import aboutThumb33 from "../assets/img/normal/about-thumb3-3.jpg";
+
 import checkIcon12 from "../assets/img/icon/check-icon1-2.svg";
 import { Link } from "react-router-dom";
 
@@ -100,17 +100,10 @@ const AboutSection = () => {
             </div>
           </div>
           <div className="col-xl-9 me-auto">
-            <div
-              className="about-wrap3"
-              data-aos="fade-left"
-              data-aos-duration="2000"
-            >
+            <div className="about-wrap3" data-aos="fade-left" data-aos-duration="2000">
               <div className="row gy-40 gx-60 align-items-center">
                 <div className="col-xl-4 col-lg-4">
-                  <div
-                    className="img-box3-2 bg-mask"
-                    style={{ maskImage: `url(${aboutThumb33Shape})` }}
-                  >
+                  <div className="img-box3-2 bg-mask" style={{ maskImage: `url(${aboutThumb33Shape})` }}>
                     <img src={aboutSection2} alt="img" />
                   </div>
                 </div>

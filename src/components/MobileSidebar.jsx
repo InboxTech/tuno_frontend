@@ -121,7 +121,7 @@ function MobileSidebar() {
                   <Link to="/blog">Blog</Link>
                 </li>
                 <li>
-                  <Link to="#">Creer</Link>
+                  <Link to="#">Career</Link>
                 </li>
 
                 {/* Contact */}

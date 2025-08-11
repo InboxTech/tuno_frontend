@@ -1,5 +1,5 @@
-import React,{useState,useEffect,useRef} from "react";
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import serviceCard3Shape from "../assets/img/shape/service-card3-shape.png";
 import service_card_3_1 from "../assets/img/service/service_card_3_1.jpg";
@@ -97,33 +97,33 @@ const sliderSettings = {
 // ];
 
 const ServiceSlider = () => {
-    const { services, API } = useAuth();
-  const serviceSliderTitle ="AI technology services aim to provide intelligent solutions."
-    const delay = 50;
-let letterCount = 0;
-   const srviceTitleRef = useRef(null);
-    const [titleVisible, setTitleVisible] = useState(false);
+  const { services, API } = useAuth();
+  const serviceSliderTitle = "AI technology services aim to provide intelligent solutions."
+  const delay = 50;
+  let letterCount = 0;
+  const srviceTitleRef = useRef(null);
+  const [titleVisible, setTitleVisible] = useState(false);
 
-    //about intersersection observer
-      useEffect(() => {
-        const observerServiceTitle = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              setTitleVisible(true);
-              observerServiceTitle.disconnect();
-            }
-          },
-          { threshold: 0.3 } // Start animation when 30% of the heading is visible
-        );
-    
-        if (srviceTitleRef.current) {
-          observerServiceTitle.observe(srviceTitleRef.current);
+  //about intersersection observer
+  useEffect(() => {
+    const observerServiceTitle = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observerServiceTitle.disconnect();
         }
-    
-        return () => observerServiceTitle.disconnect();
-        
-      }, []);
-    
+      },
+      { threshold: 0.3 } // Start animation when 30% of the heading is visible
+    );
+
+    if (srviceTitleRef.current) {
+      observerServiceTitle.observe(srviceTitleRef.current);
+    }
+
+    return () => observerServiceTitle.disconnect();
+
+  }, []);
+
   return (
     <section className="service-area-3 space overflow-hidden" id="service-sec">
       <div className="container">
@@ -159,33 +159,25 @@ let letterCount = 0;
                   animationFillMode: "both",
                 }}
               >
-                {/* {serviceSliderTitle.split('').map((letter, index) => (
-                                            <span
-                                                key={index}
-                                                className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms` }}
-                                                >
-                                                {letter === ' ' ? '\u00A0' : letter}
-                                                </span>
-                                        ))} */}
-                                        
-                                        {serviceSliderTitle.split(' ').map((word, wordIndex) => (
-    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
-      {word.split('').map((letter, letterIndex) => {
-         const currentIndex = letterCount++; // unique index for animation delay
-        return (
-          <span
-            key={currentIndex}
-            className={`animated-letter ${titleVisible ? 'visible' : ''}`}
-            style={{ animationDelay: `${currentIndex * delay}ms` }}
-          >
-            {letter}
-          </span>
-        );
-      })}
-      <span>&nbsp;</span> {/* Add space between words */}
-    </span>
-  ))}
+
+
+                {serviceSliderTitle.split(' ').map((word, wordIndex) => (
+                  <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                    {word.split('').map((letter, letterIndex) => {
+                      const currentIndex = letterCount++; // unique index for animation delay
+                      return (
+                        <span
+                          key={currentIndex}
+                          className={`animated-letter ${titleVisible ? 'visible' : ''}`}
+                          style={{ animationDelay: `${currentIndex * delay}ms` }}
+                        >
+                          {letter}
+                        </span>
+                      );
+                    })}
+                    <span>&nbsp;</span> {/* Add space between words */}
+                  </span>
+                ))}
                 {/* {" "}
                 <span style={{ position: "relative", display: "inline-block" }}>
                   AI
@@ -244,10 +236,10 @@ let letterCount = 0;
                       <Link to="/service">{service.title}</Link>
                     </h3>
                     <p className="box-text">
-                     {service.short_description}
+                      {service.short_description}
                     </p>
                     <Link className="icon-btn style4" to={`/service-details/${service._id}`}>
-                    <i className="fal fa-arrow-right" />
+                      <i className="fal fa-arrow-right" />
                     </Link>
                   </div>
                 </div>

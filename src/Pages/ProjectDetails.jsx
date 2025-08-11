@@ -43,20 +43,9 @@ const ProjectDetails = () => {
                   {/* <p className="project-meta">Category: {project.status}</p>
                   <h2 className="page-title mt-n2 mb-20">{project.title}</h2>
                   <p className="mb-30">{project.shortDescription}</p> */}
-                  <div
-                    className="mb-50"
-                    dangerouslySetInnerHTML={{ __html: project.fullDescription }}
-                  />
+                  <div className="mb-50" dangerouslySetInnerHTML={{ __html: project.fullDescription }}/>
 
-                  {/* <div className="row">
-                    {project.projectImages.map((img, idx) => (
-                      <div className="col-md-4 mb-3" key={idx}>
-                        <div className="page-img overflow-hidden">
-                          <img src={`/${img}`} alt={`Project ${idx + 1}`} />
-                        </div>
-                      </div>
-                    ))}
-                  </div> */}
+                  {/* full description come from admin panel */}
                 </div>
               </div>
             </div>

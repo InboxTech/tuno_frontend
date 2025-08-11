@@ -40,17 +40,10 @@ const WorkProcess = () => {
                 <span className="sub-title2 text-gradient text-uppercase mb-30">
                   Work Process
                 </span>
-                <h2
-                  ref={workProcessTitleRef}
-                  className="sec-title style2 fw-bold text-uppercase text-anim2"
-                >
+                <h2 ref={workProcessTitleRef} className="sec-title style2 fw-bold text-uppercase text-anim2" >
   
                   {workProcessTitle.split(" ").map((word, wordIndex) => (
-                    <span
-                      key={wordIndex}
-                      className="word-wrapper"
-                      style={{ whiteSpace: "nowrap" }}
-                    >
+                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: "nowrap" }}>
                       {word.split("").map((letter) => {
                         const currentIndex = letterCount++; // unique index for animation delay
                         return (
@@ -78,19 +71,11 @@ const WorkProcess = () => {
             <div className="process-card">
               <div className="box-thumb-wrap">
                 <h3 className="box-number">1</h3>
-                <div
-                  className="box-thumb"
-                  data-aos="fade-up"
-                  data-aos-duration="2000"
-                >
+                <div className="box-thumb" data-aos="fade-up" data-aos-duration="2000">
                   <img src={discovery_consultation} alt="img" />
                 </div>
               </div>
-              <div
-                className="box-content"
-                data-aos="fade-down"
-                data-aos-duration="2000"
-              >
+              <div className="box-content" data-aos="fade-down" data-aos-duration="2000">
                 <h3 className="box-title">Discovery &amp; Consultation</h3>
                 <p className="box-text">
                   We start by deeply analyzing your business needs, workflows,
@@ -102,19 +87,11 @@ const WorkProcess = () => {
             <div className="process-card">
               <div className="box-thumb-wrap">
                 <h3 className="box-number">2</h3>
-                <div
-                  className="box-thumb"
-                  data-aos="fade-down"
-                  data-aos-duration="2000"
-                >
+                <div className="box-thumb" data-aos="fade-down" data-aos-duration="2000">
                   <img src={solution_design_development} alt="img" />
                 </div>
               </div>
-              <div
-                className="box-content"
-                data-aos="fade-up"
-                data-aos-duration="2000"
-              >
+              <div className="box-content" data-aos="fade-up" data-aos-duration="2000">
                 <h3 className="box-title">Solution Design &amp; Development</h3>
                 <p className="box-text">
                   Custom AI solutions are designed around your operations. Our
@@ -126,19 +103,11 @@ const WorkProcess = () => {
             <div className="process-card">
               <div className="box-thumb-wrap">
                 <h3 className="box-number">3</h3>
-                <div
-                  className="box-thumb"
-                  data-aos="fade-down"
-                  data-aos-duration="2000"
-                >
+                <div className="box-thumb" data-aos="fade-down" data-aos-duration="2000">
                   <img src={implement_integration} alt="img" />
                 </div>
               </div>
-              <div
-                className="box-content"
-                data-aos="fade-up"
-                data-aos-duration="2000"
-              >
+              <div className="box-content" data-aos="fade-up" data-aos-duration="2000">
                 <h3 className="box-title">Implementation &amp; Integration</h3>
                 <p className="box-text">
                   We deploy and integrate AI solutions with your current tools
@@ -150,19 +119,11 @@ const WorkProcess = () => {
             <div className="process-card">
               <div className="box-thumb-wrap">
                 <h3 className="box-number">4</h3>
-                <div
-                  className="box-thumb"
-                  data-aos="fade-down"
-                  data-aos-duration="2000"
-                >
+                <div className="box-thumb" data-aos="fade-down" data-aos-duration="2000">
                   <img src={monitoring_conti_improvement} alt="img" />
                 </div>
               </div>
-              <div
-                className="box-content"
-                data-aos="fade-up"
-                data-aos-duration="2000"
-              >
+              <div className="box-content" data-aos="fade-up" data-aos-duration="2000" >
                 <h3 className="box-title">
                   Monitoring &amp; Continuous Improvement
                 </h3>

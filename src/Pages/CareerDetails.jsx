@@ -184,18 +184,8 @@ function CareerDetails() {
                                     {" "}
                                     Roles & Responsibilities :{" "}
                                 </h5> */}
-                                <div
-                                    dangerouslySetInnerHTML={{ __html: jobDetails.full_description }}
-                                >
-                                    {/* 
-                        <ul>
-                            <li> Develop user interfaces: Implement designs using HTML, CSS, and JavaScript, creating the visual elements users interact with. </li>
-                            <li> Ensure responsiveness: Make sure the website or application looks and functions well on various devices and browsers. </li>
-                            <li>Collaborate with teams: Work with designers to translate mockups into code and with back-end developers to integrate front-end components with server-side logic. </li>
-                            <li> Optimize performance: Improve website loading speed and overall performance. </li>
-                            <li>Maintain code quality: Write clean, well-documented, and reusable code, potentially using component libraries. </li>
-                            <li> Troubleshoot and debug: Identify and fix issues related to layout, functionality, and performance. </li>
-                        </ul> */}
+                                <div dangerouslySetInnerHTML={{ __html: jobDetails.full_description }}>
+                                    {/* full description come from admin panel*/}
                                 </div>
                             </div>
 
@@ -349,18 +339,7 @@ function CareerDetails() {
                                                                 <option value={jobDetails.designation} >
                                                                     {jobDetails.designation}
                                                                 </option>
-                                                                {/* <option value="Web Development">
-                                                                    Web Development
-                                                                </option>
-                                                                <option value="Brand Marketing">
-                                                                    Brand Marketing
-                                                                </option>
-                                                                <option value="UI/UX Designing">
-                                                                    UI/UX Designing
-                                                                </option>
-                                                                <option value="Digital Marketing">
-                                                                    Digital Marketing
-                                                                </option> */}
+                                                               
                                                             </Field>
                                                             <ErrorMessage
                                                                 name="applyfor"

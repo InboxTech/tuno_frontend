@@ -185,22 +185,6 @@ function About() {
 
     return (
         <>
-            {/* <div className="breadcumb-wrapper" style={{ backgroundImage: `url(${BreadcumbBg})` }} data-overlay="black" data-opacity="7">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xxl-12">
-                            <div className="breadcumb-content">
-                                <h1 className="breadcumb-title text-anim"  data-delay="100">About Us</h1>
-                                <ul className="breadcumb-menu"  data-delay="300">
-                                    <li><Link to="/">Home</Link></li>
-                                    <li>About Us</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-
             <Breadcumbs prevLink="Home" currentLink="About" pageTitle="About Us" />
 
             {/* about us section start */}
@@ -217,24 +201,27 @@ function About() {
                                 </div>
                                 <div className="circle-tag">
                                     <span className="circle-title-anime">
-                                        <svg viewBox="0 0 300 300" className="circle-svg">
+                                        <svg
+                                            viewBox="0 0 300 300"
+                                            className="circle-svg"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlnsXlink="http://www.w3.org/1999/xlink"
+                                        >
                                             <defs>
                                                 <path
                                                     id="circlePath"
                                                     d="M150,150 m-125,0 a125,125 0 1,1 250,0 a125,125 0 1,1 -250,0"
                                                 />
                                             </defs>
-                                            <text fill="#fff" fontSize="22" fontFamily="Arial">
-                                                <textPath to="#circlePath" startOffset="0">
+                                            <text fill="#FFF" fontSize="22" fontFamily="Arial" letterSpacing={8}>
+                                                <textPath xlinkHref="#circlePath" startOffset="0">
                                                     TUNO - AI AND AUTOMATION INTEGRATION.
                                                 </textPath>
                                             </text>
                                         </svg>
                                     </span>
-                                   
 
-                                   <BannerModel/>
-                                    
+                                    <BannerModel />
                                 </div>
                                 <div className="img3">
                                     <div className="thumb" data-delay="300">
@@ -253,39 +240,25 @@ function About() {
                                     >
                                         About Us
                                     </span>
-                                    <h2
-                                        ref={aboutHeadRef}
-                                        className="sec-title mb-0 text-anim2"
-                                        data-delay="300"
-                                    >
-                                        {/* {text.split("").map((letter, index) => (
-                                            <span
-                                                key={index}
-                                                className={`animated-letter ${aboutVisible ? "visible" : ""
-                                                    }`}
-                                                style={{animationDelay: `${index * delay}ms`}}
-                                            >
-                                                {letter === " " ? "\u00A0" : letter}
-                                            </span>
-                                        ))} */}
+                                    <h2 ref={aboutHeadRef} className="sec-title mb-0 text-anim2" data-delay="300">
 
-                                         {text.split(' ').map((word, wordIndex) => (
-                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
-                                      {word.split('').map((letter, letterIndex) => {
-                                       const currentIndex = letterCount++; // unique index for animation delay
-                                        return (
-                                          <span
-                                            key={currentIndex}
-                                            className={`animated-letter ${aboutVisible ? 'visible' : ''}`}
-                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
-                                          >
-                                            {letter}
-                                          </span>
-                                        );
-                                      })}
-                                      <span>&nbsp;</span> {/* Add space between words */}
-                                    </span>
-                                  ))}
+                                        {text.split(' ').map((word, wordIndex) => (
+                                            <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                                {word.split('').map((letter, letterIndex) => {
+                                                    const currentIndex = letterCount++; // unique index for animation delay
+                                                    return (
+                                                        <span
+                                                            key={currentIndex}
+                                                            className={`animated-letter ${aboutVisible ? 'visible' : ''}`}
+                                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                                        >
+                                                            {letter}
+                                                        </span>
+                                                    );
+                                                })}
+                                                <span>&nbsp;</span> {/* Add space between words */}
+                                            </span>
+                                        ))}
                                     </h2>
                                     <p className="mt-15" data-delay="400">
                                         TUNO is built to help businesses automate conversations,
@@ -415,23 +388,23 @@ function About() {
                                         </span>
                                     ))} */}
 
-                                      {text2.split(' ').map((word, wordIndex) => (
-                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
-                                      {word.split('').map((letter, letterIndex) => {
-                                         const currentIndex = letterCount++;// unique index for animation delay
-                                        return (
-                                          <span
-                                            key={currentIndex}
-                                            className={`animated-letter ${workHeadVisible ? 'visible' : ''}`}
-                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
-                                          >
-                                            {letter}
-                                          </span>
-                                        );
-                                      })}
-                                      <span>&nbsp;</span> {/* Add space between words */}
-                                    </span>
-                                  ))}
+                                    {text2.split(' ').map((word, wordIndex) => (
+                                        <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                            {word.split('').map((letter, letterIndex) => {
+                                                const currentIndex = letterCount++;// unique index for animation delay
+                                                return (
+                                                    <span
+                                                        key={currentIndex}
+                                                        className={`animated-letter ${workHeadVisible ? 'visible' : ''}`}
+                                                        style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                                    >
+                                                        {letter}
+                                                    </span>
+                                                );
+                                            })}
+                                            <span>&nbsp;</span> {/* Add space between words */}
+                                        </span>
+                                    ))}
                                 </h2>
                                 <p className="mt-15">
                                     Choosing us means partnering with a forward-thinking team
@@ -752,23 +725,23 @@ function About() {
                                         </span>
                                     ))} */}
 
-                                      {text4_advancetech.split(' ').map((word, wordIndex) => (
-                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
-                                      {word.split('').map((letter, letterIndex) => {
-                                         const currentIndex = letterCount++;// unique index for animation delay
-                                        return (
-                                          <span
-                                            key={currentIndex}
-                                            className={`animated-letter ${advanceTechHeadVisible ? 'visible' : ''}`}
-                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
-                                          >
-                                            {letter}
-                                          </span>
-                                        );
-                                      })}
-                                      <span>&nbsp;</span> {/* Add space between words */}
-                                    </span>
-                                  ))}
+                                    {text4_advancetech.split(' ').map((word, wordIndex) => (
+                                        <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                            {word.split('').map((letter, letterIndex) => {
+                                                const currentIndex = letterCount++;// unique index for animation delay
+                                                return (
+                                                    <span
+                                                        key={currentIndex}
+                                                        className={`animated-letter ${advanceTechHeadVisible ? 'visible' : ''}`}
+                                                        style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                                    >
+                                                        {letter}
+                                                    </span>
+                                                );
+                                            })}
+                                            <span>&nbsp;</span> {/* Add space between words */}
+                                        </span>
+                                    ))}
                                 </h2>
                             </div>
                             <div className="row gy-4">
@@ -842,39 +815,25 @@ function About() {
                                 <span className="sub-title style2 before-none text-anim">
                                     Faq’s
                                 </span>
-                                <h2
-                                    ref={faqHeadRef}
-                                    className="sec-title text-anim2 heading-letters"
-                                >
-                                    {/* {text_faq.split("").map((letter, index) => (
-                                        <span
-                                            key={index}
-                                            className={`animated-letter ${faqHeadVisible ? "visible" : ""
-                                                }`}
-                                            style={{
-                                                animationDelay: `${index * delay}ms`}}
-                                        >
-                                            {letter === " " ? "\u00A0" : letter}
+                                <h2 ref={faqHeadRef} className="sec-title text-anim2 heading-letters">
+                                  
+                                    {text_faq.split(' ').map((word, wordIndex) => (
+                                        <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
+                                            {word.split('').map((letter, letterIndex) => {
+                                                const currentIndex = letterCount++; // unique index for animation delay
+                                                return (
+                                                    <span
+                                                        key={currentIndex}
+                                                        className={`animated-letter ${faqHeadVisible ? 'visible' : ''}`}
+                                                        style={{ animationDelay: `${currentIndex * delay}ms` }}
+                                                    >
+                                                        {letter}
+                                                    </span>
+                                                );
+                                            })}
+                                            <span>&nbsp;</span> {/* Add space between words */}
                                         </span>
-                                    ))} */}
-
-                                      {text_faq.split(' ').map((word, wordIndex) => (
-                                    <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: 'nowrap' }}>
-                                      {word.split('').map((letter, letterIndex) => {
-                                       const currentIndex = letterCount++; // unique index for animation delay
-                                        return (
-                                          <span
-                                            key={currentIndex}
-                                            className={`animated-letter ${faqHeadVisible ? 'visible' : ''}`}
-                                            style={{ animationDelay: `${currentIndex * delay}ms` }}
-                                          >
-                                            {letter}
-                                          </span>
-                                        );
-                                      })}
-                                      <span>&nbsp;</span> {/* Add space between words */}
-                                    </span>
-                                  ))}
+                                    ))}
                                 </h2>
                             </div>
                         </div>
@@ -1008,94 +967,10 @@ function About() {
             </div>
             {/* faq end */}
 
+            {/* news and blog start */}
             <BlogSlider />
-            {/* news and blog start */}
-            {/* 
-                <section className="space overflow-hidden" id="blog-sec">
-                    <div className="container">
-                        <div className="row justify-content-between">
-                            <div className="col-xl-6 col-lg-8">
-                                <div className="title-area">
-                                    <span className="sub-title style2 before-none text-anim">News</span>
-                                    <h2 ref={blogHeadRef} className="sec-title text-anim heading-letters">
-                                        {text_blog.split('').map((letter, index) => (
-                                            <span
-                                                key={index}
-                                                className={`animated-letter ${blogHeadVisible ? 'visible' : ''}`}
-                                                style={{ animationDelay: `${index * delay}ms` ,fontSize: '50px'}}
-                                                >
-                                                {letter === ' ' ? '\u00A0' : letter}
-                                            </span>
-                                        ))}
-                                    </h2>
-                                </div>
-                            </div>
-                        <div className="col-auto align-self-end">
-                            <div className="sec-btn">
-                                <Link to="blog.html" className="th-btn style-border text-decoration-none">View All Post <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row gy-40 justify-content-center">
-                        <div className="col-xl-4 col-lg-6" >
-                            <div className="blog-card" data-aos="fade-up">
-                                <div className="blog-img">
-                                    <Link to="blog-details.html" className="text-decoration-none">
-                                    <img src={Blog11} alt="blog image" /></Link>
-                                </div>
-                                <div className="blog-content">
-                                    <div className="blog-meta">
-                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</Link>
-                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faUser} className="me-2"/>by admin</Link>
-                                    </div>
-                                    <h3 className="box-title">
-                                        <Link className="text-decoration-none" to="blog-details.html">The rise of AI and Robotics in retail customer experiences</Link>
-                                    </h3>
-                                    <Link to="blog-details.html" className="link-btn style4">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-4 col-lg-6" >
-                            <div className="blog-card" data-aos="fade-up">
-                                <div className="blog-img">
-                                    <Link to="blog-details.html">
-                                        <img src={Blog12} alt="blog image" />
-                                    </Link>
-                                </div>
-                                <div className="blog-content">
-                                    <div className="blog-meta">
-                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</Link>
-                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</Link>
-                                    </div>
-                                    <h3 className="box-title">
-                                        <Link className="text-decoration-none" to="blog-details.html">How AI is Transforming Businesses Across Industries</Link></h3>
-                                    <Link to="blog-details.html" className="link-btn style4 text-decoration-none">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-4 col-lg-6" >
-                            <div className="blog-card" data-aos="fade-up">
-                                <div className="blog-img">
-                                    <Link to="blog-details.html">
-                                        <img src={Blog13} alt="blog image" />
-                                    </Link>
-                                </div>
-                                <div className="blog-content">
-                                    <div className="blog-meta">
-                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faCalendar} className="me-2"/>24 Jan, 2025</Link>
-                                        <Link className="text-decoration-none" to="blog.html"><FontAwesomeIcon icon={faUser} className="me-2" />by admin</Link>
-                                    </div>
-                                    <h3 className="box-title">
-                                        <Link className="text-decoration-none" to="blog-details.html">Understanding Deep Learning and Neural Networks in AI</Link></h3>
-                                    <Link  to="blog-details.html" className="link-btn style4 text-decoration-none">Read More <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" /></Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-            */}
-            {/* news and blog start */}
+           
+            {/* news and blog end */}
         </>
     );
 }

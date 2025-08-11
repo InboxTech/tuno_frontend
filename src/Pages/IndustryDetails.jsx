@@ -38,46 +38,7 @@ function IndustryDetails() {
                                     <img src={`${API}${industrydetails.industry_image}`} alt="Industry Image" style={{width: '100%',height: '30rem'}} />
                                 </div>
                                 <div  dangerouslySetInnerHTML={{ __html: industrydetails.full_description }}>
-                                    
-                                    {/* <div className="service-page-card-wrap mb-60">
-                                        <div className="row gy-4">
-                                            <div className="col-xxl-3 col-sm-6">
-                                                <div className="service-page-card">
-                                                    <h4 className="box-title">Improved Accuracy</h4>
-                                                    <p className="box-text">Machine Learning models can process large amounts of data
-                                                        and provide highly accurate predictions.</p>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-3 col-sm-6">
-                                                <div className="service-page-card">
-                                                    <h4 className="box-title">Efficiency and Automation</h4>
-                                                    <p className="box-text">Machine Learning models can process large amounts of data
-                                                        and provide highly accurate predictions.</p>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-3 col-sm-6">
-                                                <div className="service-page-card">
-                                                    <h4 className="box-title">Scalable Solutions</h4>
-                                                    <p className="box-text">Machine Learning models can process large amounts of data
-                                                        and provide highly accurate predictions.</p>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-3 col-sm-6">
-                                                <div className="service-page-card">
-                                                    <h4 className="box-title">Cost Reduction</h4>
-                                                    <p className="box-text">Machine Learning models can process large amounts of data
-                                                        and provide highly accurate predictions.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h4 className="mt-n2 mb-20">Solutions</h4>
-                                    <p className="box-text">Machine learning empowers participants to harness the power of data for
-                                        informed decision-making. It enables the extraction of valuable insights, predictions, and
-                                        patterns from data, facilitating better business strategies and problem-solving.
-                                        Additionally, participants can automate labor-intensive tasks, increasing efficiency and
-                                        productivity.</p> */}
-                                       
+                                   {/* full description come from admin panel */}
                                 </div>
                             </div>
                         </div>

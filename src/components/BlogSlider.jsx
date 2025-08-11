@@ -17,36 +17,7 @@ import blogShape from "../assets/img/shape/blog-card3-shape.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../store/auth";
 
-// const blogPosts = [
-//   {
-//     img: blogImg1,
-//     date: "24 Jan, 2025",
-//     author: "admin",
-//     title: "How AI Voicebots Are Redefining Customer Service",
-//     link: "/blog-details",
-//   },
-//   {
-//     img: blogImg2,
-//     date: "16 Jul, 2025",
-//     author: "admin",
-//     title: "AI That Listens, Learns, and Responds",
-//     link: "/blog-details",
-//   },
-//   {
-//     img: blogImg1,
-//     date: "24 Jan, 2025",
-//     author: "admin",
-//     title: "Behind the Bot: How Tuno’s Voice AI Works in Real-Time",
-//     link: "/blog-details",
-//   },
-//   {
-//     img: blogImg2,
-//     date: "16 Jul, 2025",
-//     author: "admin",
-//     title: "Boosting Sales with Smart Reminders and Voice-Based Follow-Ups",
-//     link: "/blog-details",
-//   },
-// ];
+
 
 const BlogSlider = () => {
   const { API, blogs } = useAuth();
@@ -87,9 +58,7 @@ const BlogSlider = () => {
     return () => observerTitle.disconnect();
   }, []);
   return (
-    <section
-      className="blog-area-3 overflow-hidden space position-relative z-index-2"
-      id="blog-sec"
+    <section className="blog-area-3 overflow-hidden space position-relative z-index-2" id="blog-sec"
     >
       <div className="container">
         <div className="row justify-content-center">
@@ -98,21 +67,10 @@ const BlogSlider = () => {
               <span className="sub-title2 text-gradient text-uppercase mb-30">
                 News & Blog
               </span>
-              <h2
-                ref={titleRef}
-                className="sec-title style2 fw-bold text-uppercase text-anim2"
-              >
+              <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
                 {title.split("").map((letter, index) => (
-                  <span
-                    key={index}
-                    className={`animated-letter ${
-                      titleVisible ? "visible" : ""
-                    }`}
-                    style={{
-                      animationDelay: `${index * delay}ms`,
-                      fontSize: "3.3rem",
-                    }}
-                  >
+                  <span key={index} className={`animated-letter ${titleVisible ? "visible" : ""}`}
+                    style={{ animationDelay: `${index * delay}ms`,fontSize: "3.3rem",}}>
                     {letter === " " ? "\u00A0" : letter}
                   </span>
                 ))}
@@ -143,14 +101,8 @@ const BlogSlider = () => {
           >
             {blogs.map((post, idx) => (
               <SwiperSlide key={idx}>
-                <div
-                  className="blog-card3"
-                  data-aos="fade-up"
-                  data-aos-duration="2000"
-                >
-                  <div
-                    className="blog-img"
-                    style={{
+                <div className="blog-card3" data-aos="fade-up" data-aos-duration="2000">
+                  <div className="blog-img" style={{
                       WebkitMaskImage: `url(${blogShape})`,
                       maskImage: `url(${blogShape})`,
                       WebkitMaskRepeat: "no-repeat",
@@ -177,10 +129,7 @@ const BlogSlider = () => {
                     <h3 className="box-title">
                       <Link to={post}>{post.title}</Link>
                     </h3>
-                    <Link
-                      to={`/blog/${post._id}`}
-                      className="th-btn style-gradient3"
-                    >
+                    <Link to={`/blog/${post._id}`} className="th-btn style-gradient3">
                       Read More{" "}
                       <FontAwesomeIcon
                         icon={faArrowRightLong}

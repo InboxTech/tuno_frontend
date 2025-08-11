@@ -40,7 +40,7 @@ const BlogDetails = () => {
         method: "GET",
       })
       const data = await response.json();
-      console.log("Related Blog data", data.relatedBlogs);        
+      // console.log("Related Blog data", data.relatedBlogs);        
       if(response.ok && Array.isArray(data.relatedBlogs)){
         setRelatedBlog(data.relatedBlogs);
       }
@@ -84,128 +84,7 @@ const BlogDetails = () => {
                   </h2>
 
                   <div dangerouslySetInnerHTML={{ __html: blog.description }}></div>
-
-                  {/* <div>
-                   <h4> How Voice Cloning Works</h4>
-                   <p> Your voice is a blend of tone, rhythm, and inflection, shaped over years of speaking. Voice cloning captures these patterns to recreate your voice digitally. Here’s the process in a nutshell:</p>
-                   <ol>
-                    <li> 
-                      <strong> Collect Voice Samples: </strong>Upload clear, expressive recordings of your voice. The more variety—different emotions, pacing, and sentence types—the better the result. Monotone samples create robotic outputs; natural ones bring your voice to life.
-                    </li>
-                    <li>
-                      <strong> Train the Model: </strong>AI, often using neural networks like transformers, analyzes your recordings to map out features like pitch and cadence. This creates a digital blueprint of your voice.
-                    </li>
-                    <li>
-                    <strong> Generate Speech:</strong>Type any text, and the system produces audio in your voice. Modern tools use advanced techniques to ensure the speech sounds natural, not mechanical.
-                    </li>
-                    <li>
-                      <strong> Fine-Tune: </strong>Adjust tone, speed, or emotion to fit your needs, whether you want a warm, friendly vibe or a sharp, professional edge.
-                    </li>
-                   </ol>
-                  </div>
-
-                  <div>
-                    <h4> Why Voice Cloning Matters</h4>
-                  <p className="mb-30">
-                   Voice cloning isn’t just a cool trick—it’s changing lives. For those with conditions like ALS, it’s a way to preserve their voice and identity. Take Ed Riefenstahl, a former teacher who lost his ability to speak after an injury. Using Tuno, he now teaches with a synthetic version of his voice. Similarly, Orlando Ruiz of the ALS MND Association of Colombia uses this tech to stay connected.
-                  </p>
-                  <p className="mb-0">
-                    Creators benefit, too. Voice actors can license their voices for audiobooks, podcasts, or videos, saving time and scaling their reach. It’s a game-changer for accessibility and creativity.
-                  </p>
-                  </div>
-
-                  <div>
-                    <h4>Risks to Consider</h4>
-                     <p>
-                   With great power comes responsibility. Cloned voices can be misused, so platforms likeTuno include safeguards to ensure ethical use. Always use this tech thoughtfully to respect privacy and trust.
-                  </p>
-                  </div>
-
-                  <div>
-                    <h4> How to Clone Your Voice with Tuno</h4>
-                    <p>Ready to try it? Here’s how to create your own synthetic voice with Tuno: </p>
-                    <ol>
-                      <li>
-                        <strong>Sign Up:</strong> Create an Tuno account with a paid plan for access to professional voice cloning.
-                      </li>
-                      <li>
-                       <strong>Access Voice Cloning:</strong> Go to Settings &gt; Voice Design &gt; Professional Voice Cloning.
-                       </li>
-                      <li>
-                         <strong>Upload Samples:</strong> Submit 1-3 hours of high-quality, noise-free recordings in your natural voice. Variety in tone and expression is key.
-                      </li>
-                      <li>
-                         <strong>Clean Audio:</strong> Use ElevenLabs’ audio settings to remove background noise or separate speakers for better results
-                      </li>
-                      <li>
-                         <strong>Verify:</strong> Record a short verification sample using the same setup. If it fails, retry after 24 hours or contact support.
-                      </li>
-                      <li>
-                         <strong>Fine-Tune:</strong> Track the fine-tuning process in My Voices. You’ll be notified when your voice is ready.
-                      </li>
-                      <li>
-                         <strong>Generate Speech:</strong> Once approved, enter text, tweak settings like tone, and create audio in your voice.
-                      </li>
-                    </ol>
-                  </div>
-                 
-                 <div>
-                  <h4> Final Thoughts</h4>
-                  <p>Voice cloning is more than tech—it’s a tool for connection, creativity, and empowerment. Whether you’re preserving your voice, streamlining content creation, or exploring new possibilities, it’s a powerful way to share your unique sound with the world.</p>
-                  <p> Ready to get started? Sign up for Tuno and bring your voice to life.</p>
-                 </div>
-                  <blockquote className="bg-white">
-                    <p>
-                      AI solutions require ongoing monitoring to maintain
-                      accuracy and efficiency. We provide continuous support,
-                      updates, and performance enhancements to ensure your AI
-                      system remains effective as your business evolves.
-                    </p>
-                    <cite>Michel Clarck</cite>
-                  </blockquote>
-                  <p className="mb-30">
-                    Our team designs a tailor-made AI solution based on your
-                    specific requirements. We develop machine learning models,
-                    build algorithms, and create prototypes to ensure the
-                    solution aligns with your business objectives. We begin by
-                    understanding your business goals, challenges, and
-                    opportunities for AI integration. Our experts assess your
-                    current systems and identify areas where AI can bring the
-                    most impact.
-                  </p>
-                  <div className="row gx-30 mt-30">
-                    <div className="col-md-6 mb-30">
-                      <div className="blog-radius-img">
-                        <img
-                          className="w-100"
-                          src={blog_inner_1}
-                          alt="Blog Image"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6 mb-30">
-                      <div className="blog-radius-img">
-                        <img
-                          className="w-100"
-                          src={blog_inner_2}
-                          alt="Blog Image"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <p className="mb-0">
-                    Our AI agency is a cutting-edge technology partner that
-                    specializes in delivering artificial intelligence solutions
-                    to help businesses streamline operations, improve
-                    decision-making, and enhance customer experiences. By
-                    leveraging the power of AI, we aim to revolutionize
-                    industries and empower organizations to stay competitive in
-                    a rapidly evolving digital landscape. Our team of AI
-                    experts, data scientists, and software engineers work
-                    collaboratively with clients to design, develop, and
-                    implement AI solutions tailored to their unique needs.
-                  </p> */}
-              
+                          {/* full description come from admin panel */}
                 </div>
               </div>
               {/* <div className="th-comments-wrap">

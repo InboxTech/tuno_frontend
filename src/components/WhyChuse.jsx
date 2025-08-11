@@ -35,9 +35,8 @@ const WhyChuse = () => {
         <div className="container-fluid p-0">
           <div className="why-wrap3">
             <div className="why-box3-1">
-              <div
-                className="img1"
-                style={{
+              <div className="img1" data-aos="fade-right" data-aos-duration="2000"
+              style={{
                   WebkitMaskImage: `url(${WhyThumbShap31})`,
                   maskImage: `url(${WhyThumbShap31})`,
                   WebkitMaskRepeat: "no-repeat",
@@ -45,15 +44,11 @@ const WhyChuse = () => {
                   WebkitMaskSize: "cover",
                   maskSize: "cover",
                 }}
-                data-aos="fade-right"
-                data-aos-duration="2000"
+               
               >
                 <img src={why_choose1} alt="img" />
               </div>
-              <div
-                className="img2"
-                data-aos="fade-left"
-                data-aos-duration="2000"
+              <div className="img2" data-aos="fade-left" data-aos-duration="2000"
                 style={{
                   WebkitMaskImage: `url(${whyThumbShape32})`,
                   maskImage: `url(${whyThumbShape32})`,
@@ -70,37 +65,19 @@ const WhyChuse = () => {
               className="why-wrap-content background-image"
               style={{ backgroundImage: `url(${WhyBg31})` }}
             >
-              <div
-                className="why-content"
-                data-aos="fade-up"
-                data-aos-duration="2000"
-              >
+              <div className="why-content" data-aos="fade-up" data-aos-duration="2000">
                 <div className="title-area">
                   <span className="sub-title2 text-gradient text-uppercase mb-30">
                     Why Choose Us
                   </span>
-                  <h2
-                    ref={titleRef}
-                    className="sec-title style2 fw-bold text-uppercase text-anim2"
-                  >
+                  <h2 ref={titleRef} className="sec-title style2 fw-bold text-uppercase text-anim2">
                     {title.split(" ").map((word, wordIndex) => (
-                      <span
-                        key={wordIndex}
-                        className="word-wrapper"
-                        style={{ whiteSpace: "nowrap" }}
-                      >
+                      <span key={wordIndex} className="word-wrapper" style={{ whiteSpace: "nowrap" }} >
                         {word.split("").map((letter) => {
                           const currentIndex = letterCount++; // unique index for animation delay
                           return (
-                            <span
-                              key={currentIndex}
-                              className={`animated-letter ${
-                                titleVisible ? "visible" : ""
-                              }`}
-                              style={{
-                                animationDelay: `${currentIndex * delay}ms`,
-                              }}
-                            >
+                            <span key={currentIndex} className={`animated-letter ${titleVisible ? "visible" : ""}`}
+                              style={{ animationDelay: `${currentIndex * delay}ms`,}}>
                               {letter}
                             </span>
                           );
